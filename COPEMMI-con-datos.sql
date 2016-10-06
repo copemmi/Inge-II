@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.2.12deb2+deb8u2
 -- http://www.phpmyadmin.net
 --
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `DET_MODELOS_MAQUINAS` (
   `COD_MODELO` varchar(10) DEFAULT NULL,
-  `COD_MATERIAL` varchar(10) DEFAULT NULL,
+  `COD_MATERIAL` varchar(15) DEFAULT NULL,
   `CANTIDAD` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
