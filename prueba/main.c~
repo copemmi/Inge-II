@@ -6,7 +6,7 @@
 struct estudiante
 {
 char nombre[25];
-char ape1[27];
+char ape1[25];
 char ape2[25];
 float nota;
 float media;
