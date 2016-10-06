@@ -358,7 +358,7 @@ int superanMedia=0;
 
          printf("------------------------- \n");
          printf("Nombree : %s", nodo->e.nombre);
-         printf("Nombree : %s", nodo->e.nombre);
+
          printf("\n------------------------- \n");
          printf("Apellidos 1: %s",nodo->e.ape1);
          printf("\n------------------------- \n");
