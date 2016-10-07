@@ -6,7 +6,7 @@ function inicio(){
 		if(validar()==false || validarCantidad()==false || validarNombre()==false || validarDescripcion() == false)
 			alert("Espacios Incorrectos");
 		else{
-			alert("Formulario Correcto");
+			alert("Espacios Correctos");
 		}
 	});
 $("#codigo").keyup(validar);
