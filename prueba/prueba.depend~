@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1474286654 source:/home/josue/Escritorio/prueba/main.c
-	<stdio.h>
-	<stdlib.h>
-	<stdbool.h>
-	<string.h>
-
