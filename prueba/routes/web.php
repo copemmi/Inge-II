@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SistemaController@showSistema');
+
+Route::get('/IngresarMateriales','IngresarMaterialesController@showIngresarMateriales');
+
+Route::get('/ModificarMateriales', 'ModificarMaterialesController@showModificarMateriales');
+
