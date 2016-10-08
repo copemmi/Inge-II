@@ -59,6 +59,7 @@
 
 <!--------------------------------------------------------------------Formulario EN EL CENTRO------------------------------------------------------>
 
+{!!Form::open(array('url'=>'guardarMaterial'))!!}
 		<div id="center">
 			<div class="content">
 
@@ -153,6 +154,8 @@
 				</div>
 			</div>
 		</div>	
+
+		{!!Form::close()!!}
 	</body>
 
 
@@ -165,3 +168,5 @@
     <script src="js/validacion.js"></script>	
     <script src="js/main.js"></script>
 </html>
+
+

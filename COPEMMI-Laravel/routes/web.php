@@ -17,3 +17,5 @@ Route::get('/IngresarMateriales','IngresarMaterialesController@showIngresarMater
 
 Route::get('/ModificarMateriales', 'ModificarMaterialesController@showModificarMateriales');
 
+
+

@@ -14,5 +14,11 @@ class IngresarMaterialesController extends BaseController
     public function showIngresarMateriales(){
     	return View('IngresarMateriales');
     }
+     
+    public function store(Request $request)
+    {
+
+    
+    }
 
 }
