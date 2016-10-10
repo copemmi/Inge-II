@@ -16,7 +16,7 @@ class MaterialesController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
    
-    public function showIndex(){
+    public function Index(){
 
     	$materiales = material::orderBy('COD_MATERIAL','DESC')->paginate(15);
 
