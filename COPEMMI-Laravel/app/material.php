@@ -18,7 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class material extends Model
 {
-    /**
+
+public $timestamps = false;    /**
      * The table associated with the model.
      * 
      * @var string
@@ -28,7 +29,7 @@ class material extends Model
     /**
      * @var array
      */
-    protected $fillable = ['COD_TIPO_MATERIAL', 'NOMBRE', 'DESCRIPCION', 'CANTIDAD', 'FECHA_INGRESO', 'FECHA_AGOTAMIENTO'];
+    protected $fillable = ['COD_MATERIAL,COD_TIPO_MATERIAL', 'NOMBRE', 'DESCRIPCION', 'CANTIDAD', 'FECHA_INGRESO'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
