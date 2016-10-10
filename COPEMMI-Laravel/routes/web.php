@@ -10,12 +10,31 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
+//-------------------------------------
+//-Ruta index de la página
+//-------------------------------------
 Route::get('/', 'SistemaController@showSistema');
 
-Route::get('/IngresarMateriales','IngresarMaterialesController@showIngresarMateriales');
 
-Route::get('/ModificarMateriales', 'ModificarMaterialesController@showModificarMateriales');
+//-------------------------------------
+//-Grupo de rutas del módulo materiales
+//-------------------------------------
+Route::group(['prefix'=>'materiales'],function()
+{
+//-------------------------------------
+//-Ruta Agregar Material
+//-------------------------------------
+Route::get('/IngresarMateriales',
+	[
+	'uses'=>'IngresarMaterialesController@showIngresarMateriales'
+	]);
 
-
+//-------------------------------------
+//-Ruta Modificar Material
+//-------------------------------------
+Route::get('/ModificarMateriales',
+	[
+	'uses'=>'ModificarMaterialesController@showModificarMateriales'
+	]);
+});
 

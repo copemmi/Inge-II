@@ -29,7 +29,7 @@ public $timestamps = false;    /**
     /**
      * @var array
      */
-    protected $fillable = ['COD_MATERIAL,COD_TIPO_MATERIAL', 'NOMBRE', 'DESCRIPCION', 'CANTIDAD', 'FECHA_INGRESO'];
+    protected $fillable = ['COD_MATERIAL','COD_TIPO_MATERIAL', 'NOMBRE', 'DESCRIPCION', 'CANTIDAD', 'FECHA_INGRESO'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

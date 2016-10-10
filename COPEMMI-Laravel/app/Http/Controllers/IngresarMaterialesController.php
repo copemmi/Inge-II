@@ -15,12 +15,27 @@ class IngresarMaterialesController extends BaseController
     	return View('IngresarMateriales');
     }
      
+
+//---------------------------------------
+//Método para insertar materiales a la BD 
+//---------------------------------------
     public function store(Request $request)
     {
 
-    
+    $material=new material($request->all());
+    $material->cod_material=$request->get('COD_MATERIAL');
+    $material->cod_tipo_material=$request->get('COD_TIPO_MATERIAL');
+    $material->nombre=$request->get('NOMBRE');
+    $material->descripcion=$request->get('DESCRIPCION');
+    $material->cantidad=$request->get('CANTIDAD');
+    $material->fecha_ingreso=$request->get('FECHA_INGRESO');
+    $material->save();
+    return Redirect::to('materiales/IngresarMateriales');
     }
+//---------------------------------------
+//---------------------------------------
 
+    
     
 
 }
