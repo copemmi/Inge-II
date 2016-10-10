@@ -7,26 +7,27 @@ $(document).ready(function(){
 
 		if ($(this).hasClass('activado')){
 			$(this).removeClass('activado'); 
-			$(this).children('ul').slideUp(); 
+			$('.menu li ul').slideUp(); //Para ocultar submenus.
+			$(this).children('ul').slideDown();
 		}
-		else {
+		else {  
 			$('.menu li ul').slideUp(); //Para ocultar submenus. 
-			$('.menu li').removeClass('activado');
 			$(this).addClass('activado');
-			$(this).children('ul').slideDown(); 
+			$(this).children('ul').slideDown();
+			
 		}
 	}); 
 
 /*Abrir y cerrar el menú vertical*/
 
-var contador = 1;
+var contador = 0;
 
 $('.bt-menu').click(function(){
 
 if(contador == 1){
 
 	$('.sidebar').animate({
-		left:'0'
+		left:'1'
 	});
 	contador=0;
 		} else {

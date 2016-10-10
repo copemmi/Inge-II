@@ -3,19 +3,19 @@ $(document).on("ready",inicio);
 function inicio(){
 	$("span.help-block").hide();
 	$("#Guardar").click(function(){
-		if(validar()==false || validarCantidad()==false || validarNombre()==false || validarDescripcion() == false)
+		if(validarCodigo()==false || validarCantidad()==false || validarNombre()==false || validarDescripcion() == false)
 			alert("Espacios Incorrectos");
 		else{
 			alert("Espacios Correctos");
 		}
 	});
-$("#codigo").keyup(validar);
+$("#codigo").keyup(validarCodigo);
 $("#cantidad").keyup(validarCantidad);
 $("#nombre").keyup(validarNombre);
 $("#descripcion").keyup(validarDescripcion);
 }
 
-function validar(){
+function validarCodigo(){
 	var valor = document.getElementById("codigo").value;
 	if(valor == null || valor.length == 0 || /^\s+$/.test(valor)){
 
@@ -118,8 +118,9 @@ function validar(){
 	else if(descrip.length>255){
 		$("#iconodescrip").remove();
 		$("#descripcion").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#descripcion").parent().children("span").text("Debe ser menor a 50 caracteres").show();
+		$("#descripcion").parent().children("span").text("Debe ser menor a 255 caracteres").show();
 		$("#descripcion").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return false;
 		}
 	else{
 		$("#iconodescrip").remove();
