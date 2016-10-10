@@ -59,13 +59,16 @@
 
 <!--------------------------------------------------------------------Formulario EN EL CENTRO------------------------------------------------------>
 
-{!!Form::open(array('url'=>'guardarMaterial'))!!}
+{!!Form::open(array('url'=>'/IngresarMateriales','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
+{{Form::token()}}
+		
+		
 		<div id="center">
 			<div class="content">
 
 				<div class="main-image">
 					<div id="page-header">		
-			  			<a class="text-left"><img src="imagenes/tek.png";/></a>
+			  			<a class="text-left"><img src="imagenes/tek.PNG"></a>
 					</div>
 				</div>
 
@@ -75,14 +78,13 @@
 				</div>
 
 	
-				<div class="container">
-					<br>
-					<form action="" class="form-horizontal">
+				
+					
 
 						<div class="form-group">
 							<label for="codigo" class="control-label col-md-2">Codigo:</label>
 							<div class="col-md-10">
-								<input class="form-control" id= "codigo" placeholder="Codigo:">
+								<input class="form-control" id= "codigo" placeholder="Codigo:" name="COD_MATERIAL">
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -90,12 +92,10 @@
 						<div class="form-group">
 							<label for="option" class="control-label col-md-2">Tipo/Categoria:</label>
 							<div class="col-md-10">
-								<select class="form-control" name="" id="option">
-									<option value="">Categoria #1</option>
-									<option value="">Categoria #2</option>
-									<option value="">Categoria #3</option>
-									<option value="">Categoria #4</option>
-									<option value="">Categoria #5</option>
+								<select class="form-control" name="COD_TIPO_MATERIAL" id="option">
+									<option value="TORN">Tornillo</option>
+									<option value="LAM">Lámina</option>
+								
 								</select>
 							</div>
 						</div>
@@ -103,7 +103,7 @@
 						<div class="form-group">
 							<label for="nombre" class="control-label col-md-2">Nombre:</label>
 							<div class="col-md-10">
-								<input class="form-control" id= "nombre" placeholder="Nombre:">
+								<input class="form-control" id= "nombre" placeholder="Nombre:" name="NOMBRE">
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -111,7 +111,7 @@
 						<div class="form-group">
 							<label for="descripcion" class="control-label col-md-2">Descripcion:</label>
 							<div class="col-md-10">
-								<input class="form-control" id= "descripcion" placeholder="Descripcion:">
+								<input class="form-control" id= "descripcion" placeholder="Descripcion:" name="DESCRIPCION">
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -119,28 +119,23 @@
 						<div class="form-group">
 							<label for="cantidad" class="control-label col-md-2">Cantidad:</label>
 							<div class="col-md-10">
-								<input class="form-control" id= "cantidad" placeholder="Cantidad:">
+								<input class="form-control" id= "cantidad" placeholder="Cantidad:" name="CANTIDAD">
 								<span class = "help-block"></span>
 							</div>
 						</div>
 
 
-						<div class="form-group">
-							<label for = "fechaIngreso" class="control-label col-md-2">Fecha Ingreso:</label>
-							<div class="col-md-10">
-								<input type="date" name="fechaEntrega" step="1" min="2016-01-01" max="2020-12-31" value="<?php echo date("Y-m-d");?>">
-							</div>
-						</div>
+						
 
 
 						<div class="form-group">
-							<label for = "fechaAgotado" class="control-label col-md-2">Fecha Agotamiento:</label>
+							<label for = "fechaAgotado" class="control-label col-md-2">Fecha Ingreso:</label>
 							<div class="col-md-10">
-								<input type="date" name="fechaEntrega" step="1" min="2016-01-01" max="2020-12-31" value="<?php echo date("Y-m-d");?>">
+								<input type="date" name="FECHA_INGRESO" step="1" min="2016-01-01" max="2020-12-31" value="<?php echo date("Y-m-d");?>">
 							</div>
 						</div>
 
-						<form action="" class="form-inline">
+					
 						
 							<div class="col-md-2 col-md-offset-2">
 								<button class="btn btn-success" input type="submit" id="Guardar" >Guardar<img src="imagenes/save.ico" width=20;/></button>
@@ -149,11 +144,12 @@
 							<div class="col-md-0 col-md-offset-0">
 								<button class="btn btn-danger">Cancelar  <img src="imagenes/delete.ico" width=20;/></button>
 							</div>
-						</form>
-					</form>
+						
+				
+				
 				</div>
-			</div>
-		</div>	
+						</div>
+		
 
 		{!!Form::close()!!}
 	</body>

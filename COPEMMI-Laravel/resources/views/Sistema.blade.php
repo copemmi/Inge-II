@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
 
 <!--------------------------------------------------------------------BARRA ARRIBA-------------------------------------------------------->
-		<div id="topmenu">
+		<div id="topmenu" >
 			<div class="container">
 					<ul class="topbar">
 						<li> <a href="#" class="bt-menu"><span class="icono derecha fa fa-bars"></span></a></li>
@@ -24,7 +24,7 @@
 <!--------------------------------------------------------------------MENU IZQUIERDA-------------------------------------------------------->
 
 		<div id="leftMenu">
-            <div class="sidebar"> 
+            <div class="sidebar" > 
                <nav>
 	             	<ul class="menu">			
 				        <li class="activado"><a href="#">Materiales<i class="icono derecha fa fa-chevron-down"></i></a>
@@ -65,7 +65,7 @@
 
 				<div class="main-image">
 					<div id="page-header">		
-			  			<a class="text-left"><img src="imagenes/tek.png";/></a>
+			  			<a class="text-left"><img src="imagenes/tek.PNG"></a>
 					</div>
 				</div>
 

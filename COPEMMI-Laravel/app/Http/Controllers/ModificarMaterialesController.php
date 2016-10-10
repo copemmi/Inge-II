@@ -11,7 +11,14 @@ class ModificarMaterialesController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function showModificarMateriales(){
+    public function show()
+    {
+    	return View('ModificarMateriales');
+    }
+
+    public function index()
+    {
+
     	return View('ModificarMateriales');
     }
 
