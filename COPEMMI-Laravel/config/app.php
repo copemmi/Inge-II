@@ -168,6 +168,8 @@ return [
          */
 
         //
+        Collective\Html\HtmlServiceProvider::class,
+        Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -177,12 +179,6 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        /*
-        Provider laravelCollective
-
-        */
-        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -194,7 +190,7 @@ return [
     | This array of class aliases will be registered when this application
     | is started. However, feel free to register as many as you wish as
     | the aliases are "lazy" loaded so they don't hinder performance.
-    |
+    | Los aliases pueden ser llamados en toda la aplicación.
     */
 
     'aliases' => [
@@ -231,14 +227,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-
         /*
-       Alise de laravelcollection
+        *  Alises Persnoales
         */
-
-       'Form' => Collective\Html\FormFacade::class,
-       'Html' => Collective\Html\HtmlFacade::class,
-
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];
