@@ -19,7 +19,8 @@ return view('Sistema');
 
 
 
-Route::resource('IngresarMateriales','IngresarMaterialesController');
+Route::resource('IngresarMateriales','materialesController');
 
-Route::resource('ModificarMateriales','ModificarMaterialesController');
+Route::resource('ModificarMateriales','materialesController');
+
 

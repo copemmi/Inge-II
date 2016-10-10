@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\material;
 use Illuminate\Support\Facades\Redirect;
-class IngresarMaterialesController extends BaseController
+class materialesController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
@@ -47,6 +47,20 @@ class IngresarMaterialesController extends BaseController
 //---------------------------------------
 //---------------------------------------
 
+public function edit($id)
+{
+
+   /* $material=new material::find($id);
+    return View("ModificarMateriales");*/
+
+}
+
+public function update(Request $request)
+{
+
+
+
+}
     
     
 
