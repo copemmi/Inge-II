@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\material;
 use Illuminate\Support\Facades\Redirect;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\materialesRequest;
 class materialesController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -28,8 +29,9 @@ class materialesController extends BaseController
 //---------------------------------------
 //Método para insertar materiales a la BD 
 //---------------------------------------
-    public function store(Request $request)
+    public function store(materialesRequest $request)
     {
+
 
     $material=new material;
     $material->cod_material=$request->get('COD_MATERIAL');
@@ -42,6 +44,9 @@ class materialesController extends BaseController
     $material->save();
    
     Flash::success($material->nombre." ".$material->cod_material." incorporado con éxito");
+
+
+
     return View("IngresarMateriales");
 
     }

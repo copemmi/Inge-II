@@ -2,11 +2,33 @@
 <html>
 	<head>
 		@include('flash::message')
+		
+
+@if(count($errors)>0)
+		<div class="alert alert-danger" role="alert">
+         <ul>
+         @foreach($errors->all() as $error)
+         <li>{{$error}}</li>
+         <br>
+         <br>
+         @endforeach
+           </ul>
+		</div>
+
+		@endif
+
+
+
+
+
+
 		<title>COPEMMI Ingresar Materiales</title>
 		<meta charset="UTF-8">
 
 <!--------------------------------------------------------------------BARRA ARRIBA-------------------------------------------------------->
 		<div id="topmenu">
+
+
 			<div class="container">
 
 					<ul class="topbar">
@@ -20,6 +42,9 @@
 			</div>
 		</div>
 	</head>
+
+
+	
 
 	<body>
 
@@ -61,23 +86,43 @@
 			</div>
         </div>
 
+
 <!--------------------------------------------------------------------Formulario EN EL CENTRO------------------------------------------------------>
+
+
+
+
+
+
+
+
+
+
 
 {!!Form::open(array('url'=>'/IngresarMateriales','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
 {{Form::token()}}
 		
 		
 		<div id="center">
+
+			
+
+
+
 			<div class="content">
+
+
+
 
 				<div class="main-image">
 					<div id="page-header">		
-			  			<a class="text-left"><img src="imagenes/tek.PNG"></a>
+			  			<a class="text-down"><img src="imagenes/tek.PNG"></a>
 					</div>
 				</div>
 
 
 				<div class="page-header">
+
 	  				<h1 class="text-center">Incorporar Materiales</h1>
 				</div>
 
@@ -132,30 +177,51 @@
 						
 
 
+
 						<div class="form-group">
 							<label for = "fechaAgotado" class="control-label col-md-2">Fecha Ingreso:</label>
 							<div class="col-md-10">
 								<input type="date" name="FECHA_INGRESO" step="1" min="2016-01-01" max="2020-12-31" value="<?php echo date("Y-m-d");?>">
+								
+
+								<br>
+								<br>
+				             
 							</div>
 						</div>
 
-					
+
 						
 							<div class="col-md-2 col-md-offset-2">
 								<button class="btn btn-success" input type="submit" id="Guardar" >Guardar<img src="imagenes/save.ico" width=20;/></button>
 							</div>
-
+                              
 							<div class="col-md-0 col-md-offset-0">
+
 								<button class="btn btn-danger">Cancelar  <img src="imagenes/delete.ico" width=20;/></button>
 							</div>
 						
 				
+
 				
 				</div>
 						</div>
 		
 
 		{!!Form::close()!!}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</body>
 
 
