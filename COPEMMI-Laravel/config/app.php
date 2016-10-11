@@ -180,9 +180,19 @@ return [
 
         /*
         Provider laravelCollective
+        Esto sirve para trabajar con formularios de una manera más facil y organizada
 
         */
+
+
+        /*
+        Provider laravelCollective
+
+        */
+        
         Collective\Html\HtmlServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        
 
     ],
 
@@ -238,6 +248,7 @@ return [
 
        'Form' => Collective\Html\FormFacade::class,
        'Html' => Collective\Html\HtmlFacade::class,
+
 
     ],
 

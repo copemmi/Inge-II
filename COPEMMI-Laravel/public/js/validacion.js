@@ -5,9 +5,7 @@ function inicio(){
 	$("#Guardar").click(function(){
 		if(validar()==false || validarCantidad()==false || validarNombre()==false || validarDescripcion() == false)
 			alert("Espacios Incorrectos");
-		else{
-			alert("Espacios Correctos");
-		}
+		
 	});
 $("#codigo").keyup(validar);
 $("#cantidad").keyup(validarCantidad);

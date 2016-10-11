@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		@include('flash::message')
 		<title>COPEMMI Ingresar Materiales</title>
 		<meta charset="UTF-8">
 
 <!--------------------------------------------------------------------BARRA ARRIBA-------------------------------------------------------->
 		<div id="topmenu">
 			<div class="container">
+
 					<ul class="topbar">
+
 						<li> <a href="#" class="bt-menu"><span class="icono derecha fa fa-bars"></span></a></li>
 						<li> <a class="lb-COP"> COPEMMI </a> </li>
 				  		<li> <a class="lb-US"> Leiman Sanchez </a></li>
@@ -19,6 +22,7 @@
 	</head>
 
 	<body>
+
 
 <!--------------------------------------------------------------------MENU IZQUIERDA-------------------------------------------------------->
 

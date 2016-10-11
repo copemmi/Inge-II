@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\material;
 use Illuminate\Support\Facades\Redirect;
+use Laracasts\Flash\Flash;
 class materialesController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -39,8 +40,8 @@ class materialesController extends BaseController
     $material->fecha_ingreso=$request->get('FECHA_INGRESO');
   
     $material->save();
-
-    echo "insertado con exito ";
+   
+    Flash::success($material->nombre." ".$material->cod_material." incorporado con éxito");
     return View("IngresarMateriales");
 
     }
@@ -52,6 +53,7 @@ public function edit($id)
 
    /* $material=new material::find($id);
     return View("ModificarMateriales");*/
+    return View("ModificarMateriales");
 
 }
 
