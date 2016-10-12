@@ -80,17 +80,19 @@
 						    </div>
 						@endif
 
-						<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Materiales </a>
-
-						<div class="col-md-4 col-md-offset-3">
+						<div class="col-md-4 col-md-offset-0">
             				<form action="" class="search-form">
                 				<div class="form-group has-feedback">
-                    				<label for="Buscar" class="sr-only">Buscar</label>
                     				<input type="text" class="form-control" name="Buscar" id="Buscar" placeholder="Buscar">
                     				<span class="glyphicon glyphicon-search form-control-feedback"></span>
                 				</div>
             				</form>
         				</div>
+
+        				<div class="col-sm-2 col-sm-offset-1">
+        					<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Materiales </a>
+        				</div>
+
 					</div>
 				</div>
 
