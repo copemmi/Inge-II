@@ -29,21 +29,21 @@
 	             	<ul class="menu">			
 				        <li class="activado"><a href="#"><span class="icono izquierda fa fa-wrench"></span>Materiales<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
-		                    	<li><a href="{{ route('materiales.create') }}" target="_self">Agregar Materiales</a></li>
+		                    	<li><a href="{{ route('materiales.create') }}" target="_self">Incorporar Materiales</a></li>
 		                    	<li><a href="{{ route('materiales.index') }}">Visualizar Materiales</a></li>
 		                    </ul>    
 	                    </li>
 
 						<li class="activado"><a href="#"><span class="icono izquierda fa fa-tablet"></span>Modelos de Máquinas<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
-				                <li><a href="#">Agregar Modelos de Máquinas</a></li>
+				                <li><a href="#">Incorporar Modelos de Máquinas</a></li>
 				                <li><a href="#">Visualizar Modelo de Máquinas</a></li>
 			                </ul> 
 		                </li> 
 
 		                <li class="activado"><a href="#"><span class="icono izquierda fa fa-file-text"></span>Órdenes de Fabricación<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
-				            	<li><a href="#">Agregar Órdenes de Fabricación</a></li>
+				            	<li><a href="#">Incorporar Órdenes de Fabricación</a></li>
 				                <li><a href="#">Visualizar Órdenes de Fabricación</a></li>
 			                </ul> 
 		                </li> 
@@ -63,7 +63,6 @@
 		<div id="center">
 			<div class="content">
 
-
 				<div class="main-image">
 					<div id="page-header">		
 			  			<a class="text-left"><img src="{{asset('imagenes/tek.PNG')}}";/></a>
@@ -72,9 +71,16 @@
 
 				<div class="table-responsive">
 					<div class="form-group">
-						@include('flash::message')
+						
+						@if (session()->has('flash_notification.message'))
+						    <div class="alert alert-{{ session('flash_notification.level') }}">
+						        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-						<button class="btn btn-success"><a href="{{ route('materiales.create') }}" target="_self" ><font color=black>Agregar Materiales</font></a></button>
+						        {!! session('flash_notification.message') !!}
+						    </div>
+						@endif
+
+						<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Materiales </a>
 
 						<div class="col-md-4 col-md-offset-3">
             				<form action="" class="search-form">
@@ -90,62 +96,40 @@
 
 				<br>
 				<div class="tabla-materiales">
-					<table class="table width=30 table-striped table-bordered table-hover table-condensed" >
-						<tr class="success">
-							<th>Código</th>
-							<th>Nombre</th>
-							<th>Cantidad</th>
-							<th>Categoría</th>
-							<th>Fecha de Entrega</th>
-							<th width="200">Descripción</th>
-							<th class="opciones" >Opciones</th>
-						</tr>
-
+					<table class="table width=30 table-bordered table-hover table-condensed" >
+						<thead class="bg-primary">
+							<tr>
+								<th>Código</th>
+								<th>Nombre</th>
+								<th>Cantidad</th>
+								<th>Categoría</th>
+								<th>Fecha de Entrega</th>
+								<th width="200">Descripción</th>
+								<th class="opciones" >Opciones</th>
+							</tr>
+						 </thead>
 						@foreach($materiales as $mat)
-							<tr bgcolor="fffff">
+							
+							<tr class="success">
 								<td>{{ $mat->COD_MATERIAL}}</td>
 								<td>{{ $mat->NOMBRE}} </td>
 								<td>{{ $mat->CANTIDAD}} </td>
 								<td>{{ $mat->COD_TIPO_MATERIAL}} </td>
 								<td>{{ $mat->FECHA_INGRESO}} </td>
 								<td>{{ $mat->DESCRIPCION}} </td>
-
-
-								<div class="modal fade" id="ventana" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-									<div class="modal-dialog" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal">
-													<span aria-hidden="true">&times;</span>
-													<span class="sr-only">Cerrar</span>
-												</button>
-												<h4 class="modal-title" id="ModalLabel">Atención</h4>
-											</div>
-
-											<div class="modal-body">
-												¿Esta seguro de eliminar este elemento? 
-											</div>
-
-											<div class="modal-footer">
-												<form> 
-													<button type="submit" class="btn btn-default">Aceptar</button>
-													<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-
 								<td>
-									<a href="{{ route('materiales.destroy', $mat->COD_MATERIAL) }}" onclick="return confirm('¿Seguro Que desea eliminar el material ?')" class="btn btn-danger"><img src="{{asset('imagenes/delete.png')}}" width=20;/></a>
-									<a href="{{ route('materiales.edit', $mat->COD_MATERIAL) }}" class="btn btn-warning"><img src="{{asset('imagenes/pencil.png')}}" width=20;/></a>
+									<a href="{{ route('materiales.destroy', $mat->COD_MATERIAL) }}" title="Eliminar material" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger"><img src="{{asset('imagenes/delete.png')}}" width=20;/></a>
+									<a href="{{ route('materiales.edit', $mat->COD_MATERIAL) }}" title="Modificar material" class="btn btn-warning"><img src="{{asset('imagenes/pencil.png')}}" width=20;/></a>
 								</td>
 							</tr>
+							
 						@endforeach
 					</table>
+
 					<div class="text-center">
 					{!! $materiales->render() !!} <!-- Metodo para hacer la paginación en caso de haber muchos elementos-->
 					</div>
+
 				</div>
 			</div>
 		</div>

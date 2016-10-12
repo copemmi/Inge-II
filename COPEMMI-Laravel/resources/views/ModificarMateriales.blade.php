@@ -27,21 +27,21 @@
 	             	<ul class="menu">			
 				        <li class="activado"><a href="#"><span class="icono izquierda fa fa-wrench"></span>Materiales<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
-		                    	<li><a href="{{ route('materiales.create') }}" target="_self">Agregar Materiales</a></li>
+		                    	<li><a href="{{ route('materiales.create') }}" target="_self">Incorporar Materiales</a></li>
 		                    	<li><a href="{{ route('materiales.index') }}">Visualizar Materiales</a></li>
 		                    </ul>    
 	                    </li>
 
 						<li class="activado"><a href="#"><span class="icono izquierda fa fa-tablet"></span>Modelos de Máquinas<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
-				                <li><a href="#">Agregar Modelos de Máquinas</a></li>
+				                <li><a href="#">Incorporar Modelos de Máquinas</a></li>
 				                <li><a href="#">Visualizar Modelo de Máquinas</a></li>
 			                </ul> 
 		                </li> 
 
 		                <li class="activado"><a href="#"><span class="icono izquierda fa fa-file-text"></span>Órdenes de Fabricación<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
-				            	<li><a href="#">Agregar Órdenes de Fabricación</a></li>
+				            	<li><a href="#">Incorporar Órdenes de Fabricación</a></li>
 				                <li><a href="#">Visualizar Órdenes de Fabricación</a></li>
 			                </ul> 
 		                </li> 
@@ -58,8 +58,6 @@
 
 <!--------------------------------------------------------------------Formulario EN EL CENTRO------------------------------------------------------>
 
-{!! Form::open(['route' => ['materiales.update',$material->COD_MATERIAL],'method'=>'PUT']) !!}
-{{ Form::token() }}
 
 		<div id="center">
 			<div class="content">
@@ -77,12 +75,13 @@
 
 	
 				<div class="container">
-					<form action="" class="form-horizontal">
+					{!! Form::open(['route' => ['materiales.update',$material],'method'=>'PUT','class' => 'form-horizontal']) !!}
+					{{ Form::token() }}
 
 						<div class="form-group">
 							{!! Form::label('codigo','Código:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::text('codigo','$material->COD_MATERIAL',['class' => 'form-control','placeholder' => 'Ingrese un código']) !!}
+								{!! Form::text('codigo',$material->COD_MATERIAL,['class' => 'form-control']) !!}
 								<span class = "help-block"></span>  <!- Mensaje que sale en caso de datos incorrectos->
 							</div>
 						</div>
@@ -101,7 +100,7 @@
 						<div class="form-group">
 							{!! Form::label('nombre','Nombre:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::text('nombre','$material->NOMBRE',['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
+								{!! Form::text('nombre',$material->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -109,7 +108,7 @@
 						<div class="form-group">
 							{!! Form::label('descripcion','Descripción:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::textarea('descripcion','$material->DESCRIPCION',['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
+								{!! Form::textarea('descripcion',$material->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -117,7 +116,7 @@
 						<div class="form-group">
 							{!! Form::label('cantidad','Cantidad:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::text('cantidad','$material->CANTIDAD',['class' => 'form-control','placeholder' => 'Ingrese una cantidad']) !!}
+								{!! Form::text('cantidad',$material->CANTIDAD,['class' => 'form-control','placeholder' => 'Ingrese una cantidad']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -137,15 +136,15 @@
 							</div>
 
 							<div class="col-md-0 col-md-offset-0">
-								<button class="btn btn-danger"> Cancelar  <img src="{{asset('imagenes/delete.ico')}}" width=20;/></button>
+								<a href="{{ route('materiales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
 							</div>
 						</form>
 
-					</form>
+					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>	
-{!! Form::close() !!}
+
 	</body>
 
 

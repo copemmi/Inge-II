@@ -11,15 +11,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $DESCRIPCION
  * @property integer $CANTIDAD
  * @property string $FECHA_INGRESO
- * @property string $FECHA_AGOTAMIENTO
  * @property tipo_material $tipo_material
  * @property det_modelo_maquina[] $det_modelo_maquina
  * @property det_orden_pedido[] $det_orden_pedido
  */
 class material extends Model
 {
-
-public $timestamps = false;    /**
+   
+public $timestamps = false; 
+public $incrementing = false;
+    /**
      * The table associated with the model.
      * 
      * @var string
@@ -29,7 +30,9 @@ public $timestamps = false;    /**
     /**
      * @var array
      */
-    protected $fillable = ['COD_MATERIAL','COD_TIPO_MATERIAL', 'NOMBRE', 'DESCRIPCION', 'CANTIDAD', 'FECHA_INGRESO'];
+    protected $primaryKey= 'COD_MATERIAL';
+
+    protected $fillable = ['COD_TIPO_MATERIAL', 'NOMBRE', 'DESCRIPCION', 'CANTIDAD', 'FECHA_INGRESO'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -82,7 +82,7 @@ class MaterialesController extends Controller
     public function edit($id)
     {
        
-        $material = material::where('COD_MATERIAL',$id)->select();
+        $material = material::find($id);
         
         $tipo_material = tipo_material::all();
 
@@ -98,7 +98,19 @@ class MaterialesController extends Controller
      */
     public function update(Request $request, $id)
     {
-       dd("Se ha modificado el material".$id."");
+        $material = material::find($id);
+        $material->cod_tipo_material=$request->get('codTipoMaterial');
+        $material->nombre=$request->get('nombre');
+        $material->descripcion=$request->get('descripcion');
+        $material->cantidad=$request->get('cantidad');
+        $material->fecha_ingreso=$request->get('fechaIngreso');
+
+        $material->update();
+
+        Flash("Se ha modificado el material: (".$material->nombre.") exitosamente",'info');
+
+        return Redirect()->route('materiales.index');
+
     }
 
     /**

@@ -13,10 +13,10 @@
 
 
 
-Route::group(['prefix' => ''], function(){
+
 	Route::resource('materiales','MaterialesController');
+	
 	Route::get('materiales/{id}/destroy',[
 		'uses' => 'MaterialesController@destroy',
 		'as' => 'materiales.destroy'
 		]);
-});
