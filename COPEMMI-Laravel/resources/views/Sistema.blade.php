@@ -79,15 +79,24 @@
 						        {!! session('flash_notification.message') !!}
 						    </div>
 						@endif
-
-						<div class="col-md-4 col-md-offset-0">
-            				<form action="" class="search-form">
-                				<div class="form-group has-feedback">
-                    				<input type="text" class="form-control" name="Buscar" id="Buscar" placeholder="Buscar">
-                    				<span class="glyphicon glyphicon-search form-control-feedback"></span>
-                				</div>
-            				</form>
-        				</div>
+<!--BUSCADOR DE MATERIALES -->
+{!!Form::open(['route'=>'materiales.index','method'=>'GET','class'=>'navbar-form pull-right'])!!}
+<div class="input-group">
+	
+	{!!Form::text('nombre',null,['class'=>'form-control','placeholder'=>'buscar nombre de material','aria-describedby'=>'busqueda']) !!}
+	<span class="input-group-addon" id="busqueda"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+</div>
+{!!Form::close()!!}
+<!-- FIN DE L  BUSCADOR -->
+<hr>
+						<!--<div class="col-md-4 col-md-offset-0">
+            				<!--<form action="" class="search-form">
+                				<!--<div class="form-group has-feedback">
+                    				<!--<input type="text" class="form-control" name="Buscar" id="Buscar" placeholder="Buscar">
+                    				<!--<span class="glyphicon glyphicon-search form-control-feedback"></span>
+                				<!--</div>
+            				<!--</form>
+        				<!--</div> -->
 
         				<div class="col-sm-2 col-sm-offset-1">
         					<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Materiales </a>

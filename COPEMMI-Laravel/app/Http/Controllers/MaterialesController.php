@@ -20,9 +20,11 @@ class MaterialesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
+    
     { 
-        $materiales = material::orderBy('COD_MATERIAL','DESC')->paginate(10);
+        $materiales=material::buscador($request->nombre)->orderBy('COD_MATERIAL','DESC')->paginate(5);
+        /*$materiales = material::orderBy('COD_MATERIAL','DESC')->paginate(10);*/
         
         return View('Sistema')->with('materiales',$materiales);
     }
