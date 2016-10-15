@@ -2,73 +2,38 @@ $(document).on("ready",inicio);
 
 function inicio(){
 $("span.help-block").hide();
-$("#COD_MATERIAL").keyup(validarCodigo);
-$("#CANTIDAD").keyup(validarCantidad);
+$("#COD_TIPO_MATERIAL").keyup(validarCodigo);
 $("#NOMBRE").keyup(validarNombre);
 $("#DESCRIPCION").keyup(validarDescripcion);
 }
 
 function validarCodigo(){
-	var valor = document.getElementById("COD_MATERIAL").value;
+	var valor = document.getElementById("COD_TIPO_MATERIAL").value;
 	if(valor == null || valor.length == 0 || /^\s+$/.test(valor)){
 
 		$("#iconocodigo").remove();
-		$("#COD_MATERIAL").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#COD_MATERIAL").parent().children("span").text("Debe ingresar algun caracter").show();
-		$("#COD_MATERIAL").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		$("#COD_TIPO_MATERIAL").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#COD_TIPO_MATERIAL").parent().children("span").text("Debe ingresar algun caracter").show();
+		$("#COD_TIPO_MATERIAL").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
 	else if(valor.length > 10){
 
 		$("#iconocodigo").remove();
-		$("#COD_MATERIAL").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#COD_MATERIAL").parent().children("span").text("Debe ser menor que 10 caracteres").show();
-		$("#COD_MATERIAL").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		$("#COD_TIPO_MATERIAL").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#COD_TIPO_MATERIAL").parent().children("span").text("Debe ser menor que 10 caracteres").show();
+		$("#COD_TIPO_MATERIAL").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
 	else{
 		$("#iconocodigo").remove();
-		$("#COD_MATERIAL").parent().parent().attr("class","form-group has-success has-feedback")
-	    $("#COD_MATERIAL").parent().children("span").text("").hide();
-	    $("#COD_MATERIAL").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+		$("#COD_TIPO_MATERIAL").parent().parent().attr("class","form-group has-success has-feedback")
+	    $("#COD_TIPO_MATERIAL").parent().children("span").text("").hide();
+	    $("#COD_TIPO_MATERIAL").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-ok form-control-feedback'></span>");
 	    return true;
 	}
 }
 
-	function validarCantidad(){
-	var cant = document.getElementById("CANTIDAD").value;
-
-	if(cant == null || cant.length == 0 || /^\s+$/.test(cant)){
-
-		$("#iconocant").remove();
-		$("#CANTIDAD").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#CANTIDAD").parent().children("span").text("Debe ingresar algun caracter").show();
-		$("#CANTIDAD").parent().append("<span id='iconocant' class='glyphicon glyphicon-remove form-control-feedback'></span>");
-		return false;
-	}
-	else if(isNaN(cant)){
-		$("#iconocant").remove();
-		$("#CANTIDAD").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#CANTIDAD").parent().children("span").text("Debe ingresar caracter numerico").show();
-		$("#CANTIDAD").parent().append("<span id=iconocant class='glyphicon glyphicon-remove form-control-feedback'></span>");
-		return false;
-	}
-	else if(cant.length>6){
-		$("#iconocant").remove();
-		$("#CANTIDAD").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#CANTIDAD").parent().children("span").text("La cantidad debe ser menor a 6 numeros").show();
-		$("#CANTIDAD").parent().append("<span id=iconocant class='glyphicon glyphicon-remove form-control-feedback'></span>");
-		return false;
-	}
-	else{
-		$("#iconocant").remove();
-		$("#CANTIDAD").parent().parent().attr("class","form-group has-success has-feedback")
-	    $("#CANTIDAD").parent().children("span").text("").hide();
-	    $("#CANTIDAD").parent().append("<span id='iconocant' class='glyphicon glyphicon-ok form-control-feedback'></span>");
-	    return true;
-	}
-
-	}
 
 	function validarNombre(){
 	var nom = document.getElementById("NOMBRE").value;

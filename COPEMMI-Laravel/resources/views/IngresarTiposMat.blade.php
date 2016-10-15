@@ -85,15 +85,26 @@
 	  				<h1 class="text-center">Ingresar Tipo de Material</h1>
 				</div>
 
+				<!-- MENSAJE DE ERROR, SI UN DATO ES ERRONEO -->
+				@if (count($errors) > 0)
+    				<div class="alert alert-danger">
+	       				 <ul>
+				            @foreach ($errors->all() as $error)
+				                <li>{{ $error }}</li>
+				            @endforeach
+	        			</ul>
+    				</div>
+				@endif
+			<!-- FIN DE MSJ DE ERROR -->
 	
 				<div class="container">
 					{!! Form::open(['route' => 'tiposMateriales.store','method'=>'POST','autocomplete'=>'off','class' => 'form-horizontal']) !!}
 					{{ Form::token() }}
 
 						<div class="form-group">
-							{!! Form::label('codigo','Código:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
-								{!! Form::text('codigo',null,['class' => 'form-control','placeholder' => 'Ingrese un código']) !!}
+							{!! Form::label('COD_TIPO_MATERIAL','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
+							<div class="col-md-3">
+								{!! Form::text('COD_TIPO_MATERIAL',null,['class' => 'form-control','placeholder' => 'Ingrese un código']) !!}
 								<span class = "help-block"></span>  <!- Mensaje que sale en caso de datos incorrectos->
 							</div>
 						</div>
@@ -101,17 +112,17 @@
 						
 
 						<div class="form-group">
-							{!! Form::label('nombre','Nombre:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
-								{!! Form::text('nombre',null,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
+							{!! Form::label('NOMBRE','Nombre del tipo:',array('class' => 'control-label col-md-2')) !!}
+							<div class="col-md-5">
+								{!! Form::text('NOMBRE',null,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('descripcion','Descripción:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('DESCRIPCION','Descripción:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::textarea('descripcion',null,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
+								{!! Form::textarea('DESCRIPCION',null,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -141,6 +152,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
      {!! Html::style('css/bootstrap.min.css') !!}	
-
+     {!! Html::script('js/validacionTipoMat.js') !!}	
      {!! Html::script('js/main.js') !!}
 </html>

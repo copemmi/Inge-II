@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\tipo_material;
+use Laracasts\Flash\Flash;
+use App\Http\Requests\tipoMaterialesRequest;
 
 class TiposMaterialesController extends Controller
 {
@@ -43,12 +45,12 @@ class TiposMaterialesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(tipoMaterialesRequest $request)
     {
         $tipoMaterial=new tipo_material;
-        $tipoMaterial->cod_tipo_material=$request->get('codigo');
-        $tipoMaterial->nombre=$request->get('nombre');
-        $tipoMaterial->descripcion=$request->get('descripcion');
+        $tipoMaterial->cod_tipo_material=$request->get('COD_TIPO_MATERIAL');
+        $tipoMaterial->nombre=$request->get('NOMBRE');
+        $tipoMaterial->descripcion=$request->get('DESCRIPCION');
   
 
         $tipoMaterial->save();
@@ -91,13 +93,13 @@ class TiposMaterialesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(tipoMaterialesRequest $request, $id)
     {
     	
         $tipoMaterial = tipo_material::find($id);
-        $tipoMaterial->cod_tipo_material=$request->get('codigo');
-        $tipoMaterial->nombre=$request->get('nombre');
-        $tipoMaterial->descripcion=$request->get('descripcion');
+        $tipoMaterial->cod_tipo_material=$request->get('COD_TIPO_MATERIAL');
+        $tipoMaterial->nombre=$request->get('NOMBRE');
+        $tipoMaterial->descripcion=$request->get('DESCRIPCION');
   
 
         $tipoMaterial->update();
