@@ -3171,7 +3171,11 @@ fieldset[disabled] .btn-primary.focus {
   background-color: #fff;
 }
 .btn-success {
-  color: #fff;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  border:2px solid #1984ab; 
+  color: #000000;
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
@@ -3285,6 +3289,9 @@ fieldset[disabled] .btn-info.focus {
   background-color: #fff;
 }
 .btn-warning {
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
   color: #fff;
   background-color: #f0ad4e;
   border-color: #eea236;
@@ -3342,6 +3349,9 @@ fieldset[disabled] .btn-warning.focus {
   background-color: #fff;
 }
 .btn-danger {
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
   color: #fff;
   background-color: #d9534f;
   border-color: #d43f3a;

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\material;
 use App\tipo_material;
 use Laracasts\Flash\Flash;
-//use App\Http\Requests\materialesRequest;
+use App\Http\Requests\materialesRequest;
 
 class MaterialesController extends Controller
 {
@@ -21,10 +21,8 @@ class MaterialesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    
     { 
-        $materiales=material::buscador($request->nombre)->orderBy('COD_MATERIAL','DESC')->paginate(5);
-        /*$materiales = material::orderBy('COD_MATERIAL','DESC')->paginate(10);*/
+        $materiales=material::buscador($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(10);
         
         return View('Sistema')->with('materiales',$materiales);
     }
@@ -47,15 +45,15 @@ class MaterialesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(materialesRequest $request)
     {
         $material=new material;
-        $material->cod_material=$request->get('codigo');
-        $material->cod_tipo_material=$request->get('codTipoMaterial');
-        $material->nombre=$request->get('nombre');
-        $material->descripcion=$request->get('descripcion');
-        $material->cantidad=$request->get('cantidad');
-        $material->fecha_ingreso=$request->get('fechaIngreso');
+        $material->cod_material=$request->get('COD_MATERIAL');
+        $material->cod_tipo_material=$request->get('COD_TIPO_MATERIAL');
+        $material->nombre=$request->get('NOMBRE');
+        $material->descripcion=$request->get('DESCRIPCION');
+        $material->cantidad=$request->get('CANTIDAD');
+        $material->fecha_ingreso=$request->get('FECHA_INGRESO');
 
         $material->save();
 
@@ -72,7 +70,11 @@ class MaterialesController extends Controller
      */
     public function show($id)
     {
-        //
+        $material = material::find($id);
+        
+        $tipo_material = tipo_material::all();
+
+        return View('MostrarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
     }
 
     /**
@@ -98,20 +100,19 @@ class MaterialesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(materialesRequest $request, $id)
     {
         $material = material::find($id);
-        $material->cod_tipo_material=$request->get('codTipoMaterial');
-        $material->nombre=$request->get('nombre');
-        $material->descripcion=$request->get('descripcion');
-        $material->cantidad=$request->get('cantidad');
-        $material->fecha_ingreso=$request->get('fechaIngreso');
+        $material->cod_tipo_material=$request->get('COD_TIPO_MATERIAL');
+        $material->nombre=$request->get('NOMBRE');
+        $material->descripcion=$request->get('DESCRIPCION');
+        $material->cantidad=$request->get('CANTIDAD');
 
         $material->update();
 
-        Flash("Se ha modificado el material: (".$material->nombre.") exitosamente",'info');
+        Flash("Se ha modificado el material exitosamente",'info');
 
-        return Redirect()->route('materiales.index');
+        return Redirect()->route('materiales.show',$id);
 
     }
 

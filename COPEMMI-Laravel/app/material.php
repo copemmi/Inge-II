@@ -60,8 +60,7 @@ public $incrementing = false;
 
     public function scopeBuscador($query,$nombre)
     {
-        return $query->where('NOMBRE','LIKE',"%$nombre%");
-
+        return $query->where('NOMBRE','LIKE',"$nombre%");
 
     }
 }

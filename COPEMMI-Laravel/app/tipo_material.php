@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class tipo_material extends Model
 {
+
     public $timestamps = false; 
     public $incrementing = false;
     /**
@@ -20,14 +21,12 @@ class tipo_material extends Model
      * @var string
      */
     protected $table = 'tipos_materiales';
- 
 
     /**
      * @var array
      */
     protected $primaryKey= 'COD_TIPO_MATERIAL';
     protected $fillable = ['NOMBRE', 'DESCRIPCION'];
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -36,6 +35,4 @@ class tipo_material extends Model
     {
         return $this->hasMany('App\material', 'COD_TIPO_MATERIAL', 'COD_TIPO_MATERIAL');
     }
-
-  
 }

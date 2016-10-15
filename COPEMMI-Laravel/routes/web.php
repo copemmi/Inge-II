@@ -13,19 +13,20 @@
 
 
 
-
+//Rutas Materiales
 	Route::resource('materiales','MaterialesController');
-
 	
 	Route::get('materiales/{id}/destroy',[
 		'uses' => 'MaterialesController@destroy',
 		'as' => 'materiales.destroy'
 		]);
 
+//Rutas Tipos de Material
+	Route::resource('tiposMateriales','TiposMaterialesController');
 
-	Route::resource('tipoMaterial','TipoMaterialController');
-
-	Route::get('tipoMaterial/{id}/destroy',[
-		'uses' => 'TipoMaterialController@destroy',
-		'as' => 'tipoMaterial.destroy'
+	Route::get('tiposMateriales/{id}/destroy',[
+		'uses' => 'TiposMaterialesController@destroy',
+		'as' => 'tiposMateriales.destroy'
 		]);
+
+//

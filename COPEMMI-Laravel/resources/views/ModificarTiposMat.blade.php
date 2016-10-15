@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>COPEMMI Modificar Material</title>
+		<title>COPPEMMI</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
 
@@ -81,78 +81,42 @@
 
 
 				<div class="page-header">
-	  				<h1 class="text-center">Modificar Material</h1>
+	  				<h1 class="text-center">Modificar Tipo de Material</h1>
 				</div>
-
-				<!-- MENSAJE DE ERROR, SI UN DATO ES ERRONEO -->
-					@if (count($errors) > 0)
-	    				<div class="alert alert-danger">
-		       				 <ul>
-					            @foreach ($errors->all() as $error)
-					                <li>{{ $error }}</li>
-					            @endforeach
-		        			</ul>
-	    				</div>
-					@endif
-				<!-- FIN DE MSJ DE ERROR -->
 
 	
 				<div class="container">
-					{!! Form::open(['route' => ['materiales.update',$material],'method'=>'PUT','class' => 'form-horizontal']) !!}
+					{!! Form::open(['route' => ['tiposMateriales.update',$tipoMaterial],'method'=>'PUT','class' => 'form-horizontal']) !!}
 					{{ Form::token() }}
 
 						<div class="form-group">
-							{!! Form::label('COD_MATERIAL','Código:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-3">
-								{!! Form::text('COD_MATERIAL',$material->COD_MATERIAL,['class' => 'form-control', 'readonly']) !!}
+							{!! Form::label('codigo','Código:',array('class' => 'control-label col-md-2')) !!}
+							<div class="col-md-10">
+								{!! Form::text('codigo',$tipoMaterial->COD_TIPO_MATERIAL,['class' => 'form-control']) !!}
 								<span class = "help-block"></span>  <!- Mensaje que sale en caso de datos incorrectos->
 							</div>
 						</div>
 
+
+
 						<div class="form-group">
-							{!! Form::label('option','Tipo:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('nombre','Nombre:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								<select class="form-control" name="COD_TIPO_MATERIAL" id="option"> <!--FALTA PONERLE LA CATEGORIA DE ESE MATERIAL EN ESPECIFICO-->
-									@foreach($tipo_material as $tm)
-									<option value={{$tm->COD_TIPO_MATERIAL}}>{{$tm->NOMBRE}}</option>
-									@endforeach
-								</select>
-							</div>
-						</div>
-
-						<div class="form-group">
-							{!! Form::label('NOMBRE','Nombre:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-5">
-								{!! Form::text('NOMBRE',$material->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
+								{!! Form::text('nombre',$tipoMaterial->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('DESCRIPCION','Descripción:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('descripcion','Descripción:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::textarea('DESCRIPCION',$material->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
+								{!! Form::textarea('descripcion',$tipoMaterial->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
 
-						<div class="form-group">
-							{!! Form::label('CANTIDAD','Cantidad:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-3">
-								{!! Form::text('CANTIDAD',$material->CANTIDAD,['class' => 'form-control','placeholder' => 'Ingrese una cantidad']) !!}
-								<span class = "help-block"></span>
-							</div>
-						</div>
-
-
-						<div class="form-group">
-							{!! Form::label('FECHA_INGRESO','Fecha de Ingreso:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-3">
-								{!! Form::text('FECHA_INGRESO', $material->FECHA_INGRESO, ['class' => 'form-control', 'readonly']) !!}
-							</div>
-						</div>
-
-<!----------------------------------------------------------BOTONES POR SI SE QUIERE MODIFICAR------------------------------------------------------------>
+					
+					
 
 						<form action="" class="form-inline">
 							<div class="col-md-2 col-md-offset-2">
@@ -160,31 +124,9 @@
 							</div>
 
 							<div class="col-md-0 col-md-offset-0">
-								<a href="{{ route('materiales.show', $material->COD_MATERIAL) }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
+								<a href="{{ route('tiposMateriales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
 							</div>
 						</form>
-
-<!----------------------------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->					
-						<br>
-						<div class="form-group">
-							<div class"col-md-0 col-md-offset-0">
-								{!! Form::label('separador','___________________________________________________________________________________________________________________',array('class' => 'control-label col-md-0')) !!}
-							</div>
-						</div>
-
-						<form action="" class="form-inline" >				
-							
-							<div class="col-md-0 col-md-offset-1">
-
-								<a href="{{ route('materiales.edit', $material->COD_MATERIAL) }}" class="btn btn-warning disabled">Modificar Material</a>
-
-								<a href="{{ route('materiales.destroy', $material->COD_MATERIAL) }}" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger disabled">Eliminar Material</a>
-								
-								<a href="{{ route('materiales.create') }}" class="btn btn-success disabled"> Incorporar Material </a>
-
-								<a href="{{ route('materiales.index') }}" class="btn btn-info disabled">Lista de Materiales</a>
-
-							</div>
 
 					{!! Form::close() !!}
 				</div>
@@ -199,6 +141,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     {!! Html::style('css/bootstrap.min.css') !!}
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    {!! Html::script('js/menuInsertar.js') !!}
     {!! Html::script('js/validacion.js') !!}	
     {!! Html::script('js/main.js') !!}
 </html>

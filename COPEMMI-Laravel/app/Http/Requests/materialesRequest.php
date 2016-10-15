@@ -25,8 +25,42 @@ class materialesRequest extends FormRequest
     //Reglas para el éxito del envío de datos en el formulario
     public function rules()
     {
-        return [
-            'COD_MATERIAL'=>'min:2|max:10|required'
-        ];
+
+        switch($this->method()){
+
+            case 'GET':{
+                return [];
+            }
+
+            case 'DELETE':{
+                return [];
+            }
+
+            case 'POST':{
+                return [
+                    'COD_MATERIAL'=>'max:10|required|unique:materiales',
+                    'COD_TIPO_MATERIAL' =>'max:10|required',
+                    'NOMBRE' =>'max:50|required',
+                    'DESCRIPCION' =>'max:255|required',
+                    'CANTIDAD' =>'max:999999|Numeric|required'
+                ];
+            }
+
+            case 'PUT':{
+                return [
+                    'COD_TIPO_MATERIAL' =>'max:10|required',
+                    'NOMBRE' =>'max:50|required',
+                    'DESCRIPCION' =>'max:255|required',
+                    'CANTIDAD' =>'max:999999|Numeric|required'
+                ];
+            }
+
+            case 'PATCH':{
+                return [];
+            }
+
+            default:break;
+        }
+        
     }
 }

@@ -44,11 +44,22 @@ $('.menu li ul li a').click(function(){
 
 });
 
-});
-/*
-$('.menu li ul li a').click(funtion(){
 
-	window.location.href = $(this).attr("href");
 
+});//fin del ready
+
+//para que toda la fila de un material en la tabla sea un link 
+$('tr[data-href]').on("click", function() {
+    document.location = $(this).data('href');
 });
-*/
+
+
+
+
+
+
+
+
+
+
+
