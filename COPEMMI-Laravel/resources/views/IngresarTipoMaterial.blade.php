@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-		<title>COPEMMI Incorporar Material</title>
+		<title>COPEMMI Incorporar Tipo Material</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
 
@@ -72,12 +72,12 @@
 
 
 				<div class="page-header">
-	  				<h1 class="text-center">Incorporar Material</h1>
+	  				<h1 class="text-center">tipos de material</h1>
 				</div>
 
 	
 				<div class="container">
-					{!! Form::open(['route' => 'materiales.store','method'=>'POST','autocomplete'=>'off','class' => 'form-horizontal']) !!}
+					{!! Form::open(['route' => 'tipoMaterial.store','method'=>'POST','autocomplete'=>'off','class' => 'form-horizontal']) !!}
 					{{ Form::token() }}
 
 						<div class="form-group">
@@ -88,16 +88,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
-							{!! Form::label('option','Tipo/Categoria:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
-								<select class="form-control" name="codTipoMaterial" id="option">
-									@foreach($tipo_material as $tm)
-									<option value={{$tm->COD_TIPO_MATERIAL}}>{{$tm->NOMBRE}}</option>
-									@endforeach
-								</select>
-							</div>
-						</div>
+						
 
 						<div class="form-group">
 							{!! Form::label('nombre','Nombre:',array('class' => 'control-label col-md-2')) !!}
@@ -115,21 +106,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
-							{!! Form::label('cantidad','Cantidad:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
-								{!! Form::text('cantidad',null,['class' => 'form-control','placeholder' => 'Ingrese una cantidad']) !!}
-								<span class = "help-block"></span>
-							</div>
-						</div>
-
-
-						<div class="form-group">
-							{!! Form::label('fechaIngreso','Fecha de Ingreso:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
-								{{Form::date('fechaIngreso', \Carbon\Carbon::now()) }}
-							</div>
-						</div>
+						
 
 
 						<form action="" class="form-inline">
@@ -140,10 +117,6 @@
 							<div class="col-md-0 col-md-offset-0">
 								<a href="{{ route('materiales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
 							</div>
-                           <!--- no supe como acomodar bien el boton :v-->
-							<div class="col-sm-0 col-sm-offset-0">
-        					<a target ="_blank" href="{{ route('tipoMaterial.create') }}" class="btn btn-success"> Nuevo Tipo de Material </a>
-        				</div>
 						</form>
 
 					{!! Form::close() !!}
@@ -158,6 +131,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
      {!! Html::style('css/bootstrap.min.css') !!}	
-     {!! Html::script('js/validacion.js') !!}	
+
      {!! Html::script('js/main.js') !!}
 </html>

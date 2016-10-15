@@ -79,63 +79,39 @@
 						        {!! session('flash_notification.message') !!}
 						    </div>
 						@endif
-<!--BUSCADOR DE MATERIALES -->
-{!!Form::open(['route'=>'materiales.index','method'=>'GET','class'=>'navbar-form pull-right'])!!}
-<div class="input-group">
-	
-	{!!Form::text('nombre',null,['class'=>'form-control','placeholder'=>'buscar nombre de material','aria-describedby'=>'busqueda']) !!}
-	<span class="input-group-addon" id="busqueda"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-</div>
-{!!Form::close()!!}
-<!-- FIN DE L  BUSCADOR -->
+
+
 <hr>
-						<!--<div class="col-md-4 col-md-offset-0">
-            				<!--<form action="" class="search-form">
-                				<!--<div class="form-group has-feedback">
-                    				<!--<input type="text" class="form-control" name="Buscar" id="Buscar" placeholder="Buscar">
-                    				<!--<span class="glyphicon glyphicon-search form-control-feedback"></span>
-                				<!--</div>
-            				<!--</form>
-        				<!--</div> -->
 
+		
         				<div class="col-sm-2 col-sm-offset-1">
-        					<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Materiales </a>
+        					<a href="{{ route('tipoMaterial.create') }}" class="btn btn-success"> Agregar nuevo tipo de material </a>
         				</div>
-
-        				<div class="col-sm-2 col-sm-offset-1">
-        					<a href="{{ route('tipoMaterial.index') }}" class="btn btn-success"> Tipos de materiales </a>
-        				</div>
-        				
 
 					</div>
 				</div>
 
 				<br>
-				<div class="tabla-materiales">
+				<div class="tabla-tipoMaterial">
 					<table class="table width=30 table-bordered table-hover table-condensed" >
 						<thead class="bg-primary">
 							<tr>
 								<th>Código</th>
 								<th>Nombre</th>
-								<th>Cantidad</th>
-								<th>Categoría</th>
-								<th>Fecha de Entrega</th>
+							
 								<th width="200">Descripción</th>
 								<th class="opciones" >Opciones</th>
 							</tr>
 						 </thead>
-						@foreach($materiales as $mat)
+						@foreach($tipoMaterial as $tip)
 							
 							<tr class="success">
-								<td>{{ $mat->COD_MATERIAL}}</td>
-								<td>{{ $mat->NOMBRE}} </td>
-								<td>{{ $mat->CANTIDAD}} </td>
-								<td>{{ $mat->COD_TIPO_MATERIAL}} </td>
-								<td>{{ $mat->FECHA_INGRESO}} </td>
-								<td>{{ $mat->DESCRIPCION}} </td>
+								<td>{{ $tip->COD_TIPO_MATERIAL}} </td>
+								<td>{{ $tip->NOMBRE}} </td>
+							    <td>{{ $tip->DESCRIPCION}} </td>
 								<td>
-									<a href="{{ route('materiales.destroy', $mat->COD_MATERIAL) }}" title="Eliminar material" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger"><img src="{{asset('imagenes/delete.png')}}" width=20;/></a>
-									<a href="{{ route('materiales.edit', $mat->COD_MATERIAL) }}" title="Modificar material" class="btn btn-warning"><img src="{{asset('imagenes/pencil.png')}}" width=20;/></a>
+									<a href="{{ route('tipoMaterial.destroy', $tip->COD_TIPO_MATERIAL) }}" title="Eliminar" onclick="return confirm('¿Seguro que desea eliminar este tipo ?')" class="btn btn-danger"><img src="{{asset('imagenes/delete.png')}}" width=20;/></a>
+									<a href="{{ route('tipoMaterial.edit', $tip->COD_TIPO_MATERIAL) }}" title="Modificar" class="btn btn-warning"><img src="{{asset('imagenes/pencil.png')}}" width=20;/></a>
 								</td>
 							</tr>
 							
@@ -143,7 +119,7 @@
 					</table>
 
 					<div class="text-center">
-					{!! $materiales->render() !!} <!-- Metodo para hacer la paginación en caso de haber muchos elementos-->
+					{!! $tipoMaterial->render() !!} <!-- Metodo para hacer la paginación en caso de haber muchos elementos-->
 					</div>
 
 				</div>

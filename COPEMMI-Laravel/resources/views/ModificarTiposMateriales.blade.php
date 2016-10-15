@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		
-		<title>COPEMMI Incorporar Material</title>
+		<title>COPEMMI Modificar Material</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
 
@@ -60,7 +59,6 @@
 <!--------------------------------------------------------------------Formulario EN EL CENTRO------------------------------------------------------>
 
 
-
 		<div id="center">
 			<div class="content">
 
@@ -72,37 +70,28 @@
 
 
 				<div class="page-header">
-	  				<h1 class="text-center">Incorporar Material</h1>
+	  				<h1 class="text-center">Modificar Material</h1>
 				</div>
 
 	
 				<div class="container">
-					{!! Form::open(['route' => 'materiales.store','method'=>'POST','autocomplete'=>'off','class' => 'form-horizontal']) !!}
+					{!! Form::open(['route' => ['tipoMaterial.update',$tipoMaterial],'method'=>'PUT','class' => 'form-horizontal']) !!}
 					{{ Form::token() }}
 
 						<div class="form-group">
 							{!! Form::label('codigo','Código:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::text('codigo',null,['class' => 'form-control','placeholder' => 'Ingrese un código']) !!}
+								{!! Form::text('codigo',$tipoMaterial->COD_TIPO_MATERIAL,['class' => 'form-control']) !!}
 								<span class = "help-block"></span>  <!- Mensaje que sale en caso de datos incorrectos->
 							</div>
 						</div>
 
-						<div class="form-group">
-							{!! Form::label('option','Tipo/Categoria:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
-								<select class="form-control" name="codTipoMaterial" id="option">
-									@foreach($tipo_material as $tm)
-									<option value={{$tm->COD_TIPO_MATERIAL}}>{{$tm->NOMBRE}}</option>
-									@endforeach
-								</select>
-							</div>
-						</div>
+
 
 						<div class="form-group">
 							{!! Form::label('nombre','Nombre:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::text('nombre',null,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
+								{!! Form::text('nombre',$tipoMaterial->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -110,27 +99,13 @@
 						<div class="form-group">
 							{!! Form::label('descripcion','Descripción:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::textarea('descripcion',null,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
+								{!! Form::textarea('descripcion',$tipoMaterial->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
 
-						<div class="form-group">
-							{!! Form::label('cantidad','Cantidad:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
-								{!! Form::text('cantidad',null,['class' => 'form-control','placeholder' => 'Ingrese una cantidad']) !!}
-								<span class = "help-block"></span>
-							</div>
-						</div>
-
-
-						<div class="form-group">
-							{!! Form::label('fechaIngreso','Fecha de Ingreso:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
-								{{Form::date('fechaIngreso', \Carbon\Carbon::now()) }}
-							</div>
-						</div>
-
+					
+					
 
 						<form action="" class="form-inline">
 							<div class="col-md-2 col-md-offset-2">
@@ -140,24 +115,22 @@
 							<div class="col-md-0 col-md-offset-0">
 								<a href="{{ route('materiales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
 							</div>
-                           <!--- no supe como acomodar bien el boton :v-->
-							<div class="col-sm-0 col-sm-offset-0">
-        					<a target ="_blank" href="{{ route('tipoMaterial.create') }}" class="btn btn-success"> Nuevo Tipo de Material </a>
-        				</div>
 						</form>
 
 					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>	
+
 	</body>
 
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-     {!! Html::style('css/bootstrap.min.css') !!}	
-     {!! Html::script('js/validacion.js') !!}	
-     {!! Html::script('js/main.js') !!}
+    {!! Html::style('css/bootstrap.min.css') !!}
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    {!! Html::script('js/menuInsertar.js') !!}
+    {!! Html::script('js/validacion.js') !!}	
+    {!! Html::script('js/main.js') !!}
 </html>
