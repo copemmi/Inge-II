@@ -108,9 +108,14 @@
 						<div class="form-group">
 							{!! Form::label('option','Tipo:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-3">
-								<select class="form-control" name="COD_TIPO_MATERIAL" id="option" disabled> <!--FALTA PONERLE LA CATEGORIA DE ESE MATERIAL EN ESPECIFICO-->
+								<select class="form-control" name="COD_TIPO_MATERIAL" id="option" disabled> 
 									@foreach($tipo_material as $tm)
-									<option value={{$tm->COD_TIPO_MATERIAL}}>{{$tm->NOMBRE}}</option>
+									
+									<?php if(strcmp($material->COD_TIPO_MATERIAL, $tm->COD_TIPO_MATERIAL) == 0){ ?>
+												<option selected="selected" value={{$tm->COD_TIPO_MATERIAL}}>{{$tm->NOMBRE}}</option>
+									<?php }else{ ?>
+											<option value={{$tm->COD_TIPO_MATERIAL}}>{{$tm->NOMBRE}}</option>
+										<?php } ?>
 									@endforeach
 								</select>
 
