@@ -29,7 +29,7 @@ class MaterialesController extends Controller
 
 
 
-        $materiales=material::buscador($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(10);
+        $materiales=material::buscadorNombre($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(10);
         
         return View('Sistema')->with('materiales',$materiales);
 
@@ -46,15 +46,18 @@ class MaterialesController extends Controller
       $checkValue = Input::get('codTipoMaterial');
       switch ($checkValue) 
       {
-          case 'cod':
-              $valor="COD_MATERIAL";
+          case 'nombre':
+            
+              $materiales=material::buscadorNombre($request->buscar)->orderBy('NOMBRE','DESC')->paginate(10);
               break;
-              case 'nombre';
-              $valor="NOMBRE";
+              case 'cod';
+              
+              $materiales=material::buscadorCodigo($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(10);
               break;
 
               case 'tipo';
-              $valor="COD_TIPO_MATERIAL";
+             
+              $materiales=material::buscadorTipo($request->buscar)->orderBy('COD_TIPO_MATERIAL','DESC')->paginate(10);
               break;
 
              
@@ -62,7 +65,7 @@ class MaterialesController extends Controller
          
       }
       
-       $materiales=material::buscador($request->buscar)->orderBy($valor,'DESC')->paginate(10);
+      /* $materiales=material::buscador($request->buscar)->orderBy($valor,'DESC')->paginate(10);*/
         
         return View('Sistema')->with('materiales',$materiales);
      

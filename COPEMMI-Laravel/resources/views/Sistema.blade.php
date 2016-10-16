@@ -104,7 +104,7 @@
                 						<div class="col-md-0 col-md-offset-0"><label for="codTipoMaterial" class=>Buscar por:</label></div>
 
 					               <label class="radio-inline"><input type="radio" name="codTipoMaterial" value="cod">Codigo</label>
-					              <label class="radio-inline"><input type="radio" name="codTipoMaterial"  value="nombre">Nombre del Material</label>
+					              <label class="radio-inline"><input type="radio" name="codTipoMaterial"  value="nombre" checked="checked">Nombre del Material</label>
 			                  	<label class="radio-inline"><input type="radio" name="codTipoMaterial" value="tipo">Tipo de material</label>
 			                
     			
