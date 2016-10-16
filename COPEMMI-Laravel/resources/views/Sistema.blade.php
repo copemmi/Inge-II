@@ -89,15 +89,26 @@
 						    </div>
 						@endif
 
+
+
 							
 					<!--BUSCADOR DE MATERIALES-->
-							<div class="col-md-4 col-md-offset-0">
-								{!!Form::open(['route'=>'materiales.index','method'=>'GET','class'=>'search-form'])!!}
+							<div class="col-md-8 col-md-offset-0">
+								{!!Form::open(['route'=>'materiales.recibe','method'=>'POST','class'=>'search-form','files'=>'true'])!!}
 					
                 						<div class="form-group has-feedback">
 		                    				<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
 		                    				<span class="glyphicon glyphicon-search form-control-feedback"></span>
                 						</div>
+
+                						<div class="col-md-0 col-md-offset-0"><label for="codTipoMaterial" class=>Buscar por:</label></div>
+
+					               <label class="radio-inline"><input type="radio" name="codTipoMaterial" value="cod">Codigo</label>
+					              <label class="radio-inline"><input type="radio" name="codTipoMaterial"  value="nombre">Nombre del Material</label>
+			                  	<label class="radio-inline"><input type="radio" name="codTipoMaterial" value="tipo">Tipo de material</label>
+			                
+    			
+    	                          
         						{!!Form::close()!!}
 							</div> 
 					<!-- FIN DEL BUSCADOR -->
@@ -111,18 +122,24 @@
 					</div>
 				</div>
 
-				<div class ="form-group">
-
-					<div class="col-md-2 col-md-offset-0"><label for="codTipoMaterial" class="">Buscar por:</label></div>
-
-					<label class="radio-inline"><input type="radio" name="codTipoMaterial" >Codigo</label>
-					<label class="radio-inline"><input type="radio" name="codTipoMaterial" checked="checked">Nombre del Material</label>
-    				<label class="radio-inline"><input type="radio" name="codTipoMaterial">Tipo de material</label>
-    	
-   				</div>
+	<!--{{ Form::label('filtroNombre', 'Nombre') }}
+{{ Form::radio('filtro', 'Nombre', false, array('id'=>'filtroNombre')) }}
+{{ Form::label('filtroCodigo', 'Código') }}
+{{ Form::radio('filtro', 'Código', false, array('id'=>'filtroCodigo')) }}
+{{Form::close()}}-->
 
 
+				<!--{{ Form::open(array('url'=>'/','files'=>true,'method'=>'POST'))	}}
+					<div class="col-md-2 col-md-offset-0"><label for="codTipoMaterial" class=>Buscar por:</label></div>
 
+					<label class="radio-inline"><input type="radio" name="codTipoMaterial" value="cod">Codigo</label>
+					<label class="radio-inline"><input type="radio" name="codTipoMaterial"  value="nombre">Nombre del Material</label>
+			       	<label class="radio-inline"><input type="radio" name="codTipoMaterial" value="tipo">Tipo de material</label>
+    			
+    	<button class="btn btn-default">buscar</button>
+   				{{Form::close()}} -->
+
+	
 <!-- TABLA DE MATERIALES -->
 				<br>
 				<div class="tabla-materiales">

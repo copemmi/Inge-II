@@ -10,6 +10,7 @@ use App\material;
 use App\tipo_material;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\materialesRequest;
+use Illuminate\Support\Facades\Input;
 
 class MaterialesController extends Controller
 {
@@ -22,10 +23,52 @@ class MaterialesController extends Controller
      */
     public function index(Request $request)
     { 
+        /*$check=Input::has('codTipoMaterial');
+      $checkValue = Input::get('codTipoMaterial');*/
+
+
+
+
         $materiales=material::buscador($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(10);
         
         return View('Sistema')->with('materiales',$materiales);
+
+    
+         
     }
+
+
+    public function recibe(Request $request)
+    {
+   
+   
+    $check=Input::has('codTipoMaterial');
+      $checkValue = Input::get('codTipoMaterial');
+      switch ($checkValue) 
+      {
+          case 'cod':
+              $valor="COD_MATERIAL";
+              break;
+              case 'nombre';
+              $valor="NOMBRE";
+              break;
+
+              case 'tipo';
+              $valor="COD_TIPO_MATERIAL";
+              break;
+
+             
+          
+         
+      }
+      
+       $materiales=material::buscador($request->buscar)->orderBy($valor,'DESC')->paginate(10);
+        
+        return View('Sistema')->with('materiales',$materiales);
+     
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -70,11 +113,11 @@ class MaterialesController extends Controller
      */
     public function show($id)
     {
-        $material = material::find($id);
+       $material = material::find($id);
         
         $tipo_material = tipo_material::all();
-
         return View('MostrarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
+        
     }
 
     /**

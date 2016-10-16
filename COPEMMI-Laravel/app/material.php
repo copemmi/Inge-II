@@ -58,9 +58,13 @@ public $incrementing = false;
         return $this->hasMany('App\det_orden_pedido', 'COD_MATERIAL', 'COD_MATERIAL');
     }
 
-    public function scopeBuscador($query,$nombre)
+    public function scopeBuscador($query,$dato)
     {
-        return $query->where('NOMBRE','LIKE',"$nombre%");
+
+        return $query->where('NOMBRE','LIKE',"%".$dato."%")
+        ->orWhere('COD_MATERIAL','LIKE',"%".$dato."%")
+        ->orWhere('COD_TIPO_MATERIAL','LIKE',"%".$dato."%");
+
 
     }
 }

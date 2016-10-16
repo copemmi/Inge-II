@@ -1,5 +1,6 @@
-<?php
 
+<?php
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,5 +29,17 @@
 		'uses' => 'TiposMaterialesController@destroy',
 		'as' => 'tiposMateriales.destroy'
 		]);
+
+Route::post('materiales/recibe',[
+		'uses' => 'MaterialesController@recibe',
+		'as' => 'materiales.recibe'
+		]);
+
+
+
+
+
+
+	
 
 //
