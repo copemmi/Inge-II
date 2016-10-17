@@ -93,34 +93,34 @@
 
 							
 					<!--BUSCADOR DE MATERIALES-->
-							<div class="col-md-8 col-md-offset-0">
-								{!!Form::open(['route'=>'materiales.recibe','method'=>'POST','class'=>'search-form','files'=>'true'])!!}
-					
-                						<div class="form-group has-feedback">
-		                    				<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
-		                    				<span class="glyphicon glyphicon-search form-control-feedback"></span>
-                						</div>
+						
+						{!!Form::open(['route'=>'materiales.recibe','method'=>'POST','class'=>'search-form','files'=>'true'])!!}
+							<div class="col-md-4 col-md-offset-0">
+                				<div class="form-group has-feedback">
+		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
+		                    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+                				</div>
+                			</div> 
 
-                						<div class="col-md-0 col-md-offset-0"><label for="codTipoMaterial" class=>Buscar por:</label></div>
 
-					               <label class="radio-inline"><input type="radio" name="codTipoMaterial" value="cod">Codigo</label>
-					              <label class="radio-inline"><input type="radio" name="codTipoMaterial"  value="nombre" checked="checked">Nombre del Material</label>
+                		<div class="col-sm-2 col-sm-offset-1">
+        						<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Material </a>
+        					</div>
+        			</div>
+				</div>
+
+                			<div class="col-md-0 col-md-offset-0"><label for="codTipoMaterial" class=>Buscar por:</label></div>
+
+					            <label class="radio-inline"><input type="radio" name="codTipoMaterial" value="cod">Codigo</label>
+					            <label class="radio-inline"><input type="radio" name="codTipoMaterial" value="nombre" checked="checked">Nombre del Material</label>
 			                  	<label class="radio-inline"><input type="radio" name="codTipoMaterial" value="tipo">Tipo de material</label>
 			                
     			
     	                          
-        						{!!Form::close()!!}
-							</div> 
+        				{!!Form::close()!!}
+							
 					<!-- FIN DEL BUSCADOR -->
-
-						
-
-        				<div class="col-sm-2 col-sm-offset-1">
-        					<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Material </a>
-        				</div>
-
-					</div>
-				</div>
+			
 
 	<!--{{ Form::label('filtroNombre', 'Nombre') }}
 {{ Form::radio('filtro', 'Nombre', false, array('id'=>'filtroNombre')) }}
