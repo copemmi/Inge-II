@@ -99,6 +99,7 @@
 	
 				<div class="container">
 					{!! Form::open(['route' => ['materiales.update',$material],'method'=>'PUT','class' => 'form-horizontal']) !!}
+					{{csrf_field()}}
 					{{ Form::token() }}
 
 						<div class="form-group">

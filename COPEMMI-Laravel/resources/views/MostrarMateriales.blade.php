@@ -95,6 +95,7 @@
 	
 				<div class="container">
 					{!! Form::open(['class' => 'form-horizontal']) !!}
+					{{csrf_field()}}
 					{{ Form::token() }}
 
 						<div class="form-group">

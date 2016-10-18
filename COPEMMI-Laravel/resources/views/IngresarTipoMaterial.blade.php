@@ -78,6 +78,7 @@
 	
 				<div class="container">
 					{!! Form::open(['route' => 'tipoMaterial.store','method'=>'POST','autocomplete'=>'off','class' => 'form-horizontal']) !!}
+					{{csrf_field()}}
 					{{ Form::token() }}
 
 						<div class="form-group">

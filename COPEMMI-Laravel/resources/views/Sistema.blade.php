@@ -95,6 +95,7 @@
 					<!--BUSCADOR DE MATERIALES-->
 						
 						{!!Form::open(['route'=>'materiales.recibe','method'=>'POST','class'=>'search-form','files'=>'true'])!!}
+						{{csrf_field()}}
 							<div class="col-md-4 col-md-offset-0">
                 				<div class="form-group has-feedback">
 		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
