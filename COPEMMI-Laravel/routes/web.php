@@ -30,10 +30,10 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'tiposMateriales.destroy'
 		]);
 
-Route::post('materiales/recibe',[
+/*Route::post('materiales/recibe',[
 		'uses' => 'MaterialesController@recibe',
 		'as' => 'materiales.recibe'
-		]);
+		]);*/
 
 
 

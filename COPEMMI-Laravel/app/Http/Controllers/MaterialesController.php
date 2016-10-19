@@ -21,26 +21,40 @@ class MaterialesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    { 
-        /*$check=Input::has('codTipoMaterial');
-      $checkValue = Input::get('codTipoMaterial');*/
-
-
-
-
-        $materiales=material::buscadorNombre($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(10);
-        
-        return View('Sistema')->with('materiales',$materiales);
-
+    public function index(Request $request){ 
     
-         
+      
+
+      $check=Input::has('codTipoMaterial');
+      $checkValue = Input::get('codTipoMaterial');
+
+      switch ($checkValue){
+      
+          case 'nombre':
+            
+              $materiales=material::buscadorNombre($request->buscar)->orderBy('NOMBRE','DESC')->paginate(100);
+              break;
+
+          case 'cod':
+              
+              $materiales=material::buscadorCodigo($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(100);
+              break;
+
+          case 'tipo':
+             
+              $materiales=material::buscadorTipo($request->buscar)->orderBy('COD_TIPO_MATERIAL','DESC')->paginate(100);
+              break; 
+
+          default:      
+            $materiales=material::buscadorNombre($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(100);//si se le quita el paginate, no mostrara nada
+      }
+
+        return View('Sistema')->with('materiales',$materiales);
     }
 
 
-    public function recibe(Request $request)
+   /* public function recibe(Request $request)
     {
-   
    
     $check=Input::has('codTipoMaterial');
       $checkValue = Input::get('codTipoMaterial');
@@ -58,19 +72,14 @@ class MaterialesController extends Controller
               case 'tipo';
              
               $materiales=material::buscadorTipo($request->buscar)->orderBy('COD_TIPO_MATERIAL','DESC')->paginate(10);
-              break;
-
-             
-          
-         
+              break;    
       }
       
-      /* $materiales=material::buscador($request->buscar)->orderBy($valor,'DESC')->paginate(10);*/
+      // $materiales=material::buscador($request->buscar)->orderBy($valor,'DESC')->paginate(10);
         
         return View('Sistema')->with('materiales',$materiales);
-     
 
-    }
+    }*/
 
 
     /**

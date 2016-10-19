@@ -94,7 +94,7 @@
 							
 					<!--BUSCADOR DE MATERIALES-->
 						
-						{!!Form::open(['route'=>'materiales.recibe','method'=>'POST','class'=>'search-form','files'=>'true'])!!}
+						{!!Form::open(['route'=>'materiales.index','method'=>'GET','class'=>'search-form','files'=>'true'])!!}
 						{{csrf_field()}}
 							<div class="col-md-4 col-md-offset-0">
                 				<div class="form-group has-feedback">
@@ -122,24 +122,6 @@
 							
 					<!-- FIN DEL BUSCADOR -->
 			
-
-	<!--{{ Form::label('filtroNombre', 'Nombre') }}
-{{ Form::radio('filtro', 'Nombre', false, array('id'=>'filtroNombre')) }}
-{{ Form::label('filtroCodigo', 'Código') }}
-{{ Form::radio('filtro', 'Código', false, array('id'=>'filtroCodigo')) }}
-{{Form::close()}}-->
-
-
-				<!--{{ Form::open(array('url'=>'/','files'=>true,'method'=>'POST'))	}}
-					<div class="col-md-2 col-md-offset-0"><label for="codTipoMaterial" class=>Buscar por:</label></div>
-
-					<label class="radio-inline"><input type="radio" name="codTipoMaterial" value="cod">Codigo</label>
-					<label class="radio-inline"><input type="radio" name="codTipoMaterial"  value="nombre">Nombre del Material</label>
-			       	<label class="radio-inline"><input type="radio" name="codTipoMaterial" value="tipo">Tipo de material</label>
-    			
-    	<button class="btn btn-default">buscar</button>
-   				{{Form::close()}} -->
-
 	
 <!-- TABLA DE MATERIALES -->
 				<br>
@@ -165,9 +147,10 @@
 						@endforeach
 					</table>
 
+					<!-- Metodo para hacer la paginación en caso de haber muchos elementos
 					<div class="text-center">
-						{!! $materiales->render() !!} <!-- Metodo para hacer la paginación en caso de haber muchos elementos-->
-					</div>
+						{!! $materiales->render() !!} 
+					</div>-->
 
 				</div>
 			</div>
