@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -46,8 +46,7 @@ class MaterialesController extends Controller
               break; 
 
           default:      
-           //$materiales=material::buscadorNombre($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(100);//si se le quita el paginate, no mostrara nada
-            $materiales=material::buscadorNombre(" ")->paginate(1);
+            $materiales=material::buscadorNombre(" ")->paginate(1);//si se le quita el paginate, no mostrara nada
       }
 
         return View('Sistema')->with('materiales',$materiales);
