@@ -122,6 +122,24 @@
 							
 					<!-- FIN DEL BUSCADOR -->
 			
+
+	<!--{{ Form::label('filtroNombre', 'Nombre') }}
+{{ Form::radio('filtro', 'Nombre', false, array('id'=>'filtroNombre')) }}
+{{ Form::label('filtroCodigo', 'Código') }}
+{{ Form::radio('filtro', 'Código', false, array('id'=>'filtroCodigo')) }}
+{{Form::close()}}-->
+
+
+				<!--{{ Form::open(array('url'=>'/','files'=>true,'method'=>'POST'))	}}
+					<div class="col-md-2 col-md-offset-0"><label for="codTipoMaterial" class=>Buscar por:</label></div>
+
+					<label class="radio-inline"><input type="radio" name="codTipoMaterial" value="cod">Codigo</label>
+					<label class="radio-inline"><input type="radio" name="codTipoMaterial"  value="nombre">Nombre del Material</label>
+			       	<label class="radio-inline"><input type="radio" name="codTipoMaterial" value="tipo">Tipo de material</label>
+    			
+    	<button class="btn btn-default">buscar</button>
+   				{{Form::close()}} -->
+
 	
 <!-- TABLA DE MATERIALES -->
 				<br>
@@ -147,13 +165,11 @@
 						@endforeach
 					</table>
 
-					<!-- Metodo para hacer la paginación en caso de haber muchos elementos
 					<div class="text-center">
-						{!! $materiales->render() !!} 
-					</div>-->
+						{!! $materiales->render() !!} <!-- Metodo para hacer la paginación en caso de haber muchos elementos-->
+					</div>
 
 				</div>
-				
 			</div>
 		</div>
 	</body>

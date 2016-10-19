@@ -53,6 +53,13 @@ $('tr[data-href]').on("click", function() {
     document.location = $(this).data('href');
 });
 
+/*Método que pasa el mouse y sale el mensaje de información en los íconos de ayuda*/
+
+$('[rel="popover"]').popover({
+	trigger: 'hover',
+	html: true, 
+	delay: 500, 
+}); 
 
 
 

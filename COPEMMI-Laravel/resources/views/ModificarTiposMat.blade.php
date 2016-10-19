@@ -3,7 +3,9 @@
 	<head>
 		<title>COPPEMMI</title>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
+		<meta name="viewport" content="width-device-width, initial-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/fonts.css" rel="stylesheet">
 
 <!--------------------------------------------------------------------BARRA ARRIBA-------------------------------------------------------->
 		<div id="topmenu">
@@ -114,6 +116,7 @@
 
 						<div class="form-group">
 							{!! Form::label('NOMBRE','Nombre de tipo:',array('class' => 'control-label col-md-2')) !!}
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-5">
 								{!! Form::text('NOMBRE',$tipoMaterial->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
 								<span class = "help-block"></span>
@@ -123,13 +126,11 @@
 						<div class="form-group">
 							{!! Form::label('DESCRIPCION','Descripción:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 								{!! Form::textarea('DESCRIPCION',$tipoMaterial->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
-
-					
-					
 
 						<form action="" class="form-inline">
 							<div class="col-md-2 col-md-offset-2">
