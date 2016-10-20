@@ -133,7 +133,7 @@
 							{!! Form::label('NOMBRE','Nombre del material:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-5">
-								{!! Form::text('NOMBRE',null,['class' => 'form-control','placeholder', 'maxlength="50"' => 'Ingrese un nombre']) !!}
+								{!! Form::text('NOMBRE',null,['class' => 'form-control','placeholder', 'maxlength="50"' => 'Ingrese un nombre', 'maxlength="50"']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
