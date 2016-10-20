@@ -90,7 +90,7 @@
 						@endif
 
         				<div class="col-sm-2 col-sm-offset-4">
-        					<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Agregar nuevo tipo de material </a>
+        					<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar nuevo tipo de material </a>
         				</div>
 
 					</div>
