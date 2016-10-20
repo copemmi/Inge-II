@@ -105,29 +105,29 @@
 					{{ Form::token() }}
 
 						<div class="form-group">
-							{!! Form::label('COD_TIPO_MATERIAL','Código de tipo:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('COD_TIPO_MATERIAL','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-3">
 								{!! Form::text('COD_TIPO_MATERIAL',$tipoMaterial->COD_TIPO_MATERIAL,['class' => 'form-control', 'readonly']) !!}
-								<span class = "help-block"></span>  <!- Mensaje que sale en caso de datos incorrectos->
+								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
 							</div>
 						</div>
 
 
 
 						<div class="form-group">
-							{!! Form::label('NOMBRE','Nombre de tipo:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('NOMBRE','Nombre del tipo:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-5">
-								{!! Form::text('NOMBRE',$tipoMaterial->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
+								{!! Form::text('NOMBRE',$tipoMaterial->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese el nombre del tipo', 'maxlength="50"']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('DESCRIPCION','Descripción:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('DESCRIPCION','Características:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
-								{!! Form::textarea('DESCRIPCION',$tipoMaterial->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
+								{!! Form::textarea('DESCRIPCION',$tipoMaterial->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese las características', 'maxlength="255"','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>

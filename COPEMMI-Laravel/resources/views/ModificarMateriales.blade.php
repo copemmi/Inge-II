@@ -103,10 +103,10 @@
 					{{ Form::token() }}
 
 						<div class="form-group">
-							{!! Form::label('COD_MATERIAL','Código:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('COD_MATERIAL','Código del material:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-3">
 								{!! Form::text('COD_MATERIAL',$material->COD_MATERIAL,['class' => 'form-control', 'readonly']) !!}
-								<span class = "help-block"></span>  <!- Mensaje que sale en caso de datos incorrectos->
+								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
 							</div>
 						</div>
 

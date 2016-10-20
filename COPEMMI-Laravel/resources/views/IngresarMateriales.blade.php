@@ -104,16 +104,16 @@
 					{{ Form::token() }}
 
 						<div class="form-group">
-							{!! Form::label('COD_MATERIAL','Código:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('COD_MATERIAL','Código del material:',array('class' => 'control-label col-md-2')) !!}
 							<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-3">
-								{!! Form::text('COD_MATERIAL',null,['class' => 'form-control','placeholder' => 'Ingrese el código', 'maxlength="10"']) !!}
+								{!! Form::text('COD_MATERIAL',null,['class' => 'form-control','placeholder' => 'Ingrese el código del material', 'maxlength="10"']) !!}
 								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('option','Tipo:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('option','Tipo de material:',array('class' => 'control-label col-md-2')) !!}
 
 							<div class="col-md-3">
 
@@ -126,7 +126,7 @@
 								</select>
                              
 							</div>
-							<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('tiposMateriales.create') }}">Agregar Tipo</a>
+							<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('tiposMateriales.create') }}">Incorporar tipo</a>
 						</div>
 
 						<div class="form-group">

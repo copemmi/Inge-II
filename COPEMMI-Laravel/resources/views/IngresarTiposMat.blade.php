@@ -108,7 +108,7 @@
 							{!! Form::label('COD_TIPO_MATERIAL','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información --> 
 							<div class="col-md-3">
-								{!! Form::text('COD_TIPO_MATERIAL',null,['class' => 'form-control','placeholder' => 'Ingrese el código', 'maxlength="10"']) !!}
+								{!! Form::text('COD_TIPO_MATERIAL',null,['class' => 'form-control','placeholder' => 'Ingrese el código del tipo', 'maxlength="10"']) !!}
 								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
 							</div>
 						</div>
