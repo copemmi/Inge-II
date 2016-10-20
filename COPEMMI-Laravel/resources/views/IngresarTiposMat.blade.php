@@ -106,7 +106,7 @@
 
 						<div class="form-group">
 							{!! Form::label('COD_TIPO_MATERIAL','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
-							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información --> 
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información --> 
 							<div class="col-md-3">
 								{!! Form::text('COD_TIPO_MATERIAL',null,['class' => 'form-control','placeholder' => 'Ingrese un código']) !!}
 								<span class = "help-block"></span>  <!- Mensaje que sale en caso de datos incorrectos->
@@ -117,7 +117,7 @@
 
 						<div class="form-group">
 							{!! Form::label('NOMBRE','Nombre del tipo:',array('class' => 'control-label col-md-2')) !!}
-							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-5">
 								{!! Form::text('NOMBRE',null,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
 								<span class = "help-block"></span>
@@ -126,8 +126,9 @@
 
 						<div class="form-group">
 							{!! Form::label('DESCRIPCION','Descripción:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
-							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->	
+							<div class="col-md-8">
+							
 								{!! Form::textarea('DESCRIPCION',null,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
