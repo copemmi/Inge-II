@@ -107,7 +107,7 @@
 							{!! Form::label('COD_MATERIAL','Código:',array('class' => 'control-label col-md-2')) !!}
 							<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-3">
-								{!! Form::text('COD_MATERIAL',null,['class' => 'form-control','placeholder' => 'Ingrese el código', 'maxlength="10"']) !!}
+								{!! Form::text('COD_MATERIAL',null,['class' => 'form-control','placeholder', 'maxlength="10"' => 'Ingrese un código']) !!}
 								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
 							</div>
 						</div>
@@ -133,16 +133,16 @@
 							{!! Form::label('NOMBRE','Nombre del material:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-5">
-								{!! Form::text('NOMBRE',null,['class' => 'form-control','placeholder' => 'Ingrese el nombre del material'], 'maxlength="50"') !!}
+								{!! Form::text('NOMBRE',null,['class' => 'form-control','placeholder', 'maxlength="50"' => 'Ingrese un nombre']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('DESCRIPCION','Características:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('DESCRIPCION','Descripción:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>
 							<div class="col-md-8"><!-- Aquí sale el mensaje de ayuda e información -->
-								{!! Form::textarea('DESCRIPCION',null,['class' => 'form-control','placeholder' => 'Ingrese las características', 'maxlength="255"','size' => '10x4']) !!}
+								{!! Form::textarea('DESCRIPCION',null,['class' => 'form-control','placeholder', 'maxlength="255"' => 'Ingrese una descripcion','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 
@@ -152,7 +152,7 @@
 							{!! Form::label('CANTIDAD','Cantidad:',array('class' => 'control-label col-md-2')) !!}
 							<span class = "help-block"></span><a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 6 caracteres.</li><li>Sólo se deben ingresar números</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-3">
-								{!! Form::text('CANTIDAD',null,['class' => 'form-control','placeholder' => 'Ingrese la cantidad', 'maxlength="6"']) !!} 
+								{!! Form::text('CANTIDAD',null,['class' => 'form-control','placeholder', 'maxlength="6"' => 'Ingrese una cantidad']) !!} 
 							</div>
 						</div>
 
