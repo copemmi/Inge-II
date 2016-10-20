@@ -128,15 +128,15 @@
 						<div class="form-group">
 							{!! Form::label('NOMBRE','Nombre del material:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-5">
-								{!! Form::text('NOMBRE',$material->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese un nombre']) !!}
+								{!! Form::text('NOMBRE',$material->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese el nombre del material', 'maxlength="50"']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('DESCRIPCION','Descripción:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('DESCRIPCION','Características:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-10">
-								{!! Form::textarea('DESCRIPCION',$material->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese una descripcion','size' => '10x4']) !!}
+								{!! Form::textarea('DESCRIPCION',$material->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese las características', 'maxlength="255"','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -144,7 +144,7 @@
 						<div class="form-group">
 							{!! Form::label('CANTIDAD','Cantidad:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-3">
-								{!! Form::text('CANTIDAD',$material->CANTIDAD,['class' => 'form-control','placeholder' => 'Ingrese una cantidad']) !!}
+								{!! Form::text('CANTIDAD',$material->CANTIDAD,['class' => 'form-control','placeholder' => 'Ingrese la cantidad', 'maxlength="6"']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
