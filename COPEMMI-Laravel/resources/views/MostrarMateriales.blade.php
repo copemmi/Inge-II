@@ -99,7 +99,7 @@
 					{{ Form::token() }}
 
 						<div class="form-group">
-							{!! Form::label('CODIGO','Código:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('CODIGO','Código del material:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-3">
 								{!! Form::text('CODIGO',$material->COD_MATERIAL,['class' => 'form-control', 'readonly']) !!}
 								<span class = "help-block"></span>  <!- Mensaje que sale en caso de datos incorrectos->
@@ -107,7 +107,7 @@
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('option','Tipo:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('option','Tipo de material:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-3">
 								<select class="form-control" name="COD_TIPO_MATERIAL" id="option" disabled> 
 									@foreach($tipo_material as $tm)

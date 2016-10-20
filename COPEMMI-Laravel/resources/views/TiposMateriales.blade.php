@@ -104,7 +104,7 @@
 								<th>Código</th>
 								<th>Nombre del Tipo de Material</th>
 							
-								<th width="200">Descripción</th>
+								<th width="200">Características</th>
 								<th class="opciones" >Opciones</th>
 							</tr>
 						 </thead>

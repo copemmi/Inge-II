@@ -84,7 +84,7 @@
 
 
 				<div class="page-header">
-	  				<h1 class="text-center">Ingresar Tipo de Material</h1>
+	  				<h1 class="text-center">Incorporar Tipo de Material</h1>
 				</div>
 
 				<!-- MENSAJE DE ERROR, SI UN DATO ES ERRONEO -->
