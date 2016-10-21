@@ -100,6 +100,7 @@
 
 						<div class="form-group">
 							{!! Form::label('CODIGO','Código del material:',array('class' => 'control-label col-md-2')) !!}
+							<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-3">
 								{!! Form::text('CODIGO',$material->COD_MATERIAL,['class' => 'form-control', 'readonly']) !!}
 								<span class = "help-block"></span>  <!- Mensaje que sale en caso de datos incorrectos->
@@ -132,6 +133,7 @@
 
 						<div class="form-group">
 							{!! Form::label('NOMBRE','Nombre del material:',array('class' => 'control-label col-md-2')) !!}
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-5">
 								{!! Form::text('NOMBRE',$material->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese el nombre del material', 'maxlength="50"', 'readonly']) !!}
 								<span class = "help-block"></span>
@@ -140,6 +142,7 @@
 
 						<div class="form-group">
 							{!! Form::label('DESCRIPCION','Características:',array('class' => 'control-label col-md-2')) !!}
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>
 							<div class="col-md-10">
 								{!! Form::textarea('DESCRIPCION',$material->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese las características', 'maxlength="255"','size' => '10x4', 'readonly']) !!}
 								<span class = "help-block"></span>
@@ -148,6 +151,7 @@
 
 						<div class="form-group">
 							{!! Form::label('CANTIDAD','Cantidad:',array('class' => 'control-label col-md-2')) !!}
+							<span class = "help-block"></span><a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 6 números.</li><li>Sólo se deben ingresar números enteros.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-3">
 								{!! Form::text('CANTIDAD',$material->CANTIDAD,['class' => 'form-control','placeholder' => 'Ingrese la cantidad', 'maxlength="6"', 'readonly']) !!}
 								<span class = "help-block"></span>
@@ -208,10 +212,12 @@
 
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-    {!! Html::style('css/bootstrap.min.css') !!}
-	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    {!! Html::script('js/validacion.js') !!}	
-    {!! Html::script('js/main.js') !!}
+	<script src="js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	{!! Html::style('css/bootstrap.min.css') !!}
+	{!! Html::script('js/validacion.js') !!}
+	{{ Html::script('js/main.js') }}
 </html>
