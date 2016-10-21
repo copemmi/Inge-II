@@ -26,6 +26,13 @@ function validarCodigo(){
 		$("#COD_MATERIAL").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
+	else if(cant % 1 != 0){  //Validación que solo permita números enteros. 
+		$("#iconocant").remove();
+		$("#CANTIDAD").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CANTIDAD").parent().children("span").text("Sólo se debe ingresar números enteros.").show();
+		$("#CANTIDAD").parent().append("<span id=iconocant class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return true;
+	}
 	else{
 		$("#iconocodigo").remove();
 		$("#COD_MATERIAL").parent().parent().attr("class","form-group has-success has-feedback")
