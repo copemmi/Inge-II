@@ -49,7 +49,7 @@ class MaterialesController extends Controller
             $materiales=material::buscadorNombre(" ")->paginate(1);//si se le quita el paginate, no mostrara nada
       }
 
-        return View('Sistema')->with('materiales',$materiales);
+        return View('Materiales/Materiales')->with('materiales',$materiales);
     }
 
 
@@ -91,7 +91,7 @@ class MaterialesController extends Controller
     {
         $tipo_material = tipo_material::all();
 
-        return View('IngresarMateriales')->with('tipo_material',$tipo_material);
+        return View('Materiales/IngresarMateriales')->with('tipo_material',$tipo_material);
     }
 
     /**
@@ -128,7 +128,7 @@ class MaterialesController extends Controller
        $material = material::find($id);
         
         $tipo_material = tipo_material::all();
-        return View('MostrarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
+        return View('Materiales/MostrarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
         
     }
 
@@ -145,7 +145,7 @@ class MaterialesController extends Controller
         
         $tipo_material = tipo_material::all();
 
-        return View('ModificarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
+        return View('Materiales/ModificarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
     }
 
     /**

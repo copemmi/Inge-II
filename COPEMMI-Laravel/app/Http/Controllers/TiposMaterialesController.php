@@ -24,7 +24,7 @@ class TiposMaterialesController extends Controller
 
         $tipoMaterial = tipo_material::orderBy('NOMBRE','DESC')->paginate(10);
         
-        return View('TiposMateriales')->with('tipoMaterial',$tipoMaterial);
+        return View('Materiales/TiposMateriales')->with('tipoMaterial',$tipoMaterial);
     }
 
     /**
@@ -36,7 +36,7 @@ class TiposMaterialesController extends Controller
     {
         $tipo_material = tipo_material::all();
 
-        return View('IngresarTiposMat')->with('tipo_material',$tipo_material);
+        return View('Materiales/IngresarTiposMat')->with('tipo_material',$tipo_material);
     }
 
     /**
@@ -83,7 +83,7 @@ class TiposMaterialesController extends Controller
         $tipo = tipo_material::find($id);
      
 
-        return View('ModificarTiposMat')->with('tipoMaterial',$tipo);
+        return View('Materiales/ModificarTiposMat')->with('tipoMaterial',$tipo);
     }
 
     /**

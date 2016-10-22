@@ -125,8 +125,8 @@
 
 						<div class="form-group">
 							{!! Form::label('DESCRIPCION','Características:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-10">
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+							<div class="col-md-8">
 								{!! Form::textarea('DESCRIPCION',$tipoMaterial->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese las características', 'maxlength="255"','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
