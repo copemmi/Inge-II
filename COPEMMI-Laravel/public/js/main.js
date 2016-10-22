@@ -2,20 +2,23 @@
 /*Función para abrir y ocultar los submenús*/ 
 
 $(document).ready(function(){
-	$('.menu li:has(ul)').click(function(e){ //accede los elementos del submenú. 
-		e.preventDefault();
+	$('.menu li:has(ul)').click(function(e){ /*elementos li del menu que tengan ul o sea los que tengan submenu*/
+	/*cuando alguno fue clickeado se va a ejecutar toda la función con parámetro 3
+	que en este caso llama a e.preventDefault();*/
+		e.preventDefault(); /*para que no me redirija a otra página*/
 
-		if ($(this).hasClass('activado')){
-			$(this).removeClass('activado'); 
-			$('.menu li ul').slideUp(); //Para ocultar submenus.
-			$(this).children('ul').slideDown();
-		}
-		else {  
-			$('.menu li ul').slideUp(); //Para ocultar submenus. 
-			$(this).addClass('activado');
-			$(this).children('ul').slideDown();
-			
-		}
+
+		if($(this).hasClass('activado')){ /*si el elemento clickeado tiene clase activado*/
+		   $(this).removeClass('activado'); /*se le quita*/
+		   $(this).children('ul').slideUp(); /*el submenu ul se oculta*/
+
+	}else{ /*si el elemento clickeado no tiene la clase activado*/
+		$('.menu li ul').slideUp(); /*todos los submenus se ocultan*/
+		$('.menu li').removeClass('activado'); /*a todos los li se les quita la clase actiado para quitar el color*/
+		$(this).addClass('activado'); /*solo al que fue clickeado se le pone activado*/
+		$(this).children('ul').slideDown(); /*el elemento clickeado con hijos ul va a mostrar los mismos*/
+	}
+		
 	}); 
 
 /*Abrir y cerrar el menú vertical*/

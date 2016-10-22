@@ -30,7 +30,7 @@
 
 
 	             	<ul class="menu">			
-				        <li class="activado"><a href="#"><span class="icono izquierda fa fa-wrench"></span>Materiales<i class="icono derecha fa fa-chevron-down"></i></a>
+				        <li><a href="#"><span class="icono izquierda fa fa-wrench"></span>Materiales<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
 		                    	<li><a href="{{ route('materiales.create') }}" target="_self">Incorporar Material</a></li>
 		                    	<li><a href="{{ route('materiales.index') }}">Visualizar Materiales</a></li>
@@ -38,27 +38,27 @@
 		                    </ul>    
 	                    </li>
 
-						<li class="activado"><a href="#"><span class="icono izquierda fa fa-tablet"></span>Modelos de Máquinas<i class="icono derecha fa fa-chevron-down"></i></a>
+						<li><a href="#"><span class="icono izquierda fa fa-tablet"></span>Modelos de Máquinas<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
 				                <li><a href="#">Incorporar Modelos de Máquinas</a></li>
 				                <li><a href="#">Visualizar Modelo de Máquinas</a></li>
 			                </ul> 
 		                </li> 
 
-		                <li class="activado"><a href="#"><span class="icono izquierda fa fa-file-text"></span>Órdenes de Fabricación<i class="icono derecha fa fa-chevron-down"></i></a>
+		                <li><a href="#"><span class="icono izquierda fa fa-file-text"></span>Órdenes de Fabricación<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
 				            	<li><a href="#">Incorporar Órdenes de Fabricación</a></li>
 				                <li><a href="#">Visualizar Órdenes de Fabricación</a></li>
 			                </ul> 
 		                </li> 
 
-						<li class="activado"><a href="#"><span class="icono izquierda fa fa-paper-plane"></span>Órdenes de Pedidos<i class="icono derecha fa fa-chevron-down"></i></a>
+						<li><a href="#"><span class="icono izquierda fa fa-paper-plane"></span>Órdenes de Pedidos<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
 			                    <li><a href="#">Visualizar Órdenes de Pedidos</a></li>
 		                    </ul> 
 		                </li> 
 
-		                <li class="activado"><a href="#"><span class="icono izquierda fa fa-users"></span>Acerca de<i class="icono derecha fa fa-chevron-down"></i></a>
+		                <li><a href="#"><span class="icono izquierda fa fa-users"></span>Acerca de<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
 				            	<li><a href="#">Equipo Desarrollador</a></li>
 				                <li><a href="#">Equipo de Trabajo</a></li>
