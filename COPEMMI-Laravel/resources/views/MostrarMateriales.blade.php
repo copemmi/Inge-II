@@ -152,8 +152,8 @@
 						<div class="form-group">
 							{!! Form::label('CANTIDAD','Cantidad:',array('class' => 'control-label col-md-2')) !!}
 							<span class = "help-block"></span><a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 6 números.</li><li>Sólo se deben ingresar números enteros.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
-							<div class="col-md-3">
-								{!! Form::text('CANTIDAD',$material->CANTIDAD,['class' => 'form-control','placeholder' => 'Ingrese la cantidad', 'maxlength="6"', 'readonly']) !!}
+							<div class="col-md-2">
+								{!! Form::text('CANTIDAD',$material->CANTIDAD,['class' => 'form-control', 'maxlength="6"', 'readonly']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -161,7 +161,7 @@
 
 						<div class="form-group">
 							{!! Form::label('FECHAINGRESO','Fecha de Ingreso:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-3">
+							<div class="col-md-2">
 								{!! Form::text('FECHAINGRESO', $material->FECHA_INGRESO, ['class' => 'form-control', 'readonly']) !!}
 							</div>
 						</div>
