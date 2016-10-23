@@ -112,7 +112,7 @@ class MaterialesController extends Controller
 
         $material->save();
 
-        Flash("Se ha insertado el material: (".$material->nombre."), con el codigo: (".$material->cod_material.")",'success');
+        Flash("¡Se ha insertado el material: (".$material->nombre."), con el código: (".$material->cod_material.") exitosamente!",'success');
 
         return Redirect()->route('materiales.index');
     }
@@ -165,7 +165,7 @@ class MaterialesController extends Controller
 
         $material->update();
 
-        Flash("Se ha modificado el material exitosamente",'info');
+        Flash("¡Se ha modificado el material exitósamente!",'info');
 
         return Redirect()->route('materiales.show',$id);
 
@@ -181,7 +181,7 @@ class MaterialesController extends Controller
     {
         material::where('COD_MATERIAL',$id)->delete();
        
-        Flash('¡Se ha eliminado el Material con el codigo: ('.$id.') exitosamente!','danger');
+        Flash('¡Se ha eliminado el material con el código: ('.$id.') exitósamente!','danger');
 
         return Redirect()->route('materiales.index');
     }

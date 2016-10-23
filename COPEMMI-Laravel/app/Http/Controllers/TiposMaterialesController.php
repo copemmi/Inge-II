@@ -54,7 +54,7 @@ class TiposMaterialesController extends Controller
 
         $tipoMaterial->save();
 
-        Flash("Se ha insertado un nuevo tipo de material: (".$tipoMaterial->nombre."), con el código: (".$tipoMaterial->cod_tipo_material.")",'success');
+        Flash("¡Se ha insertado el tipo de material: (".$tipoMaterial->nombre."), con el código: (".$tipoMaterial->cod_tipo_material.") exitosamente!",'success');
 
         return Redirect()->route('tiposMateriales.index');
     }
@@ -104,7 +104,7 @@ class TiposMaterialesController extends Controller
 
         $tipoMaterial->update();
 
-        Flash("Se ha modificado el Tipo de material: (".$tipoMaterial->nombre.") exitosamente",'info');
+        Flash("¡Se ha modificado el tipo de material exitósamente!",'info');
 
         return Redirect()->route('tiposMateriales.show',$id);
 
@@ -120,7 +120,7 @@ class TiposMaterialesController extends Controller
     {
         tipo_material::where('COD_TIPO_MATERIAL',$id)->delete();
        
-        Flash('¡Se ha eliminado el Tipo de Material exitosamente!','danger');
+        Flash('¡Se ha eliminado el tipo de material con el código: ('.$id.') exitósamente!','danger');
 
         return Redirect()->route('tiposMateriales.index');
     }
