@@ -12,7 +12,7 @@
 						<li> <a href="#" class="bt-menu"><span class="icono derecha fa fa-bars"></span></a></li>
 						<li> <a class="lb-NOMCOP">COPEMMI: </a> </li>
 						<li> <a class="lb-COP"> Control de Pedidos de Materiales para Máquinas Industriales </a> </li>
-				  		<li> <a class="lb-US"> Leiman Sanchez </a></li>
+				  		<li> <a class="lb-US"> Leiman Sánchez </a></li>
 				  		<li> <a><i class="icono derecha fa fa-user"></i></a></li>
 				  		<li> <a href="#" class="bt-cerrar"> Cerrar Sesión</a></li>
 					</ul>
@@ -32,14 +32,14 @@
 		                    <ul>
 		                    	<li><a href="{{ route('materiales.create') }}" target="_self">Incorporar Material</a></li>
 		                    	<li><a href="{{ route('materiales.index') }}">Visualizar Materiales</a></li>
-		                    	<li><a href="{{ route('tiposMateriales.index') }}">Mantenimiento Tipos de Material</a></li>
+		                    	<li><a href="{{ route('tiposMateriales.index') }}">Mantenimiento de Tipos de Materiales</a></li>
 		                    </ul>    
 	                    </li>
 
 						<li><a href="#"><span class="icono izquierda fa fa-tablet"></span>Modelos de Máquinas<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
 				                <li><a href="#">Incorporar Modelos de Máquinas</a></li>
-				                <li><a href="#">Visualizar Modelo de Máquinas</a></li>
+				                <li><a href="#">Visualizar Modelos de Máquinas</a></li>
 			                </ul> 
 		                </li> 
 
@@ -130,7 +130,7 @@
 							{!! Form::label('NOMBRE','Nombre del material:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-5">
-								{!! Form::text('NOMBRE',$material->NOMBRE,['class' => 'form-control','placeholder' => 'Ingrese el nombre del material', 'maxlength="50"']) !!}
+								{!! Form::text('NOMBRE',$material->NOMBRE,['class' => 'form-control','placeholder' => 'Nombre del material', 'maxlength="50"']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>
@@ -140,7 +140,7 @@
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>
 							<!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-8">
-								{!! Form::textarea('DESCRIPCION',$material->DESCRIPCION,['class' => 'form-control','placeholder' => 'Ingrese las características', 'maxlength="255"','size' => '10x4']) !!}
+								{!! Form::textarea('DESCRIPCION',$material->DESCRIPCION,['class' => 'form-control','placeholder' => 'Características', 'maxlength="255"','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 						</div>

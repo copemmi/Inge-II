@@ -14,7 +14,7 @@ function validarCodigo(){
 
 		$("#iconocodigo").remove();
 		$("#COD_MATERIAL").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#COD_MATERIAL").parent().children("span").text("Debe ingresar algun caracter").show();
+		$("#COD_MATERIAL").parent().children("span").text("Debe ingresar algún caracter").show();
 		$("#COD_MATERIAL").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
@@ -22,7 +22,7 @@ function validarCodigo(){
 
 		$("#iconocodigo").remove();
 		$("#COD_MATERIAL").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#COD_MATERIAL").parent().children("span").text("Debe ser menor que 10 caracteres").show();
+		$("#COD_MATERIAL").parent().children("span").text("Solo se permite un máximo de 10 caracteres").show();
 		$("#COD_MATERIAL").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
@@ -42,21 +42,21 @@ function validarCodigo(){
 
 		$("#iconocant").remove();
 		$("#CANTIDAD").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#CANTIDAD").parent().children("span").text("Debe ingresar algun caracter").show();
+		$("#CANTIDAD").parent().children("span").text("Debe ingresar algún caracter").show();
 		$("#CANTIDAD").parent().append("<span id='iconocant' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
 	else if(isNaN(cant)){
 		$("#iconocant").remove();
 		$("#CANTIDAD").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#CANTIDAD").parent().children("span").text("Debe ingresar caracter numerico").show();
+		$("#CANTIDAD").parent().children("span").text("Debe ingresar algún número").show();
 		$("#CANTIDAD").parent().append("<span id=iconocant class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
 	else if(cant.length>6){
 		$("#iconocant").remove();
 		$("#CANTIDAD").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#CANTIDAD").parent().children("span").text("La cantidad debe ser menor a 6 numeros").show();
+		$("#CANTIDAD").parent().children("span").text("Solo se permite un máximo de 6 números").show();
 		$("#CANTIDAD").parent().append("<span id=iconocant class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
@@ -84,14 +84,14 @@ function validarCodigo(){
 
 		$("#icononom").remove();
 		$("#NOMBRE").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#NOMBRE").parent().children("span").text("Debe ingresar algun caracter").show();
+		$("#NOMBRE").parent().children("span").text("Debe ingresar algún caracter").show();
 		$("#NOMBRE").parent().append("<span id='icononom' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
 	else if(nom.length>50){
 		$("#icononom").remove();
 		$("#NOMBRE").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#NOMBRE").parent().children("span").text("El nombre debe ser menor a 50 caracteres").show();
+		$("#NOMBRE").parent().children("span").text("Solo se permite un máximo de 50 caracteres").show();
 		$("#NOMBRE").parent().append("<span id=icononom class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
@@ -111,14 +111,14 @@ function validarCodigo(){
 
 		$("#iconodescrip").remove();
 		$("#DESCRIPCION").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#DESCRIPCION").parent().children("span").text("Debe ingresar algun caracter").show();
+		$("#DESCRIPCION").parent().children("span").text("Debe ingresar algún caracter").show();
 		$("#DESCRIPCION").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
 	else if(descrip.length>255){
 		$("#iconodescrip").remove();
 		$("#DESCRIPCION").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#DESCRIPCION").parent().children("span").text("Debe ser menor a 255 caracteres").show();
+		$("#DESCRIPCION").parent().children("span").text("Solo se permite un máximo de 255 caracteres").show();
 		$("#DESCRIPCION").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 		}
