@@ -36,6 +36,10 @@ use Illuminate\Support\Facades\Input;
 		return view('Materiales/EquipoTrabajo');
 	});
 
+	Route::get('equipoDesarrollo',function(){
+		return view('Materiales/EquipoDesarrollo');
+	});
+
 /*Route::post('materiales/recibe',[
 		'uses' => 'MaterialesController@recibe',
 		'as' => 'materiales.recibe'
