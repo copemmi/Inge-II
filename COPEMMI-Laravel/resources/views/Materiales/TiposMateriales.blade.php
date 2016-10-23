@@ -103,9 +103,7 @@
 							<tr>
 								<th>Código</th>
 								<th>Nombre del Tipo de Material</th>
-							
-								<th width="200">Características</th>
-								<th class="opciones" >Opciones</th>
+								<th>-</th>
 							</tr>
 						 </thead>
 						@foreach($tipoMaterial as $tip)
@@ -113,21 +111,21 @@
 							<tr class="success">
 								<td>{{ $tip->COD_TIPO_MATERIAL}} </td>
 								<td>{{ $tip->NOMBRE}} </td>
-							    <td>{{ $tip->DESCRIPCION}} </td>
-								<td>
-									<a href="{{ route('tiposMateriales.destroy', $tip->COD_TIPO_MATERIAL) }}" title="Eliminar" onclick="return confirm('¿Seguro que desea eliminar este tipo de material?')" class="btn btn-danger"><img src="{{asset('imagenes/delete.png')}}" width=20;/></a>
-									<a href="{{ route('tiposMateriales.edit', $tip->COD_TIPO_MATERIAL) }}" title="Modificar" class="btn btn-warning"><img src="{{asset('imagenes/pencil.png')}}" width=20;/></a>
-								</td>
+							    <td> <label><input type="checkbox" id="opcion" class="checkbox" name="opcion" value={{ $tip->COD_TIPO_MATERIAL}} /></label></td>
 							</tr>
 							
 						@endforeach
 					</table>
-
-					<div class="text-center">
-					{!! $tipoMaterial->render() !!} <!-- Metodo para hacer la paginación en caso de haber muchos elementos-->
-					</div>
-
 				</div>
+			
+
+				<form action="" class="form-inline">
+						<div class="col-md-0 col-md-offset-4">
+							<a href="{{ route('tiposMateriales.edit', $tip->COD_TIPO_MATERIAL) }}" class="btn btn-warning disabled"> Modificar </a>
+							<a href="{{ route('tiposMateriales.destroy', $tip->COD_TIPO_MATERIAL) }}" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger disabled"> Eliminar </a>
+						</div>
+				</form>
+
 			</div>
 		</div>
 	</body>
@@ -140,4 +138,5 @@
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	{{ Html::script('js/main.js') }}
+	{{ Html::script('js/tipoMat.js') }}
 </html>

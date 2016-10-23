@@ -40,7 +40,6 @@ class tipoMaterialesRequest extends FormRequest
                 return [
                     'COD_TIPO_MATERIAL'=>'max:10|required|unique:tipos_materiales',
                     'NOMBRE' =>'max:50|required',
-                    'DESCRIPCION' =>'max:255|required',
                     
                 ];
             }
@@ -49,7 +48,6 @@ class tipoMaterialesRequest extends FormRequest
                 return [
                     'COD_TIPO_MATERIAL'=>'max:10|required',
                     'NOMBRE' =>'max:50|required',
-                    'DESCRIPCION' =>'max:255|required',
                 ];
             }
 

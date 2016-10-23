@@ -26,7 +26,7 @@ class tipo_material extends Model
      * @var array
      */
     protected $primaryKey= 'COD_TIPO_MATERIAL';
-    protected $fillable = ['NOMBRE', 'DESCRIPCION'];
+    protected $fillable = ['NOMBRE'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

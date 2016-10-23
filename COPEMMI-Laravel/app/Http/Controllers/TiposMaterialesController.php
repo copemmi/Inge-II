@@ -50,12 +50,11 @@ class TiposMaterialesController extends Controller
         $tipoMaterial=new tipo_material;
         $tipoMaterial->cod_tipo_material=$request->get('COD_TIPO_MATERIAL');
         $tipoMaterial->nombre=$request->get('NOMBRE');
-        $tipoMaterial->descripcion=$request->get('DESCRIPCION');
-  
+        
 
         $tipoMaterial->save();
 
-        Flash("Se ha insertado un nuevo tipo de material: (".$tipoMaterial->nombre."), con el codigo: (".$tipoMaterial->cod_tipo_material.")",'success');
+        Flash("Se ha insertado un nuevo tipo de material: (".$tipoMaterial->nombre."), con el código: (".$tipoMaterial->cod_tipo_material.")",'success');
 
         return Redirect()->route('tiposMateriales.index');
     }
@@ -99,7 +98,6 @@ class TiposMaterialesController extends Controller
         $tipoMaterial = tipo_material::find($id);
         $tipoMaterial->cod_tipo_material=$request->get('COD_TIPO_MATERIAL');
         $tipoMaterial->nombre=$request->get('NOMBRE');
-        $tipoMaterial->descripcion=$request->get('DESCRIPCION');
   
 
         $tipoMaterial->update();

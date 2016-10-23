@@ -20,6 +20,11 @@ body {
 	background: #E7EBF2; /*Color de fondo de pantalla*/
 }
 
+td {
+    text-align: center; /* center checkbox horizontally */
+    vertical-align: middle; /* center checkbox vertically */
+}
+
 
 /*---------------------------Menu----------------------------------------*/
 

@@ -4,7 +4,6 @@ function inicio(){
 $("span.help-block").hide();
 $("#COD_TIPO_MATERIAL").keyup(validarCodigo);
 $("#NOMBRE").keyup(validarNombre);
-$("#DESCRIPCION").keyup(validarDescripcion);
 }
 
 function validarCodigo(){
@@ -62,28 +61,4 @@ function validarCodigo(){
 	}}
 
 
-	function validarDescripcion(){
-	var descrip = document.getElementById("DESCRIPCION").value;
-
-	if(descrip == null || descrip.length == 0 || /^\s+$/.test(descrip)){
-
-		$("#iconodescrip").remove();
-		$("#DESCRIPCION").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#DESCRIPCION").parent().children("span").text("Debe ingresar algun caracter").show();
-		$("#DESCRIPCION").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-remove form-control-feedback'></span>");
-		return false;
-	}
-	else if(descrip.length>255){
-		$("#iconodescrip").remove();
-		$("#DESCRIPCION").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#DESCRIPCION").parent().children("span").text("Debe ser menor a 255 caracteres").show();
-		$("#DESCRIPCION").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-remove form-control-feedback'></span>");
-		return false;
-		}
-	else{
-		$("#iconodescrip").remove();
-		$("#DESCRIPCION").parent().parent().attr("class","form-group has-success has-feedback")
-	    $("#DESCRIPCION").parent().children("span").text("").hide();
-	    $("#DESCRIPCION").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-ok form-control-feedback'></span>");
-	    return true;
-	}}
+	

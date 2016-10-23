@@ -14,7 +14,7 @@
 						<li> <a href="#" class="bt-menu"><span class="icono derecha fa fa-bars"></span></a></li>
 						<li> <a class="lb-NOMCOP">COPEMMI: </a> </li>
 						<li> <a class="lb-COP"> Control de Pedidos de Materiales para Máquinas Industriales </a> </li>
-				  		<li> <a class="lb-US"> Leiman Sánchez </a></li>
+				  		<li> <a class="lb-US"> Leiman Sanchez </a></li>
 				  		<li> <a><i class="icono derecha fa fa-user"></i></a></li>
 				  		<li> <a href="#" class="bt-cerrar"> Cerrar Sesión</a></li>
 					</ul>
@@ -124,19 +124,8 @@
 							</div>
 						</div>
 
-						<div class="form-group">
-							{!! Form::label('DESCRIPCION','Características:',array('class' => 'control-label col-md-2')) !!}
-							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->	
-							<div class="col-md-8">
-							
-								{!! Form::textarea('DESCRIPCION',null,['class' => 'form-control','placeholder' => 'Características', 'maxlength="255"','size' => '10x4']) !!}
-								<span class = "help-block"></span>
-							</div>
-						</div>
 
-						
-
-
+	
 						<form action="" class="form-inline">
 							<div class="col-md-2 col-md-offset-2">
 								<button class="btn btn-success" input type="submit" id="Guardar" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>
@@ -161,6 +150,6 @@
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	{!! Html::style('css/bootstrap.min.css') !!}
-	{!! Html::script('js/validacion.js') !!}
+	{!! Html::script('js/validacionTipoMat.js') !!}
 	{{ Html::script('js/main.js') }}
 </html>
