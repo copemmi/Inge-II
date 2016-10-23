@@ -54,7 +54,7 @@ class TiposMaterialesController extends Controller
 
         $tipoMaterial->save();
 
-        Flash("¡Se ha insertado el tipo de material: (".$tipoMaterial->nombre."), con el código: (".$tipoMaterial->cod_tipo_material.") exitosamente!",'success');
+        Flash("¡Se ha insertado el tipo de material: (".$tipoMaterial->nombre."), con el código: (".$tipoMaterial->cod_tipo_material.") exitósamente!",'success');
 
         return Redirect()->route('tiposMateriales.index');
     }
