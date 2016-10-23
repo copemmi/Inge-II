@@ -124,6 +124,7 @@
 									@endforeach
 								</select>
 							</div>
+							<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('tiposMateriales.create') }}">Incorporar tipo</a>
 						</div>
 
 						<div class="form-group">
