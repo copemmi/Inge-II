@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>COPPEMMI</title>
+		<title>COPEMMI Información del Tipo de Material</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
 
@@ -67,76 +67,94 @@
 			</div>
         </div>
 
-<!--------------------------------------------------------------------TABLA EN EL CENTRO------------------------------------------------------>
+<!--------------------------------------------------------------------FORMULARIO EN EL CENTRO------------------------------------------------------>
+
 
 		<div id="center">
 			<div class="content">
 
 				<div class="main-image">
 					<div id="page-header">		
-			  			<a class="text-left"><img src="{{asset('imagenes/tek.PNG')}}";/></a>
+			  			<a class="text-left"><img src="{{ asset('imagenes/tek.PNG')}}";/></a>
 					</div>
 				</div>
 
-				<div class="table-responsive">
-					<div class="form-group">
-						
-						@if (session()->has('flash_notification.message'))
-						    <div class="alert alert-{{ session('flash_notification.level') }}">
-						        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				@if (session()->has('flash_notification.message'))
+    				<div class="alert alert-{{ session('flash_notification.level') }}">
+       					 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-						        {!! session('flash_notification.message') !!}
-						    </div>
-						@endif
+        				{!! session('flash_notification.message') !!}
+    				</div>
+				@endif
 
-        				<div class="col-sm-2 col-sm-offset-4">
-        					<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar tipo de material </a>
-        				</div>
 
-					</div>
+				<div class="page-header">
+	  				<h1 class="text-center">Información del Material</h1>
 				</div>
 
-				<br>
-				<div class="tabla-tipoMaterial">
-					<table class="table width=30 table-bordered table-hover table-condensed" >
-						<thead class="bg-primary">
-							<tr>
-								<th>Código</th>
-								<th>Nombre del Tipo de Material</th>
-								<th>-</th>
-							</tr>
-						 </thead>
-						@foreach($tipoMaterial as $tip)
-							
-							<tr class="success">
-								<td>{{ $tip->COD_TIPO_MATERIAL}} </td>
-								<td>{{ $tip->NOMBRE}} </td>
-							    <td> <label><input type="checkbox" id="opcion" class="checkbox" name="opcion" value={{ $tip->COD_TIPO_MATERIAL}} /></label></td>
-							</tr>
-							
-						@endforeach
-					</table>
-				</div>
-			
+	
+				<div class="container">
+					{!! Form::open(['class' => 'form-horizontal']) !!}
+					{{csrf_field()}}
+					{{ Form::token() }}
 
-				<form action="" class="form-inline">
-						<div class="col-md-0 col-md-offset-4">
-							<a href="{{ route('tiposMateriales.edit', $tip->COD_TIPO_MATERIAL) }}" class="btn btn-warning disabled"> Modificar </a>
-							<a href="{{ route('tiposMateriales.destroy', $tip->COD_TIPO_MATERIAL) }}" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger disabled"> Eliminar </a>
+						<div class="form-group">
+							{!! Form::label('COD_TIPO_MATERIAL','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
+							<div class="col-md-3">
+								{!! Form::text('COD_TIPO_MATERIAL',$tipoMaterial->COD_TIPO_MATERIAL,['class' => 'form-control', 'readonly']) !!}
+								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
+							</div>
 						</div>
-				</form>
 
+
+
+						<div class="form-group">
+							{!! Form::label('NOMBRE','Nombre del tipo:',array('class' => 'control-label col-md-2')) !!}
+							<div class="col-md-5">
+								{!! Form::text('NOMBRE',$tipoMaterial->NOMBRE,['class' => 'form-control','placeholder' => 'Nombre del tipo', 'maxlength="50"', 'readonly']) !!}
+								<span class = "help-block"></span>
+							</div>
+						</div>
+
+
+	<!----------------------------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->
+
+						<br>
+						<div class="form-group">
+							<div class"col-md-0 col-md-offset-0">
+								{!! Form::label('separador','___________________________________________________________________________________________________________________',array('class' => 'control-label col-md-0')) !!}
+							</div>
+						</div>
+
+						<form action="" class="form-inline" >				
+							
+							<div class="col-md-0 col-md-offset-1">
+
+								<a href="{{ route('tiposMateriales.edit', $tipoMaterial->COD_TIPO_MATERIAL) }}" title="Modificar material" class="btn btn-warning">Modificar Tipo de Material</a>
+
+								<a href="{{ route('tiposMateriales.destroy', $tipoMaterial->COD_TIPO_MATERIAL) }}" title="Eliminar material" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger">Eliminar Tipo de Material</a>
+								
+								<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar Tipo de Material </a>
+
+								<a href="{{ route('tiposMateriales.index') }}" class="btn btn-info">Lista de Tipos de Material</a>
+
+							</div>		
+
+						</form>
+					{!! Form::close() !!}
+				</div>
 			</div>
-		</div>
+		</div>	
 	</body>
 
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-    {!! Html::style('css/bootstrap.min.css') !!}
+	<script src="js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	{!! Html::style('css/bootstrap.min.css') !!}
+	{!! Html::script('js/validacion.js') !!}
 	{{ Html::script('js/main.js') }}
-	{{ Html::script('js/tipoMat.js') }}
 </html>

@@ -24,7 +24,7 @@ class TiposMaterialesController extends Controller
 
         $tipoMaterial = tipo_material::orderBy('NOMBRE','DESC')->paginate(10);
         
-        return View('Materiales/TiposMateriales')->with('tipoMaterial',$tipoMaterial);
+        return View('TiposMateriales/TiposMateriales')->with('tipoMaterial',$tipoMaterial);
     }
 
     /**
@@ -36,7 +36,7 @@ class TiposMaterialesController extends Controller
     {
         $tipo_material = tipo_material::all();
 
-        return View('Materiales/IngresarTiposMat')->with('tipo_material',$tipo_material);
+        return View('TiposMateriales/IngresarTiposMat')->with('tipo_material',$tipo_material);
     }
 
     /**
@@ -67,7 +67,9 @@ class TiposMaterialesController extends Controller
      */
     public function show($id)
     {
-        //
+     
+        $tipo_material = tipo_material::find($id);
+        return View('TiposMateriales/MostrarTiposMat')->with('tipoMaterial',$tipo_material);
     }
 
     /**
@@ -82,7 +84,7 @@ class TiposMaterialesController extends Controller
         $tipo = tipo_material::find($id);
      
 
-        return View('Materiales/ModificarTiposMat')->with('tipoMaterial',$tipo);
+        return View('TiposMateriales/ModificarTiposMat')->with('tipoMaterial',$tipo);
     }
 
     /**
@@ -104,7 +106,7 @@ class TiposMaterialesController extends Controller
 
         Flash("Se ha modificado el Tipo de material: (".$tipoMaterial->nombre.") exitosamente",'info');
 
-        return Redirect()->route('tiposMateriales.index');
+        return Redirect()->route('tiposMateriales.show',$id);
 
     }
 

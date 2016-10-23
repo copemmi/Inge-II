@@ -3,9 +3,7 @@
 	<head>
 		<title>COPPEMMI</title>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width-device-width, initial-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/fonts.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
 
 <!--------------------------------------------------------------------BARRA ARRIBA-------------------------------------------------------->
 		<div id="topmenu">
@@ -14,7 +12,7 @@
 						<li> <a href="#" class="bt-menu"><span class="icono derecha fa fa-bars"></span></a></li>
 						<li> <a class="lb-NOMCOP">COPEMMI: </a> </li>
 						<li> <a class="lb-COP"> Control de Pedidos de Materiales para Máquinas Industriales </a> </li>
-				  		<li> <a class="lb-US"> Leiman Sanchez </a></li>
+				  		<li> <a class="lb-US"> Leiman Sánchez </a></li>
 				  		<li> <a><i class="icono derecha fa fa-user"></i></a></li>
 				  		<li> <a href="#" class="bt-cerrar"> Cerrar Sesión</a></li>
 					</ul>
@@ -69,85 +67,74 @@
 			</div>
         </div>
 
-<!--------------------------------------------------------------------Formulario EN EL CENTRO------------------------------------------------------>
-
+<!--------------------------------------------------------------------TABLA EN EL CENTRO------------------------------------------------------>
 
 		<div id="center">
 			<div class="content">
 
 				<div class="main-image">
 					<div id="page-header">		
-			  			<a class="text-left"><img src="{{ asset('imagenes/tek.PNG')}}";/></a>
+			  			<a class="text-left"><img src="{{asset('imagenes/tek.PNG')}}";/></a>
 					</div>
 				</div>
 
+				<div class="table-responsive">
+					<div class="form-group">
+						
+						@if (session()->has('flash_notification.message'))
+						    <div class="alert alert-{{ session('flash_notification.level') }}">
+						        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-				<div class="page-header">
-	  				<h1 class="text-center">Modificar Tipo de Material</h1>
+						        {!! session('flash_notification.message') !!}
+						    </div>
+						@endif
+
+        				<div class="col-sm-2 col-sm-offset-4">
+        					<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar tipo de material </a>
+        				</div>
+
+					</div>
 				</div>
 
-				<!-- MENSAJE DE ERROR, SI UN DATO ES ERRONEO -->
-				@if (count($errors) > 0)
-    				<div class="alert alert-danger">
-	       				 <ul>
-				            @foreach ($errors->all() as $error)
-				                <li>{{ $error }}</li>
-				            @endforeach
-	        			</ul>
-    				</div>
-				@endif
-			<!-- FIN DE MSJ DE ERROR -->
-
-	
-				<div class="container">
-					{!! Form::open(['route' => ['tiposMateriales.update',$tipoMaterial],'method'=>'PUT','class' => 'form-horizontal']) !!}
-					{{csrf_field()}}
-					{{ Form::token() }}
-
-						<div class="form-group">
-							{!! Form::label('COD_TIPO_MATERIAL','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-3">
-								{!! Form::text('COD_TIPO_MATERIAL',$tipoMaterial->COD_TIPO_MATERIAL,['class' => 'form-control', 'readonly']) !!}
-								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
-							</div>
-						</div>
-
-
-
-						<div class="form-group">
-							{!! Form::label('NOMBRE','Nombre del tipo:',array('class' => 'control-label col-md-2')) !!}
-							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
-							<div class="col-md-5">
-								{!! Form::text('NOMBRE',$tipoMaterial->NOMBRE,['class' => 'form-control','placeholder' => 'Nombre del tipo', 'maxlength="50"']) !!}
-								<span class = "help-block"></span>
-							</div>
-						</div>
-
-
-						<form action="" class="form-inline">
-							<div class="col-md-2 col-md-offset-2">
-								<button class="btn btn-success" input type="submit" id="Guardar" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>
-							</div>
-
-							<div class="col-md-0 col-md-offset-0">
-								<a href="{{ route('tiposMateriales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
-							</div>
-						</form>
-
-					{!! Form::close() !!}
+				<br>
+				<div class="tabla-tipoMaterial">
+					<table class="table width=30 table-bordered table-hover table-condensed" >
+						<thead class="bg-primary">
+							<tr>
+								<th>Código</th>
+								<th>Nombre del Tipo de Material</th>
+							</tr>
+						 </thead>
+						@foreach($tipoMaterial as $tip)
+							
+							<tr class="success" data-href="{{ route('tiposMateriales.show', $tip->COD_TIPO_MATERIAL) }}">
+								<td>{{ $tip->COD_TIPO_MATERIAL}} </td>
+								<td>{{ $tip->NOMBRE}} </td>
+							    <!--<td> <label><input type="checkbox" id="opcion" class="checkbox" name="opcion" value={{ $tip->COD_TIPO_MATERIAL}} /></label></td>-->
+							</tr>
+							
+						@endforeach
+					</table>
 				</div>
+			
+
+				<!--<form action="" class="form-inline">
+						<div id="botonbarra"class="col-md-0 col-md-offset-4">
+							<a href="{{ route('tiposMateriales.edit', $tip->COD_TIPO_MATERIAL) }}" class="btn btn-warning"> Modificar </a>
+							<span class="opcion"><a href="{{ route('tiposMateriales.destroy', $tip->COD_TIPO_MATERIAL) }}" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger"> Eliminar </a></span>
+						</div>
+				</form>-->
+
 			</div>
-		</div>	
-
+		</div>
 	</body>
 
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     {!! Html::style('css/bootstrap.min.css') !!}
-	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    {!! Html::script('js/menuInsertar.js') !!}
-    {!! Html::script('js/validacionTipoMat.js') !!}	
-    {!! Html::script('js/main.js') !!}
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	{{ Html::script('js/main.js') }}
 </html>
