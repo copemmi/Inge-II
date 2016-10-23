@@ -30,6 +30,12 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'tiposMateriales.destroy'
 		]);
 
+//Rutas Equipo de Trabajo 
+
+	Route::get('equipoTrabajo',function(){
+		return view('Materiales/EquipoTrabajo');
+	});
+
 /*Route::post('materiales/recibe',[
 		'uses' => 'MaterialesController@recibe',
 		'as' => 'materiales.recibe'
