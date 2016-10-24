@@ -27,7 +27,7 @@ class tipo_modelo extends Model
      */
     protected $primaryKey= 'COD_TIPO_MODELO';
 
-    protected $fillable = ['NOMBRE', 'DESCRIPCION'];
+    protected $fillable = ['NOMBRE'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

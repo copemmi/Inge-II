@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2016 a las 01:41:54
+-- Tiempo de generación: 24-10-2016 a las 21:33:14
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -33,16 +33,6 @@ CREATE TABLE `det_modelos_maquinas` (
   `CANTIDAD` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `det_modelos_maquinas`
---
-
-INSERT INTO `det_modelos_maquinas` (`COD_DETALLE_MODELO`, `COD_MODELO`, `COD_MATERIAL`, `CANTIDAD`) VALUES
-(1, 'HORN123', 'TORN321', 15),
-(2, 'HORN123', 'LAM4X4', 3),
-(3, 'ELEVADOR45', 'LAM4X4', 2),
-(4, 'ELEVADOR45', 'TORN321', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -55,14 +45,6 @@ CREATE TABLE `det_ordenes_pedidos` (
   `COD_MATERIAL` varchar(10) DEFAULT NULL,
   `CANTIDAD` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `det_ordenes_pedidos`
---
-
-INSERT INTO `det_ordenes_pedidos` (`COD_DETALLE__PEDIDO`, `COD_ORDEN_PEDIDO`, `COD_MATERIAL`, `CANTIDAD`) VALUES
-(1, 1, 'TORN321', 89),
-(2, 1, 'LAM4X4', 15);
 
 -- --------------------------------------------------------
 
@@ -144,8 +126,19 @@ CREATE TABLE `materiales` (
 --
 
 INSERT INTO `materiales` (`COD_MATERIAL`, `COD_TIPO_MATERIAL`, `NOMBRE`, `DESCRIPCION`, `CANTIDAD`, `FECHA_INGRESO`) VALUES
-('LAM4X4', 'LAM', 'LAMINA GRANDE', 'LAMINA GRANDE 4X4 METROS', 5, '2016-11-06'),
-('TORN321', 'TORN', 'TORNILLO PEQUEÑO', 'TORNILLO PEQUEÑO DE 5 PULGADAS', 18, '2016-10-16');
+('a', 'CLAV', 'a', 'ab', 333, '2016-10-14'),
+('aaa', 'CLAV', 'a', 'a', 45, '2016-10-19'),
+('aaaaaa', 'CLAV', 'aaaa', 'a', 65, '2016-10-19'),
+('aaaaaaaa', 'CLAV', 'sdfsdf', 'sdfsdf', 23, '2016-10-14'),
+('asd', 'TORN', 'Tornillo 15', 'Tornillo de15cm', 67, '2017-01-31'),
+('fff', 'CLAV', 'fff', 'fff', 34, '2016-10-17'),
+('hjkjhk', 'LAM', 'prueba', 'prueba', 34, '2016-10-10'),
+('jhjkhjk', 'CLAV', 'hjkhjk', 'ninguna', 45, '2016-10-13'),
+('LAM-2m', 'LAM', 'Lamina de 2 metros', 'Lamina de acero de 2 metros de largo', 54, '2016-10-11'),
+('LamAlum', 'LAM', 'Lamina de Aluminio', 'Lamina de Aluminio necesaria para los hornos de pizza', 45, '2016-10-12'),
+('mal', 'LAM', 'mañ', 'mañ', 23, '2016-10-17'),
+('rrrrrr', 'LAM', 'rrrrrrrrr', 'werwer', 345, '2016-10-12'),
+('TR5', 'CLAV', 'TORNILLO 5cm', 'Tornillo punta fina de 5cm', 57, '2016-10-13');
 
 -- --------------------------------------------------------
 
@@ -241,18 +234,18 @@ INSERT INTO `roles` (`COD_ROL`, `NOMBRE`) VALUES
 
 CREATE TABLE `tipos_materiales` (
   `COD_TIPO_MATERIAL` varchar(10) NOT NULL DEFAULT '',
-  `NOMBRE` varchar(50) NOT NULL,
-  `DESCRIPCION` varchar(255) NOT NULL
+  `NOMBRE` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tipos_materiales`
 --
 
-INSERT INTO `tipos_materiales` (`COD_TIPO_MATERIAL`, `NOMBRE`, `DESCRIPCION`) VALUES
-('CLAV', 'CLAVOS', 'CLAVOS DE METAL GALVANIZADO'),
-('LAM', 'LÁMINA', 'LÁMINA GALVANIZADA DE 2X1.5'),
-('TORN', 'TORNILLOS', 'TORNILLOS DE HIERRO');
+INSERT INTO `tipos_materiales` (`COD_TIPO_MATERIAL`, `NOMBRE`) VALUES
+('CLAV', 'CLAVOS'),
+('LAM', 'LÁMINA'),
+('PLAS', 'PLASTICO'),
+('TORN', 'TORNILLOS');
 
 -- --------------------------------------------------------
 
@@ -262,18 +255,17 @@ INSERT INTO `tipos_materiales` (`COD_TIPO_MATERIAL`, `NOMBRE`, `DESCRIPCION`) VA
 
 CREATE TABLE `tipos_modelos` (
   `COD_TIPO_MODELO` varchar(10) NOT NULL DEFAULT '',
-  `NOMBRE` varchar(50) NOT NULL,
-  `DESCRIPCION` varchar(255) NOT NULL
+  `NOMBRE` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tipos_modelos`
 --
 
-INSERT INTO `tipos_modelos` (`COD_TIPO_MODELO`, `NOMBRE`, `DESCRIPCION`) VALUES
-('ELEV', 'ELEVADORES', 'ELEVADORES GALVANIZADOS'),
-('HORN', 'HORNOS PARA PIZZA', 'HORNOS PARA PIZZA MOTOR DOBLE'),
-('HORNPAN', 'HORNOS PARA PAN', 'HORNOS PARA PAN MOTOR SIMPLE');
+INSERT INTO `tipos_modelos` (`COD_TIPO_MODELO`, `NOMBRE`) VALUES
+('ELEV', 'ELEVADORES'),
+('HORN', 'HORNOS PARA PIZZA'),
+('HORNPAN', 'HORNOS PARA PAN');
 
 -- --------------------------------------------------------
 
@@ -401,12 +393,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `det_modelos_maquinas`
 --
 ALTER TABLE `det_modelos_maquinas`
-  MODIFY `COD_DETALLE_MODELO` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `COD_DETALLE_MODELO` int(6) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `det_ordenes_pedidos`
 --
 ALTER TABLE `det_ordenes_pedidos`
-  MODIFY `COD_DETALLE__PEDIDO` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `COD_DETALLE__PEDIDO` int(6) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `historiales_ordenes_fabriciones`
 --
