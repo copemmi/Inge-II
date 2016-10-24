@@ -38,7 +38,7 @@
 
 						<li><a href="#"><span class="icono izquierda fa fa-tablet"></span>Modelos de Máquinas<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
-				                <li><a href="#">Incorporar Modelos de Máquinas</a></li>
+				                <li><a href="{{ route('modelosMaquinas.create') }}">Incorporar Modelos de Máquinas</a></li>
 				                <li><a href="#">Visualizar Modelos de Máquinas</a></li>
 			                </ul> 
 		                </li> 

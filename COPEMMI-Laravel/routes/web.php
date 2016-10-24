@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Input;
 
 
 
+
 //Rutas Materiales
 	Route::resource('materiales','MaterialesController');
 	
@@ -30,10 +31,6 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'tiposMateriales.destroy'
 		]);
 
-
-	Route::get('equipoTrabajo','EquipoTrabajoController@index'); 
-	Route::get('equipoDesarrollo','EquipoDesarrolloController@index'); 
-
 //Rutas de Modelos de Máquinas
 	Route::resource('modelosMaquinas','ModelosMaquinasController');
 	
@@ -41,3 +38,9 @@ use Illuminate\Support\Facades\Input;
 		'uses' => 'ModelosMaquinasController@destroy',
 		'as' => 'modelosMaquinas.destroy'
 		]);
+
+
+
+// Rutas para el Acerca de
+	Route::get('equipoTrabajo','EquipoTrabajoController@index'); 
+	Route::get('equipoDesarrollo','EquipoDesarrolloController@index'); 
