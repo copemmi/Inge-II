@@ -33,7 +33,7 @@ class modelo_maquina extends Model
      */
     protected $primaryKey= 'COD_MODELO';
 
-    protected $fillable = ['COD_IMAGEN', 'COD_TIPO_MODELO', 'NOMBRE', 'DESCRIPCION', 'PRECIO'];
+    protected $fillable = ['COD_IMAGEN', 'COD_TIPO_MODELO', 'NOMBRE', 'CARACTERISTICAS', 'PRECIO'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
