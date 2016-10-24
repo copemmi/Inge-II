@@ -31,7 +31,6 @@ use Illuminate\Support\Facades\Input;
 		]);
 
 //Rutas Equipo de Trabajo 
-
 	/*Route::get('equipoTrabajo',function(){
 		return view('Materiales/EquipoTrabajo');
 	});
@@ -43,16 +42,10 @@ use Illuminate\Support\Facades\Input;
 	Route::get('equipoTrabajo','EquipoTrabajoController@index'); 
 	Route::get('equipoDesarrollo','EquipoDesarrolloController@index'); 
 
-/*Route::post('materiales/recibe',[
-		'uses' => 'MaterialesController@recibe',
-		'as' => 'materiales.recibe'
-		]);*/
-
-
-
-
-
-
+//Rutas de Modelos de Máquinas
+	Route::resource('modelosMaquinas','ModelosMaquinasController');
 	
-
-//
+	Route::get('modelosMaquinas/{id}/destroy',[
+		'uses' => 'ModelosMaquinasController@destroy',
+		'as' => 'modelosMaquinas.destroy'
+		]);
