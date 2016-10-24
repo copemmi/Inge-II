@@ -11,6 +11,6 @@ class EquipoTrabajoController extends Controller
 {
 	public function index()
 	{
-		return view('Materiales/EquipoTrabajo');
+		return view('EquipoTrabajo');
 	}
 }

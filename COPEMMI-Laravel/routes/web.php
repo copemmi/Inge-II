@@ -42,5 +42,15 @@ use Illuminate\Support\Facades\Input;
 
 
 // Rutas para el Acerca de
-	Route::get('equipoTrabajo','EquipoTrabajoController@index'); 
-	Route::get('equipoDesarrollo','EquipoDesarrolloController@index'); 
+
+	Route::get('equipoTrabajo',[
+		'uses' => 'EquipoTrabajoController@index',
+		'as' => 'equipoTrabajo.index'
+		]);
+
+	Route::get('equipoDesarrollo',[
+		'uses' => 'EquipoDesarrolloController@index',
+		'as' => 'equipoDesarrollo.index'
+		]);
+
+	
