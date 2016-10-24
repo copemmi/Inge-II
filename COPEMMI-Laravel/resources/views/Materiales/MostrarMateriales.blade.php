@@ -167,19 +167,32 @@
 						</div>
 
 
-<!----------------------------------------------------------BOTONES POR SI SE QUIERE MODIFICAR------------------------------------------------------------>
-	
-				<!--
-						<form action="" class="form-inline" >
-							<div class="col-md-2 col-md-offset-2">
-								<button class="btn btn-success" input type="submit" id="Guardar" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>
-							</div>
+<!---------------------------------------------------------------Mensaje de confirmacion para eliminar---------------------------------------------->
+							<div class="modal fade" id="ventana" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+ 								<div class="modal-dialog" role="document">
+ 									<div class="modal-content">
+ 										<div class="modal-header">
+ 											<button type="button" class="close" data-dismiss="modal">
+ 												<span aria-hidden="true">&times;</span>
+ 												<span class="sr-only">Cerrar</span>
+ 											</button>
+ 											<h4 class="modal-title" id="ModalLabel">Atención</h4>
+										</div>
 
-							<div class="col-md-0 col-md-offset-0">
-								<a href="{{ route('materiales.show', $material->COD_MATERIAL) }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
-							</div>
-						</form>
-				-->		
+ 										<div class="modal-body">
+ 											¿Esta seguro de eliminar este elemento? 
+ 										</div>
+ 
+ 										<div class="modal-footer">
+ 											<form> 
+ 												<a href="{{ route('materiales.destroy', $material->COD_MATERIAL) }}" class="btn btn-default">Aceptar</a>
+ 												<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+ 											</form>
+ 										</div>
+ 									</div>
+ 								</div>
+ 							</div>
+ 			
 
 	<!----------------------------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->					
 						<br>
@@ -195,7 +208,7 @@
 
 								<a href="{{ route('materiales.edit', $material->COD_MATERIAL) }}" title="Modificar material" class="btn btn-warning">Modificar Material</a>
 
-								<a href="{{ route('materiales.destroy', $material->COD_MATERIAL) }}" title="Eliminar material" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger">Eliminar Material</a>
+								<a href="#" title="Eliminar material" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Material</a>
 								
 								<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Material </a>
 

@@ -116,6 +116,32 @@
 							</div>
 						</div>
 
+<!---------------------------------------------------------------Mensaje de confirmacion para eliminar---------------------------------------------->
+						<div class="modal fade" id="ventana" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+ 							<div class="modal-dialog" role="document">
+ 								<div class="modal-content">
+ 									<div class="modal-header">
+ 										<button type="button" class="close" data-dismiss="modal">
+ 											<span aria-hidden="true">&times;</span>
+ 											<span class="sr-only">Cerrar</span>
+ 										</button>
+ 										<h4 class="modal-title" id="ModalLabel">Atención</h4>
+									</div>
+
+ 									<div class="modal-body">
+ 										¿Esta seguro de eliminar este elemento? 
+ 									</div>
+ 
+ 									<div class="modal-footer">
+ 										<form> 
+ 											<a href="{{ route('tiposMateriales.destroy', $tipoMaterial->COD_TIPO_MATERIAL) }}" class="btn btn-default">Aceptar</a>
+ 											<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+ 										</form>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</div>
+
 
 	<!----------------------------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->
 
@@ -132,7 +158,7 @@
 
 								<a href="{{ route('tiposMateriales.edit', $tipoMaterial->COD_TIPO_MATERIAL) }}" title="Modificar material" class="btn btn-warning">Modificar Tipo de Material</a>
 
-								<a href="{{ route('tiposMateriales.destroy', $tipoMaterial->COD_TIPO_MATERIAL) }}" title="Eliminar material" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger">Eliminar Tipo de Material</a>
+								<a href="#" title="Eliminar material" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Tipo de Material</a>
 								
 								<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar Tipo de Material </a>
 
