@@ -94,7 +94,7 @@
 
 				<div class="form-group">
 					<div class="col-md-8"> 
-						<h4>Egdar Sánchez Muñoz.<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span></h4>
+						<h4>Edgar Sánchez Muñoz.<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span></h4>
 						<h4>Gerente.<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-briefcase"></i></span></h4>
                     </div>
                 </div>
