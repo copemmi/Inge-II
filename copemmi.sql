@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2016 a las 21:33:14
+-- Tiempo de generación: 24-10-2016 a las 22:31:27
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -151,7 +151,7 @@ CREATE TABLE `modelos_maquinas` (
   `COD_IMAGEN` varchar(10) DEFAULT NULL,
   `COD_TIPO_MODELO` varchar(10) DEFAULT NULL,
   `NOMBRE` varchar(50) NOT NULL,
-  `DESCRIPCION` varchar(255) NOT NULL,
+  `CARACTERISTICAS` varchar(255) NOT NULL,
   `PRECIO` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -159,7 +159,7 @@ CREATE TABLE `modelos_maquinas` (
 -- Volcado de datos para la tabla `modelos_maquinas`
 --
 
-INSERT INTO `modelos_maquinas` (`COD_MODELO`, `COD_IMAGEN`, `COD_TIPO_MODELO`, `NOMBRE`, `DESCRIPCION`, `PRECIO`) VALUES
+INSERT INTO `modelos_maquinas` (`COD_MODELO`, `COD_IMAGEN`, `COD_TIPO_MODELO`, `NOMBRE`, `CARACTERISTICAS`, `PRECIO`) VALUES
 ('ELEVADOR45', 'IMAG_ELEV', 'ELEV', 'ELEVADOR DOBLE VÍA', 'ELEVADOR DOBLE VÍA GALVANIZADO', 50000000),
 ('HORN123', 'IMAG_HOR', 'HORN', 'HORNO PARA PAN', 'HORNO CON DOBLE TURBINA DE DIESEL', 12375400);
 
