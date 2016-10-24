@@ -58,8 +58,8 @@
 
 		                <li><a href="#"><span class="icono izquierda fa fa-users"></span>Acerca de<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
-				            	<li><a href="#">Equipo Desarrollador</a></li>
-				                <li><a href="#">Equipo de Trabajo</a></li>
+				            	<li><a href="{{ url('equipoDesarrollo') }}">Equipo Desarrollador</a></li>
+				                <li><a href="{{ url('equipoTrabajo') }}">Equipo de Trabajo</a></li>
 			                </ul> 
 		                </li>
 		            </ul>

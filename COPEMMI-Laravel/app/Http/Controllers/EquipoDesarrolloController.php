@@ -9,5 +9,8 @@ use App\Http\Controllers\Controller;
 
 class EquipoDesarrolloController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('Materiales/EquipoDesarrollo');
+    }
 }

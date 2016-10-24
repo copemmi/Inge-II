@@ -32,13 +32,16 @@ use Illuminate\Support\Facades\Input;
 
 //Rutas Equipo de Trabajo 
 
-	Route::get('equipoTrabajo',function(){
+	/*Route::get('equipoTrabajo',function(){
 		return view('Materiales/EquipoTrabajo');
 	});
 
 	Route::get('equipoDesarrollo',function(){
 		return view('Materiales/EquipoDesarrollo');
-	});
+	});*/ 
+
+	Route::get('equipoTrabajo','EquipoTrabajoController@index'); 
+	Route::get('equipoDesarrollo','EquipoDesarrolloController@index'); 
 
 /*Route::post('materiales/recibe',[
 		'uses' => 'MaterialesController@recibe',
