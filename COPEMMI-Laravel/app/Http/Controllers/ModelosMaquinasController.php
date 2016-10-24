@@ -34,9 +34,9 @@ class ModelosMaquinasController extends Controller
      */
     public function create()
     {
-        //enviarle los tipos por parametro
+        $tipo_modelo = tipo_modelo::all();
 
-        return View('ModelosMaquinas/IngresarModMaq');
+        return View('ModelosMaquinas/IngresarModMaq')->with('tipo_modelo',$tipo_modelo);
     }
 
     /**

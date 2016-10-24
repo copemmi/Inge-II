@@ -53,35 +53,6 @@ class MaterialesController extends Controller
     }
 
 
-   /* public function recibe(Request $request)
-    {
-   
-    $check=Input::has('codTipoMaterial');
-      $checkValue = Input::get('codTipoMaterial');
-      switch ($checkValue) 
-      {
-          case 'nombre':
-            
-              $materiales=material::buscadorNombre($request->buscar)->orderBy('NOMBRE','DESC')->paginate(10);
-              break;
-              case 'cod';
-              
-              $materiales=material::buscadorCodigo($request->buscar)->orderBy('COD_MATERIAL','DESC')->paginate(10);
-              break;
-
-              case 'tipo';
-             
-              $materiales=material::buscadorTipo($request->buscar)->orderBy('COD_TIPO_MATERIAL','DESC')->paginate(10);
-              break;    
-      }
-      
-      // $materiales=material::buscador($request->buscar)->orderBy($valor,'DESC')->paginate(10);
-        
-        return View('Sistema')->with('materiales',$materiales);
-
-    }*/
-
-
     /**
      * Show the form for creating a new resource.
      *

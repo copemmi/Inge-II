@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class imagen_modelo extends Model
 {
+
+    public $timestamps = false; 
+    public $incrementing = false;
     /**
      * The table associated with the model.
      * 
@@ -22,6 +25,8 @@ class imagen_modelo extends Model
     /**
      * @var array
      */
+    protected $primaryKey= 'COD_IMAGEN';
+
     protected $fillable = ['IMAGEN', 'FORMATO'];
 
     /**

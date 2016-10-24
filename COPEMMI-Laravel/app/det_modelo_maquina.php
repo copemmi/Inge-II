@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class det_modelo_maquina extends Model
 {
+
+    public $timestamps = false; 
+    public $incrementing = false;
     /**
      * The table associated with the model.
      * 
@@ -24,6 +27,9 @@ class det_modelo_maquina extends Model
     /**
      * @var array
      */
+
+    protected $primaryKey= 'COD_DETALLE_MODELO';
+
     protected $fillable = ['COD_MODELO', 'COD_MATERIAL', 'CANTIDAD'];
 
     /**

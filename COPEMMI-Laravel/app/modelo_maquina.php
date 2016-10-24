@@ -18,6 +18,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class modelo_maquina extends Model
 {
+
+    public $timestamps = false; 
+    public $incrementing = false;
     /**
      * The table associated with the model.
      * 
@@ -28,6 +31,8 @@ class modelo_maquina extends Model
     /**
      * @var array
      */
+    protected $primaryKey= 'COD_MODELO';
+
     protected $fillable = ['COD_IMAGEN', 'COD_TIPO_MODELO', 'NOMBRE', 'DESCRIPCION', 'PRECIO'];
 
     /**
