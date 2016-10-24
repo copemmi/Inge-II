@@ -139,10 +139,10 @@
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('DESCRIPCION','Características:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('CARACTERISTICAS','Características:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>
 							<div class="col-md-8"><!-- Aquí sale el mensaje de ayuda e información -->
-								{!! Form::textarea('DESCRIPCION',null,['class' => 'form-control','placeholder' => 'Características', 'maxlength="255"','size' => '10x4']) !!}
+								{!! Form::textarea('CARACTERISTICAS',null,['class' => 'form-control','placeholder' => 'Características', 'maxlength="255"','size' => '10x4']) !!}
 								<span class = "help-block"></span>
 							</div>
 

@@ -41,7 +41,7 @@ class materialesRequest extends FormRequest
                     'COD_MATERIAL'=>'max:10|required|unique:materiales',
                     'COD_TIPO_MATERIAL' =>'max:10|required',
                     'NOMBRE' =>'max:50|required',
-                    'DESCRIPCION' =>'max:255|required',
+                    'CARACTERISTICAS' =>'max:255|required',
                     'CANTIDAD' =>'max:999999|Numeric|Integer|required'
                 ];
             }
@@ -50,7 +50,7 @@ class materialesRequest extends FormRequest
                 return [
                     'COD_TIPO_MATERIAL' =>'max:10|required',
                     'NOMBRE' =>'max:50|required',
-                    'DESCRIPCION' =>'max:255|required',
+                    'CARACTERISTICAS' =>'max:255|required',
                     'CANTIDAD' =>'max:999999|Numeric|Integer|required'
                 ];
             }

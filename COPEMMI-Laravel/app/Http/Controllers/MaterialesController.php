@@ -77,7 +77,7 @@ class MaterialesController extends Controller
         $material->cod_material=$request->get('COD_MATERIAL');
         $material->cod_tipo_material=$request->get('COD_TIPO_MATERIAL');
         $material->nombre=$request->get('NOMBRE');
-        $material->descripcion=$request->get('DESCRIPCION');
+        $material->caracteristicas=$request->get('CARACTERISTICAS');
         $material->cantidad=$request->get('CANTIDAD');
         $material->fecha_ingreso=$request->get('FECHA_INGRESO');
 
