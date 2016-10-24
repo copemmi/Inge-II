@@ -180,7 +180,7 @@
 										</div>
 
  										<div class="modal-body">
- 											¿Esta seguro de eliminar este elemento? 
+ 											¿Está seguro de eliminar este material? 
  										</div>
  
  										<div class="modal-footer">

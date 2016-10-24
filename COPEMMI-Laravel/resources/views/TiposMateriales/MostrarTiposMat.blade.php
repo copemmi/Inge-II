@@ -129,7 +129,7 @@
 									</div>
 
  									<div class="modal-body">
- 										¿Esta seguro de eliminar este elemento? 
+ 										¿Esta seguro de eliminar este tipo de material? 
  									</div>
  
  									<div class="modal-footer">
