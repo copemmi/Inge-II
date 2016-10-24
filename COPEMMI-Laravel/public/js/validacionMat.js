@@ -5,7 +5,7 @@ $("span.help-block").hide();
 $("#COD_MATERIAL").keyup(validarCodigo);
 $("#CANTIDAD").keyup(validarCantidad);
 $("#NOMBRE").keyup(validarNombre);
-$("#DESCRIPCION").keyup(validarDescripcion);
+$("#CARACTERISTICAS").keyup(validarDescripcion);
 }
 
 function validarCodigo(){
@@ -105,27 +105,27 @@ function validarCodigo(){
 
 
 	function validarDescripcion(){
-	var descrip = document.getElementById("DESCRIPCION").value;
+	var descrip = document.getElementById("CARACTERISTICAS").value;
 
 	if(descrip == null || descrip.length == 0 || /^\s+$/.test(descrip)){
 
 		$("#iconodescrip").remove();
-		$("#DESCRIPCION").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#DESCRIPCION").parent().children("span").text("Debe ingresar algún caracter").show();
-		$("#DESCRIPCION").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		$("#CARACTERISTICAS").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CARACTERISTICAS").parent().children("span").text("Debe ingresar algún caracter").show();
+		$("#CARACTERISTICAS").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 	}
 	else if(descrip.length>255){
 		$("#iconodescrip").remove();
-		$("#DESCRIPCION").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#DESCRIPCION").parent().children("span").text("Solo se permite un máximo de 255 caracteres").show();
-		$("#DESCRIPCION").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		$("#CARACTERISTICAS").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CARACTERISTICAS").parent().children("span").text("Solo se permite un máximo de 255 caracteres").show();
+		$("#CARACTERISTICAS").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		return false;
 		}
 	else{
 		$("#iconodescrip").remove();
-		$("#DESCRIPCION").parent().parent().attr("class","form-group has-success has-feedback")
-	    $("#DESCRIPCION").parent().children("span").text("").hide();
-	    $("#DESCRIPCION").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+		$("#CARACTERISTICAS").parent().parent().attr("class","form-group has-success has-feedback")
+	    $("#CARACTERISTICAS").parent().children("span").text("").hide();
+	    $("#CARACTERISTICAS").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-ok form-control-feedback'></span>");
 	    return true;
 	}}

@@ -131,7 +131,7 @@ class MaterialesController extends Controller
         $material = material::find($id);
         $material->cod_tipo_material=$request->get('COD_TIPO_MATERIAL');
         $material->nombre=$request->get('NOMBRE');
-        $material->descripcion=$request->get('DESCRIPCION');
+        $material->caracteristicas=$request->get('CARACTERISTICAS');
         $material->cantidad=$request->get('CANTIDAD');
 
         $material->update();
