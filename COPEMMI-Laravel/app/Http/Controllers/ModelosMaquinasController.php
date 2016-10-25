@@ -11,6 +11,7 @@ use App\modelo_maquina;
 use App\tipo_modelo;
 use App\imagen_modelo;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\modelosMaquinasRequest;
 use Illuminate\Support\Facades\Input;
 
 class ModelosMaquinasController extends Controller
