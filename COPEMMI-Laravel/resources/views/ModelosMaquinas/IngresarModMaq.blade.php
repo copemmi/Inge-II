@@ -49,8 +49,8 @@
 
 							
 				<div class="col-md-6">
-				<input type="file" id="imagen">
-				<p class="help-block">Maximo 50mb </p>
+				<input type="file" id="imagen" style='width:70px; height:25px'>
+				<p class="help-block">Máximo 50mb </p>
 				</div>
 						</div>
 
