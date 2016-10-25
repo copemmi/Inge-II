@@ -89,4 +89,12 @@ class modelo_maquina extends Model
 
 
     }
+
+    public function scopeBuscadorPrecio($query,$dato)
+    {
+
+        return $query->where('PRECIO','LIKE',"%".$dato."%");
+
+
+    }
 }

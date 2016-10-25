@@ -48,6 +48,7 @@
 					            <label class="radio-inline">{{ Form::radio('codBusquedaMod', 'cod') }} Código</label>
 					            <label class="radio-inline">{{ Form::radio('codBusquedaMod', 'nombre',true) }} Nombre del Modelo</label>
 								<label class="radio-inline">{{ Form::radio('codBusquedaMod', 'tipo') }} Tipo de modelo</label>
+								<label class="radio-inline">{{ Form::radio('codBusquedaMod', 'precio') }} Precio</label>
     	                    </div>
         				{!!Form::close()!!}
 							

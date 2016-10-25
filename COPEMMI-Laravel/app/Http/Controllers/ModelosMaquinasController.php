@@ -47,6 +47,11 @@ class ModelosMaquinasController extends Controller
               $modelos=modelo_maquina::buscadorTipo($request->buscar)->orderBy('COD_TIPO_MODELO','DESC')->paginate(100);
               break; 
 
+          case 'precio':
+          $modelos=modelo_maquina::buscadorPrecio($request->buscar)->orderBy('PRECIO','DESC')->paginate(100);
+          break;
+
+
           default:      
             $modelos=modelo_maquina::buscadorNombre(" ")->paginate(1);//si se le quita el paginate, no mostrara nada
       }
