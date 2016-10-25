@@ -49,7 +49,7 @@
 
 							
 				<div class="col-md-6">
-				<input type="file" id="imagen"'>
+				<input type="file" id="imagen" size="15"'>
 				<p class="help-block">Máximo 50mb </p>
 				</div>
 						</div>
@@ -127,5 +127,5 @@
 
 
 @section('js')
-	<!--incluir el js para validar-->
+	{!! Html::script('js/validacionMod.js') !!}
 @stop
