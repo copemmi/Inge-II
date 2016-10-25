@@ -13,7 +13,7 @@
 
 
 				<div class="page-header">
-	  				<h1 class="text-center">Incorporar Modelo de Maquina</h1>
+	  				<h1 class="text-center">Incorporar Modelo de Máquina</h1>
 				</div>
 
 			<!-- MENSAJE DE ERROR, SI UN DATO ES ERRONEO -->
@@ -46,11 +46,12 @@
 
 						<div class="form-group">
 							{!! Form::label('COD_IMAGEN','Imagen:',array('class' => 'control-label col-md-2')) !!}
-							<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
-							<div class="col-md-3">
-								{!! Form::text('COD_IMAGEN',null,['class' => 'form-control','placeholder' => 'Imagen', 'maxlength="10"']) !!}
-								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
-							</div>
+
+							
+				<div class="col-md-6">
+				<input type="file" id="imagen">
+				<p class="help-block">Maximo 50mb </p>
+				</div>
 						</div>
 
 

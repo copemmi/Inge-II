@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>COPPEMI</title>
+		<title>COPEMMI</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
 
@@ -12,7 +12,7 @@
 						<li> <a href="#" class="bt-menu"><span class="icono derecha fa fa-bars"></span></a></li>
 						<li> <a class="lb-NOMCOP">COPEMMI: </a> </li>
 						<li> <a class="lb-COP"> Control de Pedidos de Materiales para Máquinas Industriales </a> </li>
-				  		<li> <a class="lb-US"> Leiman Sanchez </a></li>
+				  		<li> <a class="lb-US"> Leiman Sánchez </a></li>
 				  		<li> <a><i class="icono derecha fa fa-user"></i></a></li>
 				  		<li> <a href="#" class="bt-cerrar"> Cerrar Sesión</a></li>
 					</ul>
@@ -39,7 +39,8 @@
 						<li><a href="#"><span class="icono izquierda fa fa-tablet"></span>Modelos de Máquinas<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
 				                <li><a href="{{ route('modelosMaquinas.create') }}">Incorporar Modelos de Máquinas</a></li>
-				                <li><a href="{{ route('modelosMaquinas.index' ) }}">Visualizar Modelo de Máquinas</a></li>
+				                <li><a href="{{ route('modelosMaquinas.index' ) }}">Visualizar Modelos de Máquinas</a></li>
+				                <li><a href="{{ route('modelosMaquinas.index' ) }}">Mantenimiento de Tipos de Modelos de Máquinas</a></li> <!--cambiar ruta-->
 			                </ul> 
 		                </li> 
 
