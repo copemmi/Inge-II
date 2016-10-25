@@ -49,7 +49,7 @@
 
 							
 				<div class="col-md-6">
-				<input type="file" id="imagen" style='width:70px; height:25px'>
+				<input type="submit" id="imagen" style='width:70px; height:25px'>
 				<p class="help-block">Máximo 50mb </p>
 				</div>
 						</div>
