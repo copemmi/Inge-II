@@ -127,5 +127,5 @@
 
 
 @section('js')
-	{!! Html::script('js/validacionMod.js') !!}
+	{!! Html::script('js/validacionModMaq.js') !!}
 @stop
