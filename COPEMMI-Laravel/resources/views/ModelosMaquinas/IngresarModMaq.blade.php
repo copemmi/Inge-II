@@ -48,7 +48,7 @@
 							{!! Form::label('COD_IMAGEN','Imagen:',array('class' => 'control-label col-md-2')) !!}
 
 							
-				<div class="col-md-6">
+				<div class="col-md-8">
 				<input type="file" id="imagen">
 				<p class="help-block">Maximo 50mb </p>
 				</div>
