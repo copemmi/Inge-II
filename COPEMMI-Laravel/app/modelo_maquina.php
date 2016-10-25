@@ -66,4 +66,27 @@ class modelo_maquina extends Model
     {
         return $this->hasMany('App\orden_fabricacion', 'COD_MODELO', 'COD_MODELO');
     }
+
+     public function scopeBuscadorNombre($query,$dato)
+    {
+
+        return $query->where('NOMBRE','LIKE',$dato."%");
+
+
+    }
+    public function scopeBuscadorCodigo($query,$dato)
+    {
+
+        return $query->where('COD_MODELO','LIKE',$dato."%")
+        ;
+
+
+    }
+    public function scopeBuscadorTipo($query,$dato)
+    {
+
+        return $query->where('COD_TIPO_MODELO','LIKE',$dato."%");
+
+
+    }
 }

@@ -22,9 +22,37 @@ class ModelosMaquinasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request){ 
-    
+    public function index(Request $request)
+    { 
+    /*$modelos=modelo_maquina::orderBy('COD_MODELO','DESC')->paginate(100);
+      return view('ModelosMaquinas/ModelosMaquinas')->with('modelos',$modelos);*/
+     $check=Input::has('codBusquedaMod');
+      $checkValue = Input::get('codBusquedaMod');
+
+      switch ($checkValue)
+      {
       
+          case 'nombre':
+            
+              $modelos=modelo_maquina::buscadorNombre($request->buscar)->orderBy('NOMBRE','DESC')->paginate(100);
+              break;
+
+          case 'cod':
+              
+              $modelos=modelo_maquina::buscadorCodigo($request->buscar)->orderBy('COD_MODELO','DESC')->paginate(100);
+              break;
+
+          case 'tipo':
+             
+              $modelos=modelo_maquina::buscadorTipo($request->buscar)->orderBy('COD_TIPO_MODELO','DESC')->paginate(100);
+              break; 
+
+          default:      
+            $modelos=modelo_maquina::buscadorNombre(" ")->paginate(1);//si se le quita el paginate, no mostrara nada
+      }
+
+                 return view('ModelosMaquinas/ModelosMaquinas')->with('modelos',$modelos);
+
       }
 
     /**
@@ -58,7 +86,10 @@ class ModelosMaquinasController extends Controller
      */
     public function show($id)
     {
-      
+       $modelos = modelo_maquina::find($id);
+        
+        $tipo_modelo = tipo_modelo::all();
+        return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo);
     }
 
     /**
