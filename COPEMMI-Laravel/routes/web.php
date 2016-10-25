@@ -39,10 +39,15 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'modelosMaquinas.destroy'
 		]);
 
+//Rutas de Tipos de Modelos de Máquinas
+	Route::resource('tiposModelosMaquinas','TiposModMaqController');
 
+	Route::get('tiposModelosMaquinas/{id}/destroy',[
+		'uses' => 'TiposModMaqController@destroy',
+		'as' => 'tiposModelosMaquinas.destroy'
+		]);
 
 // Rutas para el Acerca de
-
 	Route::get('equipoTrabajo',[
 		'uses' => 'EquipoTrabajoController@index',
 		'as' => 'equipoTrabajo.index'
@@ -53,4 +58,3 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'equipoDesarrollo.index'
 		]);
 
-	
