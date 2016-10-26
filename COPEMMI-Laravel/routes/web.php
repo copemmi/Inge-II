@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Input;
 */
 
 
+// Rutas para el Acerca de
+	Route::get('equipoTrabajo',['as' => 'equipoTrabajo.index', function(){return View('EquipoTrabajo');}]);
+	Route::get('equipoDesarrollo',['as' => 'equipoDesarrollo.index', function(){return View('EquipoDesarrollo');}]);
 
 
 //Rutas Materiales
@@ -47,14 +50,6 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'tiposModelosMaquinas.destroy'
 		]);
 
-// Rutas para el Acerca de
-	Route::get('equipoTrabajo',[
-		'uses' => 'EquipoTrabajoController@index',
-		'as' => 'equipoTrabajo.index'
-		]);
 
-	Route::get('equipoDesarrollo',[
-		'uses' => 'EquipoDesarrolloController@index',
-		'as' => 'equipoDesarrollo.index'
-		]);
+	
 

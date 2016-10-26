@@ -46,12 +46,10 @@
 
 						<div class="form-group">
 							{!! Form::label('COD_IMAGEN','Imagen:',array('class' => 'control-label col-md-2')) !!}
-
-							
-				<div class="col-md-6">
-				<input type="file" id="imagen" size="35"'>
-				<p class="help-block">Máximo 50mb </p>
-				</div>
+							<div class="col-md-6">
+								<input type="file" id="imagen" size="35"'>
+								<p class="help-block">Máximo 2mb </p>
+							</div>
 						</div>
 
 
