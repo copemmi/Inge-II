@@ -65,4 +65,26 @@ class modelosMaquinasRequest extends FormRequest
         }
         
     }
+
+     // para personalizar el mensaje de error del campo y el tipo de error
+    /*public function messages()
+    {
+        return [
+            'COD_TIPO_MATERIAL.required'    => 'El código tipo de material es requerido llenarlo',
+        ];
+    }*/
+
+
+    //para cambiar el atributo que se muestra en los mensajes de error de laravel, ya que toma los nombres de los campos de la tabla
+    public function attributes()
+    {
+        return [
+            'COD_MODELO'=>'Código del modelo',
+            'COD_IMAGEN' =>'Imagen',
+            'COD_TIPO_MODELO' =>'Tipo de modelo',
+            'NOMBRE'=>'Nombre del modelo',
+            'CARACTERISTICAS' =>'Características',
+            'PRECIO' =>'Precio'
+        ];
+    }
 }

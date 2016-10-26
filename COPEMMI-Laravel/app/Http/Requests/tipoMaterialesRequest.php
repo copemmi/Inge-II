@@ -59,4 +59,22 @@ class tipoMaterialesRequest extends FormRequest
         }
         
     }
+
+    // para personalizar el mensaje de error del campo y el tipo de error
+    /*public function messages()
+    {
+        return [
+            'COD_TIPO_MATERIAL.required'    => 'El código tipo de material es requerido llenarlo',
+        ];
+    }*/
+
+
+    //para cambiar el atributo que se muestra en los mensajes de error de laravel, ya que toma los nombres de los campos de la tabla
+    public function attributes()
+    {
+        return [
+            'COD_TIPO_MATERIAL'=> 'Código del tipo',
+            'NOMBRE'=> 'Nombre del tipo',
+        ];
+    }
 }

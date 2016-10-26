@@ -26,7 +26,7 @@
 
 
 							
-					<!--BUSCADOR DE MATERIALES-->
+					<!--BUSCADOR DE MODELOS-->
 						
 						{!!Form::open(['route'=>'modelosMaquinas.index','method'=>'GET','class'=>'search-form','files'=>'true'])!!}
 						{{csrf_field()}}
@@ -54,7 +54,7 @@
 							
 					<!-- FIN DEL BUSCADOR -->
 
-<!-- TABLA DE MATERIALES -->
+		<!-- TABLA DE MODELOS -->
 				<br>
 				<div class="tabla-modelos">
 					<table class="table width=30 table-bordered table-hover table-condensed" >
@@ -74,8 +74,8 @@
 							<tr class="success" data-href="{{ route('modelosMaquinas.show', $mat->COD_MODELO) }}">
 							
 								<td>{{ $mat->COD_MODELO}} </td>
-									<td>{{ $mat->NOMBRE}} </td>
-									<td>{{ $mat->COD_TIPO_MODELO}}</td>
+								<td>{{ $mat->NOMBRE}} </td>
+								<td>{{ $mat->COD_TIPO_MODELO}}</td>
 								<td>{{ $mat->CARACTERISTICAS}} </td>	
 								<td>{{ $mat->PRECIO}} </td>	
 								<td>{{$mat->COD_IMAGEN}}							
@@ -86,13 +86,9 @@
 					<div class="text-center">
 						
 					</div>
-
 				</div>
+
 			</div>
 		</div>
-	</body>
-
-
-
 
 @stop

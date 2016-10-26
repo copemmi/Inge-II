@@ -9,5 +9,5 @@
 @stop
 
 @section('js')
-	<!--incluir el js para validar-->
+	{!! Html::script('js/validacionMod.js') !!}
 @stop
