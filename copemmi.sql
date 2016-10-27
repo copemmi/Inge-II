@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.0.10deb1
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2016 a las 22:31:27
--- Versión del servidor: 5.7.14
--- Versión de PHP: 5.6.25
+-- Host: localhost
+-- Generation Time: Oct 27, 2016 at 02:34 AM
+-- Server version: 5.5.50-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,51 +14,58 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `copemmi`
+-- Database: `copemmi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `det_modelos_maquinas`
+-- Table structure for table `det_modelos_maquinas`
 --
 
-CREATE TABLE `det_modelos_maquinas` (
-  `COD_DETALLE_MODELO` int(6) NOT NULL,
+CREATE TABLE IF NOT EXISTS `det_modelos_maquinas` (
+  `COD_DETALLE_MODELO` int(6) NOT NULL AUTO_INCREMENT,
   `COD_MODELO` varchar(10) DEFAULT NULL,
   `COD_MATERIAL` varchar(10) DEFAULT NULL,
-  `CANTIDAD` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `CANTIDAD` int(10) NOT NULL,
+  PRIMARY KEY (`COD_DETALLE_MODELO`),
+  KEY `COD_MODELO` (`COD_MODELO`),
+  KEY `COD_MATERIAL` (`COD_MATERIAL`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `det_ordenes_pedidos`
+-- Table structure for table `det_ordenes_pedidos`
 --
 
-CREATE TABLE `det_ordenes_pedidos` (
-  `COD_DETALLE__PEDIDO` int(6) NOT NULL,
+CREATE TABLE IF NOT EXISTS `det_ordenes_pedidos` (
+  `COD_DETALLE__PEDIDO` int(6) NOT NULL AUTO_INCREMENT,
   `COD_ORDEN_PEDIDO` int(10) DEFAULT NULL,
   `COD_MATERIAL` varchar(10) DEFAULT NULL,
-  `CANTIDAD` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `CANTIDAD` int(10) NOT NULL,
+  PRIMARY KEY (`COD_DETALLE__PEDIDO`),
+  KEY `COD_ORDEN_PEDIDO` (`COD_ORDEN_PEDIDO`),
+  KEY `COD_MATERIAL` (`COD_MATERIAL`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estados_ordenes`
+-- Table structure for table `estados_ordenes`
 --
 
-CREATE TABLE `estados_ordenes` (
+CREATE TABLE IF NOT EXISTS `estados_ordenes` (
   `COD_ESTADO` varchar(10) NOT NULL DEFAULT '',
-  `NOMBRE` varchar(50) NOT NULL
+  `NOMBRE` varchar(50) NOT NULL,
+  PRIMARY KEY (`COD_ESTADO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `estados_ordenes`
+-- Dumping data for table `estados_ordenes`
 --
 
 INSERT INTO `estados_ordenes` (`COD_ESTADO`, `NOMBRE`) VALUES
@@ -69,16 +76,18 @@ INSERT INTO `estados_ordenes` (`COD_ESTADO`, `NOMBRE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `historiales_ordenes_fabriciones`
+-- Table structure for table `historiales_ordenes_fabriciones`
 --
 
-CREATE TABLE `historiales_ordenes_fabriciones` (
-  `COD_HISTORIAL` int(10) NOT NULL,
-  `COD_ORDEN_FABRICACION` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `historiales_ordenes_fabriciones` (
+  `COD_HISTORIAL` int(10) NOT NULL AUTO_INCREMENT,
+  `COD_ORDEN_FABRICACION` int(10) DEFAULT NULL,
+  PRIMARY KEY (`COD_HISTORIAL`),
+  KEY `COD_ORDEN_FABRICACION` (`COD_ORDEN_FABRICACION`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `historiales_ordenes_fabriciones`
+-- Dumping data for table `historiales_ordenes_fabriciones`
 --
 
 INSERT INTO `historiales_ordenes_fabriciones` (`COD_HISTORIAL`, `COD_ORDEN_FABRICACION`) VALUES
@@ -88,17 +97,18 @@ INSERT INTO `historiales_ordenes_fabriciones` (`COD_HISTORIAL`, `COD_ORDEN_FABRI
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `imagenes_modelos`
+-- Table structure for table `imagenes_modelos`
 --
 
-CREATE TABLE `imagenes_modelos` (
+CREATE TABLE IF NOT EXISTS `imagenes_modelos` (
   `COD_IMAGEN` varchar(10) NOT NULL DEFAULT '',
   `IMAGEN` longblob NOT NULL,
-  `FORMATO` varchar(50) NOT NULL
+  `FORMATO` varchar(50) NOT NULL,
+  PRIMARY KEY (`COD_IMAGEN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `imagenes_modelos`
+-- Dumping data for table `imagenes_modelos`
 --
 
 INSERT INTO `imagenes_modelos` (`COD_IMAGEN`, `IMAGEN`, `FORMATO`) VALUES
@@ -109,30 +119,34 @@ INSERT INTO `imagenes_modelos` (`COD_IMAGEN`, `IMAGEN`, `FORMATO`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `materiales`
+-- Table structure for table `materiales`
 --
 
-CREATE TABLE `materiales` (
+CREATE TABLE IF NOT EXISTS `materiales` (
   `COD_MATERIAL` varchar(10) NOT NULL DEFAULT '',
   `COD_TIPO_MATERIAL` varchar(10) DEFAULT NULL,
   `NOMBRE` varchar(50) NOT NULL,
-  `DESCRIPCION` varchar(255) NOT NULL,
+  `CARACTERISTICAS` varchar(255) NOT NULL,
   `CANTIDAD` int(6) NOT NULL,
-  `FECHA_INGRESO` date NOT NULL
+  `FECHA_INGRESO` date NOT NULL,
+  PRIMARY KEY (`COD_MATERIAL`),
+  KEY `COD_TIPO_MATERIAL` (`COD_TIPO_MATERIAL`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `materiales`
+-- Dumping data for table `materiales`
 --
 
-INSERT INTO `materiales` (`COD_MATERIAL`, `COD_TIPO_MATERIAL`, `NOMBRE`, `DESCRIPCION`, `CANTIDAD`, `FECHA_INGRESO`) VALUES
+INSERT INTO `materiales` (`COD_MATERIAL`, `COD_TIPO_MATERIAL`, `NOMBRE`, `CARACTERISTICAS`, `CANTIDAD`, `FECHA_INGRESO`) VALUES
 ('a', 'CLAV', 'a', 'ab', 333, '2016-10-14'),
 ('aaa', 'CLAV', 'a', 'a', 45, '2016-10-19'),
 ('aaaaaa', 'CLAV', 'aaaa', 'a', 65, '2016-10-19'),
 ('aaaaaaaa', 'CLAV', 'sdfsdf', 'sdfsdf', 23, '2016-10-14'),
 ('asd', 'TORN', 'Tornillo 15', 'Tornillo de15cm', 67, '2017-01-31'),
+('ed', 'LAM', 'de', 'edee', 3, '2016-10-27'),
 ('fff', 'CLAV', 'fff', 'fff', 34, '2016-10-17'),
 ('hjkjhk', 'LAM', 'prueba', 'prueba', 34, '2016-10-10'),
+('i9', 'PLAS', 'Birra', 'dededed', 2, '2016-10-27'),
 ('jhjkhjk', 'CLAV', 'hjkhjk', 'ninguna', 45, '2016-10-13'),
 ('LAM-2m', 'LAM', 'Lamina de 2 metros', 'Lamina de acero de 2 metros de largo', 54, '2016-10-11'),
 ('LamAlum', 'LAM', 'Lamina de Aluminio', 'Lamina de Aluminio necesaria para los hornos de pizza', 45, '2016-10-12'),
@@ -143,20 +157,23 @@ INSERT INTO `materiales` (`COD_MATERIAL`, `COD_TIPO_MATERIAL`, `NOMBRE`, `DESCRI
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `modelos_maquinas`
+-- Table structure for table `modelos_maquinas`
 --
 
-CREATE TABLE `modelos_maquinas` (
+CREATE TABLE IF NOT EXISTS `modelos_maquinas` (
   `COD_MODELO` varchar(10) NOT NULL DEFAULT '',
   `COD_IMAGEN` varchar(10) DEFAULT NULL,
   `COD_TIPO_MODELO` varchar(10) DEFAULT NULL,
   `NOMBRE` varchar(50) NOT NULL,
   `CARACTERISTICAS` varchar(255) NOT NULL,
-  `PRECIO` float NOT NULL
+  `PRECIO` float NOT NULL,
+  PRIMARY KEY (`COD_MODELO`),
+  KEY `COD_IMAGEN` (`COD_IMAGEN`),
+  KEY `COD_TIPO_MODELO` (`COD_TIPO_MODELO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `modelos_maquinas`
+-- Dumping data for table `modelos_maquinas`
 --
 
 INSERT INTO `modelos_maquinas` (`COD_MODELO`, `COD_IMAGEN`, `COD_TIPO_MODELO`, `NOMBRE`, `CARACTERISTICAS`, `PRECIO`) VALUES
@@ -166,22 +183,26 @@ INSERT INTO `modelos_maquinas` (`COD_MODELO`, `COD_IMAGEN`, `COD_TIPO_MODELO`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ordenes_fabricaciones`
+-- Table structure for table `ordenes_fabricaciones`
 --
 
-CREATE TABLE `ordenes_fabricaciones` (
-  `COD_ORDEN_FABRICACION` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `ordenes_fabricaciones` (
+  `COD_ORDEN_FABRICACION` int(10) NOT NULL AUTO_INCREMENT,
   `COD_ESTADO` varchar(10) DEFAULT NULL,
   `COD_MODELO` varchar(10) DEFAULT NULL,
   `COD_USUARIO` varchar(10) DEFAULT NULL,
   `NOMBRE_CLIENTE` varchar(50) NOT NULL,
   `CEDULA_CLIENTE` varchar(11) NOT NULL,
   `FECHA_LLEGADA` date NOT NULL,
-  `FECHA_ENTREGA` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `FECHA_ENTREGA` date NOT NULL,
+  PRIMARY KEY (`COD_ORDEN_FABRICACION`),
+  KEY `COD_ESTADO` (`COD_ESTADO`),
+  KEY `COD_MODELO` (`COD_MODELO`),
+  KEY `COD_USUARIO` (`COD_USUARIO`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `ordenes_fabricaciones`
+-- Dumping data for table `ordenes_fabricaciones`
 --
 
 INSERT INTO `ordenes_fabricaciones` (`COD_ORDEN_FABRICACION`, `COD_ESTADO`, `COD_MODELO`, `COD_USUARIO`, `NOMBRE_CLIENTE`, `CEDULA_CLIENTE`, `FECHA_LLEGADA`, `FECHA_ENTREGA`) VALUES
@@ -191,16 +212,17 @@ INSERT INTO `ordenes_fabricaciones` (`COD_ORDEN_FABRICACION`, `COD_ESTADO`, `COD
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ordenes_pedidos`
+-- Table structure for table `ordenes_pedidos`
 --
 
-CREATE TABLE `ordenes_pedidos` (
-  `COD_ORDEN_PEDIDO` int(10) NOT NULL,
-  `FECHA_PEDIDO` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `ordenes_pedidos` (
+  `COD_ORDEN_PEDIDO` int(10) NOT NULL AUTO_INCREMENT,
+  `FECHA_PEDIDO` date NOT NULL,
+  PRIMARY KEY (`COD_ORDEN_PEDIDO`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `ordenes_pedidos`
+-- Dumping data for table `ordenes_pedidos`
 --
 
 INSERT INTO `ordenes_pedidos` (`COD_ORDEN_PEDIDO`, `FECHA_PEDIDO`) VALUES
@@ -210,16 +232,17 @@ INSERT INTO `ordenes_pedidos` (`COD_ORDEN_PEDIDO`, `FECHA_PEDIDO`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Table structure for table `roles`
 --
 
-CREATE TABLE `roles` (
+CREATE TABLE IF NOT EXISTS `roles` (
   `COD_ROL` varchar(10) NOT NULL DEFAULT '',
-  `NOMBRE` varchar(50) NOT NULL
+  `NOMBRE` varchar(50) NOT NULL,
+  PRIMARY KEY (`COD_ROL`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`COD_ROL`, `NOMBRE`) VALUES
@@ -229,37 +252,40 @@ INSERT INTO `roles` (`COD_ROL`, `NOMBRE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipos_materiales`
+-- Table structure for table `tipos_materiales`
 --
 
-CREATE TABLE `tipos_materiales` (
+CREATE TABLE IF NOT EXISTS `tipos_materiales` (
   `COD_TIPO_MATERIAL` varchar(10) NOT NULL DEFAULT '',
-  `NOMBRE` varchar(50) NOT NULL
+  `NOMBRE` varchar(50) NOT NULL,
+  PRIMARY KEY (`COD_TIPO_MATERIAL`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tipos_materiales`
+-- Dumping data for table `tipos_materiales`
 --
 
 INSERT INTO `tipos_materiales` (`COD_TIPO_MATERIAL`, `NOMBRE`) VALUES
 ('CLAV', 'CLAVOS'),
 ('LAM', 'LÁMINA'),
+('MADE', 'MADERA'),
 ('PLAS', 'PLASTICO'),
 ('TORN', 'TORNILLOS');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipos_modelos`
+-- Table structure for table `tipos_modelos`
 --
 
-CREATE TABLE `tipos_modelos` (
+CREATE TABLE IF NOT EXISTS `tipos_modelos` (
   `COD_TIPO_MODELO` varchar(10) NOT NULL DEFAULT '',
-  `NOMBRE` varchar(50) NOT NULL
+  `NOMBRE` varchar(50) NOT NULL,
+  PRIMARY KEY (`COD_TIPO_MODELO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tipos_modelos`
+-- Dumping data for table `tipos_modelos`
 --
 
 INSERT INTO `tipos_modelos` (`COD_TIPO_MODELO`, `NOMBRE`) VALUES
@@ -270,21 +296,23 @@ INSERT INTO `tipos_modelos` (`COD_TIPO_MODELO`, `NOMBRE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE IF NOT EXISTS `usuarios` (
   `COD_USUARIO` varchar(10) NOT NULL DEFAULT '',
   `COD_ROL` varchar(10) DEFAULT NULL,
   `NOMBRE` varchar(50) NOT NULL,
   `APELLIDO` varchar(50) NOT NULL,
   `NICKNAME` varchar(25) NOT NULL,
   `CLAVE` varchar(50) NOT NULL,
-  `CLAVEX` longtext NOT NULL
+  `CLAVEX` longtext NOT NULL,
+  PRIMARY KEY (`COD_USUARIO`),
+  KEY `COD_ROL` (`COD_ROL`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`COD_USUARIO`, `COD_ROL`, `NOMBRE`, `APELLIDO`, `NICKNAME`, `CLAVE`, `CLAVEX`) VALUES
@@ -292,167 +320,44 @@ INSERT INTO `usuarios` (`COD_USUARIO`, `COD_ROL`, `NOMBRE`, `APELLIDO`, `NICKNAM
 ('LEI78', 'GER', 'LEIMAN', 'SÁNCHEZ', 'LEIS1800', 'LEI12345', 'LEI12345');
 
 --
--- Índices para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Indices de la tabla `det_modelos_maquinas`
---
-ALTER TABLE `det_modelos_maquinas`
-  ADD PRIMARY KEY (`COD_DETALLE_MODELO`),
-  ADD KEY `COD_MODELO` (`COD_MODELO`),
-  ADD KEY `COD_MATERIAL` (`COD_MATERIAL`);
-
---
--- Indices de la tabla `det_ordenes_pedidos`
---
-ALTER TABLE `det_ordenes_pedidos`
-  ADD PRIMARY KEY (`COD_DETALLE__PEDIDO`),
-  ADD KEY `COD_ORDEN_PEDIDO` (`COD_ORDEN_PEDIDO`),
-  ADD KEY `COD_MATERIAL` (`COD_MATERIAL`);
-
---
--- Indices de la tabla `estados_ordenes`
---
-ALTER TABLE `estados_ordenes`
-  ADD PRIMARY KEY (`COD_ESTADO`);
-
---
--- Indices de la tabla `historiales_ordenes_fabriciones`
---
-ALTER TABLE `historiales_ordenes_fabriciones`
-  ADD PRIMARY KEY (`COD_HISTORIAL`),
-  ADD KEY `COD_ORDEN_FABRICACION` (`COD_ORDEN_FABRICACION`);
-
---
--- Indices de la tabla `imagenes_modelos`
---
-ALTER TABLE `imagenes_modelos`
-  ADD PRIMARY KEY (`COD_IMAGEN`);
-
---
--- Indices de la tabla `materiales`
---
-ALTER TABLE `materiales`
-  ADD PRIMARY KEY (`COD_MATERIAL`),
-  ADD KEY `COD_TIPO_MATERIAL` (`COD_TIPO_MATERIAL`);
-
---
--- Indices de la tabla `modelos_maquinas`
---
-ALTER TABLE `modelos_maquinas`
-  ADD PRIMARY KEY (`COD_MODELO`),
-  ADD KEY `COD_IMAGEN` (`COD_IMAGEN`),
-  ADD KEY `COD_TIPO_MODELO` (`COD_TIPO_MODELO`);
-
---
--- Indices de la tabla `ordenes_fabricaciones`
---
-ALTER TABLE `ordenes_fabricaciones`
-  ADD PRIMARY KEY (`COD_ORDEN_FABRICACION`),
-  ADD KEY `COD_ESTADO` (`COD_ESTADO`),
-  ADD KEY `COD_MODELO` (`COD_MODELO`),
-  ADD KEY `COD_USUARIO` (`COD_USUARIO`);
-
---
--- Indices de la tabla `ordenes_pedidos`
---
-ALTER TABLE `ordenes_pedidos`
-  ADD PRIMARY KEY (`COD_ORDEN_PEDIDO`);
-
---
--- Indices de la tabla `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`COD_ROL`);
-
---
--- Indices de la tabla `tipos_materiales`
---
-ALTER TABLE `tipos_materiales`
-  ADD PRIMARY KEY (`COD_TIPO_MATERIAL`);
-
---
--- Indices de la tabla `tipos_modelos`
---
-ALTER TABLE `tipos_modelos`
-  ADD PRIMARY KEY (`COD_TIPO_MODELO`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`COD_USUARIO`),
-  ADD KEY `COD_ROL` (`COD_ROL`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `det_modelos_maquinas`
---
-ALTER TABLE `det_modelos_maquinas`
-  MODIFY `COD_DETALLE_MODELO` int(6) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `det_ordenes_pedidos`
---
-ALTER TABLE `det_ordenes_pedidos`
-  MODIFY `COD_DETALLE__PEDIDO` int(6) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `historiales_ordenes_fabriciones`
---
-ALTER TABLE `historiales_ordenes_fabriciones`
-  MODIFY `COD_HISTORIAL` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `ordenes_fabricaciones`
---
-ALTER TABLE `ordenes_fabricaciones`
-  MODIFY `COD_ORDEN_FABRICACION` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `ordenes_pedidos`
---
-ALTER TABLE `ordenes_pedidos`
-  MODIFY `COD_ORDEN_PEDIDO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `det_modelos_maquinas`
+-- Constraints for table `det_modelos_maquinas`
 --
 ALTER TABLE `det_modelos_maquinas`
   ADD CONSTRAINT `FK_MATERIALES_DETMODMAQ` FOREIGN KEY (`COD_MATERIAL`) REFERENCES `materiales` (`COD_MATERIAL`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_MODMAQ_DETMODMAQ` FOREIGN KEY (`COD_MODELO`) REFERENCES `modelos_maquinas` (`COD_MODELO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `det_ordenes_pedidos`
+-- Constraints for table `det_ordenes_pedidos`
 --
 ALTER TABLE `det_ordenes_pedidos`
   ADD CONSTRAINT `FK_MATERIALES_DETORDPED` FOREIGN KEY (`COD_MATERIAL`) REFERENCES `materiales` (`COD_MATERIAL`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_ORDPED_DETORDPED` FOREIGN KEY (`COD_ORDEN_PEDIDO`) REFERENCES `ordenes_pedidos` (`COD_ORDEN_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `historiales_ordenes_fabriciones`
+-- Constraints for table `historiales_ordenes_fabriciones`
 --
 ALTER TABLE `historiales_ordenes_fabriciones`
   ADD CONSTRAINT `FK_ORDFAB_HISORDFAB` FOREIGN KEY (`COD_ORDEN_FABRICACION`) REFERENCES `ordenes_fabricaciones` (`COD_ORDEN_FABRICACION`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `materiales`
+-- Constraints for table `materiales`
 --
 ALTER TABLE `materiales`
   ADD CONSTRAINT `FK_TIPMAT_MATERIALES` FOREIGN KEY (`COD_TIPO_MATERIAL`) REFERENCES `tipos_materiales` (`COD_TIPO_MATERIAL`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `modelos_maquinas`
+-- Constraints for table `modelos_maquinas`
 --
 ALTER TABLE `modelos_maquinas`
   ADD CONSTRAINT `FK_IMAMOD_MODMAQ` FOREIGN KEY (`COD_IMAGEN`) REFERENCES `imagenes_modelos` (`COD_IMAGEN`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_TIPMOD_MODMAQ` FOREIGN KEY (`COD_TIPO_MODELO`) REFERENCES `tipos_modelos` (`COD_TIPO_MODELO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `ordenes_fabricaciones`
+-- Constraints for table `ordenes_fabricaciones`
 --
 ALTER TABLE `ordenes_fabricaciones`
   ADD CONSTRAINT `FK_ESTORD_ORDFAB` FOREIGN KEY (`COD_ESTADO`) REFERENCES `estados_ordenes` (`COD_ESTADO`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -460,7 +365,7 @@ ALTER TABLE `ordenes_fabricaciones`
   ADD CONSTRAINT `FK_USUARIOS_ORDFAB` FOREIGN KEY (`COD_USUARIO`) REFERENCES `usuarios` (`COD_USUARIO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `usuarios`
+-- Constraints for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `FK_ROLES_USUARIOS` FOREIGN KEY (`COD_ROL`) REFERENCES `roles` (`COD_ROL`) ON DELETE CASCADE ON UPDATE CASCADE;
