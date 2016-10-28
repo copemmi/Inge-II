@@ -104,10 +104,21 @@ class ModelosMaquinasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    /*Controlador para modificar los modelos de las máquinas*/ 
     public function edit($id)
     {
-       
-  
+       /*$material = material::find($id);
+        
+        $tipo_material = tipo_material::all();
+
+        return View('Materiales/ModificarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);*/
+
+        $modelos = modelo_maquina::find($id);
+
+        $tipo_modelo = tipo_modelo::all(); 
+
+        return view('ModelosMaquinas/ModificarModelos')->with('modelos',$modelos)->with('tipo_modelo', $tipo_modelo);
     }
 
     /**
