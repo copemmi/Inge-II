@@ -99,23 +99,28 @@
 						</div>
 
 
+						<div class="row">
+							<div class="panel panel-primary">
+								<div class="panel-body">
+									<div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+										<div class="form-group">
+											<label>Lista de Materiales</label>
+											<select name="pidarticulo" class="form-control selectpicker" id="pidarticulo" data-live-search="true">
+												@foreach($material as $tm)
+												<option value={{$tm->COD_MATERIAL}}>{{$tm->NOMBRE}}</option>
+												@endforeach
+											</select>
+										</div>
+									</div>
 
+									<div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+									<!---->
+									</div>
 
-
-
-						<div class="form-group">
-						{!! Form::label('option','Lista de Materiales:',array('class' => 'control-label col-md-2')) !!}
-
-							<div class="col-md-3">
-
-								<select name="COD_MATERIAL" class="form-control selectpicker" id="option" data-live-search="true">
-									@foreach($material as $tm)
-									<option value="{{$tm->COD_MATERIAL}}">{{$tm->NOMBRE}}</option>
-									@endforeach
-								</select>
+								</div>
 							</div>
-							<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('tiposMateriales.create') }}">Agregar</a>
-						</div>
+
+
 
 
 <!----------------------------------------------------------BOTONES PARA GUARDAR Y VOLVER------------------------------------------------------------>
