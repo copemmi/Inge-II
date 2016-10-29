@@ -10,6 +10,8 @@ use App\det_modelo_maquina;
 use App\modelo_maquina;
 use App\tipo_modelo;
 use App\imagen_modelo;
+use App\material;
+
 use Laracasts\Flash\Flash;
 use App\Http\Requests\modelosMaquinasRequest;
 use Illuminate\Support\Facades\Input;
@@ -69,8 +71,9 @@ class ModelosMaquinasController extends Controller
     public function create()
     {
         $tipo_modelo = tipo_modelo::all();
+        $material=material::all();
 
-        return View('ModelosMaquinas/IngresarModMaq')->with('tipo_modelo',$tipo_modelo);
+        return View('ModelosMaquinas/IngresarModMaq')->with('tipo_modelo',$tipo_modelo)->with('material', $material);
     }
 
     /**

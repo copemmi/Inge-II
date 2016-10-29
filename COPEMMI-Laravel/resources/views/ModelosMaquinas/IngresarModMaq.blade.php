@@ -98,11 +98,25 @@
 							</div>
 						</div>
 
+
+
+
+
+
 						<div class="form-group">
-							<div class="text-center">
-								{!! Form::label('MATERIALES','LISTA DE MATERIALES:') !!}
+						{!! Form::label('option','Lista de Materiales:',array('class' => 'control-label col-md-2')) !!}
+
+							<div class="col-md-3">
+
+								<select name="COD_MATERIAL" class="form-control selectpicker" id="option" data-live-search="true">
+									@foreach($material as $tm)
+									<option value="{{$tm->COD_MATERIAL}}">{{$tm->NOMBRE}}</option>
+									@endforeach
+								</select>
 							</div>
+							<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('tiposMateriales.create') }}">Agregar</a>
 						</div>
+
 
 <!----------------------------------------------------------BOTONES PARA GUARDAR Y VOLVER------------------------------------------------------------>
 
