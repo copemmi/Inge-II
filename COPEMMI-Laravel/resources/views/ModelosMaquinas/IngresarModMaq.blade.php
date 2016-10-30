@@ -190,10 +190,10 @@
 @push('scripts')
 <script>
 
-	$(document).ready(function())
+	$(document).ready(function()
 	{
-		$('#bt_add').click(function()){
-			alert("HOLA");
+		$('#bt_add').click(function(){
+			//alert("HOLA");
 			agregar();
 		});
 	});
@@ -224,8 +224,8 @@
 		else
 		{
 			alert("Error al ingresar, revise los datos");
-		}
-	}
+		};
+	};
 
 	function limpiar()
 	{
@@ -237,12 +237,12 @@
 		if(total>0)
 		{
 			$("#Guardar").show();	
-			$("#Cancelar").show();		
+			//$("#Cancelar").show();		
 		}
 		else
 		{
 			$("#Guardar").hide();
-			$("#Cancelar").hide();
+			//$("#Cancelar").hide();
 		}
 	}
 
