@@ -105,7 +105,7 @@
 							<div class="panel panel-primary">
 								<div class="panel-body">
 
-									<div class="col-lg-3 col-sm-3 col-md-3 col-xs-9">
+									<div class="col-lg-4 col-sm-4 col-md-4 col-xs-9">
 										<div class="form-group">
 											<label>Lista de Materiales</label>
 											<select name="pidarticulo" class="form-control selectpicker" id="pidarticulo" data-live-search="true">
