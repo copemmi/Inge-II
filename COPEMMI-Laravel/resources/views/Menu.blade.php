@@ -84,6 +84,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	<!--<script src="{{asset('js/bootstrap.min.js')}}"></script>-->
+	<script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
+	@stack('scripts')
 	<script src="{{asset('js/bootstrap-select.min.js')}}"></script>
 	<!--<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">-->
 	<link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
