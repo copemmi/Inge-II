@@ -242,7 +242,7 @@
 		else
 		{
 			$("#Guardar").hide();
-			//$("#Cancelar").hide();
+			////$("#Cancelar").hide();
 		}
 	}
 
