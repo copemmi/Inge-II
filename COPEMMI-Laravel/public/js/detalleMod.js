@@ -8,7 +8,7 @@ $(document).ready(function()
 	var cont=0;
 	//subtotal=[];
 	total=0;
-	$('#Guardar').hide();
+	//$('#Guardar').hide();
 
 	function agregar()
 	{

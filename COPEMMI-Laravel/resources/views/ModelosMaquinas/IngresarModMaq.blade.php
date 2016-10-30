@@ -68,8 +68,9 @@
 								</select>
                              
 							</div>
-							<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('tiposMateriales.create') }}">Incorporar tipo</a>
+							<a class="btn btn-success" input type="button" target="_blank" href="{{ route('tiposMateriales.create') }}">Incorporar tipo</a>
 						</div>
+
 
 						<div class="form-group">
 							{!! Form::label('NOMBRE','Nombre del modelo:',array('class' => 'control-label col-md-2')) !!}
