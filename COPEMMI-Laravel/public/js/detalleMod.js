@@ -5,10 +5,8 @@ $(document).ready(function()
 		});
 	});
 
-	var cont=0;
-	//subtotal=[];
-	total=0;
-	//$('#Guardar').hide();
+	var cont=0;//contador de filas
+	$('#Guardar').hide();
 
 	function agregar()
 	{
@@ -35,12 +33,13 @@ $(document).ready(function()
 
 	function limpiar()
 	{
-		$("#pcantidad").val("");
+		$("#pcantidad").val("");//limpia el campo de cantidad
+
 	}
 
 	function evaluar()
 	{
-		if(total>0)
+		if(cont>0)
 		{
 			$("#Guardar").show();	
 			///$("#Cancelar").show();		
@@ -55,5 +54,6 @@ $(document).ready(function()
 	function eliminar(index)
 	{
 		$("#fila"+index).remove();
+		cont--;
 		evaluar();
 	}

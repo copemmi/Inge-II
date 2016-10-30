@@ -96,13 +96,14 @@
 							<span class = "help-block"></span><a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 6 números.</li><li>Sólo se deben ingresar números enteros.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-3">
 								{!! Form::text('PRECIO',null,['class' => 'form-control','placeholder' => 'Precio', 'maxlength="9"']) !!} 
+								<span class = "help-block"></span>
 							</div>
 						</div>
 
 
 <!---------------------------------------------------DETALLE MODELO------------------------------------------------------------------------------>
 
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-10 col-md-offset-0">
 							<div class="panel panel-primary">
 								<div class="panel-body">
 
@@ -164,13 +165,11 @@
 								</div>
 							</div>
 						</div>
-
+					</div><!--cierre de container-->
 
 
 <!----------------------------------------------------------BOTONES PARA GUARDAR Y VOLVER------------------------------------------------------------>
-							
-							
-
+	
 
 						<form action="" class="form-inline">
 							<div class="col-md-2 col-md-offset-3">
@@ -185,8 +184,8 @@
 						</form>
  
 					{!! Form::close() !!}
-				</div>
-			</div>
+				
+			</div><!--cierre de content-->
 @stop
 
 

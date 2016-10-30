@@ -11,10 +11,11 @@
 	    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 		{!! Html::style('css/bootstrap-select.min.css') !!}
 		{!! Html::style('css/bootstrap.min.css') !!}
+		
 
 <!--------------------------------------------------------------------BARRA ARRIBA-------------------------------------------------------->
 		<div id="topmenu">
-			<div class="container">
+			<div class="containertop">
 					<ul class="topbar">
 						<li> <a href="#" class="bt-menu"><span class="icono derecha fa fa-bars"></span></a></li>
 						<li> <a class="lb-NOMCOP">COPEMMI: </a> </li>
@@ -83,11 +84,13 @@
 
 <!--------------------------JAVASCRIPTS-------------------------->
 
+	@yield('js') <!-- Seccion para incluir los js de las vistas -->
+	
 	{{ Html::script('js/jquery.js') }}
 	{{ Html::script('js/bootstrap.min.js') }}
 	{{ Html::script('js/main.js') }}
 	{{ Html::script('js/bootstrap-select.min.js') }}
 
-	@yield('js') <!-- Seccion para incluir los js de las vistas -->
+	
 
 </html>

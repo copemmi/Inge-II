@@ -122,24 +122,24 @@ td {
 
 /*------------------------------Barra de arriba---------------------*/
 
-.container{
+.containertop{
   width: 100%;
   position: absolute; 
   
 }
 
-.container  ul{/*quitar los puntos de las listas*/
+.containertop  ul{/*quitar los puntos de las listas*/
 	list-style: none;
   	overflow: hidden; 
   	padding-top: 0.5em;
 }
 
-.container ul li{
+.containertop ul li{
 	float: left;
 	font-size: 30px;
 }
 
-.container ul li a{
+.containertop ul li a{
 	display: inline-block; 
 	padding-left: 1em;
 	color: #fff;
@@ -147,7 +147,7 @@ td {
 	float: center;
 }
 
-.container .topbar{
+.containertop .topbar{
 	background: #800808;/*rojo de la barra*/
 	width: 113em;
 	height: 4.3em;
@@ -155,37 +155,36 @@ td {
 	margin-left: -1em;
 }
 
-.container .topbar .bt-menu{/*boton que abre y cierra el menu*/
+.containertop .topbar .bt-menu{/*boton que abre y cierra el menu*/
 	padding-right: 0.5em;/*el em es para mantener la distancia para cuando el tamaño de la ventana varie*/
-	padding-left: 0.5em;
 	margin-right:1em;	
 }
 
-.container .topbar .lb-NOMCOP{/*texto COPPEMI*/
+.containertop .topbar .lb-NOMCOP{/*texto COPPEMI*/
 	padding-right: 0.5em;
 	padding-left: 0em;
 	font-size:24px;
 }
 
-.container .topbar .lb-COP{/*texto COPPEMI*/
+.containertop .topbar .lb-COP{/*texto COPPEMI*/
 	padding-right: 0em;
 	padding-left:0em;
 	font-size:16px;
 	margin-right:10em;
 }
 
-.container .topbar .lb-US{/*texto Usuario*/
+.containertop .topbar .lb-US{/*texto Usuario*/
 	padding-left: 5em;
 	font-size: 25px;
 	
 }
 
-.container .topbar .icono{/*color de los iconos de usuario y el que abre y cierra*/
+.containertop .topbar .icono{/*color de los iconos de usuario y el que abre y cierra*/
 	color:black;
 
 }
 
-.container .topbar .bt-cerrar{
+.containertop .topbar .bt-cerrar{
 	padding-left: 1em;
 	font-size: 25px;
 	
@@ -207,6 +206,7 @@ td {
 	width: 500px;
 	height: 80px;
 }
+
 
 
 .table th, td {

@@ -85,7 +85,8 @@
 							{!! Form::label('CANTIDAD','Cantidad:',array('class' => 'control-label col-md-2')) !!}
 							<span class = "help-block"></span><a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 6 números.</li><li>Sólo se deben ingresar números enteros.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-2">
-								{!! Form::text('CANTIDAD',null,['class' => 'form-control','placeholder' => 'Cantidad', 'maxlength="6"']) !!} 
+								{!! Form::text('CANTIDAD',null,['class' => 'form-control','placeholder' => 'Cantidad', 'maxlength="6"']) !!}
+								<span class = "help-block"></span> 
 							</div>
 						</div>
 
