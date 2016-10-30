@@ -122,7 +122,7 @@
 									<div class="col-lg-2 col-sm-3 col-md-3 col-xs-12">
 										<div class="form-group">
 											<label for="cantidad">Cantidad</label>
-											<input type="number" name="pcantidad" id="pcantidad" class="form-control"
+											<input type="number" min="1" name="pcantidad" id="pcantidad" class="form-control"
 											placeholder="Cantidad">
 										</div>
 									</div>
@@ -187,73 +187,7 @@
 @stop
 
 
-@push('scripts')
-<script>
-
-	$(document).ready(function()
-	{
-		$('#bt_add').click(function(){
-			//alert("HOLA");
-			agregar();
-		});
-	});
-
-	var cont=0;
-	subtotal=[];
-	total=0;
-	$("#guardar").hide();
-
-	function agregar()
-	{
-		idarticulo=$("#pidarticulo").val();
-		articulo=$("#pidarticulo option:selected").text();
-		cantidad=$("#pcantidad").val();
-
-
-		if(idarticulo!=""&&cantidad!=""&&cantidad>0)
-		{
-			
-			var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+idarticulo+'</td><td><input type="number" name=" cantidad[]" value="'+cantidad+'"></td></tr>';
-
-			
-				cont++;
-				limpiar();
-				evaluar();
-				$("#detalles").append(fila);
-		}
-		else
-		{
-			alert("Error al ingresar, revise los datos");
-		};
-	};
-
-	function limpiar()
-	{
-		$("#pcantidad").val("");
-	}
-
-	function evaluar()
-	{
-		if(total>0)
-		{
-			$("#Guardar").show();	
-			///$("#Cancelar").show();		
-		}
-		else
-		{
-			$("#Guardar").hide();
-			////$("#Cancelar").hide();
-		}
-	}
-
-	function eliminar(index)
-	{
-		$("#fila"+index).remove();
-		evaluar();
-	}
-</script>
-@endpush
-
 @section('js')
 	{!! Html::script('js/validacionMod.js') !!}
+	{!! Html::script('js/detalleMod.js') !!}
 @stop

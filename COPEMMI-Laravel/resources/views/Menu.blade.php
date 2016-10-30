@@ -79,22 +79,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 
-	<script src="js/bootstrap.min.js"></script>
+	
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-	<!--<script src="{{asset('js/bootstrap.min.js')}}"></script>-->
 	<script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
-	@stack('scripts')
-	<script src="{{asset('js/bootstrap-select.min.js')}}"></script>
-	<!--<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">-->
-	<link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
-	
 
-
-
+	{!! Html::style('css/bootstrap-select.min.css') !!}
 	{!! Html::style('css/bootstrap.min.css') !!}
 	{{ Html::script('js/main.js') }}
+	{{ Html::script('js/bootstrap.min.js') }}
+	{{ Html::script('js/bootstrap-select.min.js') }}
 
 	@yield('js') <!-- Seccion para incluir los js de las vistas -->
 
