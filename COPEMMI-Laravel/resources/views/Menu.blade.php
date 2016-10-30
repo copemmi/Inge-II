@@ -5,6 +5,14 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
 
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+	    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+		{!! Html::style('css/bootstrap-select.min.css') !!}
+		{!! Html::style('css/bootstrap.min.css') !!}
+
 <!--------------------------------------------------------------------BARRA ARRIBA-------------------------------------------------------->
 		<div id="topmenu">
 			<div class="container">
@@ -74,19 +82,11 @@
 
 	</body>
 
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<!--------------------------JAVASCRIPTS-------------------------->
 
-	
-    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
-
-	{!! Html::style('css/bootstrap-select.min.css') !!}
-	{!! Html::style('css/bootstrap.min.css') !!}
-	{{ Html::script('js/main.js') }}
+	{{ Html::script('js/jquery.js') }}
 	{{ Html::script('js/bootstrap.min.js') }}
+	{{ Html::script('js/main.js') }}
 	{{ Html::script('js/bootstrap-select.min.js') }}
 
 	@yield('js') <!-- Seccion para incluir los js de las vistas -->
