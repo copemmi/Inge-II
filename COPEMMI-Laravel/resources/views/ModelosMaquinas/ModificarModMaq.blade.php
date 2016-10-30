@@ -132,5 +132,5 @@
 @stop
 
 @section('js')
-	{!! Html::script('js/validacionMat.js') !!}
+	{!! Html::script('js/validacionMod.js') !!}
 @stop
