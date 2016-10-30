@@ -104,7 +104,7 @@
 				</div>
 
 				<div class="col-md-0 col-md-offset-0">
-				
+				<a href="{{ route('modelosMaquinas.show', $modelos->COD_MODELO) }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
 				</div>
 			</form>
 
@@ -119,7 +119,13 @@
 
 			<form action="" class="form-inline" >
 				<div class="col-md-0 col-md-offset-1">
+					<a href="{{ route('modelosMaquinas.edit', $modelos->COD_MODELO) }}" class="btn btn-warning disabled">Modificar Modelo</a>
 
+					<a href="{{ route('modelosMaquinas.destroy', $modelos->COD_MODELO) }}" onclick="return confirm('¿Seguro que desea eliminar la máquina ?')" class="btn btn-danger disabled">Eliminar Modelo</a>
+								
+					<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success disabled"> Incorporar Modelo de Máquina</a>
+
+					<a href="{{ route('modelosMaquinas.index') }}" class="btn btn-info disabled">Lista de Modelos de Máquinas</a>
 				</div>
 
 			{!! Form::close() !!}

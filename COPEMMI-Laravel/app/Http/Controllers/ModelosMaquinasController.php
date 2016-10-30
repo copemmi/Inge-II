@@ -149,6 +149,10 @@ class ModelosMaquinasController extends Controller
      */
     public function destroy($id)
     {
-        
+        modelos::where('COD_MODELO',$id)->delete();
+       
+        Flash('¡Se ha eliminado el modelo de la máquina con el código: ('.$id.') exitósamente!','danger');
+
+        return Redirect()->route('modelos.index');
     }
 }
