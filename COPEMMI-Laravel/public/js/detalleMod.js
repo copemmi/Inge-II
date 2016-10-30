@@ -20,7 +20,7 @@ $(document).ready(function()
 		if(idarticulo!=""&&cantidad!=""&&cantidad>0)//validar que cantidad sea entero
 		{
 			
-			var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name=" cantidad[]" value="'+cantidad+'"></td></tr>';
+			var fila='<tr class="selected" id="fila'+cont+'"><td width="20%"><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td width="50%"><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td width="30%"><input class="col-md-6 col-md-offset-4" type="number" min="1"  name=" cantidad[]" value="'+cantidad+'"></td></tr>';
 
 				cont++;
 				limpiar();

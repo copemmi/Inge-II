@@ -99,10 +99,13 @@
 						</div>
 
 
-						<div class="row">
+<!---------------------------------------------------DETALLE MODELO------------------------------------------------------------------------------>
+
+						<div class="col-md-10 col-md-offset-1">
 							<div class="panel panel-primary">
 								<div class="panel-body">
-									<div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+
+									<div class="col-lg-3 col-sm-3 col-md-3 col-xs-9">
 										<div class="form-group">
 											<label>Lista de Materiales</label>
 											<select name="pidarticulo" class="form-control selectpicker" id="pidarticulo" data-live-search="true">
@@ -142,10 +145,10 @@
 									</div>
 
 									<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-										<table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
+										<table id="detalles" class="table width=30 table-striped table-bordered table-condensed table-hover">
 											<thead style="background-color:#A9D0F5">
 												<th>Opciones</th>
-												<th>Material</th>
+												<th>Materiales</th>
 												<th>Cantidad</th>
 											</thead>
 											<tfoot>
@@ -159,23 +162,22 @@
 
 								</div>
 							</div>
-
+						</div>
 
 
 
 <!----------------------------------------------------------BOTONES PARA GUARDAR Y VOLVER------------------------------------------------------------>
 							
-							<!--trabajar con transacciones-->
-						<input name="_token" value="{{ csrf_token() }}" type="hidden"></input>
+							
 
 
 						<form action="" class="form-inline">
-							<div class="col-md-2 col-md-offset-2">
+							<div class="col-md-2 col-md-offset-3">
 								<button class="btn btn-success" input type="submit" id="Guardar" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>
 								
 							</div>
 
-							<div class="col-md-0 col-md-offset-0">
+							<div class="col-md-0 col-md-offset-1">
 								<a href="{{ route('modelosMaquinas.index') }}" class="btn btn-danger" id="Cancelar"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
 							</div>
 
