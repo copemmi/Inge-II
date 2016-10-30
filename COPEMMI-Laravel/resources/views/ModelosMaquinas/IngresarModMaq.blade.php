@@ -237,7 +237,7 @@
 		if(total>0)
 		{
 			$("#Guardar").show();	
-			//$("#Cancelar").show();		
+			///$("#Cancelar").show();		
 		}
 		else
 		{
