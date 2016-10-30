@@ -111,7 +111,6 @@ class MaterialesController extends Controller
      */
     public function edit($id)
     {
-       
         $material = material::find($id);
         
         $tipo_material = tipo_material::all();

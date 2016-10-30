@@ -111,17 +111,11 @@ class ModelosMaquinasController extends Controller
     /*Controlador para modificar los modelos de las máquinas*/ 
     public function edit($id)
     {
-       /*$material = material::find($id);
-        
-        $tipo_material = tipo_material::all();
-
-        return View('Materiales/ModificarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);*/
-
         $modelos = modelo_maquina::find($id);
 
         $tipo_modelo = tipo_modelo::all(); 
 
-        return view('ModelosMaquinas/ModificarModelos')->with('modelos',$modelos)->with('tipo_modelo', $tipo_modelo);
+        return view('ModelosMaquinas/ModificarModMaq')->with('modelos',$modelos)->with('tipo_modelo', $tipo_modelo);
     }
 
     /**
@@ -133,8 +127,18 @@ class ModelosMaquinasController extends Controller
      */
     public function update(Request $request, $id)
     {
-  
+        $modelos = modelo_maquina::find($id);
+        $modelos->cod_tipo_modelo=$request->get('COD_TIPO_MODELO');
+        $modelos->cod_imagen=$request->get('COD_IMAGEN');
+        $modelos->nombre=$request->get('NOMBRE');
+        $modelos->caracteristicas=$request->get('CARACTERISTICAS');
+        $modelos->precio=$request->get('PRECIO');
 
+        $modelos->update();
+
+        Flash("¡Se ha modificado el modelo de la máquina exitósamente!",'info');
+
+        return Redirect()->route('modelos.show',$id);
     }
 
     /**
@@ -145,6 +149,6 @@ class ModelosMaquinasController extends Controller
      */
     public function destroy($id)
     {
-
+        
     }
 }
