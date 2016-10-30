@@ -96,9 +96,9 @@ class ModelosMaquinasController extends Controller
     public function show($id)
     {
        $modelos = modelo_maquina::find($id);
-        
-        $tipo_modelo = tipo_modelo::all();
-        return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo);
+
+       $tipo_modelo = tipo_modelo::all();
+       return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo);
     }
 
     /**
@@ -111,7 +111,7 @@ class ModelosMaquinasController extends Controller
     /*Controlador para modificar los modelos de las máquinas*/ 
     public function edit($id)
     {
-        $modelos = modelo_maquina::find($id);
+        $modelos = modelo_maquina::find($id); //Tenemos los datos de los modelos que queremos editar. 
 
         $tipo_modelo = tipo_modelo::all(); 
 
@@ -125,7 +125,7 @@ class ModelosMaquinasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(modelosMaquinasRequest $request, $id)
     {
         $modelos = modelo_maquina::find($id);
         $modelos->cod_tipo_modelo=$request->get('COD_TIPO_MODELO');

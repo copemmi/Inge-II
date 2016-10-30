@@ -1,7 +1,7 @@
 @extends ('Menu')
 @section ('contenido')
 
-<!--------------------------------------------------------------------TABLA EN EL CENTRO------------------------------------------------------>
+<!--------------------------------------------------TABLA EN EL CENTRO------------------------------------------------------>
 
 	<div id="center">
 			<div class="content">
@@ -22,7 +22,7 @@
 
 
 				<div class="page-header">
-	  				<h1 class="text-center">Información del Material</h1>
+	  				<h1 class="text-center">Información del Modelo de la Máquina</h1>
 				</div>
 
 	
