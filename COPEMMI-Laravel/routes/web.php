@@ -49,6 +49,16 @@ use Illuminate\Support\Facades\Input;
 		'uses' => 'TiposModMaqController@destroy',
 		'as' => 'tiposModelosMaquinas.destroy'
 		]);
+		
+		//Rutas de Ordenes de Fabricacion
+
+	Route::resource('ordenesFabricacion','OrdenFabricacionController');
+
+	Route::get('ordenesFabricacion/{id}/destroy',[
+		'uses' => 'OrdenFabricacionController@destroy',
+		'as' => 'ordenesFabricacion.destroy'
+		]);
+
 
 
 	
