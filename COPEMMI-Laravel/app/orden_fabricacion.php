@@ -20,6 +20,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class orden_fabricacion extends Model
 {
+	public $timestamps = false; 
+public $incrementing = false;
+
     /**
      * The table associated with the model.
      * 
@@ -30,7 +33,9 @@ class orden_fabricacion extends Model
     /**
      * @var array
      */
-    protected $fillable = ['COD_ESTADO', 'COD_MODELO', 'COD_USUARIO', 'NOMBRE_CLIENTE', 'CEDULA_CLIENTE', 'FECHA_LLEGADA', 'FECHA_ENTREGA'];
+	 protected $primaryKey= 'COD_ESTADO';
+	 
+    protected $fillable = ['COD_MODELO', 'COD_USUARIO', 'NOMBRE_CLIENTE', 'CEDULA_CLIENTE', 'FECHA_LLEGADA', 'FECHA_ENTREGA'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
