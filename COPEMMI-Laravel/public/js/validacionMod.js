@@ -3,6 +3,7 @@ $(document).on("ready",inicio);
 function inicio(){
 $("span.help-block").hide();
 $("#COD_MODELO").keyup(validarCodigo);
+$("#COD_IMAGEN").keyup(validarCodigoImagen);
 $("#PRECIO").keyup(validarPrecio);
 $("#NOMBRE").keyup(validarNombre);
 $("#CARACTERISTICAS").keyup(validarCaracteristicas);
@@ -35,6 +36,36 @@ function validarCodigo(){
 	    return true;
 	}
 }
+
+//Método validar código de la imagen
+function validarCodigoImagen(){
+	var valor = document.getElementById("COD_IMAGEN").value;
+	if(valor == null || valor.length == 0 || /^\s+$/.test(valor)){
+
+		$("#iconocodigo").remove();
+		$("#COD_IMAGEN").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#COD_IMAGEN").parent().children("span").text("Debe ingresar algún caracter").show();
+		$("#COD_IMAGEN").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return false;
+	}
+	else if(valor.length > 10){
+
+		$("#iconocodigo").remove();
+		$("#COD_IMAGEN").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#COD_IMAGEN").parent().children("span").text("Solo se permite un máximo de 10 caracteres").show();
+		$("#COD_IMAGEN").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return false;
+	}
+	else{
+		$("#iconocodigo").remove();
+		$("#COD_IMAGEN").parent().parent().attr("class","form-group has-success has-feedback")
+	    $("#COD_IMAGEN").parent().children("span").text("").hide();
+	    $("#COD_IMAGEN").parent().append("<span id='iconocodigo' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+	    return true;
+	}
+}
+
+
 
 //Método validar cantidad
 	function validarPrecio(){

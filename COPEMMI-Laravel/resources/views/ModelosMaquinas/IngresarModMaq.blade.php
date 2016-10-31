@@ -30,7 +30,7 @@
 
 	
 				<div class="container">
-					{!! Form::open(['route' => 'modelosMaquinas.store','method'=>'POST','autocomplete'=>'off','class' => 'form-horizontal']) !!}
+					{!! Form::open(['route' => 'modelosMaquinas.store','method'=>'POST','autocomplete'=>'off','files'=>'true','class' => 'form-horizontal']) !!}
 					{{csrf_field()}}
 					{{ Form::token() }}
 
@@ -43,11 +43,20 @@
 							</div>
 						</div>
 
+						<div class="form-group">
+							{!! Form::label('COD_IMAGEN','Código de la imagen:',array('class' => 'control-label col-md-2')) !!}
+							<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+							<div class="col-md-3">
+								{!! Form::text('COD_IMAGEN',null,['class' => 'form-control','placeholder' => 'Código de la imagen', 'maxlength="10"']) !!}
+								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
+							</div>
+						</div>
+
 
 						<div class="form-group">
-							{!! Form::label('COD_IMAGEN','Imagen:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('IMAGEN','Imagen:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-6">
-								<input type="file" id="imagen" size="35" accept="image/*">
+								<input type="file" id="IMAGEN" name="IMAGEN" size="35" accept="image/*">
 								<p class="help-block">Máximo 2mb </p>
 							</div>
 						</div>
@@ -110,7 +119,7 @@
 									<div class="col-lg-4 col-sm-4 col-md-4 col-xs-9">
 										<div class="form-group">
 											<label>Lista de Materiales</label>
-											<select name="pidarticulo" class="form-control selectpicker" id="pidarticulo" data-live-search="true">
+											<select name="pidmaterial" class="form-control selectpicker" id="pidmaterial" data-live-search="true">
 												@foreach($material as $tm)
 												<option value={{$tm->COD_MATERIAL}}>{{$tm->NOMBRE}}</option>
 												@endforeach

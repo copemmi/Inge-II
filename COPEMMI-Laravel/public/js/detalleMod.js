@@ -10,15 +10,15 @@ $(document).ready(function()
 
 	function agregar()
 	{
-		idarticulo=$("#pidarticulo").val();
-		articulo=$("#pidarticulo option:selected").text();
+		idmaterial=$("#pidmaterial").val();
+		material=$("#pidmaterial option:selected").text();
 		cantidad=$("#pcantidad").val();
 
 
-		if(idarticulo!=""&&cantidad!=""&&cantidad>0)//validar que cantidad sea entero
+		if(idmaterial!=""&&cantidad!=""&&cantidad>0)//validar que cantidad sea entero
 		{
 			
-			var fila='<tr class="selected" id="fila'+cont+'"><td width="20%"><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td width="50%"><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td width="30%"><input class="col-md-6 col-md-offset-4" type="number" min="1"  name=" cantidad[]" value="'+cantidad+'"></td></tr>';
+			var fila='<tr class="selected" id="fila'+cont+'"><td width="20%"><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td width="50%"><input type="hidden" name="idmaterial[]" value="'+idmaterial+'">'+material+'</td><td width="30%"><input class="col-md-6 col-md-offset-4" type="number" min="1"  name=" cantidad[]" value="'+cantidad+'"></td></tr>';
 
 				cont++;
 				limpiar();
