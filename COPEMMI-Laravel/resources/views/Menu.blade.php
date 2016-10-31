@@ -54,7 +54,7 @@
 
 		                <li><a href="#"><span class="icono izquierda fa fa-file-text"></span>Órdenes de Fabricación<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
-				            	<li><a href="#">Incorporar Órdenes de Fabricación</a></li>
+				            	<li><a href="{{ route('ordenesFabricacion.create') }}">Incorporar Órdenes de Fabricación</a></li>
 				                <li><a href="#">Visualizar Órdenes de Fabricación</a></li>
 			                </ul> 
 		                </li> 
