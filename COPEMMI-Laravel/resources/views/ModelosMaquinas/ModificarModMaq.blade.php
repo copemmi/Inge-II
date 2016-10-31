@@ -46,6 +46,25 @@
 				</div>
 			</div>
 
+			<!-- Imágen -->
+
+			<div class="form-group">
+				{!! Form::label('COD_IMAGEN','Código de la imagen:',array('class' => 'control-label col-md-2')) !!}
+				<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+				<div class="col-md-3">
+					{!! Form::text('COD_IMAGEN',$modelos->COD_IMAGEN,['class' => 'form-control', 'readonly']) !!}
+					<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
+				</div>
+			</div>
+
+			<div class="form-group">
+				{!! Form::label('IMAGEN','Imagen:',array('class' => 'control-label col-md-2')) !!}
+				<div class="col-md-6">
+					<input type="file" id="IMAGEN" name="IMAGEN" size="35" accept="image/*">
+						<p class="help-block">Máximo 2mb </p>
+				</div>
+			</div>
+
 			<!-- Tipo del Modelo --> 
 
 			<div class="form-group">
