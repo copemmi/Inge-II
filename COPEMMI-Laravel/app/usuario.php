@@ -17,9 +17,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class usuario extends Model
 {
+	
+	public $timestamps = false; 
+    public $incrementing = false;
+	
     /**
      * @var array
      */
+	 
+	protected $primaryKey= 'COD_USUARIO'; 
+	 
     protected $fillable = ['COD_ROL', 'NOMBRE', 'APELLIDO', 'NICKNAME', 'CLAVE', 'CLAVEX'];
 
     /**
