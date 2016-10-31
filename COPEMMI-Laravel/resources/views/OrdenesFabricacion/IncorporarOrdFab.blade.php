@@ -84,7 +84,7 @@
 								</select>
                              
 							</div>
-							<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="">Incorporar Modelo</a><!--Agregar la funcion href-->
+							<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('modelosMaquinas.create') }}">Incorporar Modelo</a><!--Agregar la funcion href-->
 						</div>
 
 
