@@ -85,6 +85,54 @@ class ModelosMaquinasController extends Controller
     public function store(Request $request)
     {
 
+    //guardar la imagen
+     $imagen_modelo=new imagen_modelo;
+      $imagen_modelo->cod_imagen=$request->get("COD_IMAGEN");//codigo de la imagen
+
+        if(Input::hasFile('IMAGEN')){
+          $file=Input::file('IMAGEN');
+          //$file->move(public_path().'/imagenes/ModelosMaquinas/',$file->getClientOriginalName());//obtenemos el nombre
+          //$imagen_modelo->imagen=$file->getClientOriginalName();//se guarda el nombre de la imagen en la BD
+          $imagen_modelo->imagen=$file;//temporal
+        }
+
+      $imagen_modelo->save();
+
+      //guardar el modelo
+      $modelo_maquina=new modelo_maquina;
+      $modelo_maquina->cod_modelo=$request->get('COD_MODELO');
+      $modelo_maquina->cod_imagen=$imagen_modelo->cod_imagen;//codigo de la imagen
+      $modelo_maquina->cod_tipo_modelo=$request->get('COD_TIPO_MODELO');
+      $modelo_maquina->nombre=$request->get('NOMBRE');
+      $modelo_maquina->caracteristicas=$request->get('CARACTERISTICAS');
+      $modelo_maquina->precio=$request->get('PRECIO');
+
+      $modelo_maquina->save();
+
+
+      //guardar el detalle del modelo
+      $cont=0;
+
+      $idmaterial=$request->get('idmaterial');
+      $cantidad=$request->get('cantidad');
+
+      while($cont < count($idmaterial)){
+
+        $det_modelo_maquina= new det_modelo_maquina;
+        $det_modelo_maquina->cod_modelo=$modelo_maquina->cod_modelo;
+        $det_modelo_maquina->cod_material=$idmaterial[$cont];
+        $det_modelo_maquina->cantidad=$cantidad[$cont];
+
+        $det_modelo_maquina->save();
+
+        $cont++;
+      }
+
+
+      Flash("¡Se ha insertado el modelo exitosamente!",'success');
+
+      return Redirect()->route('modelosMaquinas.index');
+
     }
 
     /**
@@ -138,7 +186,7 @@ class ModelosMaquinasController extends Controller
 
         Flash("¡Se ha modificado el modelo de la máquina exitósamente!",'info');
 
-        return Redirect()->route('modelos.show',$id);
+        return Redirect()->route('modelosMaquinas.show',$id);
     }
 
     /**
