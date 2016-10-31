@@ -11,6 +11,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class estado_orden extends Model
 {
+	
+	 public $timestamps = false; 
+    public $incrementing = false;
+	
+	
     /**
      * The table associated with the model.
      * 
@@ -21,6 +26,9 @@ class estado_orden extends Model
     /**
      * @var array
      */
+	 
+	protected $primaryKey= 'COD_ESTADO';
+	 
     protected $fillable = ['NOMBRE'];
 
     /**
