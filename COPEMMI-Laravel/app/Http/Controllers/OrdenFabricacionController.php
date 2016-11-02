@@ -12,7 +12,7 @@ use App\estado_orden;
 use App\modelo_maquina;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Input;
-
+use App\Http\Requests\ordenesFabricacionRequest;
 class OrdenFabricacionController extends Controller
 { 
     /**
@@ -46,7 +46,7 @@ class OrdenFabricacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ordenesFabricacionRequest $request)
     {
         $orden_fabricacion=new orden_fabricacion;
 //        $orden_fabricacion->cod_orden_fabricacion=$request->get('COD_ORDEN_FABRICACION');
