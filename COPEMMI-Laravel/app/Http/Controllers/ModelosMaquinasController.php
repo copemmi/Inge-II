@@ -91,9 +91,8 @@ class ModelosMaquinasController extends Controller
 
         if(Input::hasFile('IMAGEN')){
           $file=Input::file('IMAGEN');
-          //$file->move(public_path().'/imagenes/ModelosMaquinas/',$file->getClientOriginalName());//obtenemos el nombre
-          //$imagen_modelo->imagen=$file->getClientOriginalName();//se guarda el nombre de la imagen en la BD
-          $imagen_modelo->imagen=$file;//temporal
+          $file->move(public_path().'/imagenes/ModelosMaquinas/',$file->getClientOriginalName());//obtenemos el nombre y guardamos la imagen en esa ruta
+          $imagen_modelo->imagen=$file->getClientOriginalName();//se guarda el nombre de la imagen en la BD
         }
 
       $imagen_modelo->save();
