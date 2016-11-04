@@ -80,7 +80,7 @@
 						@endforeach
 					</select> 
 				</div>
-				<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('tiposMateriales.create') }}">Incorporar tipo</a> <!-- Se debe arreglar la vista a los tipos de modelos -->
+				<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('tiposModelosMaquinas.create') }}">Incorporar tipo</a> <!-- Se debe arreglar la vista a los tipos de modelos -->
 			</div>
 
 			<!-- Nombre del Modelo --> 

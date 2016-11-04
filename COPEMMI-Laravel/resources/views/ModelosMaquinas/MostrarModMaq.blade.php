@@ -140,7 +140,7 @@
 
 								<a href="{{ route('modelosMaquinas.edit', $modelos->COD_MODELO) }}" title="Modificar modelo" class="btn btn-warning">Modificar Modelo</a>
 
-								<a href="#" title="Eliminar modelo" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Modelo</a>
+								<a href="{{ route('modelosMaquinas.destroy', $modelos->COD_MODELO) }}" title="Eliminar modelo" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Modelo</a>
 								
 								<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo </a>
 
