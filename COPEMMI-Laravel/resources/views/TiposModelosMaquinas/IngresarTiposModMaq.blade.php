@@ -29,15 +29,15 @@
 		<!-- FIN DE MSJ DE ERROR -->
 
 		<div class="container">
-			{!! Form::open(['route' => 'tiposMateriales.store','method'=>'POST','autocomplete'=>'off','class' => 'form-horizontal']) !!}
+			{!! Form::open(['route' => 'tiposModelosMaquinas.store','method'=>'POST','autocomplete'=>'off','class' => 'form-horizontal']) !!}
 			{{csrf_field()}}
 			{{ Form::token() }}
 
 			<div class="form-group">
-				{!! Form::label('COD_TIPO_MATERIAL','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
+				{!! Form::label('COD_TIPO_MODELO','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
 				<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información --> 
 				<div class="col-md-3">
-					{!! Form::text('COD_TIPO_MATERIAL',null,['class' => 'form-control','placeholder' => 'Código del tipo', 'maxlength="10"']) !!}
+					{!! Form::text('COD_TIPO_MODELO',null,['class' => 'form-control','placeholder' => 'Código del tipo', 'maxlength="10"']) !!}
 					<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
 				</div>
 			</div>
@@ -57,7 +57,7 @@
 				</div>
 
 				<div class="col-md-0 col-md-offset-0">
-					<a href="{{ route('tiposMateriales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
+					<a href="{{ route('tiposModelosMaquinas.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
 				</div>
 			</form>
 

@@ -97,7 +97,7 @@
 								
 								<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar Tipo de Material </a>
 
-								<a href="{{ route('tiposMateriales.index') }}" class="btn btn-info">Lista de Tipos de Material</a>
+								<a href="{{ route('tiposMateriales.index') }}" class="btn btn-info">Lista de Tipos de Materiales</a>
 
 							</div>		
 

@@ -43,7 +43,7 @@ class TiposModMaqController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(tipoModelosRequest $request)
+    public function store(tipoModelosMaquinasRequest $request)
     {
         $tipoModelo=new tipo_modelo;
         $tipoModelo->cod_tipo_modelo=$request->get('COD_TIPO_MODELO');
@@ -52,10 +52,75 @@ class TiposModMaqController extends Controller
 
         $tipoModelo->save();
 
-        Flash("¡Se ha insertado el tipo de material: (".$tipoModelo->nombre."), con el código: (".$tipoModelo->cod_tipo_modelo.") exitósamente!",'success');
+        Flash("¡Se ha insertado el tipo de modelo de máquina: (".$tipoModelo->nombre."), con el código: (".$tipoModelo->cod_tipo_modelo.") exitósamente!",'success');
 
-        return Redirect()->route('TiposModelosMaquinas.index');
+        return Redirect()->route('tiposModelosMaquinas.index');
     }
 
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+     
+        $tipo_modelo = tipo_modelo::find($id);
+        return View('TiposModelosMaquinas/MostrarTiposModMaq')->with('tipoModelo',$tipo_modelo);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+       
+        $tipo = tipo_modelo::find($id);
+     
+
+        return View('TiposModelosMaquinas/ModificarTiposModMaq')->with('tipoModelo',$tipo);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(tipoModelosMaquinasRequest $request, $id)
+    {
+        
+        $tipoModelo = tipo_modelo::find($id);
+        $tipoModelo->cod_tipo_modelo=$request->get('COD_TIPO_MODELO');
+        $tipoModelo->nombre=$request->get('NOMBRE');
+  
+
+        $tipoModelo->update();
+
+        Flash("¡Se ha modificado el tipo del modelo de máquina exitósamente!",'info');
+
+        return Redirect()->route('tiposModelosMaquinas.show',$id);
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        tipo_modelo::where('COD_TIPO_MODELO',$id)->delete();
+       
+        Flash('¡Se ha eliminado el tipo de material con el código: ('.$id.') exitósamente!','danger');
+
+        return Redirect()->route('tiposModelosMaquinas.index');
+    }
 
 }

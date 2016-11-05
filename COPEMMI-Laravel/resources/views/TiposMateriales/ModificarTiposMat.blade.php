@@ -99,7 +99,6 @@
 		</div>	
 @stop
 
-
 @section('js')
 	{!! Html::script('js/validacionTipoMat.js') !!}
 @stop
