@@ -22,7 +22,7 @@ class TiposModMaqController extends Controller
     {
     	$tipoModelo = tipo_modelo::orderBy('NOMBRE','DESC')->paginate(10);
         
-        return View('TiposModelosMaquinas/TiposModelosMaquinas')->with('tipoModelo',$tipoModelo);
+        return View('TiposModelosMaquinas/TiposModelos')->with('tipoModelo',$tipoModelo);
     }
 
     /**
@@ -43,7 +43,7 @@ class TiposModMaqController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(tipoModelosMaquinasRequest $request)
+    public function store(tipoModelosRequest $request)
     {
         $tipoModelo=new tipo_modelo;
         $tipoModelo->cod_tipo_modelo=$request->get('COD_TIPO_MODELO');
@@ -92,7 +92,7 @@ class TiposModMaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(tipoModelosMaquinasRequest $request, $id)
+    public function update(tipoModelosRequest $request, $id)
     {
         
         $tipoModelo = tipo_modelo::find($id);
@@ -118,7 +118,7 @@ class TiposModMaqController extends Controller
     {
         tipo_modelo::where('COD_TIPO_MODELO',$id)->delete();
        
-        Flash('¡Se ha eliminado el tipo de material con el código: ('.$id.') exitósamente!','danger');
+        Flash('¡Se ha eliminado el tipo de modelo de máquina con el código: ('.$id.') exitósamente!','danger');
 
         return Redirect()->route('tiposModelosMaquinas.index');
     }

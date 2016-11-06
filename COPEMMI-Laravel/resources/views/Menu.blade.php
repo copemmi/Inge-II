@@ -48,7 +48,7 @@
 			                <ul>
 				                <li><a href="{{ route('modelosMaquinas.create') }}">Incorporar Modelos de Máquinas</a></li>
 				                <li><a href="{{ route('modelosMaquinas.index' ) }}">Visualizar Modelos de Máquinas</a></li>
-				                <li><a href="{{ route('modelosMaquinas.index' ) }}">Mantenimiento de Tipos de Modelos de Máquinas</a></li> <!--cambiar ruta-->
+				                <li><a href="{{ route('tiposModelosMaquinas.index' ) }}">Mantenimiento de Tipos de Modelos de Máquinas</a></li> <!--cambiar ruta-->
 			                </ul> 
 		                </li> 
 

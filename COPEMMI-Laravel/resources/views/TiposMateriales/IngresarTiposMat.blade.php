@@ -44,9 +44,7 @@
 								{!! Form::text('COD_TIPO_MATERIAL',null,['class' => 'form-control','placeholder' => 'Código del tipo', 'maxlength="10"']) !!}
 								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
 							</div>
-						</div>
-
-						
+						</div>	
 
 						<div class="form-group">
 							{!! Form::label('NOMBRE','Nombre del tipo:',array('class' => 'control-label col-md-2')) !!}
@@ -56,8 +54,6 @@
 								<span class = "help-block"></span>
 							</div>
 						</div>
-
-
 	
 						<form action="" class="form-inline">
 							<div class="col-md-2 col-md-offset-2">

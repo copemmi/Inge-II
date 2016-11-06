@@ -39,7 +39,7 @@
 						 </thead>
 						@foreach($tipoModelo as $tip)
 							
-							<tr class="success" data-href="{{ route('tiposModelosMateriales.show', $tip->COD_TIPO_MODELO) }}">
+							<tr class="success" data-href="{{ route('tiposModelosMaquinas.show', $tip->COD_TIPO_MODELO) }}">
 								<td>{{ $tip->COD_TIPO_MODELO}} </td>
 								<td>{{ $tip->NOMBRE}} </td>
 							    <!--<td> <label><input type="checkbox" id="opcion" class="checkbox" name="opcion" value={{ $tip->COD_TIPO_MATERIAL}} /></label></td>-->

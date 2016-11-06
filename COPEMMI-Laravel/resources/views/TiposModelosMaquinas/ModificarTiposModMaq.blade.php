@@ -81,7 +81,7 @@
 								
 							<a href="{{ route('tiposModelosMaquinas.create') }}" class="btn btn-success disabled"> Incorporar Tipo de Modelo de Máquina </a>
 
-							<a href="{{ route('tiposModelosMaquinas.index') }}" class="btn btn-info disabled">Lista de Tipos de Modelo de Máquina</a>
+							<a href="{{ route('tiposModelosMaquinas.index') }}" class="btn btn-info disabled">Lista de Tipos de Tipos Modelo de Máquina</a>
 						</div>
 
 					</form>
@@ -95,5 +95,5 @@
 @stop
 
 @section('js')
-	{!! Html::script('js/validacionTipoMat.js') !!}
+	{!! Html::script('js/validacionTipoModMaq.js') !!}
 @stop

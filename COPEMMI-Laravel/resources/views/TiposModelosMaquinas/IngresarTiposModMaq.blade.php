@@ -66,3 +66,9 @@
 		
 	</div>
 </div>
+
+@stop
+
+@section('js')
+	{!! Html::script('js/validacionTipoModMaq.js') !!}
+@stop 

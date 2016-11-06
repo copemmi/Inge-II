@@ -21,7 +21,6 @@ class TiposMaterialesController extends Controller
     public function index(Request $request)
     {
     
-
         $tipoMaterial = tipo_material::orderBy('NOMBRE','DESC')->paginate(10);
         
         return View('TiposMateriales/TiposMateriales')->with('tipoMaterial',$tipoMaterial);
