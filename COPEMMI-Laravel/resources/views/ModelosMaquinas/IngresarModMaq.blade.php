@@ -57,7 +57,6 @@
 							{!! Form::label('IMAGEN','Imagen:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-6">
 								<input type="file" id="IMAGEN" name="IMAGEN" size="35" accept="image/*">
-								<p class="help-block">Máximo 2mb </p>
 							</div>
 						</div>
 

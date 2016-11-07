@@ -30,14 +30,14 @@ $(document).ready(function()
 			else{
 				//alert("El material ya ha sido agregado");
 				$("span.msj-error").text("Error, este material ya ha sido agregado en la lista.").show();
-				$("span.msj-error").delay(2000).hide(600);
+				$("span.msj-error").delay(3000).hide(600);
 			}	
 		}
 		else
 		{
 			//alert("Debe ingresar la cantidad de materiales");
 			$("span.msj-error").text("Error, debe ingresar la cantidad de material que ingresará.").show();
-			$("span.msj-error").delay(2000).hide(600);
+			$("span.msj-error").delay(3000).hide(600);
 		};
 	};
 
