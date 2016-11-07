@@ -138,13 +138,13 @@
 							
 							<div class="col-md-0 col-md-offset-1">
 
-								<a href="{{ route('modelosMaquinas.edit', $modelos->COD_MODELO) }}" title="Modificar modelo" class="btn btn-warning">Modificar Modelo</a>
+								<a href="{{ route('modelosMaquinas.edit', $modelos->COD_MODELO) }}" title="Modificar modelo" class="btn btn-warning">Modificar Modelo de Maquina</a>
 
-								<a href="{{ route('modelosMaquinas.destroy', $modelos->COD_MODELO) }}" title="Eliminar modelo" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Modelo</a>
+								<a href="#" title="Eliminar modelo de maquina" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Modelo de Maquina</a>
 								
-								<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo </a>
+								<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo de Maquina </a>
 
-								<a href="{{ route('modelosMaquinas.index') }}" class="btn btn-info">Lista de Modelos</a>
+								<a href="{{ route('modelosMaquinas.index') }}" class="btn btn-info">Lista de Modelos de Maquina</a>
 
 							</div>		
 

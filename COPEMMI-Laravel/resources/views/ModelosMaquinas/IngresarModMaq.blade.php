@@ -111,11 +111,13 @@
 
 
 <!---------------------------------------------------DETALLE MODELO------------------------------------------------------------------------------>
+						<div class= "col-md-offset-2">
+						<span style="color:red;font-weight:bold;font-size:12pt" class = "msj-error glyphicon glyphicon-remove has-error"></span>
+						</div>
 
 						<div class="col-md-10 col-md-offset-0">
 							<div class="panel panel-primary">
 								<div class="panel-body">
-
 									<div class="col-lg-4 col-sm-4 col-md-4 col-xs-9">
 										<div class="form-group">
 											<label>Lista de Materiales</label>
@@ -200,5 +202,5 @@
 
 @section('js')
 	{!! Html::script('js/validacionMod.js') !!}
-	{!! Html::script('js/detalleMod.js') !!}
+	{!! Html::script('js/validacionDetalleMod.js') !!}
 @stop

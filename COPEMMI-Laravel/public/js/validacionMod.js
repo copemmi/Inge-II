@@ -2,6 +2,7 @@ $(document).on("ready",inicio);
 
 function inicio(){
 $("span.help-block").hide();
+$("span.msj-error").hide();
 $("#COD_MODELO").keyup(validarCodigo);
 $("#COD_IMAGEN").keyup(validarCodigoImagen);
 $("#PRECIO").keyup(validarPrecio);

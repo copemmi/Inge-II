@@ -40,6 +40,7 @@ class modelosMaquinasRequest extends FormRequest
                 return [
                     'COD_MODELO'=>'max:10|required|unique:modelos_maquinas',//en el unique hay que poner el nombre de la tabla de la base
                     'COD_IMAGEN' =>'max:10|required',
+                    'IMAGEN' => 'required',
                     'COD_TIPO_MODELO' =>'max:10|required',
                     'NOMBRE'=>'max:50|required',
                     'CARACTERISTICAS' =>'max:255|required',
@@ -80,7 +81,8 @@ class modelosMaquinasRequest extends FormRequest
     {
         return [
             'COD_MODELO'=>'Código del modelo',
-            'COD_IMAGEN' =>'Imagen',
+            'COD_IMAGEN' =>'Código de la imagen',
+            'IMAGEN' => 'Imagen',
             'COD_TIPO_MODELO' =>'Tipo de modelo',
             'NOMBRE'=>'Nombre del modelo',
             'CARACTERISTICAS' =>'Características',
