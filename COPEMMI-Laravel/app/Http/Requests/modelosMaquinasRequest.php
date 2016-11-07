@@ -38,7 +38,7 @@ class modelosMaquinasRequest extends FormRequest
 
             case 'POST':{
                 return [
-                    'COD_MODELO'=>'max:10|required|unique:modelosMaquinas',
+                    'COD_MODELO'=>'max:10|required|unique:modelos_maquinas',//en el unique hay que poner el nombre de la tabla de la base
                     'COD_IMAGEN' =>'max:10|required',
                     'COD_TIPO_MODELO' =>'max:10|required',
                     'NOMBRE'=>'max:50|required',
