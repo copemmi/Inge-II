@@ -95,6 +95,19 @@
 							</div>
 						</div>
 
+                           <div class="form-group">
+							{!! Form::label('COD_IMAGEN','Foto:',array('class' => 'control-label col-md-2')) !!}
+							
+							<div class="col-md-2">
+								{!! Form::text('COD_IMAGEN',$ima->IMAGEN,['class' => 'form-control', 'maxlength="15"', 'readonly']) !!}
+								<img src="/imagenes/ModelosMaquinas/{{$ima->IMAGEN}}" width=160; />
+												 
+							</div>
+						</div>
+	
+
+
+
 
 						
 

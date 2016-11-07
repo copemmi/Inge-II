@@ -15,7 +15,7 @@ use App\material;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\modelosMaquinasRequest;
 use Illuminate\Support\Facades\Input;
-
+use DB;
 class ModelosMaquinasController extends Controller
 {
 
@@ -145,7 +145,14 @@ class ModelosMaquinasController extends Controller
        $modelos = modelo_maquina::find($id);
 
        $tipo_modelo = tipo_modelo::all();
-       return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo);
+       $imagenes = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
+
+
+ /*$imagen_modelo=new imagen_modelo;*/
+/*$imagen_modelo->cod_imagen=$request->get('IMAGEN')->where('COD_IMAGEN', 'a');*/
+
+     
+       return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo)->with('ima',$imagenes);
     }
 
     /**
