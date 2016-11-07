@@ -36,7 +36,7 @@
 
 						<div class="form-group">
 							{!! Form::label('COD_MODELO','Código del modelo:',array('class' => 'control-label col-md-2')) !!}
-							<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-3">
 								{!! Form::text('COD_MODELO',null,['class' => 'form-control','placeholder' => 'Código del modelo', 'maxlength="10"']) !!}
 								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
@@ -45,7 +45,7 @@
 
 						<div class="form-group">
 							{!! Form::label('COD_IMAGEN','Código de la imagen:',array('class' => 'control-label col-md-2')) !!}
-							<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-3">
 								{!! Form::text('COD_IMAGEN',null,['class' => 'form-control','placeholder' => 'Código de la imagen', 'maxlength="10"']) !!}
 								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
