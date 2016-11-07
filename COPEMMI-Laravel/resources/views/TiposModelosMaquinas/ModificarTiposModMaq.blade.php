@@ -74,7 +74,7 @@
 
 					<form action="" class="form-inline" >
 						
-						<div class="col-md-0 col-md-offset-1">
+						<div class="col-md-0 col-md-offset-0">
 							<a href="{{ route('tiposModelosMaquinas.edit', $tipoModelo->COD_TIPO_MODELO) }}" title="Modificar modelo de maquina" class="btn btn-warning disabled">Modificar Tipo de Modelo de Máquina</a>
 
 							<a href="{{ route('tiposModelosMaquinas.destroy', $tipoModelo->COD_TIPO_MODELO) }}" title="Eliminar material" onclick="return confirm('¿Seguro que desea eliminar el modelo de la máquina ?')" class="btn btn-danger disabled">Eliminar Tipo de Modelo de Máquina</a>
