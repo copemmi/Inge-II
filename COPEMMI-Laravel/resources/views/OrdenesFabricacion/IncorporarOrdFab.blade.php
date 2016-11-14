@@ -84,7 +84,7 @@
 								</select>
                              
 							</div>
-							<a class="btn btn-success" input type="button" id="Guardar" target="_blank" href="{{ route('modelosMaquinas.create') }}">Incorporar Modelo</a><!--Agregar la funcion href-->
+							<a class="btn btn-success" input type="button" target="_blank" href="{{ route('modelosMaquinas.create') }}">Incorporar Modelo</a><!--Agregar la funcion href-->
 						</div>
 
 
@@ -115,7 +115,7 @@
 
 							<div class="form-group">
 							{!! Form::label('CEDULA_CLIENTE','Cedula del Cliente:',array('class' => 'control-label col-md-2')) !!}
-							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 11 caracteres, Con Formato 1-0111-0111.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 11 caracteres, Con Formato #-0###-0###.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>
 							<div class="col-md-3"><!-- Aquí sale el mensaje de ayuda e información -->
 								{!! Form::text('CEDULA_CLIENTE',null,['class' => 'form-control','placeholder' => 'Cedula del Cliente', 'maxlength="11"']) !!}
 								<span class = "help-block"></span>
