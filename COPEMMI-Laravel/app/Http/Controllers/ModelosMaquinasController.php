@@ -11,11 +11,12 @@ use App\modelo_maquina;
 use App\tipo_modelo;
 use App\imagen_modelo;
 use App\material;
-
 use Laracasts\Flash\Flash;
 use App\Http\Requests\modelosMaquinasRequest;
 use Illuminate\Support\Facades\Input;
 use DB;
+use File;
+
 class ModelosMaquinasController extends Controller
 {
 
@@ -201,12 +202,21 @@ class ModelosMaquinasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id , $idImagen, $urlImagen)
     {
         modelo_maquina::where('COD_MODELO',$id)->delete();
-       
+
+        imagen_modelo::where('COD_IMAGEN',$idImagen)->delete();//elimina la imagen en la BD
+
+        File::delete(public_path().'/imagenes/ModelosMaquinas/'.$urlImagen);//elimina la imagen en el Sistema de Archivos
+
+        
+
         Flash('¡Se ha eliminado el modelo de la máquina con el código: ('.$id.') exitósamente!','danger');
 
         return Redirect()->route('modelosMaquinas.index');
     }
+
+
+
 }

@@ -37,7 +37,8 @@ use Illuminate\Support\Facades\Input;
 //Rutas de Modelos de Máquinas
 	Route::resource('modelosMaquinas','ModelosMaquinasController');
 	
-	Route::get('modelosMaquinas/{id}/destroy',[
+	//recibe 3 parametros, el cod para eliminar el modelo, el cod para eliminar la imagen en la base y la URL para eliminar la imagen del sistema de archivos
+	Route::get('modelosMaquinas/{id}/{idImagen}/{urlImagen}/destroy',[ 
 		'uses' => 'ModelosMaquinasController@destroy',
 		'as' => 'modelosMaquinas.destroy'
 		]);

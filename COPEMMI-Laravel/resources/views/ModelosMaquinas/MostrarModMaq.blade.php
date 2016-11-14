@@ -104,11 +104,6 @@
 												 
 							</div>
 						</div>
-	
-
-
-
-
 						
 
 
@@ -130,7 +125,7 @@
  
  										<div class="modal-footer">
  											<form> 
- 												<a href="{{ route('modelosMaquinas.destroy', $modelos->COD_MODELO) }}" class="btn btn-default">Aceptar</a>
+ 												<a href="{{ route('modelosMaquinas.destroy', [$modelos->COD_MODELO, $modelos->COD_IMAGEN, $ima->IMAGEN]) }}" class="btn btn-default">Aceptar</a>
  												<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
  											</form>
  										</div>
