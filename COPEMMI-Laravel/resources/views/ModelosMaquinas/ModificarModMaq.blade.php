@@ -140,7 +140,7 @@
 				<div class="col-md-0 col-md-offset-1">
 					<a href="{{ route('modelosMaquinas.edit', $modelos->COD_MODELO) }}" class="btn btn-warning disabled">Modificar Modelo</a>
 
-					<a href="{{ route('modelosMaquinas.destroy', $modelos->COD_MODELO) }}" onclick="return confirm('¿Seguro que desea eliminar la máquina ?')" class="btn btn-danger disabled">Eliminar Modelo</a>
+					<a href="" onclick="return confirm('¿Seguro que desea eliminar la máquina ?')" class="btn btn-danger disabled">Eliminar Modelo</a>
 								
 					<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success disabled"> Incorporar Modelo de Máquina</a>
 
