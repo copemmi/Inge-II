@@ -149,8 +149,8 @@ class ModelosMaquinasController extends Controller
        $imagenes = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
 
 
- /*$imagen_modelo=new imagen_modelo;*/
-/*$imagen_modelo->cod_imagen=$request->get('IMAGEN')->where('COD_IMAGEN', 'a');*/
+       /*$imagen_modelo=new imagen_modelo;*/
+      /*$imagen_modelo->cod_imagen=$request->get('IMAGEN')->where('COD_IMAGEN', 'a');*/
 
      
        return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo)->with('ima',$imagenes);
@@ -170,7 +170,9 @@ class ModelosMaquinasController extends Controller
 
         $tipo_modelo = tipo_modelo::all(); 
 
-        return view('ModelosMaquinas/ModificarModMaq')->with('modelos',$modelos)->with('tipo_modelo', $tipo_modelo);
+        $imagenes = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
+
+        return view('ModelosMaquinas/ModificarModMaq')->with('modelos',$modelos)->with('tipo_modelo', $tipo_modelo)->with('ima',$imagenes);
     }
 
     /**
@@ -180,7 +182,7 @@ class ModelosMaquinasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(modelosMaquinasRequest $request, $id)
+    public function update(modelosMaquinasRequest $request, $id, $idImagen, $urlImagen)
     {
         $modelos = modelo_maquina::find($id);
         $modelos->cod_tipo_modelo=$request->get('COD_TIPO_MODELO');
@@ -190,6 +192,19 @@ class ModelosMaquinasController extends Controller
         $modelos->precio=$request->get('PRECIO');
 
         $modelos->update();
+
+
+        if(Input::hasFile('IMAGEN')){
+
+          $imagen_modelo = imagen_modelo::find($idImagen); 
+          $file=Input::file('IMAGEN');
+          $file->move(public_path().'/imagenes/ModelosMaquinas/',$file->getClientOriginalName());//obtenemos el nombre y guardamos la imagen en esa ruta
+          $imagen_modelo->imagen=$file->getClientOriginalName();//se guarda el nombre de la imagen en la BD
+          $imagen_modelo->update();
+
+          File::delete(public_path().'/imagenes/ModelosMaquinas/'.$urlImagen);//elimina la imagen antigua en el Sistema de Archivos
+
+        }
 
         Flash("¡Se ha modificado el modelo de la máquina exitósamente!",'info');
 

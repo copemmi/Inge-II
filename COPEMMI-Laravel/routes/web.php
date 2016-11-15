@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Input;
 */
 
 
-// Rutas para el Acerca de
+//-----------------------------------------------------------------RUTAS PARA EL ACERCA DE
 	Route::get('equipoTrabajo',['as' => 'equipoTrabajo.index', function(){return View('EquipoTrabajo');}]);
 	Route::get('equipoDesarrollo',['as' => 'equipoDesarrollo.index', function(){return View('EquipoDesarrollo');}]);
 
 
-//Rutas Materiales
+
+//--------------------------------------------------------------------RUTAS MATERIALES
 	Route::resource('materiales','MaterialesController');
 	
 	Route::get('materiales/{id}/destroy',[
@@ -26,7 +27,8 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'materiales.destroy'
 		]);
 
-//Rutas Tipos de Material
+
+//-------------------------------------------------------------------RUTAS TIPOS DE MATERIAL
 	Route::resource('tiposMateriales','TiposMaterialesController');
 
 	Route::get('tiposMateriales/{id}/destroy',[
@@ -34,7 +36,8 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'tiposMateriales.destroy'
 		]);
 
-//Rutas de Modelos de Máquinas
+
+//-------------------------------------------------------------------RUTAS MODELOS DE MÁQUINAS
 	Route::resource('modelosMaquinas','ModelosMaquinasController');
 	
 	//recibe 3 parametros, el cod para eliminar el modelo, el cod para eliminar la imagen en la base y la URL para eliminar la imagen del sistema de archivos
@@ -43,7 +46,14 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'modelosMaquinas.destroy'
 		]);
 
-//Rutas de Tipos de Modelos de Máquinas
+	Route::put('modelosMaquinas/{id}/{idImagen}/{urlImagen}/update',[ 
+		'uses' => 'ModelosMaquinasController@update',
+		'as' => 'modelosMaquinas.update'
+		]);
+
+
+
+//--------------------------------------------------------------------RUTAS TIPOS DE MODELOS DE MÁQUINAS
 	Route::resource('tiposModelosMaquinas','TiposModMaqController');
 
 	Route::get('tiposModelosMaquinas/{id}/destroy',[
@@ -51,7 +61,8 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'tiposModelosMaquinas.destroy'
 		]);
 		
-		//Rutas de Ordenes de Fabricacion
+
+//--------------------------------------------------------------------RUTAS DE ORDENES DE FABRICACIÓN
 
 	Route::resource('ordenesFabricacion','OrdenFabricacionController');
 

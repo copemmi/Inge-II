@@ -30,7 +30,7 @@
 
 		<div class="container">
 
-			{!! Form::open(['route' => ['modelosMaquinas.update',$modelos],'method'=>'PUT','class' => 'form-horizontal']) !!}
+			{!! Form::open(['route' => ['modelosMaquinas.update',$modelos->COD_MODELO, $modelos->COD_IMAGEN, $ima->IMAGEN],'method'=>'PUT','files'=>'true','class' => 'form-horizontal']) !!}
 			{{csrf_field()}}
 			{{ Form::token() }}
 
@@ -46,7 +46,7 @@
 				</div>
 			</div>
 
-			<!-- Imágen -->
+			<!-- Imagen -->
 
 			<div class="form-group">
 				{!! Form::label('COD_IMAGEN','Código de la imagen:',array('class' => 'control-label col-md-2')) !!}
@@ -58,10 +58,10 @@
 			</div>
 
 			<div class="form-group">
-				{!! Form::label('IMAGEN','Imagen:',array('class' => 'control-label col-md-2')) !!}
-				<div class="col-md-6">
+				{!! Form::label('IMAGEN','Nueva Imagen:',array('class' => 'control-label col-md-2')) !!}
+				<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Ingrese una nueva imagen si desea.</li><li>De lo contrario no se ingresa una nueva imagen y la imagen actual no será modificada.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+				<div class="col-md-4">
 					<input type="file" id="IMAGEN" name="IMAGEN" size="35" accept="image/*">
-						<p class="help-block">Máximo 2mb </p>
 				</div>
 			</div>
 
