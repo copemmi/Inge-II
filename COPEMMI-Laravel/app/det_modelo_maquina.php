@@ -47,4 +47,12 @@ class det_modelo_maquina extends Model
     {
         return $this->belongsTo('App\modelo_maquina', 'COD_MODELO', 'COD_MODELO');
     }
+   
+   public function scopeDetalleMaterialModelo($query,$dato)
+    {
+
+        return $query->where('COD_MODELO','LIKE',$dato."%");
+
+
+    }
 }

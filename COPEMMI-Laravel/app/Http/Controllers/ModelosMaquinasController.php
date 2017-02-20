@@ -144,16 +144,15 @@ class ModelosMaquinasController extends Controller
     public function show($id)
     {
        $modelos = modelo_maquina::find($id);
-
+       
        $tipo_modelo = tipo_modelo::all();
        $imagenes = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
-
-
-       /*$imagen_modelo=new imagen_modelo;*/
-      /*$imagen_modelo->cod_imagen=$request->get('IMAGEN')->where('COD_IMAGEN', 'a');*/
-
+      
+  
+    $materialesDetalle=det_modelo_maquina::detalleMaterialModelo($modelos->COD_MODELO)->orderBy('COD_DETALLE_MODELO','DESC')->paginate(100);
      
-       return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo)->with('ima',$imagenes);
+       return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo)->with('ima',$imagenes)->with('materialesDetalle',$materialesDetalle);
+       
     }
 
     /**

@@ -97,4 +97,7 @@ class modelo_maquina extends Model
 
 
     }
+   
+   
+
 }
