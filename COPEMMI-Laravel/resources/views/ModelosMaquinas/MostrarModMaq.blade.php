@@ -141,32 +141,7 @@
                 
 <!-- cuadro de detalle de materiales -->
 
-                            <div class="panel panel-primary">
-							<table id="visualizarDetalle" class="table width=30 table-striped table-bordered table-condensed table-hover">
-											<thead style="background-color:#A9D0F5">
-								<th>Código detalle</th>
-								<th>Código Modelo</th>
-								<TH>Código Material</TH>
-								<th>Cantidad</th>
-								<th>Operaciones</th>
-											</thead>
-										 @foreach($materialesDetalle as $mat)
-							<tr class="success">
-							
-								<td>{{ $mat->COD_DETALLE_MODELO}} </td>
-								<td>{{ $mat->COD_MODELO}} </td>
-								<td>{{ $mat->COD_MATERIAL}}</td>
-								<td>{{ $mat->CANTIDAD}} </td>
-								<td><a href="{{ route('modelosMaquinas.index') }}" class="btn btn-danger" id="Cancelar"><img src="{{asset('imagenes/delete2.png')}}" width=15;/></a>
-<a href="{{ route('modelosMaquinas.index') }}" class="btn btn-warning" id="editar"><img src="{{asset('imagenes/edit.png')}}" width=15;/></a>
-								</td>	
-															
-							</tr>
-						@endforeach
-										</table>
-
-										<!----------------------------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->
-									</div>
+                            
 
 									<div class="form-group">
 							<div class"col-md-0 col-md-offset-0">

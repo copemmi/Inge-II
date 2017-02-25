@@ -134,6 +134,41 @@
 				<div class"col-md-0 col-md-offset-0">
 					{!! Form::label('separador','___________________________________________________________________________________________________________________',array('class' => 'control-label col-md-0')) !!}
 				</div>
+
+<div class="panel panel-primary">
+							<table id="visualizarDetalle" class="table width=30 table-striped table-bordered table-condensed table-hover">
+											<thead style="background-color:#A9D0F5">
+								<th>Código detalle</th>
+								<th>Código Modelo</th>
+								<TH>Código Material</TH>
+								<th>Cantidad</th>
+								<th>Operaciones</th>
+											</thead>
+										 @foreach($materialesDetalle as $mat)
+							<tr data-id="{{$mat->COD_DETALLE_MODELO }}" class="success">
+							
+								<td>{{ $mat->COD_DETALLE_MODELO}} </td>
+								<td>{{ $mat->COD_MODELO}} </td>
+								<td>{{ $mat->COD_MATERIAL}}</td>
+								<td>{{ $mat->CANTIDAD}} </td>
+								<td><a class="btn btn-danger" id="Cancelar"><img src="{{asset('imagenes/delete2.png')}}" width=15;/></a>
+<!--<a href="#" class="btn btn-warning" id="editar"><img src="{{asset('imagenes/edit.png')}}" width=15;/></a>-->
+								</td>
+															
+							</tr>
+						@endforeach
+
+
+{!! Form::open(['route'=> ['det_modelo_maquina.destroy',':ID_USER'],'method'=>'DELETE','id'=>'form-delete'])
+!!}
+
+{!!Form::close()!!}
+
+
+
+										</table>
+
+
 			</div>	
 
 			<form action="" class="form-inline" >
@@ -152,10 +187,72 @@
 		</div>
 
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 @stop
 
 @section('js')
 	{!! Html::script('js/validacionMod.js') !!}
+
+	
+<script>
+
+	$(document).ready(function(){
+$('.btn-danger').click(function (e){
+
+e.preventDefault();//esto es para que no recargue la página
+var row=$(this).parents('tr');
+var id=row.data('id');
+
+var form=$('#form-delete');
+var url=form.attr('action').replace(':ID_USER/destroy',id);
+
+var data=form.serialize();
+
+
+
+$.post(url,data, function (result) {
+row.fadeOut();
+/*alert(result.message);*/
+
+}).fail(function (){
+	alert('error al eliminar material');
+	row.show();
+});
+
+});
+
+
+
+
+	});
+
+
+</script>
+
 @stop
+
+
+
+	
+
+
+
+
+
+

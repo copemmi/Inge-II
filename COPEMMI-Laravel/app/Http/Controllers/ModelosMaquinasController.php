@@ -148,10 +148,9 @@ class ModelosMaquinasController extends Controller
        $tipo_modelo = tipo_modelo::all();
        $imagenes = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
       
-  
-    $materialesDetalle=det_modelo_maquina::detalleMaterialModelo($modelos->COD_MODELO)->orderBy('COD_DETALLE_MODELO','DESC')->paginate(100);
+ 
      
-       return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo)->with('ima',$imagenes)->with('materialesDetalle',$materialesDetalle);
+       return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo)->with('ima',$imagenes);
        
     }
 
@@ -171,7 +170,10 @@ class ModelosMaquinasController extends Controller
 
         $imagenes = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
 
-        return view('ModelosMaquinas/ModificarModMaq')->with('modelos',$modelos)->with('tipo_modelo', $tipo_modelo)->with('ima',$imagenes);
+         
+    $materialesDetalle=det_modelo_maquina::detalleMaterialModelo($modelos->COD_MODELO)->orderBy('COD_DETALLE_MODELO','DESC')->paginate(100);
+
+        return view('ModelosMaquinas/ModificarModMaq')->with('modelos',$modelos)->with('tipo_modelo', $tipo_modelo)->with('ima',$imagenes)->with('materialesDetalle',$materialesDetalle);
     }
 
     /**

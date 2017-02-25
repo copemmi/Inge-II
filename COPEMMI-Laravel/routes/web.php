@@ -72,6 +72,17 @@ use Illuminate\Support\Facades\Input;
 		]);
 
 
+	//--------------------------------------------------------------------RUTAS DE DET_MODELO_MAQUINA
+
+	
+Route::resource('det_modelo_maquina','det_modelo_maquinaController');
+
+	Route::get('det_modelo_maquina/{id}/destroy',[
+		'uses' => 'det_modelo_maquinaController@destroy',
+		'as' => 'det_modelo_maquina.destroy'
+		]);
+
+
 
 	
 
