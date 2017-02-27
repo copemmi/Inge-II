@@ -82,6 +82,14 @@ Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 		'as' => 'det_modelo_maquina.destroy'
 		]);
 
+//---------------------------------------------------------------------RUTAS DE CLIENTES
+	Route::resource('clientes','ClientesController');
+
+	Route::get('clientes/{id}/destroy',[
+		'uses' => 'ClientesController@destroy',
+		'as' => 'clientes.destroy'
+		]);
+
 
 
 	
