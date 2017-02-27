@@ -56,10 +56,17 @@
 										<?php } ?>
 									@endforeach
 								</select>
+
+
+						
+
 							</div>
 						</div>
 						
-						<div class="form-group">
+						
+
+
+							<div class="form-group">
 							{!! Form::label('NOMBRE','Nombre del material:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-5">
@@ -100,33 +107,7 @@
 							</div>
 						</div>
 						
-						<!-- cuadro de detalle de materiales -->
 
-                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-							<table id="visualizarDetalle" class="table width=30 table-striped table-bordered table-condensed table-hover">
-								<thead style="background-color:#A9D0F5">
-									<th>Código detalle</th>
-									<th>Código Modelo</th>
-									<TH>Código Material</TH>
-									<th>Cantidad</th>
-									<th>Operaciones</th>
-								</thead>
-
-								<tbody>
-									@foreach($materialesDetalle as $mat)
-									<tr class="success">
-							
-										<td>{{ $mat->COD_DETALLE_MODELO}} </td>
-										<td>{{ $mat->COD_MODELO}} </td>
-										<td>{{ $mat->COD_MATERIAL}}</td>
-										<td>{{ $mat->CANTIDAD}}</td>
-										<td><a href="{{ route('modelosMaquinas.index') }}" class="btn btn-danger" id="Cancelar"><img src="{{asset('imagenes/delete2.png')}}" width=15;/></a>
-										</td>	
-									</tr>
-									@endforeach
-								</tbody>
-						    </table>
-					   </div>
 
 <!---------------------------------------------------------------Mensaje de confirmacion para eliminar---------------------------------------------->
 							<div class="modal fade" id="ventana" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -154,8 +135,48 @@
  								</div>
  							</div>
  			
- 				<!--------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->
-                            
+
+						
+						
+                
+<!-- cuadro de detalle de materiales -->
+
+                            <div class="panel panel-primary">
+							<table id="visualizarDetalle" class="table width=30 table-striped table-bordered table-condensed table-hover">
+											<thead style="background-color:#A9D0F5">
+								<th>Código detalle</th>
+								<th>Código Modelo</th>
+								<TH>Código Material</TH>
+								<th>Cantidad</th>
+								<th>Operaciones</th>
+											</thead>
+										 @foreach($materialesDetalle as $mat)
+							<tr data-id="{{$mat->COD_DETALLE_MODELO }}" class="success">
+							
+								<td>{{ $mat->COD_DETALLE_MODELO}} </td>
+								<td>{{ $mat->COD_MODELO}} </td>
+								<td>{{ $mat->COD_MATERIAL}}</td>
+								<td>{{ $mat->CANTIDAD}} </td>
+								<td><a class="btn btn-danger" id="Cancelar"><img src="{{asset('imagenes/delete2.png')}}" width=15;/></a>
+<!--<a href="#" class="btn btn-warning" id="editar"><img src="{{asset('imagenes/edit.png')}}" width=15;/></a>-->
+								</td>
+															
+							</tr>
+						@endforeach
+
+
+{!! Form::open(['route'=> ['det_modelo_maquina.destroy',':ID_USER'],'method'=>'DELETE','id'=>'form-delete'])
+!!}
+
+{!!Form::close()!!}
+
+
+
+										</table>
+
+										<!----------------------------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->
+									</div>
+
 									<div class="form-group">
 							<div class"col-md-0 col-md-offset-0">
 								{!! Form::label('separador','____________________________________________________________________________________________________________________________________',array('class' => 'control-label col-md-0')) !!}
@@ -172,13 +193,63 @@
 								
 								<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo de Maquina </a>
 
-								<a href="{{ route('modelosMaquinas.index') }}" class="btn btn-info">Lista de Modelos de Maquina</a>
+								<a href="#!" class="btn btn-info">Lista de Modelos de Maquina</a>
 								
 
 							</div>	
+
+
+
 						</form>
 					{!! Form::close() !!}
 				</div>
 			</div>
+
+
+
+
+
 		</div>	
+		
+
+@stop
+
+
+
+
+@section('js')
+	
+<script>
+
+	$(document).ready(function(){
+$('.btn-danger').click(function (e){
+
+e.preventDefault();//esto es para que no recargue la página
+var row=$(this).parents('tr');
+var id=row.data('id');
+
+var form=$('#form-delete');
+var url=form.attr('action').replace(':ID_USER',id);
+
+var data=form.serialize();//transforma la información en datos binarios para que viajen por la red y llegue al backend
+
+
+
+$.post(url,data, function (result) {//método ajax para poder trabajar de forma asincrona
+row.fadeOut();//elimina la casilla de la tabla visualmente
+
+
+}).fail(function (){//si ocurre un error en la transacción entonces manda este error
+	alert('error al eliminar material');
+
+});
+
+});
+
+	});
+
+
+</script>
+
+
 @stop
