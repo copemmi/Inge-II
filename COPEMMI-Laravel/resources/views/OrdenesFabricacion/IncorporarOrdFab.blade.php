@@ -104,24 +104,23 @@
 							</div>
 						</div>
 
+						<!--Identificacion del Cliente-->
+
 						<div class="form-group">
-							{!! Form::label('NOMBRE_CLIENTE','Nombre del Cliente:',array('class' => 'control-label col-md-2')) !!}
-							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>
-							<div class="col-md-3"><!-- Aquí sale el mensaje de ayuda e información -->
-								{!! Form::text('NOMBRE_CLIENTE',null,['class' => 'form-control','placeholder' => 'Nombre del Cliente', 'maxlength="50"']) !!}
-								<span class = "help-block"></span>
+							{!! Form::label('option','Identificacion del Cliente:',array('class' => 'control-label col-md-2')) !!}
+
+							<div class="col-md-3">
+
+								<select class="form-control" name="ID" id="option">
+									
+									@foreach($id_cliente as $tm)
+									<option value={{$tm->ID}}>{{$tm->ID}}</option>
+									@endforeach	
+								
+								</select>
+                             
 							</div>
 						</div>
-
-							<div class="form-group">
-							{!! Form::label('CEDULA_CLIENTE','Cedula del Cliente:',array('class' => 'control-label col-md-2')) !!}
-							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 11 caracteres, Con Formato #-0###-0###.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>
-							<div class="col-md-3"><!-- Aquí sale el mensaje de ayuda e información -->
-								{!! Form::text('CEDULA_CLIENTE',null,['class' => 'form-control','placeholder' => 'Cedula del Cliente', 'maxlength="11"']) !!}
-								<span class = "help-block"></span>
-							</div>
-						</div>
-
 
 						<div class="form-group">
 							{!! Form::label('FECHA_LLEGADA','Fecha de Llegada:',array('class' => 'control-label col-md-2')) !!}
