@@ -94,21 +94,23 @@
 						</div>
 					</div>
 
-					<!-- Cliente-->
+					
+<!--Cliente Identificacion --> 
 
 					<div class="form-group">
-						{!! Form::label('NOMBRE_CLIENTE','Nombre del Cliente:',array('class' => 'control-label col-md-2')) !!}
+						{!! Form::label('option','Identificacion del Cliente:',array('class' => 'control-label col-md-2')) !!}
 						<div class="col-md-3">
-							{!! Form::text('NOMBRE_CLIENTE',$OrdFab->NOMBRE_CLIENTE,['class' => 'form-control','readonly']) !!}
-						</div>
-					</div>
-
-					<!-- Cedula del Cliente-->
-
-					<div class="form-group">
-						{!! Form::label('CEDULA_CLIENTE','Cédula del Cliente:',array('class' => 'control-label col-md-2')) !!}	
-						<div class="col-md-2">
-							{!! Form::text('CEDULA_CLIENTE',$OrdFab->CEDULA_CLIENTE,['class' => 'form-control','readonly']) !!}
+							<select class="form-control" name="CLIENTE" id="option" disabled> 
+									@foreach($id_cliente as $tc)
+									
+									<?php if(strcmp($OrdFab->ID, $tc->ID) == 0){ ?>
+												<option selected="selected" value={{$tc->ID}}>{{$tc->ID}}</option>
+									<?php }else{ ?>
+											<option value={{$tc->ID}}>{{$tc->ID}}</option>
+											
+										<?php } ?>
+									@endforeach
+							</select>
 						</div>
 					</div>
 
