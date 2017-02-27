@@ -37,6 +37,7 @@ class OrdenFabricacionController extends Controller
         $tipo_estado = estado_orden::all();
         $tipo_modelo = modelo_maquina::all();
         $tipo_usuario = Usuario::all();
+        $id_cliente = cliente::all();
 
         return View('OrdenesFabricacion/IncorporarOrdFab')->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
     }
@@ -78,8 +79,9 @@ class OrdenFabricacionController extends Controller
         $tipo_estado = estado_orden::all();
         $tipo_modelo = modelo_maquina::all();
         $tipo_usuario = Usuario::all();
+         $id_cliente = cliente::all();
 
-        return View('OrdenesFabricacion/MostrarOrdFab')->with('OrdFab',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario);
+        return View('OrdenesFabricacion/MostrarOrdFab')->with('OrdFab',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
     }
 
     /**
@@ -95,8 +97,9 @@ class OrdenFabricacionController extends Controller
         $tipo_estado = estado_orden::all();
         $tipo_modelo = modelo_maquina::all();
         $tipo_usuario = Usuario::all();
+        $id_cliente = cliente::all();
 
-        return View('OrdenesFabricacion/ModificarOrdFab')->with('OrdFab',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario);
+        return View('OrdenesFabricacion/ModificarOrdFab')->with('OrdFab',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
     }
 
     /**
@@ -112,8 +115,8 @@ class OrdenFabricacionController extends Controller
         $orden_fabricacion->cod_estado=$request->get('COD_ESTADO');
         $orden_fabricacion->cod_modelo=$request->get('COD_MODELO');
         $orden_fabricacion->cod_usuario=$request->get('COD_USUARIO');
-        $orden_fabricacion->nombre_cliente=$request->get('NOMBRE_CLIENTE');
-        $orden_fabricacion->cedula_cliente=$request->get('CEDULA_CLIENTE');
+        $orden_fabricacion->id=$request->get('ID');
+        
         
         $orden_fabricacion->update();
 
