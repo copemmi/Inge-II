@@ -229,7 +229,7 @@ var row=$(this).parents('tr');
 var id=row.data('id');
 
 var form=$('#form-delete');
-var url=form.attr('action').replace(':ID_USER',id);
+var url=form.attr('action').replace(':ID_USER/destroy',id);
 
 var data=form.serialize();//transforma la información en datos binarios para que viajen por la red y llegue al backend
 
