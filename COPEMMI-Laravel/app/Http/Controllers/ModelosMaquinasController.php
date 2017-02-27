@@ -52,7 +52,7 @@ class ModelosMaquinasController extends Controller
               break; 
 
           case 'precio':
-          $modelos=modelo_maquina::buscadorPrecio($request->buscar)->orderBy('PRECIO','DESC')->paginate(100);
+              $modelos=modelo_maquina::buscadorPrecio($request->buscar)->orderBy('PRECIO','DESC')->paginate(100);
           break;
 
 
@@ -148,9 +148,9 @@ class ModelosMaquinasController extends Controller
        $tipo_modelo = tipo_modelo::all();
        $imagenes = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
       
- 
+       $materialesDetalle=det_modelo_maquina::detalleMaterialModelo($modelos->COD_MODELO)->orderBy('COD_DETALLE_MODELO','DESC')->paginate(100);
      
-       return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo)->with('ima',$imagenes);
+       return View('ModelosMaquinas/MostrarModMaq')->with('modelos',$modelos)->with('tipo_modelo',$tipo_modelo)->with('ima',$imagenes)->with('materialesDetalle',$materialesDetalle);  
        
     }
 
@@ -170,8 +170,7 @@ class ModelosMaquinasController extends Controller
 
         $imagenes = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
 
-         
-    $materialesDetalle=det_modelo_maquina::detalleMaterialModelo($modelos->COD_MODELO)->orderBy('COD_DETALLE_MODELO','DESC')->paginate(100);
+        $materialesDetalle=det_modelo_maquina::detalleMaterialModelo($modelos->COD_MODELO)->orderBy('COD_DETALLE_MODELO','DESC')->paginate(100);
 
         return view('ModelosMaquinas/ModificarModMaq')->with('modelos',$modelos)->with('tipo_modelo', $tipo_modelo)->with('ima',$imagenes)->with('materialesDetalle',$materialesDetalle);
     }
@@ -206,6 +205,27 @@ class ModelosMaquinasController extends Controller
           File::delete(public_path().'/imagenes/ModelosMaquinas/'.$urlImagen);//elimina la imagen antigua en el Sistema de Archivos
 
         }
+
+        //Detalle del Modelo de la Máquina.
+
+        $cont=0;
+
+        //Variables de los Materiales. 
+        $idDetalle=$request->get('detalle'); 
+        $cantidad=$request->get('cantidad');
+
+        while($cont < count($idDetalle)) { //Recorre todos los materiales que están en el detalle. 
+
+          //$det_modelo_maquina= new det_modelo_maquina; //Instancio un objeto detalle del modelo para enviarle todos los valores. 
+          $materialesDetalle = det_modelo_maquina::find($idDetalle[$cont]);
+          //$det_modelo_maquina->cod_modelo=$modelo_maquina->cod_modelo;
+          //$det_modelo_maquina->cod_material=$idmaterial[$cont];
+          $materialesDetalle->cantidad=$cantidad[$cont];
+
+          $materialesDetalle->update();
+
+          $cont++;
+        }  
 
         Flash("¡Se ha modificado el modelo de la máquina exitósamente!",'info');
 

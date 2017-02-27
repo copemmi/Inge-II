@@ -56,17 +56,10 @@
 										<?php } ?>
 									@endforeach
 								</select>
-
-
-						
-
 							</div>
 						</div>
 						
-						
-
-
-							<div class="form-group">
+						<div class="form-group">
 							{!! Form::label('NOMBRE','Nombre del material:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 							<div class="col-md-5">
@@ -107,7 +100,33 @@
 							</div>
 						</div>
 						
+						<!-- cuadro de detalle de materiales -->
 
+                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+							<table id="visualizarDetalle" class="table width=30 table-striped table-bordered table-condensed table-hover">
+								<thead style="background-color:#A9D0F5">
+									<th>Código detalle</th>
+									<th>Código Modelo</th>
+									<TH>Código Material</TH>
+									<th>Cantidad</th>
+									<th>Operaciones</th>
+								</thead>
+
+								<tbody>
+									@foreach($materialesDetalle as $mat)
+									<tr class="success">
+							
+										<td>{{ $mat->COD_DETALLE_MODELO}} </td>
+										<td>{{ $mat->COD_MODELO}} </td>
+										<td>{{ $mat->COD_MATERIAL}}</td>
+										<td>{{ $mat->CANTIDAD}}</td>
+										<td><a href="{{ route('modelosMaquinas.index') }}" class="btn btn-danger" id="Cancelar"><img src="{{asset('imagenes/delete2.png')}}" width=15;/></a>
+										</td>	
+									</tr>
+									@endforeach
+								</tbody>
+						    </table>
+					   </div>
 
 <!---------------------------------------------------------------Mensaje de confirmacion para eliminar---------------------------------------------->
 							<div class="modal fade" id="ventana" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -135,14 +154,8 @@
  								</div>
  							</div>
  			
-
-						
-						
-                
-<!-- cuadro de detalle de materiales -->
-
+ 				<!--------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->
                             
-
 									<div class="form-group">
 							<div class"col-md-0 col-md-offset-0">
 								{!! Form::label('separador','____________________________________________________________________________________________________________________________________',array('class' => 'control-label col-md-0')) !!}
@@ -163,17 +176,9 @@
 								
 
 							</div>	
-
-
-
 						</form>
 					{!! Form::close() !!}
 				</div>
 			</div>
-
-
-
-
-
 		</div>	
 @stop

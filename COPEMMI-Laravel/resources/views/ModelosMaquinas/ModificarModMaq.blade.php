@@ -115,6 +115,46 @@
 				</div>
 			</div>
 
+			<!-------------------------------------------- DETALLE DEL MODELO DE MÁQUINA ----------------------------------------> 
+			<div class="panel-body">
+
+				<div class="col-lg-2 col-sm-3 col-md-3 col-xs-12">
+					<div class="form-group">
+					</div>
+				</div>
+
+				<div class="col-lg-1 col-sm-3 col-md-3 col-xs-12">
+				</div>
+				
+				<div class="col-lg-2 col-sm-3 col-md-3 col-xs-12">	
+				</div>
+
+				
+					<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+						<table id="detalles" class="table width=30 table-striped table-bordered table-condensed table-hover">
+							<thead style="background-color:#A9D0F5">
+								<th>Código detalle</th>
+								<th>Código Modelo</th>
+								<TH>Código Material</TH>
+								<th>Cantidad</th>
+							</thead>
+								
+							<tbody>
+								@foreach($materialesDetalle as $mat)
+								<tr class="success">
+									<td><input type="hidden" name="detalle[]" value="{{$mat->COD_DETALLE_MODELO}}">{{$mat->COD_DETALLE_MODELO}}</td>
+									<td>{{ $mat->COD_MODELO}} </td>
+									<td>{{ $mat->COD_MATERIAL}}</td>
+									<td><input class="col-md-3 col-md-offset-4" type="number" min="1"  name="cantidad[]" value="{{$mat->CANTIDAD}}" placeholder="Cantidad"></td>					
+								</tr>
+								@endforeach	
+					
+							</tbody>
+						</table>					
+					</div>
+			</div>
+
+
 			<!--------------------------------------BOTONES POR SI SE QUIERE MODIFICAR------------------------------------------------------------>
 
 			<form action="" class="form-inline">
@@ -127,48 +167,13 @@
 				</div>
 			</form>
 
-			<!--------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->	
+			<!--------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->
 
 			<br>
 			<div class="form-group">
 				<div class"col-md-0 col-md-offset-0">
 					{!! Form::label('separador','___________________________________________________________________________________________________________________',array('class' => 'control-label col-md-0')) !!}
 				</div>
-
-<div class="panel panel-primary">
-							<table id="visualizarDetalle" class="table width=30 table-striped table-bordered table-condensed table-hover">
-											<thead style="background-color:#A9D0F5">
-								<th>Código detalle</th>
-								<th>Código Modelo</th>
-								<TH>Código Material</TH>
-								<th>Cantidad</th>
-								<th>Operaciones</th>
-											</thead>
-										 @foreach($materialesDetalle as $mat)
-							<tr data-id="{{$mat->COD_DETALLE_MODELO }}" class="success">
-							
-								<td>{{ $mat->COD_DETALLE_MODELO}} </td>
-								<td>{{ $mat->COD_MODELO}} </td>
-								<td>{{ $mat->COD_MATERIAL}}</td>
-								<td>{{ $mat->CANTIDAD}} </td>
-								<td><a class="btn btn-danger" id="Cancelar"><img src="{{asset('imagenes/delete2.png')}}" width=15;/></a>
-<!--<a href="#" class="btn btn-warning" id="editar"><img src="{{asset('imagenes/edit.png')}}" width=15;/></a>-->
-								</td>
-															
-							</tr>
-						@endforeach
-
-
-{!! Form::open(['route'=> ['det_modelo_maquina.destroy',':ID_USER'],'method'=>'DELETE','id'=>'form-delete'])
-!!}
-
-{!!Form::close()!!}
-
-
-
-										</table>
-
-
 			</div>	
 
 			<form action="" class="form-inline" >
@@ -187,28 +192,13 @@
 		</div>
 
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 
 @stop
 
 @section('js')
 	{!! Html::script('js/validacionMod.js') !!}
-
+	{!! Html::script('js/validacionDetalleMod.js') !!}
 	
 <script>
 
