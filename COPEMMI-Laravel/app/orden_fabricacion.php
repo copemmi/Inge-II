@@ -35,7 +35,7 @@ public $incrementing = false;
      */
 	protected $primaryKey= 'COD_ORDEN_FABRICACION';
      
-    protected $fillable = ['COD_ESTADO','COD_MODELO', 'COD_USUARIO', 'NOMBRE_CLIENTE', 'CEDULA_CLIENTE', 'FECHA_LLEGADA', 'FECHA_ENTREGA'];
+    protected $fillable = ['COD_ESTADO','COD_MODELO', 'COD_USUARIO', 'ID', 'FECHA_LLEGADA', 'FECHA_ENTREGA'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -59,6 +59,14 @@ public $incrementing = false;
     public function usuario()
     {
         return $this->belongsTo('App\usuario', 'COD_USUARIO', 'COD_USUARIO');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function clientes()
+    {
+        return $this->belongsTo('App\cliente', 'ID', 'ID');
     }
 
     /**
