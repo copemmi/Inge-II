@@ -10,6 +10,7 @@ use App\orden_fabricacion;
 use App\usuario;
 use App\estado_orden;
 use App\modelo_maquina;
+use App\cliente;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\ordenesFabricacionRequest;
@@ -37,7 +38,7 @@ class OrdenFabricacionController extends Controller
         $tipo_modelo = modelo_maquina::all();
         $tipo_usuario = Usuario::all();
 
-        return View('OrdenesFabricacion/IncorporarOrdFab')->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario);
+        return View('OrdenesFabricacion/IncorporarOrdFab')->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
     }
 
     /**
@@ -53,8 +54,7 @@ class OrdenFabricacionController extends Controller
         $orden_fabricacion->cod_estado=$request->get('COD_ESTADO');
         $orden_fabricacion->cod_modelo=$request->get('COD_MODELO');
         $orden_fabricacion->cod_usuario=$request->get('COD_USUARIO');
-        $orden_fabricacion->nombre_cliente=$request->get('NOMBRE_CLIENTE');
-        $orden_fabricacion->cedula_cliente=$request->get('CEDULA_CLIENTE');
+        $orden_fabricacion->id=$request->get('ID');
         $orden_fabricacion->fecha_llegada=$request->get('FECHA_LLEGADA');
         $orden_fabricacion->fecha_entrega=$request->get('FECHA_ENTREGA');
 
