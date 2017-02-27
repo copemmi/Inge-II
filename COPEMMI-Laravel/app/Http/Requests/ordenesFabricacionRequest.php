@@ -37,9 +37,7 @@ class ordenesFabricacionRequest extends FormRequest
             }
 
             case 'POST':{
-                return ['NOMBRE_CLIENTE' =>'max:50|required'
-                    
-                ];
+                return [];
             }
 
             case 'PUT':{
