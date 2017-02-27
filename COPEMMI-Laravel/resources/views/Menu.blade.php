@@ -65,6 +65,13 @@
 		                    </ul> 
 		                </li> 
 
+		                <li><a href="#"><span class="icono izquierda fa fa-money"></span>Clientes<i class="icono derecha fa fa-chevron-down"></i></a>
+			                <ul>
+				            	<li><a href="{{ route('clientes.create') }}">Incorporar Cliente</a></li>
+				                <li><a href="{{ route('clientes.index') }}">Visualizar Clientes</a></li>
+			                </ul> 
+		                </li> 
+
 		                <li><a href="#"><span class="icono izquierda fa fa-users"></span>Acerca de<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
 				            	<li><a href="{{ route('equipoDesarrollo.index') }}">Equipo Desarrollador</a></li>
