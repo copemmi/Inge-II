@@ -92,7 +92,7 @@ class OrdenFabricacionController extends Controller
 
         Flash("Se ha guardado la orden",'success');
 
-        return Redirect()->route('ordenesFabricacion.create'); // Cambiar a orden de fabricacion index
+        return Redirect()->route('ordenesFabricacion.index'); // Cambiar a orden de fabricacion index
     }
 
     /**
@@ -110,7 +110,7 @@ class OrdenFabricacionController extends Controller
         $tipo_usuario = Usuario::all();
          $id_cliente = cliente::all();
 
-        return View('OrdenesFabricacion/VisualizarOrdFab')->with('OrdFab',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
+        return View('OrdenesFabricacion/VisualizarOrdFab')->with('orden_fabricacion',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
     }
 
     /**

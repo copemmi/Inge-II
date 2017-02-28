@@ -71,7 +71,7 @@
 							</tr>
 						 </thead>
 						@foreach($orden_fabricacion as $ord_fab)
-							<tr class="success" data-href="{{ route('ordenesFabricacion.show', $ord_fab->COD_ORDEN_FAB) }}">
+							<tr class="success" data-href="{{ route('ordenesFabricacion.show', $ord_fab->COD_ORDEN_FABRICACION) }}">
 							
 								<td>{{ $ord_fab->COD_ORDEN_FABRICACION}} </td>
 								<td>{{ $ord_fab->ID}} </td>
