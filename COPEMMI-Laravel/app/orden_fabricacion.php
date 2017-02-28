@@ -66,7 +66,7 @@ public $incrementing = false;
      */
     public function clientes()
     {
-        return $this->belongsTo('App\cliente', 'ID', 'ID');
+        return $this->belongsTo('App\cliente', 'ID', 'ID','NOMBRE_CLIENTE','NOMBRE_CLIENTE');
     }
 
     /**
@@ -75,5 +75,23 @@ public $incrementing = false;
     public function historialesOrdenesFabriciones()
     {
         return $this->hasMany('App\historial_orden_fabricion', 'COD_ORDEN_FABRICACION', 'COD_ORDEN_FABRICACION');
+    }
+    /*Metodos de busqueda para Clientes,Maquinas,Estados de Ordenes*/
+    public function scopeBuscadorCliente($query,$dato)
+    {
+        return $query->where('ID','LIKE',$dato."%");
+    }
+    public function scopeBuscadorModMaquina($query,$dato)
+    {
+        return $query->where('COD_MODELO','LIKE',$dato."%");
+    }
+    public function scopeBuscadorEstadosDeOrdenes($query,$dato)
+    {
+        return $query->where([['COD_ESTADO','LIKE',$dato."%"],['COD_ESTADO','!=',"TER"]]);
+    
+    }
+    public function scopeBuscadorOrdenFab($query,$dato)
+    {
+        return $query->where('COD_ORDEN_FABRICACION','LIKE',$dato."%");
     }
 }

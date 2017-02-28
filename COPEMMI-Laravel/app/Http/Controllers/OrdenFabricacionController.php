@@ -23,8 +23,37 @@ class OrdenFabricacionController extends Controller
      */
 
      public function index(Request $request){ 
+        $check=Input::has('Cod_BusOrd_Fab');
+        $checkValue = Input::get('Cod_BusOrd_Fab');
 
-         return View('OrdenesFabricacion/IncorporarOrdFab');
+      switch ($checkValue)
+      {
+      
+          case 'estado_orden':
+            
+              $orden_fabricacion=orden_fabricacion::BuscadorEstadosDeOrdenes($request->buscar)->orderBy('COD_ESTADO','DESC')->paginate(100);
+              break;
+
+          case 'orden_fabricacion':
+              
+              $orden_fabricacion=orden_fabricacion::BuscadorOrdenFab($request->buscar)->orderBy('COD_ORDEN_FABRICACION','DESC')->paginate(100);
+              break;
+
+          case 'modelo_maquina':
+             
+              $orden_fabricacion=orden_fabricacion::BuscadorModMaquina($request->buscar)->orderBy('COD_MODELO','DESC')->paginate(100);
+              break; 
+
+          case 'cedula_cliente':
+          $orden_fabricacion=orden_fabricacion::BuscadorCliente($request->buscar)->orderBy('ID','DESC')->paginate(100);
+          break;
+
+
+          default:      
+            $orden_fabricacion=orden_fabricacion::BuscadorModMaquina(" ")->paginate(1);//si se le quita el paginate, no mostrara nada
+      }
+
+                 return view('OrdenesFabricacion/VisualizarOrdFab')->with('orden_fabricacion',$orden_fabricacion);
     }
 
     /**
@@ -81,7 +110,7 @@ class OrdenFabricacionController extends Controller
         $tipo_usuario = Usuario::all();
          $id_cliente = cliente::all();
 
-        return View('OrdenesFabricacion/MostrarOrdFab')->with('OrdFab',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
+        return View('OrdenesFabricacion/VisualizarOrdFab')->with('OrdFab',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
     }
 
     /**
@@ -122,7 +151,7 @@ class OrdenFabricacionController extends Controller
 
         Flash("¡Se ha modificado la orden de fabricación exitósamente!",'info');
 
-        return Redirect()->route('modelosMaquinas.index');
+        return Redirect()->route('ordenesFabricacion.index');
     }
 
     /**
