@@ -36,7 +36,7 @@
 					<div class="form-group">
 						{!! Form::label('COD_ORDEN_FABRICACION','Código Orden Fabricación:',array('class' => 'control-label col-md-2')) !!}
 						<div class="col-md-2">
-							{!! Form::text('COD_ORDEN_FABRICACION',$OrdFab->COD_ORDEN_FABRICACION,['class' => 'form-control','readonly']) !!}
+							{!! Form::text('COD_ORDEN_FABRICACION',$orden_fabricacion->COD_ORDEN_FABRICACION,['class' => 'form-control','readonly']) !!}
 						</div>
 					</div>
 
@@ -48,7 +48,7 @@
   							<select class="form-control" name="ESTADO" id="option" disabled> 
 									@foreach($tipo_estado as $te)
 									
-									<?php if(strcmp($OrdFab->COD_ESTADO, $te->COD_ESTADO) == 0){ ?>
+									<?php if(strcmp($orden_fabricacion->COD_ESTADO, $te->COD_ESTADO) == 0){ ?>
 												<option selected="selected" value={{$te->COD_ESTADO}}>{{$te->NOMBRE}}</option>
 									<?php }else{ ?>
 											<option value={{$te->COD_ESTADO}}>{{$te->NOMBRE}}</option>
@@ -67,7 +67,7 @@
 							<select class="form-control" name="MODELO DE MAQUINA" id="option" disabled> 
 									@foreach($modelo as $tm)
 									
-									<?php if(strcmp($OrdFab->COD_MODELO, $tm->COD_MODELO) == 0){ ?>
+									<?php if(strcmp($orden_fabricacion->COD_MODELO, $tm->COD_MODELO) == 0){ ?>
 												<option selected="selected" value={{$tm->COD_MODELO}}>{{$tm->NOMBRE}}</option>
 									<?php }else{ ?>
 											<option value={{$tm->COD_MODELO}}>{{$tm->NOMBRE}}</option>
@@ -84,7 +84,7 @@
 							<select class="form-control" name="USUARIO" id="option" disabled> 
 									@foreach($tipo_usuario as $tu)
 									
-									<?php if(strcmp($OrdFab->COD_USUARIO, $tu->COD_USUARIO) == 0){ ?>
+									<?php if(strcmp($orden_fabricacion->COD_USUARIO, $tu->COD_USUARIO) == 0){ ?>
 												<option selected="selected" value={{$tu->COD_USUARIO}}>{{$tu->NOMBRE}}</option>
 									<?php }else{ ?>
 											<option value={{$tu->COD_USUARIO}}>{{$tu->NOMBRE}}</option>
@@ -103,7 +103,7 @@
 							<select class="form-control" name="CLIENTE" id="option" disabled> 
 									@foreach($id_cliente as $tc)
 									
-									<?php if(strcmp($OrdFab->ID, $tc->ID) == 0){ ?>
+									<?php if(strcmp($orden_fabricacion->ID, $tc->ID) == 0){ ?>
 												<option selected="selected" value={{$tc->ID}}>{{$tc->ID}}</option>
 									<?php }else{ ?>
 											<option value={{$tc->ID}}>{{$tc->ID}}</option>
@@ -119,7 +119,7 @@
 					<div class="form-group">
 						{!! Form::label('FECHA_LLEGADA','Fecha de Llegada:',array('class' => 'control-label col-md-2')) !!}
 						<div class="col-md-2">
-							{!! Form::text('FECHA_LLEGADA',$OrdFab->FECHA_LLEGADA, ['class' => 'form-control', 'readonly']) !!}
+							{!! Form::text('FECHA_LLEGADA',$orden_fabricacion->FECHA_LLEGADA, ['class' => 'form-control', 'readonly']) !!}
 						</div>
 					</div>
 
@@ -128,7 +128,7 @@
 					<div class="form-group">
 						{!! Form::label('FECHA_ENTREGA','Fecha de Entrega:',array('class' => 'control-label col-md-2')) !!}
 						<div class="col-md-2">
-							{!! Form::text('FECHA_ENTREGA',$OrdFab->FECHA_ENTREGA, ['class' => 'form-control', 'readonly']) !!}
+							{!! Form::text('FECHA_ENTREGA',$orden_fabricacion->FECHA_ENTREGA, ['class' => 'form-control', 'readonly']) !!}
 						</div>
 					</div>
 				</div>
@@ -151,7 +151,7 @@
  
  										<div class="modal-footer">
  											<form> 
- 												<a href="{{ route('ordenesFabricacion.destroy', $OrdFab->COD_ORDEN_FABRICACION) }}" class="btn btn-default">Aceptar</a>
+ 												<a href="{{ route('ordenesFabricacion.destroy', $orden_fabricacion->COD_ORDEN_FABRICACION) }}" class="btn btn-default">Aceptar</a>
  												<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
  											</form>
  										</div>
@@ -171,7 +171,7 @@
 							
 							<div class="col-md-0 col-md-offset-1">
 
-								<a href="{{ route('ordenesFabricacion.edit', $OrdFab->COD_ORDEN_FABRICACION) }}" title="Modificar orden de fabricación" class="btn btn-warning">Modificar Orden de Fab.</a>
+								<a href="{{ route('ordenesFabricacion.edit', $orden_fabricacion->COD_ORDEN_FABRICACION) }}" title="Modificar orden de fabricación" class="btn btn-warning">Modificar Orden de Fab.</a>
 
 								<a href="#" title="Eliminar orden de fabricación" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Orden de Fab.</a>
 								

@@ -56,29 +56,35 @@
 
 		<!-- TABLA DE MODELOS -->
 				<br>
+				<br>
 				<div class="tabla-modelos">
 					<table class="table width=30 table-bordered table-hover table-condensed" >
 						<thead class="bg-primary">
 							<tr>
-								<th>Codigo de la orden</th>
-								<th>ID del cliente</th>
-								<TH>Tipo de modelo</TH>
-								<th>Tipo de estado</th>
+								<th>Código de la orden</th>
+								<th>Estado</th>
+								<th>Código del modelo</th>
+								<th>Código de usuario</th>
+								<th>Cédula del cliente</th>
 								<th>Fecha de llegada</th>
 								<th>Fecha de entrega</th>
-								
-								<!--<th class="opciones" >Opciones</th>-->
+
+															
+					
 							</tr>
 						 </thead>
-						@foreach($orden_fabricacion as $ord_fab)
-							<tr class="success" data-href="{{ route('ordenesFabricacion.show', $ord_fab->COD_ORDEN_FABRICACION) }}">
+						@foreach($ordenFab as $ord)
+							<tr class="success" data-href="{{ route('ordenesFabricacion.show',$ord->COD_ORDEN_FABRICACION) }}">
 							
-								<td>{{ $ord_fab->COD_ORDEN_FABRICACION}} </td>
-								<td>{{ $ord_fab->ID}} </td>
-								<td>{{ $ord_fab->COD_MODELO}}</td>
-								<td>{{ $ord_fab->COD_ESTADO}} </td>	
-								<td>{{ $ord_fab->FECHA_LLEGADA}} </td>	
-								<td>{{$ord_fab->FECHA_ENTREGA}}							
+								<td>{{ $ord->COD_ORDEN_FABRICACION}} </td>
+								<td>{{ $ord->COD_ESTADO}} </td>
+								<td>{{ $ord->COD_MODELO}} </td>
+								<td>{{ $ord->COD_USUARIO}} </td>
+								<td>{{ $ord->ID}} </td>
+								<td>{{ $ord->FECHA_LLEGADA}} </td>
+								<td>{{ $ord->FECHA_ENTREGA}} </td>
+
+												
 							</tr>
 						@endforeach
 					</table>

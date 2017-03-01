@@ -53,7 +53,7 @@ class OrdenFabricacionController extends Controller
             $orden_fabricacion=orden_fabricacion::BuscadorModMaquina(" ")->paginate(1);//si se le quita el paginate, no mostrara nada
       }
 
-                 return view('OrdenesFabricacion/VisualizarOrdFab')->with('orden_fabricacion',$orden_fabricacion);
+                 return view('OrdenesFabricacion/OrdenesFabricacion')->with('ordenFab',$orden_fabricacion);
     }
 
     /**
@@ -107,10 +107,10 @@ class OrdenFabricacionController extends Controller
 
         $tipo_estado = estado_orden::all();
         $tipo_modelo = modelo_maquina::all();
-        $tipo_usuario = Usuario::all();
+        $tipo_usuario = usuario::all();
          $id_cliente = cliente::all();
 
-        return View('OrdenesFabricacion/VisualizarOrdFab')->with('orden_fabricacion',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
+        return View('OrdenesFabricacion/MostrarOrdFab')->with('orden_fabricacion',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
     }
 
     /**
