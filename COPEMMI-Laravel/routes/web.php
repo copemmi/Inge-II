@@ -91,6 +91,12 @@ Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 		]);
 
 
+//-------------------------RUTAS PARA EL HISTORIAL DE ÓRDENES DE FABRICACIÓN TERMINADAS-------------------------
+	Route::resource('historialOrdenesFabricacion','HistorialOrdenFabricacionController'); //Se llama en el navegador como http://localhost:8000/historialOrdenesFabricacion, además se va a usar el controlador indicado
 
+	Route::get('historialOrdenesFabricacion/{id}/destroy', [
+	'uses' => 'HistorialOrdenFabricacionController@destroy', //La ruta va a usar el controlador indicado, lo que está luego del @ es el método que se va a usar de dicho controlador.
+	'as' => 'historialOrdenesFabricacion.destroy' //Este va a ser el nombre de la ruta aunque no es necesario
+	]);
 	
 

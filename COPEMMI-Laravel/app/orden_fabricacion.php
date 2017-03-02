@@ -94,4 +94,31 @@ public $incrementing = false;
     {
         return $query->where('COD_ORDEN_FABRICACION','LIKE',$dato."%");
     }
+
+
+
+    //Métodos para el buscador por código de la orden de fabricación, código del modelo y cédula del cliente
+    public function scopeBuscadorCodigo($query, $dato)
+    {
+        return $query->where([
+            ['COD_ORDEN_FABRICACION', 'LIKE', $dato."%"],
+            ['COD_ESTADO', '=', 'TER'],
+            ]);
+    }
+
+    public function scopeBuscadorModelo($query, $dato)
+    {
+        return $query->where([
+            ['COD_MODELO', 'LIKE', $dato."%"],
+            ['COD_ESTADO', '=', 'TER'],
+            ]);
+    }
+
+    public function scopeBuscadorCedulaCliente($query, $dato)
+    {
+        return $query->where([
+            ['ID', 'LIKE', $dato."%"],
+            ['COD_ESTADO', '=', 'TER'],
+            ]);
+    }
 }
