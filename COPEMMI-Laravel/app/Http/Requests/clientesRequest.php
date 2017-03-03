@@ -43,7 +43,7 @@ class clientesRequest extends FormRequest
                     'PRIMER_APELLIDO'=>'max:50|required',
                     'SEGUNDO_APELLIDO'=>'max:50|required',
                     'DIRECCION'=>'max:100|required',
-                    'TELEFONO'=>'max:11|required',
+                    'TELEFONO'=>'max:10|required',
                     'CORREO'=>'max:50|required'
                 ];
             }
@@ -54,7 +54,7 @@ class clientesRequest extends FormRequest
                     'PRIMER_APELLIDO' =>'max:50|required',
                     'SEGUNDO_APELLIDO' =>'max:50|required',
                     'DIRECCION' =>'max:50|required',
-                    'TELEFONO' =>'max:11|required',
+                    'TELEFONO' =>'max:10|required',
                     'CORREO' =>'max:50|required'
                 ];
             }

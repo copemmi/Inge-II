@@ -25,7 +25,7 @@ function empezarFunciones(){
 
 function validarIdentificacion(){
 
-	var tester = /\d{1}-0\d{3}-[0-1]\d{3}/
+	var tester = /\d{1}-[0-1]\d{3}-[0-1]\d{3}/
 	var valor = document.getElementById("ID").value;
 
 	if(valor == null || valor.length == 0 || /^\s+$/.test(valor)){
@@ -188,7 +188,7 @@ function validarTelefono(){
 		$('#Guardar').hide();
 		return false;
 	}
-	else if(valor.length > 11){
+	else if(valor.length > 10){
 
 		$("#iconote").remove();
 		$("#TELEFONO").parent().parent().attr("class","form-group has-error has-feedback")
@@ -242,7 +242,7 @@ function validarCorreo(){
 	else if(tester.test(valor)==false){
 		$("#iconoco").remove();
 		$("#CORREO").parent().parent().attr("class","form-group has-error has-feedback")
-		$("#CORREO").parent().children("span").text("Debe tener formato ####-##-##").show();
+		$("#CORREO").parent().children("span").text("Debe tener formato ejemplo@hotmail.com").show();
 		$("#CORREO").parent().append("<span id='iconoco' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 		$('#Guardar').hide();
 		return false;
