@@ -44,7 +44,7 @@ class clientesRequest extends FormRequest
                     'SEGUNDO_APELLIDO'=>'max:50|required',
                     'DIRECCION'=>'max:100|required',
                     'TELEFONO'=>'max:10|required',
-                    'CORREO'=>'max:50|required'
+                    'CORREO'=>'max:50|required|unique:clientes'
                 ];
             }
 
