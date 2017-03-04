@@ -76,14 +76,15 @@ public $incrementing = false;
     {
         return $this->hasMany('App\historial_orden_fabricion', 'COD_ORDEN_FABRICACION', 'COD_ORDEN_FABRICACION');
     }
-    /*Metodos de busqueda para Clientes,Maquinas,Estados de Ordenes*/
+    /*Metodos de busqueda para los estados de producción e inactiva por
+    Código de órden,código de modelo y cédula del cliente */
     public function scopeBuscadorCliente($query,$dato)
     {
-        return $query->where('ID','LIKE',$dato."%");
+        return $query->where([['ID','LIKE',$dato."%"],['COD_ESTADO','!=',"TER"]]);
     }
     public function scopeBuscadorModMaquina($query,$dato)
     {
-        return $query->where('COD_MODELO','LIKE',$dato."%");
+        return $query->where([['COD_MODELO','LIKE',$dato."%"],['COD_ESTADO','!=',"TER"]]);
     }
     public function scopeBuscadorEstadosDeOrdenes($query,$dato)
     {
@@ -92,12 +93,13 @@ public $incrementing = false;
     }
     public function scopeBuscadorOrdenFab($query,$dato)
     {
-        return $query->where('COD_ORDEN_FABRICACION','LIKE',$dato."%");
+        return $query->where([['COD_ORDEN_FABRICACION','LIKE',$dato."%"],['COD_ESTADO','!=',"TER"]]);
     }
 
 
 
-    //Métodos para el buscador por código de la orden de fabricación, código del modelo y cédula del cliente
+    //Métodos para el buscador de ordenes de fabricacion en estado terminadas por 
+    //Código de órden,código de modelo y cédula del cliente
     public function scopeBuscadorCodigo($query, $dato)
     {
         return $query->where([

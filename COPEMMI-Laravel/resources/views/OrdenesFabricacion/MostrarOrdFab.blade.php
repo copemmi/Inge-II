@@ -34,7 +34,7 @@
 					<!--Codigo de Orden de Fabricacion-->
 
 					<div class="form-group">
-						{!! Form::label('COD_ORDEN_FABRICACION','Código Orden Fabricación:',array('class' => 'control-label col-md-2')) !!}
+						{!! Form::label('COD_ORDEN_FABRICACION','Código Orden Fabricación:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-2">
 							{!! Form::text('COD_ORDEN_FABRICACION',$orden_fabricacion->COD_ORDEN_FABRICACION,['class' => 'form-control','readonly']) !!}
 						</div>
@@ -43,14 +43,14 @@
 					<!--Tipo de Estado-->
 
 					<div class="form-group">
-						{!! Form::label('option','Tipo de Estado:',array('class' => 'control-label col-md-2')) !!}
+						{!! Form::label('option','Tipo de Estado:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-2">
-  							<select class="form-control" name="ESTADO" id="option" disabled> 
+  							<select class="form-control" name="ESTADO" id="option" disabled>
 									@foreach($tipo_estado as $te)
 									
 									<?php if(strcmp($orden_fabricacion->COD_ESTADO, $te->COD_ESTADO) == 0){ ?>
 												<option selected="selected" value={{$te->COD_ESTADO}}>{{$te->NOMBRE}}</option>
-									<?php }else{ ?>
+									<?php }else{ ?>	
 											<option value={{$te->COD_ESTADO}}>{{$te->NOMBRE}}</option>
 										<?php } ?>
 									@endforeach
@@ -62,12 +62,12 @@
 					<!--Tipo de Modelo-->
 
 					<div class="form-group">
-						{!! Form::label('option','Modelo de Máquina:',array('class' => 'control-label col-md-2')) !!}
+						{!! Form::label('option','Modelo de Máquina:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-3">
 							<select class="form-control" name="MODELO DE MAQUINA" id="option" disabled> 
 									@foreach($modelo as $tm)
 									
-									<?php if(strcmp($orden_fabricacion->COD_MODELO, $tm->COD_MODELO) == 0){ ?>
+									<?php if(strcmp($orden_fabricacion->COD_MODELO, $tm->COD_MODELO)==0 ){ ?>
 												<option selected="selected" value={{$tm->COD_MODELO}}>{{$tm->NOMBRE}}</option>
 									<?php }else{ ?>
 											<option value={{$tm->COD_MODELO}}>{{$tm->NOMBRE}}</option>
@@ -79,13 +79,13 @@
 
 					<!-- Usuario-->
 					<div class="form-group">
-						{!! Form::label('option','Usuario:',array('class' => 'control-label col-md-2')) !!}
+						{!! Form::label('option','Usuario:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-3">
 							<select class="form-control" name="USUARIO" id="option" disabled> 
 									@foreach($tipo_usuario as $tu)
 									
 									<?php if(strcmp($orden_fabricacion->COD_USUARIO, $tu->COD_USUARIO) == 0){ ?>
-												<option selected="selected" value={{$tu->COD_USUARIO}}>{{$tu->NOMBRE}}</option>
+											<option selected="disabled" value={{$tu->COD_USUARIO}}>{{$tu->NOMBRE}}</option>	
 									<?php }else{ ?>
 											<option value={{$tu->COD_USUARIO}}>{{$tu->NOMBRE}}</option>
 										<?php } ?>
@@ -98,7 +98,7 @@
 <!--Cliente Identificacion --> 
 
 					<div class="form-group">
-						{!! Form::label('option','Identificacion del Cliente:',array('class' => 'control-label col-md-2')) !!}
+						{!! Form::label('option','Identificacion del Cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-3">
 							<select class="form-control" name="CLIENTE" id="option" disabled> 
 									@foreach($id_cliente as $tc)

@@ -39,16 +39,16 @@
 
 
                 		<div class="col-sm-2 col-sm-offset-1">
-        						<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo </a>
+        						<a href="{{ route('ordenesFabricacion.create') }}" class="btn btn-success"> Incorporar Orden de Fabricacion </a>
         					</div>
         			</div>
 				</div>
 
                 			<div class="col-md-0 col-md-offset-0"><label for="Cod_BusOrd_Fab" class=>Buscar por:</label>
-					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'orden_fabricacion') }} Código de la Orden</label>
-					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'estado_orden') }} Estado de la orden</label>
-					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'cedula_cliente') }} Cedula del Cliente</label>
-								<label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'modelo_maquina') }} Modelo de la maquina en fabricacion</label>
+					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'orden_fabricacion') }} Código de la órden</label>
+					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'estado_orden') }} Estado de la órden</label>
+					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'cedula_cliente') }} Cédula del Cliente</label>
+								<label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'modelo_maquina') }} Modelo de la máquina en fabricación</label>
 							</div>
         				{!!Form::close()!!}
 							
