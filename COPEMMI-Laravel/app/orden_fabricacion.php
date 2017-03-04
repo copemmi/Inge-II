@@ -76,7 +76,7 @@ public $incrementing = false;
     {
         return $this->hasMany('App\historial_orden_fabricion', 'COD_ORDEN_FABRICACION', 'COD_ORDEN_FABRICACION');
     }
-    /*Metodos de busqueda para los estados de producción e inactiva por
+     /*Metodos de busqueda para los estados de producción e inactiva por
     Código de órden,código de modelo y cédula del cliente */
     public function scopeBuscadorCliente($query,$dato)
     {
