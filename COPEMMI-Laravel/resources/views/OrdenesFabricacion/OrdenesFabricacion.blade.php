@@ -46,7 +46,7 @@
 
                 			<div class="col-md-0 col-md-offset-0"><label for="Cod_BusOrd_Fab" class=>Buscar por:</label>
 					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'orden_fabricacion') }} Código de la órden</label>
-					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'estado_orden') }} Estado de la órden</label>
+					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'estado_orden','true') }} Estado de la órden</label>
 					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'cedula_cliente') }} Cédula del Cliente</label>
 								<label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'modelo_maquina') }} Modelo de la máquina en fabricación</label>
 							</div>
