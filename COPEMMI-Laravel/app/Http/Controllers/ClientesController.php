@@ -79,7 +79,7 @@ class ClientesController extends Controller
 
         $cliente->save();  
 
-        Flash("¡Se ha insertado el cliente: (".$cliente->nombre."), con el código: (".$cliente->id.") exitosamente!",'success');
+        Flash("¡Se ha insertado el cliente: (".$cliente->nombre."), con la cédula: (".$cliente->id.") exitosamente!",'success');
 
         return Redirect()->route('clientes.index');
 
