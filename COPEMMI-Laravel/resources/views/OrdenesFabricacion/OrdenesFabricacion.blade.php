@@ -55,7 +55,7 @@
 					<!-- FIN DEL BUSCADOR -->
 
 		<!-- TABLA DE MODELOS -->
-				<br>
+			
 				<br>
 				<div class="tabla-modelos">
 					<table class="table width=30 table-bordered table-hover table-condensed" >
