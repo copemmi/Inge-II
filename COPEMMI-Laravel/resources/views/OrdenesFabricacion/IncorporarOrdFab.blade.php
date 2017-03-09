@@ -14,7 +14,7 @@
 
 
 				<div class="page-header">
-	  				<h1 class="text-center">Ordenes de Fabricacion</h1>
+	  				<h1 class="text-center">Órdenes de Fabricación</h1>
 				</div>
 
 				<!-- MENSAJE DE ERROR, SI UN DATO ES ERRONEO -->
@@ -89,7 +89,7 @@
 
 
 							<div class="form-group">
-							{!! Form::label('option','Codigo Usuario:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('option','Código Usuario:',array('class' => 'control-label col-md-2')) !!}
 
 							<div class="col-md-3">
 
@@ -107,7 +107,7 @@
 						<!--Identificacion del Cliente-->
 
 						<div class="form-group">
-							{!! Form::label('option','Identificacion del Cliente:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('option','Identificación del Cliente:',array('class' => 'control-label col-md-2')) !!}
 
 							<div class="col-md-3">
 
