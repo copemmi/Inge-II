@@ -80,7 +80,7 @@
 								<TH>Tipo de modelo</TH>
 								<th>Características</th>
 								<th>Precio</th>
-								<th>Imagen</th>
+					
 								
 								<!--<th class="opciones" >Opciones</th>-->
 							</tr>
@@ -100,7 +100,7 @@
 								<td>{{ $mat->COD_TIPO_MODELO}}</td>
 								<td>{{ $mat->CARACTERISTICAS}} </td>	
 								<td>{{ $mat->PRECIO}} </td>	
-								<td>{{$mat->COD_IMAGEN}}							
+											
 							</tr>
 						@endforeach
 					</table>

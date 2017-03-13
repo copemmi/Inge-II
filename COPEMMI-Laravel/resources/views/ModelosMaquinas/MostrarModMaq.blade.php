@@ -141,7 +141,20 @@
                 
 <!-- cuadro de detalle de materiales -->
 
-                            <div class="panel panel-primary">
+
+
+
+@php
+$i=0
+@endphp
+ @foreach($materialesDetalle as $mat)
+
+
+@if($modelos->COD_MODELO === $mat->COD_MODELO)
+@if($i<1)
+
+
+                          <div class="panel panel-primary">
 							<table id="visualizarDetalle" class="table width=30 table-striped table-bordered table-condensed table-hover">
 											<thead style="background-color:#A9D0F5">
 								<th>Código detalle</th>
@@ -150,7 +163,10 @@
 								<th>Cantidad</th>
 								<th>Operaciones</th>
 											</thead>
-										 @foreach($materialesDetalle as $mat)
+			@endif								
+
+
+										
 							<tr data-id="{{$mat->COD_DETALLE_MODELO }}" class="success">
 							
 								<td>{{ $mat->COD_DETALLE_MODELO}} </td>
@@ -162,7 +178,23 @@
 								</td>
 															
 							</tr>
-						@endforeach
+
+
+					
+@endif
+
+
+
+
+
+						
+						@php
+					    $i++
+					  @endphp
+
+				
+
+							@endforeach
 
 
 {!! Form::open(['route'=> ['det_modelo_maquina.destroy',':ID_USER'],'method'=>'DELETE','id'=>'form-delete'])
@@ -173,9 +205,10 @@
 
 
 										</table>
+										</div>
 
 										<!----------------------------------------------------------BOTONES PARTE INFERIOR-------------------------------------------------------------->
-									</div>
+									
 
 									<div class="form-group">
 							<div class"col-md-0 col-md-offset-0">
@@ -222,9 +255,16 @@
 <script>
 
 	$(document).ready(function(){
+		
+		
+
 $('.btn-danger').click(function (e){
 
-e.preventDefault();//esto es para que no recargue la página
+
+	
+	e.preventDefault();//esto es para que no recargue la página
+
+
 var row=$(this).parents('tr');
 var id=row.data('id');
 
@@ -235,14 +275,25 @@ var data=form.serialize();//transforma la información en datos binarios para qu
 
 
 
+/*var tam=document.getElementById("visualizarDetalle").rows.length;*/
+   
+
+
 $.post(url,data, function (result) {//método ajax para poder trabajar de forma asincrona
 row.fadeOut();//elimina la casilla de la tabla visualmente
+
+
+
+
 
 
 }).fail(function (){//si ocurre un error en la transacción entonces manda este error
 	alert('error al eliminar material');
 
 });
+
+
+
 
 });
 
