@@ -31,32 +31,56 @@
 						
 						{!!Form::open(['route'=>'materiales.index','method'=>'GET','class'=>'search-form','files'=>'true'])!!}
 						{{csrf_field()}}
-							<div class="col-md-4 col-md-offset-0">
-                				<div class="form-group has-feedback">
-		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
-		                    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-                				</div>
-                			</div> 
-
-
-                		<div class="col-sm-2 col-sm-offset-1">
-        						<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Material </a>
-        					</div>
-        			</div>
-				</div>
-
-                			<div class="col-md-0 col-md-offset-0"><label for="codTipoMaterial" class=>Buscar por:</label>
+						<div class="col-md-0 col-md-offset-0"><label for="codTipoMaterial" class=>Buscar por:</label>
 					            <label class="radio-inline">{{ Form::radio('codTipoMaterial', 'cod') }} Código</label>
 					            <label class="radio-inline">{{ Form::radio('codTipoMaterial', 'nombre',true) }} Nombre del Material</label>
 								<label class="radio-inline">{{ Form::radio('codTipoMaterial', 'tipo') }} Tipo de material</label>
     	                    </div>
+    	                    <br>
+							<div class="col-md-3 col-md-offset-0">
+                				<div class="form-group has-feedback">
+		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
+		                    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+		                    		
+                				</div>
+                				<div class="col-sm-0 col-sm-offset-12">
+                			<button type="submit" class="btn btn-primary " >Buscar</button>
+
+        						
+        					</div>
+
+                			</div><br> 
+
+
+                		
+        					<div  class="col-sm-10 col-sm-offset-0">
+                               <a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Material </a>
+        					</div>
+        					<br> 
+
+
+
+
+        					
+        			</div>
+				</div>
+<br> 
+                			
         				{!!Form::close()!!}
 							
 					<!-- FIN DEL BUSCADOR -->
 
 <!-- TABLA DE MATERIALES -->
 				<br>
-				<div class="tabla-materiales">
+					@php
+                      $i = 0
+                      @endphp
+						@foreach($materiales as $mat)
+					{{--Condición para que solo imprima un encabezado --}}	
+					                  @if($i<1) 
+					
+						<div class="tabla-materiales">
+				
 					<table class="table width=30 table-bordered table-hover table-condensed" >
 						<thead class="bg-primary">
 							<tr>
@@ -67,8 +91,13 @@
 								
 								<!--<th class="opciones" >Opciones</th>-->
 							</tr>
+                        
+
+                              @endif
+                                @php
+                          $i++;
+                          @endphp
 						 </thead>
-						@foreach($materiales as $mat)
 							<tr class="success" data-href="{{ route('materiales.show', $mat->COD_MATERIAL) }}">
 								<td>{{ $mat->COD_MATERIAL}}</td>
 								<td>{{ $mat->NOMBRE}} </td>
@@ -77,7 +106,7 @@
 							</tr>
 						@endforeach
 					</table>
-
+					
 					<div class="text-center">
 						{!! $materiales->render() !!} <!-- Metodo para hacer la paginación en caso de haber muchos elementos-->
 					</div>
@@ -85,6 +114,13 @@
 				</div>
 			</div>
 		</div>
+
+
+@stop
+
+@section('js')
+	{!! Html::script('js/search.js') !!}
+	{!! Html::script('js/buscarMaterial.js') !!}
 
 
 @stop

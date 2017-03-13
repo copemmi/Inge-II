@@ -30,26 +30,35 @@
 						
 						{!!Form::open(['route'=>'ordenesFabricacion.index','method'=>'GET','class'=>'search-form','files'=>'true'])!!}
 						{{csrf_field()}}
-							<div class="col-md-4 col-md-offset-0">
-                				<div class="form-group has-feedback">
-		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
-		                    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-                				</div>
-                			</div> 
-
-
-                		<div class="col-sm-2 col-sm-offset-1">
-        						<a href="{{ route('ordenesFabricacion.create') }}" class="btn btn-success"> Incorporar Orden de Fabricacion </a>
-        					</div>
-        			</div>
-				</div>
-
-                			<div class="col-md-0 col-md-offset-0"><label for="Cod_BusOrd_Fab" class=>Buscar por:</label>
+						<div class="col-md-0 col-md-offset-0"><label for="Cod_BusOrd_Fab" class=>Buscar por:</label>
 					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'orden_fabricacion') }} Código de la órden</label>
 					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'estado_orden','true') }} Estado de la órden</label>
 					            <label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'cedula_cliente') }} Cédula del Cliente</label>
 								<label class="radio-inline">{{ Form::radio('Cod_BusOrd_Fab', 'modelo_maquina') }} Modelo de la máquina en fabricación</label>
 							</div>
+							<div class="col-md-4 col-md-offset-0">
+                				<div class="form-group has-feedback">
+		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
+		                    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+                				</div>
+
+                				<div class="col-sm-0 col-sm-offset-12">
+                				<button type="submit" class="btn btn-primary " >Buscar</button>
+                               </div>
+        						
+        					
+                			</div> 
+
+
+                		<div class="col-sm-10 col-sm-offset-0">
+        						<a href="{{ route('ordenesFabricacion.create') }}" class="btn btn-success"> Incorporar Orden de Fabricacion </a>
+        					</div>
+        			</div>
+
+				</div><br>
+
+                			
+
         				{!!Form::close()!!}
 							
 					<!-- FIN DEL BUSCADOR -->
@@ -57,10 +66,16 @@
 		<!-- TABLA DE MODELOS -->
 			
 				<br>
-				<div class="tabla-modelos">
-					<table class="table width=30 table-bordered table-hover table-condensed" >
-						<thead class="bg-primary">
-							<tr>
+				@php
+                      $i = 0
+                      @endphp
+
+                       @foreach($ordenFab as $ord)
+                           @if($i<1) 
+	                        <div class="tabla-modelos">
+					     <table class="table width=30 table-bordered table-hover table-condensed" >
+						  <thead class="bg-primary">
+							 <tr>
 								<th>Código de la orden</th>
 								<th>Estado</th>
 								<th>Código del modelo</th>
@@ -73,7 +88,13 @@
 					
 							</tr>
 						 </thead>
-						@foreach($ordenFab as $ord)
+
+                           @endif
+                           @php
+                           $i++
+                           @endphp
+			
+						
 							<tr class="success" data-href="{{ route('ordenesFabricacion.show',$ord->COD_ORDEN_FABRICACION) }}">
 							
 								<td>{{ $ord->COD_ORDEN_FABRICACION}} </td>

@@ -30,33 +30,48 @@
 						
 						{!!Form::open(['route'=>'modelosMaquinas.index','method'=>'GET','class'=>'search-form','files'=>'true'])!!}
 						{{csrf_field()}}
-							<div class="col-md-4 col-md-offset-0">
-                				<div class="form-group has-feedback">
-		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
-		                    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-                				</div>
-                			</div> 
-
-
-                		<div class="col-sm-2 col-sm-offset-1">
-        						<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo </a>
-        					</div>
-        			</div>
-				</div>
-
-                			<div class="col-md-0 col-md-offset-0"><label for="codBusquedaMod" class=>Buscar por:</label>
+							<div class="col-md-0 col-md-offset-0"><label for="codBusquedaMod" class=>Buscar por:</label>
 					            <label class="radio-inline">{{ Form::radio('codBusquedaMod', 'cod') }} Código</label>
 					            <label class="radio-inline">{{ Form::radio('codBusquedaMod', 'nombre',true) }} Nombre del Modelo</label>
 								<label class="radio-inline">{{ Form::radio('codBusquedaMod', 'tipo') }} Tipo de modelo</label>
 								<label class="radio-inline">{{ Form::radio('codBusquedaMod', 'precio') }} Precio</label>
     	                    </div>
+							<div class="col-md-4 col-md-offset-0">
+                				<div class="form-group has-feedback">
+		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
+		                    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+                				</div>
+                				<div class="col-sm-0 col-sm-offset-12">
+                			<button type="submit" class="btn btn-primary " >Buscar</button>
+
+        						
+        					</div>
+                			</div> 
+
+                			<br>
+
+                		<div class="col-sm-10 col-sm-offset-0">
+        						<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo </a>
+        					</div>
+        			</div>
+				</div>
+				<br>
+
+                		
         				{!!Form::close()!!}
 							
 					<!-- FIN DEL BUSCADOR -->
 
 		<!-- TABLA DE MODELOS -->
 				<br>
-				<div class="tabla-modelos">
+
+				@php
+                      $i = 0
+                      @endphp
+@foreach($modelos as $mat)
+                           @if($i<1) 
+
+<div class="tabla-modelos">
 					<table class="table width=30 table-bordered table-hover table-condensed" >
 						<thead class="bg-primary">
 							<tr>
@@ -70,7 +85,14 @@
 								<!--<th class="opciones" >Opciones</th>-->
 							</tr>
 						 </thead>
-						@foreach($modelos as $mat)
+
+
+
+                                 @endif
+                                 @php
+                                 $i++;
+				               @endphp
+						
 							<tr class="success" data-href="{{ route('modelosMaquinas.show', $mat->COD_MODELO) }}">
 							
 								<td>{{ $mat->COD_MODELO}} </td>

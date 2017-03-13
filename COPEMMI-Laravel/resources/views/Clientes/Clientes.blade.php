@@ -31,23 +31,27 @@
 						
 						{!!Form::open(['route'=>'clientes.index','method'=>'GET','class'=>'search-form','files'=>'true'])!!}
 						{{csrf_field()}}
+						<div class="col-md-0 col-md-offset-0"><label for="identificacion" class=>Buscar por:</label>		<label class="radio-inline">{{ Form::radio('identificacion', 'id') }} Identificacion</label>
+					            <label class="radio-inline">{{ Form::radio('identificacion', 'nombre',true) }} Nombre del Cliente</label>
+    	                    </div>
 							<div class="col-md-4 col-md-offset-0">
                 				<div class="form-group has-feedback">
 		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
 		                    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
                 				</div>
+                				<div class="col-sm-0 col-sm-offset-12">
+                				<button type="submit" class="btn btn-primary " >Buscar</button>
+                               </div>
                 			</div> 
 
 
-                		<div class="col-sm-2 col-sm-offset-1">
+                		<div class="col-sm-10 col-sm-offset-0">
         						<a href="{{ route('clientes.create') }}" class="btn btn-success"> Incorporar Cliente </a>
         					</div>
         			</div>
-				</div>
+				</div><br>
 
-                			<div class="col-md-0 col-md-offset-0"><label for="identificacion" class=>Buscar por:</label>		<label class="radio-inline">{{ Form::radio('identificacion', 'id') }} Identificacion</label>
-					            <label class="radio-inline">{{ Form::radio('identificacion', 'nombre',true) }} Nombre del Cliente</label>
-    	                    </div>
+                			
         				{!!Form::close()!!}
         				
 							
@@ -56,6 +60,13 @@
 
 						<!-- TABLA DE CLIENTES -->
 				<br>
+				@php
+				$i=0
+				@endphp
+
+				@foreach($clientes as $cli)
+				@if($i<1)
+
 				<div class="tabla-clientes">
 					<table class="table width=30 table-bordered table-hover table-condensed" >
 						<thead class="bg-primary">
@@ -68,7 +79,11 @@
 								<!--<th class="opciones" >Opciones</th>-->
 							</tr>
 						 </thead>
-						@foreach($clientes as $cli)
+						 @endif
+						 @php
+						 $i++
+						 @endphp
+						
 						<tr class="success" data-href="{{ route('clientes.show', $cli->ID) }}">
 								<td>{{ $cli->ID}}</td>
 								<td>{{ $cli->NOMBRE}} </td>
