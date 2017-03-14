@@ -135,7 +135,9 @@
 							<div class="col-md-5">
 								<!--{!! Form::text('FECHA_ENTREGA', \Carbon\Carbon::now()->format('Y-m-d'), ['class' => 'form-control']) !!}-->
 
-								<input type="date" name="FECHA_ENTREGA" step="1" min="2016-01-01" max="2020-12-31" value="<?php echo date('Y-m-d');?>">
+								<input type="date" name="FECHA_ENTREGA" step="1" 
+								min="<?php echo date('Y-m-d', strtotime(date("Y-m-d", time()))); ?>" 
+								max="2020-12-31" value="<?php echo date('Y-m-d');?>">
 
 							</div>
 						</div>

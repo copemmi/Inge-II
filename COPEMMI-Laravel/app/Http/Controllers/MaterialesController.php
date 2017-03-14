@@ -83,7 +83,7 @@ class MaterialesController extends Controller
 
         $material->save();
 
-        Flash("¡Se ha insertado el material: (".$material->nombre."), con el código: (".$material->cod_material.") exitosamente!",'success');
+        Flash("¡Se ha insertado el material: (".$material->nombre."), con el código: (".$material->cod_material.") exitósamente!",'success');
 
         return Redirect()->route('materiales.index');
     }

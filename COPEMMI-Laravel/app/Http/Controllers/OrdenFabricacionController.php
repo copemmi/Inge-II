@@ -90,7 +90,7 @@ class OrdenFabricacionController extends Controller
 
         $orden_fabricacion->save();
 
-        Flash("Se ha guardado la orden",'success');
+        Flash("¡Se ha insertado la orden de fabricación exitósamente!",'success');
 
         return Redirect()->route('ordenesFabricacion.index'); // Cambiar a orden de fabricacion index
     }

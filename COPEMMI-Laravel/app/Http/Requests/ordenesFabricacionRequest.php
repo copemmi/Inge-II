@@ -37,11 +37,22 @@ class ordenesFabricacionRequest extends FormRequest
             }
 
             case 'POST':{
-                return [];
+                return [
+                    'COD_ORDEN_FABRICACION'=>'max:9999999999|Numeric|Integer|unique:ordenes_fabricacion',
+                    'COD_ESTADO' =>'max:10|required',
+                    'COD_MODELO' =>'max:10|required',
+                    'COD_USUARIO' =>'max:10|required',
+                    'ID'=>'max:11|required'
+                ];
             }
 
             case 'PUT':{
-               return [];
+               return [
+                    'COD_ESTADO' =>'max:10|required',
+                    'COD_MODELO' =>'max:10|required',
+                    'COD_USUARIO' =>'max:10|required',
+                    'ID'=>'max:11|required'
+               ];
             }
 
             case 'PATCH':{
@@ -66,8 +77,13 @@ class ordenesFabricacionRequest extends FormRequest
     public function attributes()
     {
         return [
-           'NOMBRE_CLIENTE'=> 'Nombre del cliente'
-        
+           'COD_ORDEN_FABRICACION'=> 'Código de la orden de fabricación',
+           'COD_ESTADO' =>'Código del estado',
+           'COD_MODELO' =>'Código del modelo',
+           'COD_USUARIO' =>'Código del usuario',
+           'ID'=>'Identificación',
+           'FECHA_LLEGADA'=>'Fecha de llegada',
+           'FECHA_ENTREGA'=>'Fecha de entrega'
         ];
     }
 }

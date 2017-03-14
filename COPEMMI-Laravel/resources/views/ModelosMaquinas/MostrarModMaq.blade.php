@@ -91,7 +91,7 @@
 							{!! Form::label('COD_IMAGEN','Foto:',array('class' => 'control-label col-md-2')) !!}
 							
 							<div class="col-md-2">
-								{!! Form::text('COD_IMAGEN',$ima->IMAGEN,['class' => 'form-control', 'maxlength="15"', 'readonly']) !!}
+								
 								<img src="/imagenes/ModelosMaquinas/{{$ima->IMAGEN}}" width=160; />
 												 
 							</div>
@@ -210,13 +210,13 @@ $i=0
 							
 							<div class="col-md-0 col-md-offset-1">
 
-								<a href="{{ route('modelosMaquinas.edit', $modelos->COD_MODELO) }}" title="Modificar modelo" class="btn btn-warning">Modificar Modelo de Maquina</a>
+								<a href="{{ route('modelosMaquinas.edit', $modelos->COD_MODELO) }}" title="Modificar modelo" class="btn btn-warning">Modificar Modelo de Máquina</a>
 
-								<a href="#" title="Eliminar modelo de maquina" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Modelo de Maquina</a>
+								<a href="#" title="Eliminar modelo de maquina" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Modelo de Máquina</a>
 								
-								<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo de Maquina </a>
+								<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo de Máquina </a>
 
-								<a href="#!" class="btn btn-info">Lista de Modelos de Maquina</a>
+								<a href="{{route('modelosMaquinas.index')}}" class="btn btn-info">Lista de Modelos de Máquinas</a>
 								
 
 							</div>	
