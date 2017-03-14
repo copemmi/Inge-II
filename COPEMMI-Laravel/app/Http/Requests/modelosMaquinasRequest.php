@@ -40,7 +40,7 @@ class modelosMaquinasRequest extends FormRequest
                 return [
                     'COD_MODELO'=>'max:10|required|unique:modelos_maquinas',//en el unique hay que poner el nombre de la tabla de la base
                     'COD_IMAGEN' =>'max:10|required',
-                    'IMAGEN' => 'required',
+                    'IMAGEN' => 'required|image|mimes:jpg,jpeg,png',
                     'COD_TIPO_MODELO' =>'max:10|required',
                     'NOMBRE'=>'max:50|required',
                     'CARACTERISTICAS' =>'max:255|required',
@@ -51,6 +51,7 @@ class modelosMaquinasRequest extends FormRequest
             case 'PUT':{
                 return [
                     'COD_IMAGEN' =>'max:10|required',
+                    'IMAGEN' => 'image|mimes:jpg,jpeg,png',
                     'COD_TIPO_MODELO' =>'max:10|required',
                     'NOMBRE'=>'max:50|required',
                     'CARACTERISTICAS' =>'max:255|required',

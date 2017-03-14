@@ -89,7 +89,7 @@
 
 
 							<div class="form-group">
-							{!! Form::label('option','Código Usuario:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('option','Usuario:',array('class' => 'control-label col-md-2')) !!}
 
 							<div class="col-md-3">
 
