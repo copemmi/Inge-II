@@ -63,7 +63,7 @@ class OrdenFabricacionController extends Controller
      */
     public function create()
     {
-        $tipo_estado = estado_orden::all();
+        $tipo_estado = estado_orden::where('COD_ESTADO','!=',"TER")->get();
         $tipo_modelo = modelo_maquina::all();
         $tipo_usuario = Usuario::all();
         $id_cliente = cliente::all();
