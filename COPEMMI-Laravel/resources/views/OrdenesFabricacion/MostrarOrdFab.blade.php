@@ -22,7 +22,7 @@
 
 
 				<div class="page-header">
-	  				<h1 class="text-center">Ordenes de Fabricación</h1>
+	  				<h1 class="text-center">Órdenes de Fabricación</h1>
 				</div>
 	
 			{!! Form::open(['class' => 'form-horizontal']) !!}
@@ -34,7 +34,7 @@
 					<!--Codigo de Orden de Fabricacion-->
 
 					<div class="form-group">
-						{!! Form::label('COD_ORDEN_FABRICACION','orden_fabricacion:',array('class' => 'control-label col-md-2','readonly')) !!}
+						{!! Form::label('COD_ORDEN_FABRICACION','Orden de Fabricación:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-2">
 							{!! Form::text('COD_ORDEN_FABRICACION',$orden_fabricacion->COD_ORDEN_FABRICACION,['class' => 'form-control','readonly']) !!}
 						</div>
@@ -43,9 +43,16 @@
 					<!--Tipo de Estado-->
 
 				<div class="form-group">
-				{!!Form::label('COD_ESTADO', 'estado_orden:', array('class' => 'control-label col-md-2'))!!}
+				{!!Form::label('COD_ESTADO', 'Estado de la Orden:', array('class' => 'control-label col-md-2'))!!}
 				<div class="col-md-2">
-					{!! Form::text('COD_ESTADO', $orden_fabricacion->COD_ESTADO,['class'=>'form-control', 'readonly'])!!}
+					@foreach($tipo_estado as $te)
+									
+						@php if(strcmp($orden_fabricacion->COD_ESTADO, $te->COD_ESTADO) == 0){ @endphp
+								{!! Form::text('COD_ESTADO', $te->NOMBRE,['class'=>'form-control', 'readonly'])!!}
+
+						@php } @endphp
+					@endforeach
+
 						<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
 				</div>
 			</div>
@@ -53,9 +60,15 @@
 					<!--Tipo de Modelo-->
 
 				<div class="form-group">
-				{!!Form::label('COD_MODELO', 'modelo_maquina:', array('class' => 'control-label col-md-2'))!!}
-				<div class="col-md-2">
-					{!! Form::text('COD_MODELO', $orden_fabricacion->COD_MODELO,['class'=>'form-control', 'readonly'])!!}
+				{!!Form::label('COD_MODELO', 'Modelo de Máquina:', array('class' => 'control-label col-md-2'))!!}
+				<div class="col-md-3">
+						@foreach($modelo as $mod)
+									
+							@php if(strcmp($orden_fabricacion->COD_MODELO, $mod->COD_MODELO) == 0){ @endphp
+								{!! Form::text('COD_MODELO', $mod->NOMBRE,['class'=>'form-control', 'readonly'])!!}
+
+							@php } @endphp
+						@endforeach
 						<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
 				</div>
 			</div>
@@ -63,9 +76,15 @@
 					<!-- Usuario-->
 					<div class="form-group">
 						{!! Form::label('option','Usuario:',array('class' => 'control-label col-md-2','readonly')) !!}
-						<div class="col-md-3">
-							{!! Form::text('COD_USUARIO', $orden_fabricacion->COD_USUARIO,['class'=>'form-control', 'readonly'])!!}
-						<span class="help-block"></span>
+						<div class="col-md-2">
+						@foreach($tipo_usuario as $tu)
+									
+							@php if(strcmp($orden_fabricacion->COD_USUARIO, $tu->COD_USUARIO) == 0){ @endphp
+								{!! Form::text('COD_USUARIO', $tu->NOMBRE,['class'=>'form-control', 'readonly'])!!}
+
+							@php } @endphp
+						@endforeach
+							<span class="help-block"></span>
 						</div>
 					</div>
 
@@ -73,9 +92,9 @@
 <!--Cliente Identificacion --> 
 
 					<div class="form-group">
-						{!! Form::label('option','Identificacion del Cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
+						{!! Form::label('option','Identificación del Cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-2">
-					{!! Form::text('COD_MODELO', $orden_fabricacion->COD_MODELO,['class'=>'form-control', 'readonly'])!!}
+					{!! Form::text('Identificación del Cliente', $orden_fabricacion->ID,['class'=>'form-control', 'readonly'])!!}
 						<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
 				</div>
 			</div>

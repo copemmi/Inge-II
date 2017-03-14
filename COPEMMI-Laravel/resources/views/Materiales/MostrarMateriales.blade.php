@@ -44,23 +44,12 @@
 						<div class="form-group">
 							{!! Form::label('option','Tipo de material:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-3">
-								<select class="form-control" name="COD_TIPO_MATERIAL" id="option" disabled> 
 									@foreach($tipo_material as $tm)
-									
-									<?php if(strcmp($material->COD_TIPO_MATERIAL, $tm->COD_TIPO_MATERIAL) == 0){ ?>
-												<option selected="selected" value={{$tm->COD_TIPO_MATERIAL}}>{{$tm->NOMBRE}}</option>
-									<?php }else{ ?>
-											<option value={{$tm->COD_TIPO_MATERIAL}}>{{$tm->NOMBRE}}</option>
-										<?php } ?>
+										@php if(strcmp($material->COD_TIPO_MATERIAL, $tm->COD_TIPO_MATERIAL) == 0){ @endphp
+									{!! Form::text('COD_TIPO_MATERIAL', $tm->NOMBRE,['class'=>'form-control', 'readonly'])!!}
+										@php } @endphp
 									@endforeach
-								</select>
 
-
-							<!--	{{ Form::select('COD_TIPO_MATERIAL',
-									 [0, 1, 2], 
-									 $material->COD_TIPO_MATERIAL, ['class' => 'form-control', 'disabled']) }}	
-
-							-->
 
 							</div>
 						</div>
@@ -77,7 +66,7 @@
 						<div class="form-group">
 							{!! Form::label('CARACTERISTICAS','Características:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 255 caracteres.</li>"><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>
-							<div class="col-md-8">
+							<div class="col-md-5">
 								{!! Form::textarea('CARACTERISTICAS',$material->CARACTERISTICAS,['class' => 'form-control','placeholder' => 'Ingrese las características', 'maxlength="255"','size' => '10x4', 'readonly']) !!}
 								<span class = "help-block"></span>
 							</div>

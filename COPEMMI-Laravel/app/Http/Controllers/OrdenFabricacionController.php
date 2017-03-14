@@ -151,7 +151,7 @@ class OrdenFabricacionController extends Controller
 
         Flash("¡Se ha modificado la orden de fabricación exitósamente!",'info');
 
-        return Redirect()->route('ordenesFabricacion.index');
+        return Redirect()->route('ordenesFabricacion.show',$id);
     }
 
     /**

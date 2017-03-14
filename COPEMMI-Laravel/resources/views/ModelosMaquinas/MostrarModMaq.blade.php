@@ -45,21 +45,11 @@
 						<div class="form-group">
 							{!! Form::label('option','Tipo de modelo:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-3">
-								<select class="form-control" name="COD_TIPO_MODELO" id="option" disabled> 
 									@foreach($tipo_modelo as $tm)
-									
-									<?php if(strcmp($modelos->COD_TIPO_MODELO, $tm->COD_TIPO_MODELO) == 0){ ?>
-												<option selected="selected" value={{$tm->COD_TIPO_MODELO}}>{{$tm->NOMBRE}}</option>
-									<?php }else{ ?>
-											<option value={{$tm->COD_TIPO_MODELO}}>{{$tm->NOMBRE}}</option>
-
-										<?php } ?>
+										@php if(strcmp($modelos->COD_TIPO_MODELO, $tm->COD_TIPO_MODELO) == 0){ @endphp
+									{!! Form::text('COD_TIPO_MODELO', $tm->NOMBRE,['class'=>'form-control', 'readonly'])!!}
+										@php } @endphp
 									@endforeach
-								</select>
-
-
-						
-
 							</div>
 						</div>
 						
