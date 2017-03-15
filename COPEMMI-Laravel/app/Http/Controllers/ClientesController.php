@@ -76,6 +76,8 @@ class ClientesController extends Controller
         $cliente->direccion=$request->get('DIRECCION');
         $cliente->telefono=$request->get('TELEFONO');
         $cliente->correo=$request->get('CORREO');
+        $cliente->nombre_empresa=$request->get('NOMBRE_EMPRESA');
+        $cliente->cedula_juridica=$request->get('CEDULA_JURIDICA');
 
         $cliente->save();  
 
@@ -125,6 +127,8 @@ class ClientesController extends Controller
         $cliente->direccion=$request->get('DIRECCION');
         $cliente->telefono=$request->get('TELEFONO');
         $cliente->correo=$request->get('CORREO');
+        $cliente->nombre_empresa=$request->get('NOMBRE_EMPRESA');
+        $cliente->cedula_juridica=$request->get('CEDULA_JURIDICA');
 
         $cliente->update();
 

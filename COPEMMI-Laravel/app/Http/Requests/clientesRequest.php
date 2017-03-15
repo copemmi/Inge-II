@@ -78,6 +78,8 @@ class clientesRequest extends FormRequest
             'DIRECCION' =>'Direccion',
             'TELEFONO' => 'Telefono',
             'CORREO' => 'Correo'
+            'NOMBRE_EMPRESA' => 'Nombre Empresa',
+            'CEDULA_JURIDICA' => 'Cedula Juridica'
         ];
     }
 }

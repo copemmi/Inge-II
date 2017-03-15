@@ -35,7 +35,7 @@ use Illuminate\Database\Eloquent\Model;
 
 	protected $primaryKey = 'ID';
 
-	protected $fillable = ['NOMBRE','PRIMER_APELLIDO','SEGUNDO_APELLIDO','DIRECCION','TELEFONO','CORREO'];
+	protected $fillable = ['NOMBRE','PRIMER_APELLIDO','SEGUNDO_APELLIDO','DIRECCION','TELEFONO','CORREO','NOMBRE_EMPRESA','CEDULA_JURIDICA'];
 
 /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

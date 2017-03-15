@@ -118,6 +118,28 @@
 							</div>
 						</div>
 
+						<!--NNOMBRE EMPRESA-->
+
+						<div class="form-group">
+							{!! Form::label('NOMBRE_EMPRESA','Nombre de la Empresa:',array('class' => 'control-label col-md-2')) !!}
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+							<div class="col-md-3">
+								{!! Form::text('NOMBRE_EMPRESA',$cliente->NOMBRE_EMPRESA,['class' => 'form-control','placeholder' => 'Nombre de la Empresa', 'maxlength="50"']) !!}
+								<span class = "help-block"></span>
+							</div>
+						</div>
+
+						<!--CEDULA JURIDICA-->
+
+						<div class="form-group">
+							{!! Form::label('CEDULA_JURIDICA','Cédula Jurídica de la Empresa:',array('class' => 'control-label col-md-2')) !!}
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 13 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+							<div class="col-md-3">
+								{!! Form::text('CEDULA_JURIDICA',$cliente->CEDULA_JURIDICA,['class' => 'form-control','placeholder' => 'Cédula Jurídica de la Empresa:', 'maxlength="13"']) !!}
+								<span class = "help-block"></span>
+							</div>
+						</div>
+
 
 						<!----------------------------------------------------------BOTONES POR SI SE QUIERE MODIFICAR------------------------------------------------------------>
 

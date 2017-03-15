@@ -11,6 +11,8 @@ function inicio(){
 	$("#DIRECCION").keyup(validarDireccion);
 	$("#TELEFONO").keyup(validarTelefono);
 	$("#CORREO").keyup(validarCorreo);
+	$("#NOMBRE_EMPRESA").keyup(validarNombEmp);
+	$("#CEDULA_JURIDICA").keyup(validarCedulaJuridica);
 
 }
 
@@ -255,4 +257,72 @@ function validarCorreo(){
 	    $('#Guardar').show();
 	    return true;
 }
+}
+
+function validarNombEmp(){
+	var valor = document.getElementById("NOMBRE_EMPRESA").value;
+	if(valor == null || valor.length == 0 || /^\s+$/.test(valor)){
+
+		$("#icononomemp").remove();
+		$("#NOMBRE_EMPRESA").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#NOMBRE_EMPRESA").parent().children("span").text("Debe ingresar algun caracter").show();
+		$("#NOMBRE_EMPRESA").parent().append("<span id='icononomemp' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return false;
+	}
+	else if(valor.length > 50){
+
+		$("#icononomemp").remove();
+		$("#NOMBRE_EMPRESA").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#NOMBRE_EMPRESA").parent().children("span").text("Debe ser menor que 50 caracteres").show();
+		$("#NOMBRE_EMPRESA").parent().append("<span id='icononomemp' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return false;
+	}
+	else{
+		$("#icononomemp").remove();
+		$("#NOMBRE_EMPRESA").parent().parent().attr("class","form-group has-success has-feedback")
+	    $("#NOMBRE_EMPRESA").parent().children("span").text("").hide();
+	    $("#NOMBRE_EMPRESA").parent().append("<span id='icononomemp' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+	    return true;
+	}
+}
+
+function validarCedulaJuridica(){
+
+	var tester = /\d{1}-\d{3}-\d{7}/
+	var valor = document.getElementById("CEDULA_JURIDICA").value;
+
+	if(valor == null || valor.length == 0 || /^\s+$/.test(valor)){
+
+		$("#iconocedj").remove();
+		$("#CEDULA_JURIDICA").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CEDULA_JURIDICA").parent().children("span").text("Debe ingresar algun caracter").show();
+		$("#CEDULA_JURIDICA").parent().append("<span id='iconocedj' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		$('#Guardar').hide();
+		return false;
+	}
+	else if(valor.length > 14){
+
+		$("#iconocedj").remove();
+		$("#CEDULA_JURIDICA").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CEDULA_JURIDICA").parent().children("span").text("Debe ser menor que 14 caracteres").show();
+		$("#CEDULA_JURIDICA").parent().append("<span id='iconocedj' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		$('#Guardar').hide();
+		return false;
+	}
+	else if(tester.test(valor)==false){
+		$("#iconocedj").remove();
+		$("#CEDULA_JURIDICA").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CEDULA_JURIDICA").parent().children("span").text("Debe tener formato #-###-#######").show();
+		$("#CEDULA_JURIDICA").parent().append("<span id='iconocedj' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		$('#Guardar').hide();
+		return false;
+	}
+	else{
+		$("#iconocedj").remove();
+		$("#CEDULA_JURIDICA").parent().parent().attr("class","form-group has-success has-feedback")
+	    $("#CEDULA_JURIDICA").parent().children("span").text("").hide();
+	    $("#CEDULA_JURIDICA").parent().append("<span id='iconocedj' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+	    $('#Guardar').show();
+	    return true;
+	}
 }
