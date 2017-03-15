@@ -77,7 +77,7 @@ class clientesRequest extends FormRequest
             'SEGUNDO_APELLIDO' =>'Segundo Apellido',
             'DIRECCION' =>'Direccion',
             'TELEFONO' => 'Telefono',
-            'CORREO' => 'Correo'
+            'CORREO' => 'Correo',
             'NOMBRE_EMPRESA' => 'Nombre Empresa',
             'CEDULA_JURIDICA' => 'Cedula Juridica'
         ];
