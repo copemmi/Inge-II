@@ -78,14 +78,10 @@
 							 <tr>
 								<th>Código de la orden</th>
 								<th>Estado</th>
-								<th>Código del modelo</th>
-								<th>Código de usuario</th>
-								<th>Cédula del cliente</th>
-								<th>Fecha de llegada</th>
-								<th>Fecha de entrega</th>
-
-															
-					
+								<th>Modelo</th>
+								<th>Usuario</th>
+								<th>Nombre del cliente</th>
+								<th>Precio de la máquina</th>
 							</tr>
 						 </thead>
 
@@ -99,13 +95,31 @@
 							
 								<td>{{ $ord->COD_ORDEN_FABRICACION}} </td>
 								<td>{{ $ord->COD_ESTADO}} </td>
-								<td>{{ $ord->COD_MODELO}} </td>
-								<td>{{ $ord->COD_USUARIO}} </td>
-								<td>{{ $ord->ID}} </td>
-								<td>{{ $ord->FECHA_LLEGADA}} </td>
-								<td>{{ $ord->FECHA_ENTREGA}} </td>
 
-												
+								@foreach($modelo_maquina as $mod)
+								@php if(strcmp($ord->COD_MODELO, $mod->COD_MODELO) == 0){ @endphp
+									<td>{{  $mod->NOMBRE}} </td>	
+								@php } @endphp
+								@endforeach
+								
+								@foreach($tipo_usuario as $tu)
+								@php if(strcmp($ord->COD_USUARIO, $tu->COD_USUARIO) == 0){ @endphp
+									<td>{{ $tu->NOMBRE}} </td>
+								@php } @endphp
+								@endforeach
+
+								@foreach($cliente as $cliente)
+								@php if(strcmp($ord->ID,$cliente->ID) == 0){ @endphp
+									<td>{{ $cliente->NOMBRE}}</td>	
+								@php } @endphp
+								@endforeach
+								
+								@foreach($modelo_maquina as $mod)
+								@php if(strcmp($ord->COD_MODELO,$mod->COD_MODELO) == 0){ @endphp
+									<td>{{ $mod->PRECIO}}</td>	
+								@php } @endphp
+								@endforeach
+											
 							</tr>
 						@endforeach
 					</table>

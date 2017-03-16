@@ -11,9 +11,11 @@ use App\usuario;
 use App\estado_orden;
 use App\modelo_maquina;
 use App\cliente;
+use App\imagen_modelo;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\ordenesFabricacionRequest;
+use DB;
 class OrdenFabricacionController extends Controller
 { 
     /**
@@ -25,6 +27,9 @@ class OrdenFabricacionController extends Controller
      public function index(Request $request){ 
         $check=Input::has('Cod_BusOrd_Fab');
         $checkValue = Input::get('Cod_BusOrd_Fab');
+        $tipo_modelo = modelo_maquina::all();
+        $tipo_usuario = usuario::all();
+        $id_cliente = cliente::all();
 
       switch ($checkValue)
       {
@@ -53,7 +58,7 @@ class OrdenFabricacionController extends Controller
             $orden_fabricacion=orden_fabricacion::BuscadorModMaquina(" ")->paginate(1);//si se le quita el paginate, no mostrara nada
       }
 
-                 return view('OrdenesFabricacion/OrdenesFabricacion')->with('ordenFab',$orden_fabricacion);
+                 return view('OrdenesFabricacion/OrdenesFabricacion')->with('ordenFab',$orden_fabricacion)->with('modelo_maquina',$tipo_modelo)->with('cliente',$id_cliente)->with('tipo_usuario',$tipo_usuario);
     }
 
     /**
@@ -108,9 +113,12 @@ class OrdenFabricacionController extends Controller
         $tipo_estado = estado_orden::all();
         $tipo_modelo = modelo_maquina::all();
         $tipo_usuario = usuario::all();
-         $id_cliente = cliente::all();
+        $cliente=cliente::all();
 
-        return View('OrdenesFabricacion/MostrarOrdFab')->with('orden_fabricacion',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('id_cliente',$id_cliente);
+        $modelos = modelo_maquina::find($orden_fabricacion->COD_MODELO);
+        $imagen = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
+
+          return View('OrdenesFabricacion/MostrarOrdFab')->with('orden_fabricacion',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('cliente',$cliente)->with('ima',$imagen);
     }
 
     /**

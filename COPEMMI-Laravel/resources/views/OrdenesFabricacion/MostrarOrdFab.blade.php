@@ -89,7 +89,7 @@
 					</div>
 
 					
-<!--Cliente Identificacion --> 
+			<!--Cliente Identificacion --> 
 
 					<div class="form-group">
 						{!! Form::label('option','Identificación del Cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
@@ -98,6 +98,21 @@
 						<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
 				</div>
 			</div>
+
+			<!--Nombre del cliente --> 
+					<div class="form-group">
+						{!! Form::label('option','Nombre del cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
+						<div class="col-md-2">
+						@foreach($cliente as $cliente)
+									
+							@php if(strcmp($orden_fabricacion->ID, $cliente->ID) == 0){ @endphp
+								{!! Form::text('ID', $cliente->NOMBRE,['class'=>'form-control', 'readonly'])!!}
+
+							@php } @endphp
+						@endforeach
+							<span class="help-block"></span>
+						</div>
+					</div>
 
 					<!-- Fecha de Llegada-->
 
@@ -116,8 +131,34 @@
 							{!! Form::text('FECHA_ENTREGA',$orden_fabricacion->FECHA_ENTREGA, ['class' => 'form-control', 'readonly']) !!}
 						</div>
 					</div>
+				
+				<!--PRECIO DE LA MAQUINA-->
+				<div class="form-group">
+				{!!Form::label('option', 'Precio de Máquina:', array('class' => 'control-label col-md-2'))!!}
+				<div class="col-md-2">
+						@foreach($modelo as $mod)
+									
+							@php if(strcmp($orden_fabricacion->COD_MODELO, $mod->COD_MODELO) == 0){ @endphp
+								{!! Form::text('COD_MODELO', $mod->PRECIO,['class'=>'form-control', 'readonly'])!!}
+
+							@php } @endphp
+						@endforeach
+						<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
+				</div>
 				</div>
 
+				<!--IMAGEN DE LA MAQUINA-->
+				 <div class="form-group">
+							{!! Form::label('COD_IMAGEN','Foto:',array('class' => 'control-label col-md-2')) !!}
+							
+							<div class="col-md-2">
+								
+								<img src="/imagenes/ModelosMaquinas/{{$ima->IMAGEN}}" width=160; />
+												 
+							</div>
+						</div>
+				
+		</div>	
 <!---------------------------------------------------------------Mensaje de confirmacion para eliminar---------------------------------------------->
 							<div class="modal fade" id="ventana" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
  								<div class="modal-dialog" role="document">
