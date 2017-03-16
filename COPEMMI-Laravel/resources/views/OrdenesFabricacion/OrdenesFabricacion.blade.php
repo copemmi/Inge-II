@@ -76,7 +76,7 @@
 					     <table class="table width=30 table-bordered table-hover table-condensed" >
 						  <thead class="bg-primary">
 							 <tr>
-								<th>Código de la orden</th>
+								<th>Código de la órden</th>
 								<th>Estado</th>
 								<th>Modelo</th>
 								<th>Usuario</th>
