@@ -51,7 +51,7 @@
 
 
                 		<div class="col-sm-10 col-sm-offset-0">
-        						<a href="{{ route('ordenesFabricacion.create') }}" class="btn btn-success"> Incorporar Orden de Fabricacion </a>
+        						<a href="{{ route('ordenesFabricacion.create') }}" class="btn btn-success"> Incorporar Órden de Fabricación </a>
         					</div>
         			</div>
 
@@ -108,7 +108,7 @@
 								@php } @endphp
 								@endforeach
 
-								@foreach($cliente as $cliente)
+								@foreach($cedula_cliente as $cliente)
 								@php if(strcmp($ord->ID,$cliente->ID) == 0){ @endphp
 									<td>{{ $cliente->NOMBRE}}</td>	
 								@php } @endphp

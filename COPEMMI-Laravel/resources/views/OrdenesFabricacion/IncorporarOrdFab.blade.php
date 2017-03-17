@@ -48,7 +48,6 @@
 								<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
 				<!--			</div>
 						</div>
-
 						<!--Tipo de Estado-->
 
 						<div class="form-group">
@@ -113,7 +112,7 @@
 
 								<select class="form-control" name="ID" id="option">
 									
-									@foreach($id_cliente as $tm)
+									@foreach($cliente as $tm)
 									<option value={{$tm->ID}}>{{$tm->ID}}</option>
 									@endforeach	
 								

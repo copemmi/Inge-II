@@ -22,7 +22,7 @@
 
 
 				<div class="page-header">
-	  				<h1 class="text-center">Ordenes de Fabricación</h1>
+	  				<h1 class="text-center">Órdenes de Fabricación</h1>
 				</div>
 	
 			{!! Form::open(['route' => ['ordenesFabricacion.update',$OrdFab->COD_ORDEN_FABRICACION],'method'=>'PUT','class' => 'form-horizontal']) !!}
@@ -100,7 +100,7 @@
 							{!! Form::label('option','Identificacion del Cliente:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-2">
   								<select class="form-control" name="ID" id="option"> 
-									@foreach($id_cliente as $te)
+									@foreach($cliente as $te)
 									
 									<?php if(strcmp($OrdFab->ID, $te->ID) == 0){ ?>
 												<option selected="selected" value={{$te->ID}}>{{$te->ID}}</option>
