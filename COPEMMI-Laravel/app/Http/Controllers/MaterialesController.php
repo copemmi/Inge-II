@@ -147,12 +147,16 @@ class MaterialesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, materialesRequest $request)
     {
-        material::where('COD_MATERIAL',$id)->delete();
-       
-        Flash('¡Se ha eliminado el material con el código: ('.$id.') exitósamente!','danger');
-
-        return Redirect()->route('materiales.index');
+        try 
+        {
+            material::where('COD_MATERIAL',$id)->delete();
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+            Flash('¡No se puede eliminar el material con el código: ('.$id.') ya que está siendo usado!','danger');
+            return Redirect()->route('materiales.index');
+        }   
     }
 }
