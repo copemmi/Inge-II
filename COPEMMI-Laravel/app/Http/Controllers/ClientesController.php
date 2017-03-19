@@ -146,12 +146,21 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-
-         cliente::where('ID',$id)->delete();
+        try 
+        {
+            cliente::where('ID',$id)->delete();
        
-        Flash('¡Se ha eliminado el cliente con la identificacion: ('.$id.') exitósamente!','danger');
+        Flash('¡Se ha eliminado el cliente con la identificación: ('.$id.') exitósamente!','danger');
 
         return Redirect()->route('clientes.index');
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+            Flash('¡No se puede eliminar el cliente con la identificación: ('.$id.') ya que está siendo incluido en una o varias órdenes de fabricación!','danger');
+            return Redirect()->route('clientes.index');
+        }   
+
+         
         
     }
 }

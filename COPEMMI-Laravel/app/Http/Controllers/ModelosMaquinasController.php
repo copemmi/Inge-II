@@ -240,17 +240,22 @@ class ModelosMaquinasController extends Controller
      */
     public function destroy($id , $idImagen, $urlImagen)
     {
-        modelo_maquina::where('COD_MODELO',$id)->delete();
+        try 
+        {
+            modelo_maquina::where('COD_MODELO',$id)->delete();
+            imagen_modelo::where('COD_IMAGEN',$idImagen)->delete();//elimina la imagen en la BD
+            File::delete(public_path().'/imagenes/ModelosMaquinas/'.$urlImagen);//elimina la imagen en el Sistema de Archivos
+            Flash('¡Se ha eliminado el modelo de máquina con el código: ('.$id.') exitósamente!','danger');
+            return Redirect()->route('modelosMaquinas.index');
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+            Flash('¡No se puede eliminar el modelo de máquina con el código: ('.$id.') ya que está incluido en una o varias órdenes de fabricación!','danger');
+            return Redirect()->route('modelosMaquinas.index');
+        }   
 
-        imagen_modelo::where('COD_IMAGEN',$idImagen)->delete();//elimina la imagen en la BD
-
-        File::delete(public_path().'/imagenes/ModelosMaquinas/'.$urlImagen);//elimina la imagen en el Sistema de Archivos
 
         
-
-        Flash('¡Se ha eliminado el modelo de la máquina con el código: ('.$id.') exitósamente!','danger');
-
-        return Redirect()->route('modelosMaquinas.index');
     }
 
 

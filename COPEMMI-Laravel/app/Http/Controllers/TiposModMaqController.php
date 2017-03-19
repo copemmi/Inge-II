@@ -116,11 +116,18 @@ class TiposModMaqController extends Controller
      */
     public function destroy($id)
     {
-        tipo_modelo::where('COD_TIPO_MODELO',$id)->delete();
-       
-        Flash('¡Se ha eliminado el tipo de modelo de máquina con el código: ('.$id.') exitósamente!','danger');
-
-        return Redirect()->route('tiposModelosMaquinas.index');
+        try 
+        {
+            tipo_modelo::where('COD_TIPO_MODELO',$id)->delete();
+            Flash('¡Se ha eliminado el tipo de modelo de máquina con el código: ('.$id.') exitósamente!','danger');
+            return Redirect()->route('tiposModelosMaquinas.index');
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+            Flash('¡No se puede eliminar el tipo de modelo de máquina con el código: ('.$id.') ya que está siendo usado por uno o varios modelos de máquinas!','danger');
+            return Redirect()->route('tiposModelosMaquinas.index');
+        }   
+        
     }
 
 }

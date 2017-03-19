@@ -117,11 +117,19 @@ class TiposMaterialesController extends Controller
      */
     public function destroy($id)
     {
-        tipo_material::where('COD_TIPO_MATERIAL',$id)->delete();
+        try 
+        {
+            tipo_material::where('COD_TIPO_MATERIAL',$id)->delete();
        
-        Flash('¡Se ha eliminado el tipo de material con el código: ('.$id.') exitósamente!','danger');
+            Flash('¡Se ha eliminado el tipo de material con el código: ('.$id.') exitósamente!','danger');
 
-        return Redirect()->route('tiposMateriales.index');
+            return Redirect()->route('tiposMateriales.index');
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+            Flash('¡No se puede eliminar el tipo de material con el código: ('.$id.') ya que está siendo usado por un material!','danger');
+            return Redirect()->route('tiposMateriales.index');
+        }   
     }
 
 }
