@@ -39,7 +39,7 @@
     	                    <br>
 							<div class="col-md-3 col-md-offset-0">
                 				<div class="form-group has-feedback">
-		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Buscar" onkeyup="lista(this.value);">
+		                    		<input type="text" class="form-control" name="buscar" id="Buscar" placeholder="Ingrese el material que desea buscar"  >
 		                    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
 		                    		
                 				</div>

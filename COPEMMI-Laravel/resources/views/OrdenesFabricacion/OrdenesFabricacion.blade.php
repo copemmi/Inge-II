@@ -81,9 +81,11 @@
 								<th>Modelo</th>
 								<th>Usuario</th>
 								<th>Nombre del cliente</th>
+								<th>Cédula del cliente</th>
 								<th>Nombre de la empresa</th>
 								<th>Cédula juridica</th>
 								<th>Precio de la máquina</th>
+								<th>Operación</th>
 							</tr>
 						 </thead>
 
@@ -115,6 +117,13 @@
 									<td>{{ $cliente->NOMBRE}}</td>	
 								@php } @endphp
 								@endforeach
+                               <!--Cédula del cliente -->
+                               @foreach($cedula_cliente as $cliente)
+								@php if(strcmp($ord->ID,$cliente->ID) == 0){ @endphp
+									<td>{{ $cliente->ID}}</td>	
+								@php } @endphp
+								@endforeach
+
 								<!--Nombre empresa-->
 								@foreach($cedula_cliente as $cliente)
 								@php if(strcmp($ord->ID,$cliente->ID) == 0){ @endphp
