@@ -44,24 +44,23 @@
 
 				<div class="form-group">
 				{!!Form::label('COD_ESTADO', 'Estado de la Órden:', array('class' => 'control-label col-md-2'))!!}
-				<div class="col-md-2">
-					@foreach($tipo_estado as $te)
+					<div class="col-md-2">
+						@foreach($tipo_estado as $te)
 									
-						@php if(strcmp($orden_fabricacion->COD_ESTADO, $te->COD_ESTADO) == 0){ @endphp
+							@php if(strcmp($orden_fabricacion->COD_ESTADO, $te->COD_ESTADO) == 0){ @endphp
 								{!! Form::text('COD_ESTADO', $te->NOMBRE,['class'=>'form-control', 'readonly'])!!}
 
-						@php } @endphp
-					@endforeach
-
+							@php } @endphp
+						@endforeach
 						<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
-				</div>
+					</div>
 			</div>
 
 					<!--Tipo de Modelo-->
 
 				<div class="form-group">
 				{!!Form::label('COD_MODELO', 'Modelo de Máquina:', array('class' => 'control-label col-md-2'))!!}
-				<div class="col-md-3">
+					<div class="col-md-3">
 						@foreach($modelo as $mod)
 									
 							@php if(strcmp($orden_fabricacion->COD_MODELO, $mod->COD_MODELO) == 0){ @endphp
@@ -70,20 +69,20 @@
 							@php } @endphp
 						@endforeach
 						<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
+					</div>
 				</div>
-			</div>
 
 					<!-- Usuario-->
 					<div class="form-group">
 						{!! Form::label('option','Usuario:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-2">
-						@foreach($tipo_usuario as $tu)
+							@foreach($tipo_usuario as $tu)
 									
-							@php if(strcmp($orden_fabricacion->COD_USUARIO, $tu->COD_USUARIO) == 0){ @endphp
+								@php if(strcmp($orden_fabricacion->COD_USUARIO, $tu->COD_USUARIO) == 0){ @endphp
 								{!! Form::text('COD_USUARIO', $tu->NOMBRE,['class'=>'form-control', 'readonly'])!!}
 
-							@php } @endphp
-						@endforeach
+								@php } @endphp
+							@endforeach
 							<span class="help-block"></span>
 						</div>
 					</div>
@@ -94,27 +93,57 @@
 					<div class="form-group">
 						{!! Form::label('option','Identificación del Cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-2">
-					{!! Form::text('Identificación del Cliente', $orden_fabricacion->ID,['class'=>'form-control', 'readonly'])!!}
-						<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
-				</div>
-			</div>
+							{!! Form::text('Identificación del Cliente', $orden_fabricacion->ID,['class'=>'form-control', 'readonly'])!!}
+							<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
+						</div>
+					</div>
 
 			<!--Nombre del cliente --> 
 					<div class="form-group">
 						{!! Form::label('option','Nombre del cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
 						<div class="col-md-2">
-						@foreach($cliente as $cliente)
+							@foreach($cliente as $nombc)
 									
-							@php if(strcmp($orden_fabricacion->ID, $cliente->ID) == 0){ @endphp
-								{!! Form::text('ID', $cliente->NOMBRE,['class'=>'form-control', 'readonly'])!!}
+								@php if(strcmp($orden_fabricacion->ID, $nombc->ID) == 0){ @endphp
+								{!! Form::text('ID', $nombc->NOMBRE,['class'=>'form-control', 'readonly'])!!}
 
-							@php } @endphp
-						@endforeach
+								@php } @endphp
+							@endforeach
 							<span class="help-block"></span>
 						</div>
 					</div>
 
+			<!--Nombre de la empresa del cliente --> 
+					<div class="form-group">
+						{!! Form::label('option','Nombre de la empresa:',array('class' => 'control-label col-md-2','readonly')) !!}
+						<div class="col-md-2">
+							@foreach($cliente as $nombe)
+									
+								@php if(strcmp($orden_fabricacion->ID, $nombe->ID) == 0){ @endphp
+								{!! Form::text('ID', $nombe->NOMBRE_EMPRESA,['class'=>'form-control', 'readonly'])!!}
+
+								@php } @endphp
+							@endforeach
+							<span class="help-block"></span>
+						</div>
+					</div>
+
+			<!--Cedula de la empresa cliente --> 
+					<div class="form-group">
+						{!! Form::label('option','Cédula de la empresa:',array('class' => 'control-label col-md-2','readonly')) !!}
+						<div class="col-md-2">
+							@foreach($cliente as $nombcj)
+									
+								@php if(strcmp($orden_fabricacion->ID, $nombcj->ID) == 0){ @endphp
+								{!! Form::text('ID', $nombcj->CEDULA_JURIDICA,['class'=>'form-control', 'readonly'])!!}
+
+								@php } @endphp
+							@endforeach
+							<span class="help-block"></span>
+						</div>
+					</div>
 					<!-- Fecha de Llegada-->
+
 
 					<div class="form-group">
 						{!! Form::label('FECHA_LLEGADA','Fecha de Llegada:',array('class' => 'control-label col-md-2')) !!}
@@ -135,7 +164,7 @@
 				<!--PRECIO DE LA MAQUINA-->
 				<div class="form-group">
 				{!!Form::label('option', 'Precio de Máquina:', array('class' => 'control-label col-md-2'))!!}
-				<div class="col-md-2">
+					<div class="col-md-2">
 						@foreach($modelo as $mod)
 									
 							@php if(strcmp($orden_fabricacion->COD_MODELO, $mod->COD_MODELO) == 0){ @endphp
@@ -144,11 +173,11 @@
 							@php } @endphp
 						@endforeach
 						<span class="help-block"></span> <!--Mensaje que sale en caso de datos incorrectos-->
-				</div>
+					</div>
 				</div>
 
 				<!--IMAGEN DE LA MAQUINA-->
-				 <div class="form-group">
+				<div class="form-group">
 							{!! Form::label('COD_IMAGEN','Imagén de la máquina:',array('class' => 'control-label col-md-2')) !!}
 							
 							<div class="col-md-2">
@@ -156,7 +185,7 @@
 								<img src="/imagenes/ModelosMaquinas/{{$ima->IMAGEN}}" width=160; />
 												 
 							</div>
-						</div>
+				</div>
 				
 		</div>	
 <!---------------------------------------------------------------Mensaje de confirmacion para eliminar---------------------------------------------->

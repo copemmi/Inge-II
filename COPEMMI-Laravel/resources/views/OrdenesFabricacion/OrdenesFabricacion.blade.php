@@ -81,6 +81,8 @@
 								<th>Modelo</th>
 								<th>Usuario</th>
 								<th>Nombre del cliente</th>
+								<th>Nombre de la empresa</th>
+								<th>Cédula juridica</th>
 								<th>Precio de la máquina</th>
 							</tr>
 						 </thead>
@@ -95,31 +97,46 @@
 							
 								<td>{{ $ord->COD_ORDEN_FABRICACION}} </td>
 								<td>{{ $ord->COD_ESTADO}} </td>
-
+								<!--Tipo de Maquina-->
 								@foreach($modelo_maquina as $mod)
 								@php if(strcmp($ord->COD_MODELO, $mod->COD_MODELO) == 0){ @endphp
 									<td>{{  $mod->NOMBRE}} </td>	
 								@php } @endphp
 								@endforeach
-								
+								<!--Usuario-->
 								@foreach($tipo_usuario as $tu)
 								@php if(strcmp($ord->COD_USUARIO, $tu->COD_USUARIO) == 0){ @endphp
 									<td>{{ $tu->NOMBRE}} </td>
 								@php } @endphp
 								@endforeach
-
+								<!--Nombre cliente-->
 								@foreach($cedula_cliente as $cliente)
 								@php if(strcmp($ord->ID,$cliente->ID) == 0){ @endphp
 									<td>{{ $cliente->NOMBRE}}</td>	
 								@php } @endphp
 								@endforeach
-								
+								<!--Nombre empresa-->
+								@foreach($cedula_cliente as $cliente)
+								@php if(strcmp($ord->ID,$cliente->ID) == 0){ @endphp
+									<td>{{ $cliente->NOMBRE_EMPRESA}}</td>	
+								@php } @endphp
+								@endforeach
+								<!--Cedula empresa del cliente-->
+								@foreach($cedula_cliente as $cliente)
+								@php if(strcmp($ord->ID,$cliente->ID) == 0){ @endphp
+									<td>{{ $cliente->CEDULA_JURIDICA}}</td>	
+								@php } @endphp
+								@endforeach
+								<!--Precio Maquina-->
 								@foreach($modelo_maquina as $mod)
 								@php if(strcmp($ord->COD_MODELO,$mod->COD_MODELO) == 0){ @endphp
 									<td>{{ $mod->PRECIO}}</td>	
 								@php } @endphp
 								@endforeach
-											
+								
+								<td class="col-sm-0 col-sm-offset-12">
+                				<button  class="btn btn-primary " >Terminar</button>
+                               </td>			
 							</tr>
 						@endforeach
 					</table>

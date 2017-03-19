@@ -115,9 +115,9 @@ class OrdenFabricacionController extends Controller
         $tipo_modelo = modelo_maquina::all();
         $tipo_usuario = usuario::all();
         $id_cliente=cliente::all();
-        $clientes =cliente::find($orden_fabricacion->ID);
         $modelos = modelo_maquina::find($orden_fabricacion->COD_MODELO);
         $imagen = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
+
 
           return View('OrdenesFabricacion/MostrarOrdFab')->with('orden_fabricacion',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('cliente',$id_cliente)->with('ima',$imagen);
     }
@@ -161,6 +161,16 @@ class OrdenFabricacionController extends Controller
         Flash("¡Se ha modificado la orden de fabricación exitósamente!",'info');
 
         return Redirect()->route('ordenesFabricacion.show',$id);
+    }
+
+    public function CambiarEstado($id){
+        orden_fabricacion::where('COD_ORDEN_FABRICACION',$id);
+       $tipo_estado = estado_orden::where('COD_ESTADO','=',"TER")->get();
+            
+        Flash('¡Se ha cambiado el estado de la orden de fabricación con el código: ('.$id.') exitósamente!');
+
+        return Redirect()->route('ordenesFabricacion.index');
+       
     }
 
     /**
