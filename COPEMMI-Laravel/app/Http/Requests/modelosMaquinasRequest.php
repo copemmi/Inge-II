@@ -40,7 +40,7 @@ class modelosMaquinasRequest extends FormRequest
                 return [
                     'COD_MODELO'=>'max:10|required|unique:modelos_maquinas',//en el unique hay que poner el nombre de la tabla de la base de datos
                     'COD_IMAGEN' =>'max:10|required',
-                    'IMAGEN' => 'required|image|mimes:jpg,jpeg,png',
+                    'IMAGEN' => 'required|image|max:1000|mimes:jpg,jpeg,png',
                     'COD_TIPO_MODELO' =>'max:10|required',
                     'NOMBRE'=>'max:50|required',
                     'CARACTERISTICAS' =>'max:255|required',
@@ -51,7 +51,7 @@ class modelosMaquinasRequest extends FormRequest
             case 'PUT':{
                 return [
                     'COD_IMAGEN' =>'max:10|required',
-                    'IMAGEN' => 'image|mimes:jpg,jpeg,png',
+                    'IMAGEN' => 'image|max:1000|mimes:jpg,jpeg,png',
                     'COD_TIPO_MODELO' =>'max:10|required',
                     'NOMBRE'=>'max:50|required',
                     'CARACTERISTICAS' =>'max:255|required',
@@ -69,12 +69,12 @@ class modelosMaquinasRequest extends FormRequest
     }
 
      // para personalizar el mensaje de error del campo y el tipo de error
-    /*public function messages()
+    public function messages()
     {
         return [
-            'COD_TIPO_MATERIAL.required'    => 'El código tipo de material es requerido llenarlo',
+            'IMAGEN.uploaded' => 'El campo Imagen debe contener una imagen de tipo jpg,jpeg,png.',
         ];
-    }*/
+    }
 
 
     //para cambiar el atributo que se muestra en los mensajes de error de laravel, ya que toma los nombres de los campos de la tabla
