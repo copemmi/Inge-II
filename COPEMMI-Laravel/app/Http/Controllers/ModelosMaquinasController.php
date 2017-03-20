@@ -86,8 +86,10 @@ class ModelosMaquinasController extends Controller
     public function store(modelosMaquinasRequest $request)
     {
 
-    //guardar la imagen
-     $imagen_modelo=new imagen_modelo;
+
+    try{
+      //guardar la imagen
+      $imagen_modelo=new imagen_modelo;
       $imagen_modelo->cod_imagen=$request->get("COD_IMAGEN");//codigo de la imagen
 
         if(Input::hasFile('IMAGEN')){
@@ -97,6 +99,12 @@ class ModelosMaquinasController extends Controller
         }
 
       $imagen_modelo->save();
+    }
+    catch (\Illuminate\Database\QueryException $e)
+    {
+            Flash('¡El nombre de la imagen es muy grande, por favor cambielo!','danger');
+            return Redirect()->route('modelosMaquinas.index');
+    } 
 
       //guardar el modelo
       $modelo_maquina=new modelo_maquina;
