@@ -163,7 +163,7 @@ class OrdenFabricacionController extends Controller
         return Redirect()->route('ordenesFabricacion.show',$id);
     }
 
-    public function CambiarEstado($id){
+    public function cambiar_estados($id){
         orden_fabricacion::where('COD_ORDEN_FABRICACION',$id);
        $tipo_estado = estado_orden::where('COD_ESTADO','=',"TER")->get();
             

@@ -71,6 +71,10 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'ordenesFabricacion.destroy'
 		]);
 
+	Route::get('ordenesFabricacion/{id}/cambiar_estados',[
+		'uses' => 'OrdenFabricacionController@cambiar_estados',
+		'as' => 'ordenesFabricacion.cambiar_estados'
+		]);
 
 	//--------------------------------------------------------------------RUTAS DE DET_MODELO_MAQUINA
 
@@ -81,6 +85,7 @@ Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 		'uses' => 'det_modelo_maquinaController@destroy',
 		'as' => 'det_modelo_maquina.destroy'
 		]);
+
 
 //---------------------------------------------------------------------RUTAS DE CLIENTES
 	Route::resource('clientes','ClientesController');

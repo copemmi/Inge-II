@@ -143,9 +143,9 @@
 								@php } @endphp
 								@endforeach
 								
-								<td class="col-sm-0 col-sm-offset-12">
-                				<button  class="btn btn-primary " >Terminar</button>
-                               </td>			
+								<td>
+        						<a href="{{ route('ordenesFabricacion.cambiar_estados',$ord->COD_ORDEN_FABRICACION) }}" class="btn btn-success"> Terminar </a>
+        						</td>			
 							</tr>
 						@endforeach
 					</table>
