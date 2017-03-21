@@ -173,12 +173,13 @@ class MaterialesController extends Controller
        if(strcmp($tipo->COD_TIPO_MATERIAL,$id) == 0)
        {
             $nombre=$tipo->NOMBRE;
+            $cod=$tipo->COD_TIPO_MATERIAL;
 
        }
 
        }
 
-    $combo = '<option value="">'.$nombre.'</option>'; //se pone el item que se seleccionó y se enlaza con una estructura html
+    $combo = '<option value="'.$cod.'">'.$nombre.'</option>'; //se pone el item que se seleccionó y se enlaza con una estructura html
 
      foreach($tipo_material as $tipoMat)
      {
