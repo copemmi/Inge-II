@@ -71,9 +71,9 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'ordenesFabricacion.destroy'
 		]);
 
-	Route::get('ordenesFabricacion/{id}/cambiar_estados',[
+	Route::match(['get','put'],'ordenesFabricacion/{id}/cambiar_estados',[
 		'uses' => 'OrdenFabricacionController@cambiar_estados',
-		'as' => 'ordenesFabricacion.cambiar_estados'
+		'as'=>'ordenesFabricacion.cambiar_estados'
 		]);
 
 	//--------------------------------------------------------------------RUTAS DE DET_MODELO_MAQUINA

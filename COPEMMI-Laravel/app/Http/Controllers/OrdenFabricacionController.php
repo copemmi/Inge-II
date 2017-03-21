@@ -16,6 +16,7 @@ use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\ordenesFabricacionRequest;
 use DB;
+use Illuminate\Database\Eloquent\Model;
 
 class OrdenFabricacionController extends Controller
 { 
@@ -164,9 +165,11 @@ class OrdenFabricacionController extends Controller
     }
 
     public function cambiar_estados($id){
-        orden_fabricacion::where('COD_ORDEN_FABRICACION',$id);
-       $tipo_estado = estado_orden::where('COD_ESTADO','=',"TER")->get();
-            
+        $est="TER";
+        $orden_fabricacion=orden_fabricacion::find($id);
+        $orden_fabricacion->cod_estado=$est;
+        $orden_fabricacion->update();
+
         Flash('¡Se ha cambiado el estado de la orden de fabricación con el código: ('.$id.') exitósamente!');
 
         return Redirect()->route('ordenesFabricacion.index');

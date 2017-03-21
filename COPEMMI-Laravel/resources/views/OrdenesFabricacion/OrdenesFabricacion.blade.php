@@ -144,7 +144,7 @@
 								@endforeach
 								
 								<td>
-        						<a href="{{ route('ordenesFabricacion.cambiar_estados',$ord->COD_ORDEN_FABRICACION) }}" class="btn btn-success"> Terminar </a>
+        						<a href="{{ route('ordenesFabricacion.cambiar_estados',$ord->COD_ORDEN_FABRICACION) }}" class="btn btn-danger"> Terminar </a>
         						</td>			
 							</tr>
 						@endforeach
