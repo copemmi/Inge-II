@@ -105,7 +105,7 @@ Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 	]);
 	
 
-	Route::get('ruta_tipo/{id}', 'MaterialesController@respuesta_combo');
-	Route::get('guardarTipoMat/{cod}/{nomb}', 'MaterialesController@guardarTipoMat');
+	Route::get('ruta_tipo/{id}', 'MaterialesController@actualizaComboTipoMat');//Ruta para hacer el combobox con ajax
+	Route::get('guardarTipoMat/{cod}/{nomb}', 'MaterialesController@guardarTipoMat');//Ruta para hacer el insert de tipo de material con ajax
 
 

@@ -163,74 +163,50 @@ class MaterialesController extends Controller
     }
 
 
-    public function respuesta_combo($id)
+    public function actualizaComboTipoMat($id)
     {
 
+     $tipo_material = tipo_material::all();
 
-           $tipo_material = tipo_material::all();
+     foreach ($tipo_material as $tipo) //se encarga de buscar cúal fue el item que se selecciono para traer su nombre, pues solo tenemos el id
+     {
+       if(strcmp($tipo->COD_TIPO_MATERIAL,$id) == 0)
+       {
+            $nombre=$tipo->NOMBRE;
+
+       }
+
+       }
+
+    $combo = '<option value="">'.$nombre.'</option>'; //se pone el item que se seleccionó y se enlaza con una estructura html
+
+     foreach($tipo_material as $tipoMat)
+     {
+       if($tipoMat->NOMBRE!=$nombre)// se valida que el item que seleccionó arriba no aparezca repetido abajo una vez que se abre el combo
+       {
+          $combo=$combo."<option value='".$tipoMat->COD_TIPO_MATERIAL."'>". $tipoMat->NOMBRE."</option>"; //se van creando cada uno de los valores dentro de el código html 
+
+       }
+     }
      
 
-foreach ($tipo_material as $tipo) {
-   if(strcmp($tipo->COD_TIPO_MATERIAL,$id) == 0)
-   {
-$nombre=$tipo->NOMBRE;
-
-   }
-
-}
-
-
-
-  $i=0;
-   $combo = '<option value="">'.$nombre.'</option>';
-
-   foreach($tipo_material as $tipoMat)
-   {
-if($tipoMat->NOMBRE!=$nombre)
-{
-   
-     
-
- 
-
-  $combo=$combo."<option value='".$tipoMat->COD_TIPO_MATERIAL."'>". $tipoMat->NOMBRE."</option>";  
-
-
-
-
-$i++;
-}
-
-
- 
-
-   }
-     
-
-
+return $combo; // el controlador le manda la nueva estructura html con sus respectivos valores para que ajax lo reciba en el método en el frontend 
 
 
  /*$data=array("identificador"=>$id, "nomb" =>$nomb);
         return   json_encode($data);*/
-     
-return $combo;
-
-
-
-
-
 
     }
 
-    public function guardarTipoMat($cod,$nomb)
+    public function guardarTipoMat($cod,$nomb)// se reciben los 2 valores que se mandaron desde el frontend en la ventana modal
     {
   
 
-$tipo_material=new tipo_material;
-$tipo_material->COD_TIPO_MATERIAL=$cod;
+$tipo_material=new tipo_material;// se crea un objeto nuevo de tipo material
+$tipo_material->COD_TIPO_MATERIAL=$cod;//se llenan las variables del objeto
 $tipo_material->NOMBRE=$nomb;
 $tipo_material->save();
-return "Guardado con exito";
+return "Guardado con exito"; // se retorna al frontend que se insertó el nuevo tipo
     }
 
 
