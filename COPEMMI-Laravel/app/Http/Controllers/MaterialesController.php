@@ -161,4 +161,78 @@ class MaterialesController extends Controller
             return Redirect()->route('materiales.index');
         }   
     }
+
+
+    public function respuesta_combo($id)
+    {
+
+
+           $tipo_material = tipo_material::all();
+     
+
+foreach ($tipo_material as $tipo) {
+   if(strcmp($tipo->COD_TIPO_MATERIAL,$id) == 0)
+   {
+$nombre=$tipo->NOMBRE;
+
+   }
+
+}
+
+
+
+  $i=0;
+   $combo = '<option value="">'.$nombre.'</option>';
+
+   foreach($tipo_material as $tipoMat)
+   {
+if($tipoMat->NOMBRE!=$nombre)
+{
+   
+     
+
+ 
+
+  $combo=$combo."<option value='".$tipoMat->COD_TIPO_MATERIAL."'>". $tipoMat->NOMBRE."</option>";  
+
+
+
+
+$i++;
+}
+
+
+ 
+
+   }
+     
+
+
+
+
+ /*$data=array("identificador"=>$id, "nomb" =>$nomb);
+        return   json_encode($data);*/
+     
+return $combo;
+
+
+
+
+
+
+    }
+
+    public function guardarTipoMat($cod,$nomb)
+    {
+  
+
+$tipo_material=new tipo_material;
+$tipo_material->COD_TIPO_MATERIAL=$cod;
+$tipo_material->NOMBRE=$nomb;
+$tipo_material->save();
+return "Guardado con exito";
+    }
+
+
+
 }
