@@ -68,9 +68,7 @@
 					<div class="col-md-2">
 						{!! Form::text('COD_ORDEN_FABRICACION','',['class' => 'form-control','id'=>'CodOrd','readonly']) !!}
 					</div>
-				</div>
 			<!--Tipo de Estado-->
-				<div class="form-group">
 				{!!Form::label('COD_ESTADO', 'Estado de la Órden:', array('class' => 'control-label col-md-2'))!!}
 					<div class="col-md-2">
 					{!! Form::text('COD_ESTADO','',['class'=>'form-control','id'=>'NomEstado', 'readonly'])!!}
@@ -82,9 +80,8 @@
 					<div class="col-md-2">
 					{!! Form::text('COD_USUARIO','',['class'=>'form-control','id'=>'NomUsuario', 'readonly'])!!}
 					</div>
-				</div>		
+				</>		
 			<!--Cliente Identificacion --> 
-				<div class="form-group">
 					{!! Form::label('option','Identificación del Cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
 					<div class="col-md-2">
 						{!! Form::text('ID_CLIENTE','',['class'=>'form-control','id'=>'IdCliente', 'readonly'])!!}
@@ -96,9 +93,7 @@
 					<div class="col-md-2">
 								{!! Form::text('NOM_CLIENTE','',['class'=>'form-control','id'=>'NomCliente', 'readonly'])!!}
 					</div>
-				</div>
-			<!--Nombre de la empresa del cliente --> 
-				<div class="form-group">
+							<!--Nombre de la empresa del cliente --> 
 					{!! Form::label('option','Nombre de la empresa:',array('class' => 'control-label col-md-2','readonly')) !!}
 					<div class="col-md-2">
 						{!! Form::text('NOM_EMPRESA','',['class'=>'form-control','id'=>'NomEmpresa', 'readonly'])!!}
@@ -111,9 +106,7 @@
 					<div class="col-md-2">
 						{!! Form::text('CED_EMPRESA','',['class'=>'form-control','id'=>'CedEmpresa', 'readonly'])!!}
 						</div>
-					</div>
 			<!-- Fecha de Llegada-->
-				<div class="form-group">
 					{!! Form::label('FECHA_LLEGADA','Fecha de Llegada:',array('class' => 'control-label col-md-2')) !!}
 					<div class="col-md-2">
 						{!! Form::text('FECHA_LLEGADA','', ['class' => 'form-control','id'=>'FecLlegada', 'readonly']) !!}
@@ -125,7 +118,12 @@
 					<div class="col-md-2">
 						{!! Form::text('FECHA_ENTREGA','', ['class' => 'form-control','id'=>'FecEntrega', 'readonly']) !!}
 					</div>
-				</div>
+			<!--PRECIO DE LA MAQUINA-->
+				{!!Form::label('option', 'Precio de Máquina:', array('class' => 'control-label col-md-2'))!!}
+					<div class="col-md-2">
+						{!! Form::text('COD_MODELO','',['class'=>'form-control','id'=>'PrecMaquina', 'readonly'])!!}
+					</div>
+				</div>	
 			<!--Tipo de Modelo-->
 				<div class="form-group">
 				{!!Form::label('COD_MODELO', 'Modelo de Máquina:', array('class' => 'control-label col-md-2'))!!}
@@ -133,13 +131,7 @@
 					{!! Form::text('COD_MODELO','',['class'=>'form-control','id'=>'NomMaquina', 'readonly'])!!}
 					</div>
 				</div>
-			<!--PRECIO DE LA MAQUINA-->
-				<div class="form-group">
-				{!!Form::label('option', 'Precio de Máquina:', array('class' => 'control-label col-md-2'))!!}
-					<div class="col-md-2">
-						{!! Form::text('COD_MODELO','',['class'=>'form-control','id'=>'PrecMaquina', 'readonly'])!!}
-					</div>
-				</div>												
+														
 		</div><!--Cierre de Container -->
 
 		
