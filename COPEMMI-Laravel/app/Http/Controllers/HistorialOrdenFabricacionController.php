@@ -58,7 +58,7 @@ class HistorialOrdenFabricacionController extends Controller
     public function terminadas()
     {
 
-        $histOrdFab=orden_fabricacion::take(5);//falta el ->orderBy('') para la fecha de terminado
+        $histOrdFab=orden_fabricacion::where('COD_ESTADO','=',"TER")->take(5)->orderBy('COD_ORDEN_FABRICACION','DESC')->get();//cambiar el codigo por la fecha en que se termino
 
         return View('OrdenesFabricacion/OrdFabTerminadas')->with('historialOrdenesFabricacion', $histOrdFab);
     }

@@ -22,6 +22,40 @@
 	  	<h1 class="text-center">Últimas Órdenes de Fabricación Terminadas</h1>
 		</div>
 
-	</div>
-</div>	
+
+		<!-- Inicio de tabla-->
+		<div class="tabla-historial">
+			<table class="table width=30 table-bordered table-hover table-condensed" >
+				<thead class="bg-primary">
+					<tr>
+						<th>Código de la orden de fabricación</th>
+						<th>Código del modelo</th>
+						<th>Cédula del cliente</th>
+						<th>Fecha de llegada</th>
+						<th>Fecha de entrega</th>	
+					</tr>
+	     		</thead>
+
+	     		<tbody>
+		     		@foreach($historialOrdenesFabricacion as $OF)	
+						<tr class="success" data-href="{{route('historialOrdenesFabricacion.show', $OF->COD_ORDEN_FABRICACION)}}">
+							<td>{{$OF->COD_ORDEN_FABRICACION}}</td>
+							<td>{{$OF->COD_MODELO}}</td>
+							<td>{{$OF->ID}}</td>
+							<td>{{$OF->FECHA_LLEGADA}}</td>	
+							<td>{{$OF->FECHA_ENTREGA}}</td>								
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+
+		</div><!-- Cierre de div de Tabla -->
+
+
+		
+
+
+		
+	</div>	
+</div>
 @stop
