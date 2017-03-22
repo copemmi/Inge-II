@@ -38,7 +38,10 @@
 
 	     		<tbody>
 		     		@foreach($historialOrdenesFabricacion as $OF)	
-						<tr class="success" data-href="{{route('historialOrdenesFabricacion.show', $OF->COD_ORDEN_FABRICACION)}}">
+		     			
+		     			<!--Modificar este TR para que cuando se haga click sobre algúna orden, se despliegue los datos abajo-->
+						<!--<tr class="success" data-href="{{route('historialOrdenesFabricacion.show', $OF->COD_ORDEN_FABRICACION)}}">-->
+						<tr>
 							<td>{{$OF->COD_ORDEN_FABRICACION}}</td>
 							<td>{{$OF->COD_MODELO}}</td>
 							<td>{{$OF->ID}}</td>
@@ -54,7 +57,7 @@
 
 		
 
-
+		
 		
 	</div>	
 </div>
