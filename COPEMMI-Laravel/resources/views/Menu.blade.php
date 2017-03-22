@@ -74,6 +74,8 @@
 			                </ul> 
 		                </li> 
 
+		                  <li><a href="{{ route('estadisticas.index')}}"><span class="icono izquierda fa fa-money"></span>Estadísticas <i class="icono derecha fa fa-chevron-down"></i></a>
+
 		                <li><a href="#"><span class="icono izquierda fa fa-users"></span>Acerca de<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
 				            	<li><a href="{{ route('equipoDesarrollo.index') }}">Equipo Desarrollador</a></li>
