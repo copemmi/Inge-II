@@ -57,6 +57,7 @@
 				            	<li><a href="{{ route('ordenesFabricacion.create') }}">Incorporar Órdenes de Fabricación</a></li>
 				                <li><a href="{{route('ordenesFabricacion.index')}}">Visualizar Órdenes de Fabricación</a></li>
 				                <li><a href="{{ route('historialOrdenesFabricacion.index') }}">Historial de Órdenes de Fabricación</a></li>
+				                <li><a href="{{ route('historialOrdenesFabricacion.terminadas')}}">Últimas Órdenes de Fabricación Terminadas</a></li>
 			                </ul> 
 		                </li> 
 

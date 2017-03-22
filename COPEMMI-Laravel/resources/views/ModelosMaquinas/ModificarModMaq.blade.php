@@ -61,7 +61,7 @@
 				{!! Form::label('IMAGEN','Nueva Imagen:',array('class' => 'control-label col-md-2')) !!}
 				<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Ingrese una nueva imagen si desea.</li><li>De lo contrario no se ingresa una nueva imagen y la imagen actual no será modificada.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 				<div class="col-md-4">
-					<input type="file" id="IMAGEN" name="IMAGEN" size="35" accept="image/*">
+					{{Form::file('IMAGEN', ['id'=>'file','size'=>'35', 'accept' =>'image/*'])}}
 				</div>
 			</div>
 

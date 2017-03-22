@@ -30,7 +30,7 @@
 
 	
 				<div class="container">
-					{!! Form::open(['route' => 'modelosMaquinas.store','method'=>'POST','autocomplete'=>'off','files'=>'true','class' => 'form-horizontal']) !!}
+					{!! Form::open(['route' => 'modelosMaquinas.store','method'=>'POST','autocomplete'=>'off','files'=>'true','class' => 'form-horizontal', 'enctype' =>'multipart/form-data']) !!}
 					{{csrf_field()}}
 					{{ Form::token() }}
 
@@ -56,7 +56,7 @@
 						<div class="form-group">
 							{!! Form::label('IMAGEN','Imagen:',array('class' => 'control-label col-md-2')) !!}
 							<div class="col-md-6">
-								<input type="file" id="IMAGEN" name="IMAGEN" size="35" accept="image/*">
+								{{Form::file('IMAGEN', ['id'=>'file','size'=>'35', 'accept' =>'image/*'])}}
 							</div>
 						</div>
 
@@ -183,7 +183,7 @@
 
 						<form action="" class="form-inline">
 							<div class="col-md-2 col-md-offset-3">
-								<button class="btn btn-success" input type="submit" id="Guardar" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>
+								<button class="btn btn-success" input type="submit" name="submit" id="Guardar" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>
 								
 							</div>
 
@@ -203,3 +203,4 @@
 	{!! Html::script('js/validacionMod.js') !!}
 	{!! Html::script('js/validacionDetalleMod.js') !!}
 @stop
+

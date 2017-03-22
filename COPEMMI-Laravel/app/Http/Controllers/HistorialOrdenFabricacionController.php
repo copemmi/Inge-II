@@ -54,31 +54,14 @@ class HistorialOrdenFabricacionController extends Controller
         //Retorna la vista MostrarOrdFab que está en la carpeta OrdenesFabricacion
     }
 
-    //Método edit con la variable id entre parámetros para editar una orden de fabricación
-    //public function edit($id)
-    //{
-        //$historial_orden_fabricion=historial_orden_fabricion::find($id); //El modelo llama al método find con el id del registro para mostrar los datos del mismo
-        //return View('OrdenesFabricacion/ModificarHistorial')->with('historial_orden_fabricion', $historial_orden_fabricion);
-        //Retorna la vista ModificarHistorial que está en la carpeta OrdenesFabricacion
-    //}
 
-    //Método update con la variable request y id para guardar el nuevo registro en la base de datos
-    //public function update(materialesRequest $request, $id)
-    //{
-        //$historial_orden_fabricion=historial_orden_fabricion::find($id);
-        //ESTE DE ABAJO NO SE PUEDE MODIFICAR
-        //$historial_orden_fabricion->cod_tipo_material=$request->get('COD_ORDEN_FABRICACION');
-        //$historial_orden_fabricion->nombre=$request->get('COD_ESTADO');
-        //$historial_orden_fabricion->caracteristicas=$request->get('COD_MODELO');
-        //$historial_orden_fabricion->cantidad=$request->get('NOMBRE_CLIENTE');
-        //$historial_orden_fabricion->cantidad=$request->get('CEDULA_CLIENTE');
-        //$historial_orden_fabricion->cantidad=$request->get('FECHA_LLEGADA');
-        //$historial_orden_fabricion->cantidad=$request->get('FECHA_ENTREGA');
+    public function terminadas()
+    {
 
-        //$historial_orden_fabricion->update();
+        $histOrdFab=orden_fabricacion::take(5);//falta el ->orderBy('') para la fecha de terminado
 
-        //Flash("¡Se ha modificado ela orden de fabricación exitósamente!", 'info');
+        return View('OrdenesFabricacion/OrdFabTerminadas')->with('historialOrdenesFabricacion', $histOrdFab);
+    }
+    
 
-        //return Redirect()->route('materiales.show', $id);
-    //}
 }

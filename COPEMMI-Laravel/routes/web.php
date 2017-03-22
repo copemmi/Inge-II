@@ -104,6 +104,13 @@ Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 	'as' => 'historialOrdenesFabricacion.destroy' //Este va a ser el nombre de la ruta aunque no es necesario
 	]);
 	
+	Route::get('OrdenesFabricacion/terminadas',[
+	'uses' => 'HistorialOrdenFabricacionController@terminadas',
+	'as' => 'historialOrdenesFabricacion.terminadas'
+	]);
+
+
+
 
 	Route::get('ruta_tipo/{id}', 'MaterialesController@actualizaComboTipoMat');//Ruta para hacer el combobox con ajax
 	Route::get('guardarTipoMat/{cod}/{nomb}', 'MaterialesController@guardarTipoMat');//Ruta para hacer el insert de tipo de material con ajax

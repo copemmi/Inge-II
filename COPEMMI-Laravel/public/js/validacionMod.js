@@ -164,4 +164,28 @@ function validarCodigoImagen(){
 	    $("#CARACTERISTICAS").parent().children("span").text("").hide();
 	    $("#CARACTERISTICAS").parent().append("<span id='iconodescrip' class='glyphicon glyphicon-ok form-control-feedback'></span>");
 	    return true;
-	}} 
+	}
+}
+
+
+$('form').submit(function( e ) {    
+    
+    if( get_extension($('#file').val()) != 'jpg' && get_extension($('#file').val()) != 'png' && get_extension($('#file').val()) != 'jpeg' ){ // 10 MB (this size is in bytes)
+        //Prevent default and display error
+        alert("El archivo no es una imagen");
+        e.preventDefault();
+    }
+
+    else if(!($('#file')[0].files[0].size < 8388608)){ // (8MB, el maximo por defecto en php)
+        //Prevent default and display error
+        alert("El tamaño es mayor a 8MB");
+        e.preventDefault();
+    }
+
+
+
+});
+
+function get_extension(filename) {
+    return filename.split('.').pop().toLowerCase();
+} 
