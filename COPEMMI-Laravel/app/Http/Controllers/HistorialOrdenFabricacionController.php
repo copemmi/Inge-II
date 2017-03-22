@@ -63,5 +63,32 @@ class HistorialOrdenFabricacionController extends Controller
         return View('OrdenesFabricacion/OrdFabTerminadas')->with('historialOrdenesFabricacion', $histOrdFab);
     }
     
+    public function TraerDatos($id)
+    {
+        $hof=orden_fabricacion::find($id); //El modelo llama al método find con el id del registro para mostrar los datos del mismo
+        $estado = estado_orden::find($hof->COD_ESTADO);
+        $usuario = usuario::find($hof->COD_USUARIO);
+        $cliente=cliente::find($hof->ID);
+        $modelos = modelo_maquina::find($hof->COD_MODELO);
+
+        $data = array(
+                'codigo' => $id,
+                'estado' => $estado->NOMBRE,
+                'usuario' => $usuario->NOMBRE,
+                'idCli' => $cliente->ID,
+                'nomCli' => $cliente->NOMBRE,
+                'priApell' => $cliente->PRIMER_APELLIDO,
+                'segApell' => $cliente->SEGUNDO_APELLIDO,
+                'nomEmp' => $cliente->NOMBRE_EMPRESA,
+                'idEmp' => $cliente->CEDULA_JURIDICA,
+                'fecLle' => $hof->FECHA_LLEGADA,
+                'fecEnt' => $hof->FECHA_ENTREGA,
+                'NomMaq' => $modelos->NOMBRE,
+                'preMaq' => $modelos->PRECIO
+        );
+
+        return response()->json($data);
+
+    }
 
 }

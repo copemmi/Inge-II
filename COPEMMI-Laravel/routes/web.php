@@ -109,7 +109,7 @@ Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 	'as' => 'historialOrdenesFabricacion.terminadas'
 	]);
 
-
+	Route::get('traerDatos/{id}','HistorialOrdenFabricacionController@TraerDatos');//ruta para traer los datos de la orden de fabricacion
 
 
 	Route::get('ruta_tipo/{id}', 'MaterialesController@actualizaComboTipoMat');//Ruta para hacer el combobox con ajax

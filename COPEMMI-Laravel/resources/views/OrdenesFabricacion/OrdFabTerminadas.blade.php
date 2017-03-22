@@ -40,8 +40,7 @@
 		     		@foreach($historialOrdenesFabricacion as $OF)	
 		     			
 		     			<!--Modificar este TR para que cuando se haga click sobre algúna orden, se despliegue los datos abajo-->
-						<!--<tr class="success" data-href="{{route('historialOrdenesFabricacion.show', $OF->COD_ORDEN_FABRICACION)}}">-->
-						<tr>
+						<tr class="success" id="mostrar" onclick="MostrarDatos({{$OF->COD_ORDEN_FABRICACION}});">
 							<td>{{$OF->COD_ORDEN_FABRICACION}}</td>
 							<td>{{$OF->COD_MODELO}}</td>
 							<td>{{$OF->ID}}</td>
@@ -55,10 +54,123 @@
 		</div><!-- Cierre de div de Tabla -->
 
 
+		<br>
+		<div class"col-md-0 col-md-offset-0">
+			{!! Form::label('separador','___________________________________________________________________________________________________________________',array('class' => 'control-label col-md-0')) !!}
+		</div>
+		<br>
 		
 
-		
+		<div class="container form-horizontal">
+			<!--Cod de Orden-->
+				<div class="form-group">
+					{!! Form::label('COD_ORDEN_FABRICACION','Órden de Fabricación:',array('class' => 'control-label col-md-2','readonly')) !!}
+					<div class="col-md-2">
+						{!! Form::text('COD_ORDEN_FABRICACION','',['class' => 'form-control','id'=>'CodOrd','readonly']) !!}
+					</div>
+				</div>
+			<!--Tipo de Estado-->
+				<div class="form-group">
+				{!!Form::label('COD_ESTADO', 'Estado de la Órden:', array('class' => 'control-label col-md-2'))!!}
+					<div class="col-md-2">
+					{!! Form::text('COD_ESTADO','',['class'=>'form-control','id'=>'NomEstado', 'readonly'])!!}
+					</div>
+				</div>
+			<!-- Usuario-->
+				<div class="form-group">
+					{!! Form::label('option','Usuario:',array('class' => 'control-label col-md-2','readonly')) !!}
+					<div class="col-md-2">
+					{!! Form::text('COD_USUARIO','',['class'=>'form-control','id'=>'NomUsuario', 'readonly'])!!}
+					</div>
+				</div>		
+			<!--Cliente Identificacion --> 
+				<div class="form-group">
+					{!! Form::label('option','Identificación del Cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
+					<div class="col-md-2">
+						{!! Form::text('ID_CLIENTE','',['class'=>'form-control','id'=>'IdCliente', 'readonly'])!!}
+					</div>
+				</div>
+			<!--Nombre del cliente --> 
+				<div class="form-group">
+					{!! Form::label('option','Nombre del cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
+					<div class="col-md-2">
+								{!! Form::text('NOM_CLIENTE','',['class'=>'form-control','id'=>'NomCliente', 'readonly'])!!}
+					</div>
+				</div>
+			<!--Nombre de la empresa del cliente --> 
+				<div class="form-group">
+					{!! Form::label('option','Nombre de la empresa:',array('class' => 'control-label col-md-2','readonly')) !!}
+					<div class="col-md-2">
+						{!! Form::text('NOM_EMPRESA','',['class'=>'form-control','id'=>'NomEmpresa', 'readonly'])!!}
+
+					</div>
+				</div>
+			<!--Cedula de la empresa cliente --> 
+				<div class="form-group">
+					{!! Form::label('option','Cédula de la empresa:',array('class' => 'control-label col-md-2','readonly')) !!}
+					<div class="col-md-2">
+						{!! Form::text('CED_EMPRESA','',['class'=>'form-control','id'=>'CedEmpresa', 'readonly'])!!}
+						</div>
+					</div>
+			<!-- Fecha de Llegada-->
+				<div class="form-group">
+					{!! Form::label('FECHA_LLEGADA','Fecha de Llegada:',array('class' => 'control-label col-md-2')) !!}
+					<div class="col-md-2">
+						{!! Form::text('FECHA_LLEGADA','', ['class' => 'form-control','id'=>'FecLlegada', 'readonly']) !!}
+					</div>
+				</div>
+			<!-- Fecha de Entrega-->
+				<div class="form-group">
+					{!! Form::label('FECHA_ENTREGA','Fecha de Entrega:',array('class' => 'control-label col-md-2')) !!}
+					<div class="col-md-2">
+						{!! Form::text('FECHA_ENTREGA','', ['class' => 'form-control','id'=>'FecEntrega', 'readonly']) !!}
+					</div>
+				</div>
+			<!--Tipo de Modelo-->
+				<div class="form-group">
+				{!!Form::label('COD_MODELO', 'Modelo de Máquina:', array('class' => 'control-label col-md-2'))!!}
+					<div class="col-md-3">
+					{!! Form::text('COD_MODELO','',['class'=>'form-control','id'=>'NomMaquina', 'readonly'])!!}
+					</div>
+				</div>
+			<!--PRECIO DE LA MAQUINA-->
+				<div class="form-group">
+				{!!Form::label('option', 'Precio de Máquina:', array('class' => 'control-label col-md-2'))!!}
+					<div class="col-md-2">
+						{!! Form::text('COD_MODELO','',['class'=>'form-control','id'=>'PrecMaquina', 'readonly'])!!}
+					</div>
+				</div>												
+		</div><!--Cierre de Container -->
+
 		
 	</div>	
 </div>
+@stop
+
+@section('js')
+	
+<script>
+
+function MostrarDatos(id){
+
+	var url="http://localhost:8000/traerDatos/"+id; //ruta del método en el backend y sus parámetros
+
+	$.get(url, function(res){
+		$("#CodOrd").val(res.codigo);
+		$("#NomEstado").val(res.estado);
+		$("#NomUsuario").val(res.usuario);
+		$("#IdCliente").val(res.idCli);
+		$("#NomCliente").val(res.nomCli+" "+res.priApell+" "+res.segApell);
+		$("#NomEmpresa").val(res.nomEmp);
+		$("#CedEmpresa").val(res.idEmp);
+		$("#FecLlegada").val(res.fecLle);
+		$("#FecEntrega").val(res.fecEnt);
+		$("#NomMaquina").val(res.NomMaq);
+		$("#PrecMaquina").val(res.preMaq);
+	});
+
+}
+</script>
+
+
 @stop
