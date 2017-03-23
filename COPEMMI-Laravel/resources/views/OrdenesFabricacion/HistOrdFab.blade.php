@@ -52,7 +52,8 @@
 
 
 		@foreach($historialOrdenesFabricacion as $mat)
-				@if($i<1)
+		
+		@if($i<1)
 		<div class="tabla-historial">
 			<table class="table width=30 table-bordered table-hover table-condensed" >
 				<thead class="bg-primary">

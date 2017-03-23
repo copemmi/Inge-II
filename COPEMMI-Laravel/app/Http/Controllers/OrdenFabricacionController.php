@@ -94,6 +94,7 @@ class OrdenFabricacionController extends Controller
         $orden_fabricacion->id=$request->get('ID');
         $orden_fabricacion->fecha_llegada=$request->get('FECHA_LLEGADA');
         $orden_fabricacion->fecha_entrega=$request->get('FECHA_ENTREGA');
+        $orden_fabricacion->fecha_terminada=$request->get('FECHA_ENTREGA');
 
         $orden_fabricacion->save();
 

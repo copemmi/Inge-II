@@ -35,7 +35,7 @@ public $incrementing = false;
      */
 	protected $primaryKey= 'COD_ORDEN_FABRICACION';
      
-    protected $fillable = ['COD_ESTADO','COD_MODELO', 'COD_USUARIO', 'ID', 'FECHA_LLEGADA', 'FECHA_ENTREGA'];
+    protected $fillable = ['COD_ESTADO','COD_MODELO', 'COD_USUARIO', 'ID', 'FECHA_LLEGADA', 'FECHA_ENTREGA'. 'FECHA_TERMINADA'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

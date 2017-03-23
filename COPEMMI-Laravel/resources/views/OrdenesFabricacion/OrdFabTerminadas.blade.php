@@ -22,8 +22,18 @@
 	  	<h1 class="text-center">Últimas Órdenes de Fabricación Terminadas</h1>
 		</div>
 
+		@php
+		$i=0
+		@endphp
 
-		<!-- Inicio de tabla-->
+		@foreach($historialOrdenesFabricacion as $OF)
+		@php 
+			$i++
+			
+		@endphp
+		@endforeach
+
+		@if($i<1)
 		<div class="tabla-historial">
 			<table class="table width=30 table-bordered table-hover table-condensed" >
 				<thead class="bg-primary">
@@ -37,6 +47,36 @@
 	     		</thead>
 
 	     		<tbody>
+		     			
+		     			<!--Modificar este TR para que cuando se haga click sobre algúna orden, se despliegue los datos abajo-->
+						<tr class="success" id="mostrar">
+							<td>Vacío</td>
+							<td>Vacío</td>
+							<td>Vacío</td>
+							<td>Vacío</td>	
+							<td>Vacío</td>								
+						</tr>
+				</tbody>
+
+	     	</table>
+
+
+
+		@else
+
+		
+		<div class="tabla-historial">
+			<table class="table width=30 table-bordered table-hover table-condensed" >
+				<thead class="bg-primary">
+					<tr>
+						<th>Código de la orden de fabricación</th>
+						<th>Código del modelo</th>
+						<th>Cédula del cliente</th>
+						<th>Fecha de terminada</th>
+					</tr>
+	     		</thead>
+
+	     		<tbody>
 		     		@foreach($historialOrdenesFabricacion as $OF)	
 		     			
 		     			<!--Modificar este TR para que cuando se haga click sobre algúna orden, se despliegue los datos abajo-->
@@ -44,10 +84,10 @@
 							<td>{{$OF->COD_ORDEN_FABRICACION}}</td>
 							<td>{{$OF->COD_MODELO}}</td>
 							<td>{{$OF->ID}}</td>
-							<td>{{$OF->FECHA_LLEGADA}}</td>	
-							<td>{{$OF->FECHA_ENTREGA}}</td>								
+							<td>{{$OF->FECHA_TERMINADA}}</td>								
 						</tr>
 					@endforeach
+					@endif
 				</tbody>
 			</table>
 
@@ -118,6 +158,13 @@
 					<div class="col-md-2">
 						{!! Form::text('FECHA_ENTREGA','', ['class' => 'form-control','id'=>'FecEntrega', 'readonly']) !!}
 					</div>
+			<!--FECHA DE TERMINADA-->
+				<div class="form-group">
+				{!!Form::label('FECHA_TERMINADA', 'Fecha de Terminada:', array('class' => 'control-label col-md-2'))!!}
+					<div class="col-md-3">
+					{!! Form::text('FECHA_TERMINADA','',['class'=>'form-control','id'=>'FecTerminada', 'readonly'])!!}
+					</div>
+				</div>
 			<!--PRECIO DE LA MAQUINA-->
 				{!!Form::label('option', 'Precio de Máquina:', array('class' => 'control-label col-md-2'))!!}
 					<div class="col-md-2">
@@ -157,6 +204,7 @@ function MostrarDatos(id){
 		$("#CedEmpresa").val(res.idEmp);
 		$("#FecLlegada").val(res.fecLle);
 		$("#FecEntrega").val(res.fecEnt);
+		$("#FecTerminada").val(res.fecTer);
 		$("#NomMaquina").val(res.NomMaq);
 		$("#PrecMaquina").val(res.preMaq);
 	});
