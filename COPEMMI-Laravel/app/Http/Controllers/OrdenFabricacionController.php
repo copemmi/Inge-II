@@ -12,6 +12,7 @@ use App\estado_orden;
 use App\modelo_maquina;
 use App\cliente;
 use App\imagen_modelo;
+use App\material;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\ordenesFabricacionRequest;
@@ -75,6 +76,7 @@ class OrdenFabricacionController extends Controller
         $tipo_usuario = Usuario::all();
         $id_cliente = cliente::all();
 
+
         return View('OrdenesFabricacion/IncorporarOrdFab')->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('cliente',$id_cliente);
     }
 
@@ -96,7 +98,20 @@ class OrdenFabricacionController extends Controller
         $orden_fabricacion->fecha_entrega=$request->get('FECHA_ENTREGA');
         $orden_fabricacion->fecha_terminada=$request->get('FECHA_ENTREGA');
 
-        $orden_fabricacion->save();
+     $orden_fabricacion->save();
+     $detalleMat = DB::table('det_modelos_maquinas')->select('COD_MATERIAL', 'CANTIDAD')->
+     where('COD_MODELO',$orden_fabricacion->cod_modelo)->get();
+     
+     foreach($detalleMat as $det)
+     {
+       $material = material::find($det->COD_MATERIAL);
+       $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
+       $material->update();
+
+     }
+        
+        
+        
 
         Flash("¡Se ha insertado la orden de fabricación exitósamente!",'success');
 
