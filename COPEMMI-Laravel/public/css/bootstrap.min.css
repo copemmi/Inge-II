@@ -30,8 +30,8 @@ td {
 
 .sidebar {/*Todo el Menu*/
 	position: absolute;
-	width: 18%; 
-	height: 68em;
+	width: 21%; 
+	height: 80em;
 	background: #333; /* Gris*/
 	color: #fff; /*Color de la letra*/ 
 	margin-top: 60px;
