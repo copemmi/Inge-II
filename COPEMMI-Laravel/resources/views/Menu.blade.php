@@ -76,15 +76,15 @@
 
 		                  <li><a href="{{ route('estadisticas.index')}}"><img src="{{asset('imagenes/IconosMenu/estadisticas.png')}}"/> Estadísticas <i class="icono derecha fa fa-chevron-down"></i></a>
 
-<<<<<<< Updated upstream
+
 		                <li><a href="#"><img src="{{asset('imagenes/IconosMenu/acercaDe.png')}}"/> Acerca de<i class="icono derecha fa fa-chevron-down"></i></a>
-=======
+
 
 
 
 
 		                <li><a href="#"><span class="icono izquierda fa fa-users"></span>Acerca de<i class="icono derecha fa fa-chevron-down"></i></a>
->>>>>>> Stashed changes
+
 		                    <ul>
 				            	<li><a href="{{ route('equipoDesarrollo.index') }}">Equipo Desarrollador</a></li>
 				                <li><a href="{{ route('equipoTrabajo.index') }}">Equipo de Trabajo</a></li>
