@@ -21,8 +21,8 @@
 						<li> <a class="lb-NOMCOP">COPEMMI: </a> </li>
 						<li> <a class="lb-COP"> Control de Pedidos de Materiales para Máquinas Industriales </a> </li>
 				  		<li> <a class="lb-US"> Leiman Sánchez </a></li>
-				  		<li> <a><img src="{{asset('imagenes/IconosMenu/login.png')}}"/> </i></a></li>
-				  		<li> <a href="#" class="bt-cerrar"> Cerrar Sesión</a></li>
+				  		<li> <a><img src="{{asset('imagenes/IconosMenu/user.png')}}"/> </i></a></li>
+				  		<li> <a href="#" class="bt-cerrar">Cerrar Sesión</a></li>
 					</ul>
 			</div>
 		</div>
@@ -74,17 +74,12 @@
 			                </ul> 
 		                </li> 
 
-		                  <li><a href="{{ route('estadisticas.index')}}"><img src="{{asset('imagenes/IconosMenu/estadisticas.png')}}"/> Estadísticas <i class="icono derecha fa fa-chevron-down"></i></a>
+		                  <li><a href="{{ route('estadisticas.index')}}"><img src="{{asset('imagenes/IconosMenu/estadisticas.png')}}"/> Estadísticas</a>
 
 
-		                <li><a href="#"><img src="{{asset('imagenes/IconosMenu/acercaDe.png')}}"/> Acerca de<i class="icono derecha fa fa-chevron-down"></i></a>
+		                <li><a href="{{ route('equipoDesarrollo.index') }}"><img src="{{asset('imagenes/IconosMenu/acercaDe.png')}}"/> Equipo Desarrollador</a>
 
-    <ul>
-				            	<li><a href="{{ route('equipoDesarrollo.index') }}">Equipo Desarrollador</a></li>
-				                <li><a href="{{ route('equipoTrabajo.index') }}">Equipo de Trabajo</a></li>
-			                </ul> 
-		                </li>
-
+    
 
 
 		                
