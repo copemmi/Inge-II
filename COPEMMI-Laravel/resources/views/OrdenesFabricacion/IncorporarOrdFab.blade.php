@@ -101,6 +101,8 @@
 								</select>
                              
 							</div>
+							<!-- Creación del Botón Modal que abre el formulario de los datos de los clientes-->
+							<a class="btn btn-success" input type="button" data-toggle="modal" data-target="#addData">Incorporar Cliente</a>
 						</div>
 
 						<!--Identificacion del Cliente-->
@@ -157,14 +159,151 @@
 			{!! Form::close() !!}
 
 			</div>
-		</div>
 
+			<div class="modal fade" id="addData" tabindex="-1" role="dialog" aria-labelledby="addLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
 
-	
+						<!-- Título de la Ventana Modal -->
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="addLabel">Incorporar Cliente</h4>
+						</div>
+
+							<!-- Formulario donde solicita los datos del tipo de Material -->
+							<div class="modal-body">
+
+								<div class="form-group">
+									<!--ID del Cliente-->
+									{!! Form::label('ID','Identificación del Cliente:',array('class' => 'control-label col-md-5')) !!}
+									<!--<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 11 de caracteres.Identificaciones de ejemplo: 2-0111-0222 o 1-1333-1444</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->
+									<div class="col-md-5">
+										<!--{!! Form::text('ID',null,['class' => 'form-control','placeholder' => 'Identificacion del Cliente', 'maxlength="11"']) !!}--> 
+										<input id="ID_CLIENTE" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />
+										<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
+									</div>
+								</div>
+								<br><br>
+
+								<!--Nombre del Cliente-->
+								<div class="form-group">
+
+									{!! Form::label('NOMBRE','Nombre del Cliente:',array('class' => 'control-label col-md-5')) !!}
+									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->
+									<div class="col-md-5">
+										<!--{!! Form::text('NOMBRE',null,['class' => 'form-control','placeholder' => 'Nombre del Cliente', 'maxlength="50"']) !!}
+										<span class = "help-block"></span>-->
+										<input id="NOMB" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />
+										<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
+									</div>
+
+								</div>
+								<br><br>
+
+								<!--Apellido1 del Cliente-->
+								<div class="form-group">
+									{!! Form::label('PRIMER_APELLIDO','Primer Apellido:',array('class' => 'control-label col-md-5')) !!}
+									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->
+									<div class="col-md-5">
+										<!--{!! Form::text('PRIMER_APELLIDO',null,['class' => 'form-control','placeholder' => 'Primer Apellido', 'maxlength="50"']) !!}-->
+										<input id="PRIMER_APE" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />
+										<span class = "help-block"></span>
+									</div>
+								</div>
+								<br><br>
+
+								<!--Apellido2 del Cliente-->
+								<div class="form-group">
+									{!! Form::label('SEGUNDO_APELLIDO','Segundo Apellido:',array('class' => 'control-label col-md-5')) !!}
+									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->
+									<div class="col-md-5">
+										<!--{!!Form::text('SEGUNDO_APELLIDO',null,['class' => 'form-control','placeholder' => 'Segundo Apellido', 'maxlength="50"']) !!}-->
+										<input id="SEGUNDO_APE" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />
+										<span class = "help-block"></span>
+									</div>
+								</div>
+								<br><br>
+
+								<!--Direccion del Cliente-->
+								<div class="form-group">
+									{!! Form::label('DIRECCION','Dirección del Cliente:',array('class' => 'control-label col-md-5')) !!}
+									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 100 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->
+									<div class="col-md-5">
+										<!--{!! Form::text('DIRECCION',null,['class' => 'form-control','placeholder' => 'Dirección', 'maxlength="100"']) !!}-->
+										<input id="DIRE" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />
+										<span class = "help-block"></span>
+									</div>
+								</div>
+								<br><br>
+
+								<!--Telefono del Cliente-->
+								<div class="form-group">
+									{!! Form::label('TELEFONO','Teléfono del Cliente:',array('class' => 'control-label col-md-5')) !!}
+									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 10 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->
+									<div class="col-md-5">
+										<!--{!! Form::text('TELEFONO',null,['class' => 'form-control','placeholder' => 'Teléfono del Cliente', 'maxlength="10"']) !!}-->
+										<input id="TELE" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />
+										<span class = "help-block"></span>
+									</div>
+								</div>
+								<br><br>
+
+								<!--Correo del Cliente-->
+								<div class="form-group">
+									{!! Form::label('CORREO','Correo del Cliente:',array('class' => 'control-label col-md-5')) !!}
+									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->
+									<div class="col-md-5">
+										<!--{!! Form::text('CORREO',null,['class' => 'form-control','placeholder' => 'Correo del Cliente', 'maxlength="50"']) !!}-->
+										<input id="COR" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />
+										<span class = "help-block"></span>
+									</div>
+								</div>
+								<br><br>
+
+								<!--Nombre Empresa-->
+								<div class="form-group">
+									{!! Form::label('NOMBRE_EMPRESA','Nombre de la Empresa:',array('class' => 'control-label col-md-5')) !!}
+									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->
+									<div class="col-md-5">
+										<!--{!! Form::text('NOMBRE_EMPRESA',null,['class' => 'form-control','placeholder' => 'Nombre de la Empresa', 'maxlength="50"']) !!}-->
+										<input id="NOM_EM" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />
+										<span class = "help-block"></span>
+									</div>
+								</div>
+								<br><br>
+
+								<!--Cedula Juridica-->
+								<div class="form-group">
+									{!! Form::label('CEDULA_JURIDICA','Cédula Jurídica de la Empresa:',array('class' => 'control-label col-md-5')) !!}
+									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 13 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->
+									<div class="col-md-5">
+										<!--{!! Form::text('CEDULA_JURIDICA',null,['class' => 'form-control','placeholder' => 'Cédula Jurídica de la Empresa', 'maxlength="13"']) !!}-->
+										<input id="CED_JURI" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />
+										<span class = "help-block"></span>
+									</div>
+								</div>
+								<br><br>
+
+							</div>
+
+							<!-- Footer o parte donde vienen los botones -->
+							<div class="modal-footer">
+							
+								<!--<button class="btn btn-success" input type="submit">Guardar<img src="{{asset('imagenes/save.ico')}}" width=20; action="javascript:close_this_popup()" /></button>-->
+
+								<button class="btn btn-success" input type="submit" id="guardarCambiosModal" onclick="guardaCambiosModal();" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>
+							
+								<a href="{{ route('clientes.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
+							</div>
+					</div>
+				</div>
+			</div>
+
+		</div>	
 	
 @stop
 
-
 @section('js')
 	{!! Html::script('js/validarOrdFab.js') !!}
+	{!! Html::script('js/cargarCliente.js') !!}
 @stop

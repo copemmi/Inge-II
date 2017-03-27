@@ -112,8 +112,15 @@ Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 	Route::get('traerDatos/{id}','HistorialOrdenFabricacionController@TraerDatos');//ruta para traer los datos de la orden de fabricacion
 
 
+//-------------------------RUTAS PARA LAS INSERTAR CON AJAX-------------------------//
 	Route::get('ruta_tipo/{id}', 'MaterialesController@actualizaComboTipoMat');//Ruta para hacer el combobox con ajax
 	Route::get('guardarTipoMat/{cod}/{nomb}', 'MaterialesController@guardarTipoMat');//Ruta para hacer el insert de tipo de material con ajax
+	
+	Route::get('ruta_tipo/{id}', 'ModelosMaquinasController@actualizaComboTipoModMaq');//Ruta para hacer el combobox con ajax
+	Route::get('guardarTipoModMaq/{cod}/{nomb}', 'ModelosMaquinasController@guardarTipoModMaq');//Ruta para hacer el insert de tipo de modelo de la maquina con ajax
+
+	Route::get('ruta_tipo/{ids}', 'ClientesController@actualizaComboClientes');//Ruta para hacer el combobox con ajax
+	Route::get('guardarClientes/{id}/{nomb}/{ape1}/{ape2}/{dir}/{tel}/{email}/{nombEmp}/{cedJud}', 'ClientesController@guardarClientes');//Ruta para hacer el insert clientes con ajax
 
 //-------------------------RUTAS PARA LAS ESTADISTICAS-------------------------
 Route::resource('estadisticas','EstadisticasController'); 
