@@ -10,8 +10,35 @@ dibujaBarras();
 
 
 
+
+
 	 });
 
+$("#comboGrafico").change(function(){
+
+var valor=$("#comboGrafico").val();
+
+switch(valor)
+{
+case '1':
+
+dibujaBarras();
+break;
+
+case '2':
+
+dibujaPie();
+break;
+
+
+}
+
+}
+
+
+
+
+    );
 
 
 
@@ -117,8 +144,8 @@ var options={
         type: 'pie',
         options3d: {
             enabled: true,
-            alpha: 45,
-            beta: 0
+            alpha: 45
+            
         }
     },
     title: {
@@ -129,13 +156,10 @@ var options={
     },
     plotOptions: {
         pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            depth: 35,
-            dataLabels: {
-                enabled: true,
-                format: '{point.name}'
-            }
+         
+                    innerSize: 100,
+            depth: 45
+          
         }
     },
     series: [{
@@ -160,7 +184,7 @@ var datas=new Array();
     {
     
 
- var objeto= {name: datas[i].cod_material, y:datas[i].cantidad};     
+ var objeto= {name: datas[i].nombre, y:datas[i].cantidad};     
     options.series[0].data.push( objeto ); 
 
 
