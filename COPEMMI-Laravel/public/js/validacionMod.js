@@ -170,18 +170,20 @@ function validarCodigoImagen(){
 
 $('form').submit(function( e ) {    
     
-    if( get_extension($('#file').val()) != 'jpg' && get_extension($('#file').val()) != 'png' && get_extension($('#file').val()) != 'jpeg' ){ // 10 MB (this size is in bytes)
-        //Prevent default and display error
-        alert("El archivo no es una imagen");
-        e.preventDefault();
-    }
+    if(get_extension($('#file').val())){
+    
+	    if( get_extension($('#file').val()) != 'jpg' && get_extension($('#file').val()) != 'png' && get_extension($('#file').val()) != 'jpeg'  ){ // 10 MB (this size is in bytes)
+	        //Prevent default and display error
+	        alert("El archivo no es una imagen");
+	        e.preventDefault();
+	    }
 
-    else if(!($('#file')[0].files[0].size < 8388608)){ // (8MB, el maximo por defecto en php)
-        //Prevent default and display error
-        alert("El tamaño es mayor a 8MB");
-        e.preventDefault();
-    }
-
+	    else if(!($('#file')[0].files[0].size < 8388608)){ // (8MB, el maximo por defecto en php)
+	        //Prevent default and display error
+	        alert("El tamaño es mayor a 8MB");
+	        e.preventDefault();
+	    }
+	}
 
 
 });
