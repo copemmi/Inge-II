@@ -1,4 +1,3 @@
-
 <?php
 use Illuminate\Support\Facades\Input;
 /*
@@ -126,4 +125,6 @@ Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 Route::resource('estadisticas','EstadisticasController'); 
 
 Route::get('traeDatos','EstadisticasController@devuelveDatos');
+
+Route::get('traeDatosOrdenes','EstadisticasController@devuelveDatosOrdenes');
 
