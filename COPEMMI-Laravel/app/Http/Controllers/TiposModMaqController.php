@@ -11,7 +11,12 @@ use App\Http\Requests\tipoModelosRequest; //Hacer el request de tipo de modelos.
 
 class TiposModMaqController extends Controller
 {
-	   //
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+       //
 /**
      * Display a listing of the resource.
      *

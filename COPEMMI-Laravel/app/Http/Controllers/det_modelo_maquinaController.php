@@ -9,6 +9,10 @@ use App\det_modelo_maquina;
 class det_modelo_maquinaController extends Controller
 {
 
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 
  public function destroy($id, Request $request)

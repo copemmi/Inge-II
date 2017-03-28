@@ -134,3 +134,17 @@ Route::get('traeDatos','EstadisticasController@devuelveDatos');
 
 Route::get('traeDatosOrdenes','EstadisticasController@devuelveDatosOrdenes');
 
+
+
+
+//----RUTAS PARA EL LOGIN----
+	
+Route::get('/',function(){
+	return view('Auth/login');
+});
+
+Route::Auth();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/logout', 'Auth\LoginController@logout');

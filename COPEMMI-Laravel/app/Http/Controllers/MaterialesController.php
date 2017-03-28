@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Input;
 
 class MaterialesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     
     /**

@@ -19,6 +19,11 @@ use DB;
 
 class HistorialOrdenFabricacionController extends Controller
 {
+   public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     //Método index con el objeto request entre parámetros para el buscador
     public function index(Request $request)
     {  

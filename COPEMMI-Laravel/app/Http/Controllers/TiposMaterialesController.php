@@ -11,6 +11,11 @@ use App\Http\Requests\tipoMaterialesRequest;
 
 class TiposMaterialesController extends Controller
 {
+   public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     //
 /**
      * Display a listing of the resource.
