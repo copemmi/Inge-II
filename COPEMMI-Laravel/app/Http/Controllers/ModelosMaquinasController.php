@@ -266,43 +266,6 @@ class ModelosMaquinasController extends Controller
         
     }
 
-        //Inserta los tipos de materiales con ajax. 
-    public function actualizaComboTipoModMaq($id)
-    {
-        $tipo_modelo = tipo_modelo::all();
 
-         //Se encarga de buscar cúal fue el item que se selecciono para traer su nombre, pues solo tenemos el id.
-        foreach ($tipo_modelo as $tipo)
-        {
-            if(strcmp($tipo->COD_TIPO_MODELO,$id) == 0)
-            {
-                $nombre=$tipo->NOMBRE;
-                $cod=$tipo->COD_TIPO_MODELO;
-            }
-        }
 
-        //Se pone el item que se seleccionó y se enlaza con una estructura html. 
-        $combo = '<option value="'.$cod.'">'.$nombre.'</option>'; 
-
-        foreach($tipo_modelo as $tipoModMaq)
-        {
-            //Se valida que el item que seleccionó arriba no aparezca repetido abajo una vez que se abre el combo. 
-            if($tipoModMaq->NOMBRE!=$nombre)
-            {
-                $combo=$combo."<option value='".$tipoModMaq->COD_TIPO_MODELO."'>". $$tipoModMaq->NOMBRE."</option>"; //se van creando cada uno de los valores dentro de el código html 
-            }
-        }
-
-        return $combo; //El controlador le manda la nueva estructura html con sus respectivos valores para que ajax lo reciba en el método en el frontend.  
-    }
-
-    //Se reciben los 2 valores que se mandaron desde el frontend en la ventana modal. 
-    public function guardarTipoModMaq($cod,$nomb)
-    {
-        $tipo_modelo=new tipo_modelo;// se crea un objeto nuevo de tipo material
-        $tipo_modelo->COD_TIPO_MODELO=$cod;//se llenan las variables del objeto
-        $tipo_modelo->NOMBRE=$nomb;
-        $tipo_modelo->save();
-        return "Guardado con exito"; // se retorna al frontend que se insertó el nuevo tipo
-    }
 }
