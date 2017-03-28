@@ -21,8 +21,8 @@
 						<li> <a class="lb-NOMCOP">COPEMMI: </a> </li>
 						<li> <a class="lb-COP"> Control de Pedidos de Materiales para Máquinas Industriales </a> </li>
 				  		<li> <a class="lb-US"> Leiman Sánchez </a></li>
-				  		<li> <a><img src="{{asset('imagenes/IconosMenu/user.png')}}"/> </i></a></li>
-				  		<li> <a href="#" class="bt-cerrar">Cerrar Sesión</a></li>
+				   		<li> <a><i class="icono derecha fa fa-user"></i></a></li>
+				  		<li> <a href="{{url('/logout')}}" class="bt-cerrar"> Cerrar Sesión</a></li>
 					</ul>
 			</div>
 		</div>
