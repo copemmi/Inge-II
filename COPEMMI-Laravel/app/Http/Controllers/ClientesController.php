@@ -163,4 +163,67 @@ class ClientesController extends Controller
          
         
     }
+
+//Inserta los tipos de materiales con ajax.         
+     public function actualizaComboClientes($ids)      
+     {     
+
+         $cliente = cliente::all();        
+       
+          //Se encarga de buscar cúal fue el item que se selecciono para traer su nombre, pues solo tenemos el id.     
+         foreach ($cliente as $cl)     
+         {     
+             if(strcmp($cl->ID,$ids) == 0)     
+             {     
+                 $id=$cl->ID;      
+                 $nomb=$cl->NOMBRE;        
+                  
+             }     
+         }     
+       
+         //Se pone el item que se seleccionó y se enlaza con una estructura html.      
+        $combo = '<option value="'.$id.'">'.$nomb.'</option>';        
+      
+         foreach($cliente as $tipoCl)      
+         {     
+             //Se valida que el item que seleccionó arriba no aparezca repetido abajo una vez que se abre el combo.        
+             if($tipoCl->NOMBRE!=$nomb)      
+            {     
+                 $combo=$combo."<option value='".$tipoCl->ID."'>". $tipoCl->ID."</option>"; //se van creando cada uno de los valores dentro de el código html      
+            }     
+            
+         }     
+       
+         return $combo; //El controlador le manda la nueva estructura html con sus respectivos valores para que ajax lo reciba en el método en el frontend.        
+     }     
+       
+    //Se reciben los 2 valores que se mandaron desde el frontend en la ventana modal.         
+     public function guardarClientes($id,$nomb,$ape1,$ape2,$dir,$tel,$email,$nombEmp,$cedJud)      
+     {   
+
+
+         $cliente=new cliente;     
+         $cliente->ID=$id;     
+         $cliente->NOMBRE=$nomb;       
+         $cliente->PRIMER_APELLIDO=$ape1;      
+         $cliente->SEGUNDO_APELLIDO=$ape2;     
+         $cliente->DIRECCION=$dir;     
+         $cliente->TELEFONO=$tel;      
+         $cliente->CORREO=$email;      
+         $cliente->NOMBRE_EMPRESA=$nombEmp;        
+         $cliente->CEDULA_JURIDICA=$cedJud;        
+        $cliente->save();     
+       
+         return "Guardado con exito"; // se retorna al frontend que se insertó el nuevo tipo       
+     }     
+  
+
+
+
+
+
+
+
+
+
 }

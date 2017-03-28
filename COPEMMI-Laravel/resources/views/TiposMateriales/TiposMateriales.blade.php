@@ -24,7 +24,10 @@
 						@endif
 
         				<div class="col-sm-2 col-sm-offset-4">
-        					<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar tipo de material </a>
+        					<!--<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar tipo de material</a>-->
+<!-- Creación del Botón Modal que abre el formulario de los datos de tipos de materiales-->		
+ -							<a class="btn btn-success" input type="button" data-toggle="modal" data-target="#addData">Incorporar tipo de material</a>
+
         				</div>
 
 					</div>
@@ -51,6 +54,65 @@
 					</table>
 				</div>
 			
+<!-- Ventana Modal que abre el formulario de Incorporar Materiales --> 		
+ 			<div class="modal fade" id="addData" tabindex="-1" role="dialog" aria-labelledby="addLabel">		
+ 				<div class="modal-dialog" role="document">		
+ 					<div class="modal-content">		
+ 		
+ 						<!-- Título de la Ventana Modal -->		
+ 						<div class="modal-header">		
+ 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>		
+ 							<h4 class="modal-title" id="addLabel">Incorporar Tipo de Material</h4>		
+ 						</div>		
+ 						
+ 		
+ 						<!-- Formulario donde solicita los datos del tipo de Material -->		
+ 						<div class="modal-body">		
+									
+ 							<div class="form-group">		
+ 		
+ 								{!! Form::label('COD_TIPO_MATERIAL','Código del tipo:',array('class' => 'control-label col-md-4')) !!}		
+ 								<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información --> 		
+ 		
+ 								<div class="col-md-4">		
+ 									<input id="COD_TIPO" class="input" name="COD_TIPO" type="text"  size="30" /><br />		
+ 									<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->		
+ 								</div>		
+		
+							</div>		
+ 		
+ 								<br>		
+ 		
+ 							<div class="form-group"  id="cod_tipo">		
+ 		
+ 								{!! Form::label('NOMBRE','Nombre del tipo:',array('class' => 'control-label col-md-4')) !!}		
+ 								<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 										
+								<div class="col-md-4">		
+ 									<input id="NOMB_TIPO" class="input" name="COD_TIPO" type="text"  size="30" /><br />		
+ 									<span class = "help-block"></span>		
+ 								</div>		
+ 		
+ 							</div>		
+ 		
+ 						</div>		
+ 		
+ 						<!-- Footer o parte donde vienen los botones -->		
+ 						<div class="modal-footer">		
+ 									
+ 							<!--<button class="btn btn-success" input type="submit">Guardar<img src="{{asset('imagenes/save.ico')}}" width=20; action="javascript:close_this_popup()" /></button>-->		
+ 		
+ 							<button class="btn btn-success" input type="submit" id="guardarCambiosModal" onclick="guardaCambiosModal();" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>		
+ 									
+							<a href="{{ route('tiposMateriales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>		
+ 		
+ 						</div>		
+ 					</div>		
+ 				</div>		
+ 			</div>
+
+
+
 
 				<!--<form action="" class="form-inline">
 						<div id="botonbarra"class="col-md-0 col-md-offset-4">
@@ -63,3 +125,8 @@
 		</div>
 
 @stop
+
+@section('js')		
+ -	{!! Html::script('js/cargarTipo.js') !!}		
+ -	{!! Html::script('js/validacionTipoMat.js') !!}		
+  @stop

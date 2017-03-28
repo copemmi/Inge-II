@@ -1,7 +1,7 @@
 $(document).on("ready",inicio);
 
 function inicio(){
-validarCedula();//se puso por si hay un error en otro campo y si la cedula esta bien que se habilite el boton, sin necesidad de apretar una tecla en el text de cedula
+validarCodigo();//se puso por si hay un error en otro campo y si la cedula esta bien que se habilite el boton, sin necesidad de apretar una tecla en el text de cedula
 $("span.help-block").hide();
 $("#COD_ORDEN_FABRICACION").keyup(validarCodigo);
 

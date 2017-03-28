@@ -17,7 +17,7 @@ function actualizaCombo()
   /*var datos= jQuery.parseJSON(resul);
   var id=datos.identificador;
 var nombre=datos.nomb;*/
-
+alert(resul);
       $("#COD_TIPO_MATERIAL").html(resul);//Este método recibe por parámetro la respuesta del servidor(que es una estructura html)para listar de nuevo el comobox
  
 
