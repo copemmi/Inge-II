@@ -33,7 +33,7 @@ ${demo.css}
     <select class="form-control" name="comboGrafico" id="comboGrafico">
                                     
         <option value="1">Materiales</option>
-        <option value="2">Oŕdenes</option>
+        <option value="2">Órdenes</option>
                                                                  
     </select>
                              
