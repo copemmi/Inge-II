@@ -5,7 +5,7 @@
    var url="http://localhost:8000/ruta_tipoClientes/"+id;//ruta del método en el backend y sus parámetros		
    $.get(url,function(resul) //método ajax para traer cosas desde el backend al frontend		
    {		
-    alert(resul);
+
      $("#ID").html(resul);//Este método recibe por parámetro la respuesta del servidor(que es una estructura html)para listar de nuevo el comobox		
   }).fail(function (){//si ocurre un error en la transacción entonces manda este error		
        alert('Ha ocurrido un error al actualizar los tipos de material');		
