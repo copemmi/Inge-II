@@ -42,7 +42,8 @@ class materialesRequest extends FormRequest
                     'COD_TIPO_MATERIAL' =>'max:10|required',
                     'NOMBRE' =>'max:50|required',
                     'CARACTERISTICAS' =>'max:255|required',
-                    'CANTIDAD' =>'max:999999|Numeric|Integer|required'
+                    'CANTIDAD' =>'max:999999|Numeric|Integer|required',
+                    'CANTIDADMINIMA' =>'max:999999|Numeric|Integer|required'
                 ];
             }
 
@@ -51,7 +52,8 @@ class materialesRequest extends FormRequest
                     'COD_TIPO_MATERIAL' =>'max:10|required',
                     'NOMBRE' =>'max:50|required',
                     'CARACTERISTICAS' =>'max:255|required',
-                    'CANTIDAD' =>'max:999999|Numeric|Integer|required'
+                    'CANTIDAD' =>'max:999999|Numeric|Integer|required',
+                    'CANTIDADMINIMA' =>'max:999999|Numeric|Integer|required'
                 ];
             }
 
@@ -81,7 +83,8 @@ class materialesRequest extends FormRequest
             'COD_TIPO_MATERIAL'=> 'Tipo de material', 
             'NOMBRE'=> 'Nombre del material',
             'CARACTERISTICAS' =>'Características',
-            'CANTIDAD' =>'Cantidad'
+            'CANTIDAD' =>'Cantidad',
+            'CANTIDADMINIMA'=>'Cantidad mínima'
         ];
     }
 }

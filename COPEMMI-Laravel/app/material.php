@@ -32,7 +32,7 @@ public $incrementing = false;
      */
     protected $primaryKey= 'COD_MATERIAL';
 
-    protected $fillable = ['COD_TIPO_MATERIAL', 'NOMBRE', 'CARACTERISTICAS', 'CANTIDAD', 'FECHA_INGRESO'];
+    protected $fillable = ['COD_TIPO_MATERIAL', 'NOMBRE', 'CARACTERISTICAS', 'CANTIDAD', 'CANTIDADMINIMA', 'FECHA_INGRESO'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

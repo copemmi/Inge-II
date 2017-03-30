@@ -88,6 +88,7 @@
 								<th>Nombre del Material</th>
 								<th>Tipo</th>
 								<th>Cantidad</th>
+								<th>Cantidad mínima</th>
 								
 								<!--<th class="opciones" >Opciones</th>-->
 							</tr>
@@ -102,7 +103,8 @@
 								<td>{{ $mat->COD_MATERIAL}}</td>
 								<td>{{ $mat->NOMBRE}} </td>
 								<td>{{ $mat->COD_TIPO_MATERIAL}} </td>
-								<td>{{ $mat->CANTIDAD}} </td>								
+								<td>{{ $mat->CANTIDAD}} </td>	
+								<td>{{ $mat->CANTIDADMINIMA}} </td>								
 							</tr>
 						@endforeach
 					</table>

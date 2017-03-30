@@ -83,6 +83,7 @@ class MaterialesController extends Controller
         $material->nombre=$request->get('NOMBRE');
         $material->caracteristicas=$request->get('CARACTERISTICAS');
         $material->cantidad=$request->get('CANTIDAD');
+        $material->cantidadminima=$request->get('CANTIDADMINIMA');
         $material->fecha_ingreso=$request->get('FECHA_INGRESO');
 
         $material->save();
@@ -100,7 +101,7 @@ class MaterialesController extends Controller
      */
     public function show($id)
     {
-       $material = material::find($id);
+        $material = material::find($id);
         
         $tipo_material = tipo_material::all();
         return View('Materiales/MostrarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
@@ -136,6 +137,7 @@ class MaterialesController extends Controller
         $material->nombre=$request->get('NOMBRE');
         $material->caracteristicas=$request->get('CARACTERISTICAS');
         $material->cantidad=$request->get('CANTIDAD');
+        $material->cantidadminima=$request->get('CANTIDADMINIMA');
 
         $material->update();
 
