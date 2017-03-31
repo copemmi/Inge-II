@@ -46,7 +46,9 @@
 
 
                 		<div class="col-sm-10 col-sm-offset-0">
+                				  @php if(Auth::user()->privilegio==1){ @endphp
         						<a href="{{ route('clientes.create') }}" class="btn btn-success"> Incorporar Cliente </a>
+        						@php } @endphp
         					</div>
         			</div>
 				</div><br>

@@ -26,8 +26,9 @@
         				<div class="col-sm-2 col-sm-offset-4">
         					<!--<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar tipo de material</a>-->
 <!-- Creación del Botón Modal que abre el formulario de los datos de tipos de materiales-->		
+							@php if(Auth::user()->privilegio==1){ @endphp
  -							<a class="btn btn-success" input type="button" data-toggle="modal" data-target="#addData">Incorporar tipo de material</a>
-
+ 							@php} @endphp
         				</div>
 
 					</div>

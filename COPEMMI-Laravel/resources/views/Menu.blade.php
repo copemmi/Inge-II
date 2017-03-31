@@ -38,7 +38,9 @@
 	             	<ul class="menu">			
 				        <li><a href="#"><img src="{{asset('imagenes/IconosMenu/materiales.png')}}"/> Materiales<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
+		                    	@php if(Auth::user()->privilegio==1){ @endphp
 		                    	<li><a href="{{ route('materiales.create') }}" target="_self">Incorporar Material</a></li>
+		                    	@php } @endphp	
 		                    	<li><a href="{{ route('materiales.index') }}">Visualizar Materiales</a></li>
 		                    	<li><a href="{{ route('tiposMateriales.index') }}">Mantenimiento Tipos de Material</a></li>
 		                    </ul>    
@@ -46,7 +48,9 @@
 
 						<li><a href="#"><img src="{{asset('imagenes/IconosMenu/modelosMaquinas.png')}}"/> Modelos de Máquinas<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
+			                	@php if(Auth::user()->privilegio==1){ @endphp
 				                <li><a href="{{ route('modelosMaquinas.create') }}">Incorporar Modelos de Máquinas</a></li>
+				                @php} @endphp
 				                <li><a href="{{ route('modelosMaquinas.index' ) }}">Visualizar Modelos de Máquinas</a></li>
 				                <li><a href="{{ route('tiposModelosMaquinas.index' ) }}">Mantenimiento de Tipos de Modelos de Máquinas</a></li> <!--cambiar ruta-->
 			                </ul> 
@@ -54,14 +58,16 @@
 
 		                <li><a href="#"><img src="{{asset('imagenes/IconosMenu/ordenesFabricacion.png')}}"/> Órdenes de Fabricación<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
+			                	@php if(Auth::user()->privilegio==1){ @endphp
 				            	<li><a href="{{ route('ordenesFabricacion.create') }}">Incorporar Órdenes de Fabricación</a></li>
+				            	@php} @endphp
 				                <li><a href="{{route('ordenesFabricacion.index')}}">Visualizar Órdenes de Fabricación</a></li>
 				                <li><a href="{{ route('historialOrdenesFabricacion.index') }}">Historial de Órdenes de Fabricación</a></li>
 				                <li><a href="{{ route('historialOrdenesFabricacion.terminadas')}}">Últimas Órdenes de Fabricación Terminadas</a></li>
 			                </ul> 
 		                </li> 
 
-						<li><a href="#"><img src="{{asset('imagenes/IconosMenu/ordenesPedidos.png')}}"/> Órdenes de Pedidos<i class="icono derecha fa fa-chevron-down"></i></a>
+						<li><a href="#"><img src="{{asset('imagenes/IconosMenu/ordenesPedidos.png')}}"/> Notificaciones<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
 			                    <li><a href="#">Visualizar Órdenes de Pedidos</a></li>
 		                    </ul> 
@@ -69,7 +75,9 @@
 
 		                <li><a href="#"><img src="{{asset('imagenes/IconosMenu/clientes.png')}}"/> Clientes<i class="icono derecha fa fa-chevron-down"></i></a>
 			                <ul>
+			                @php if(Auth::user()->privilegio==1){ @endphp
 				            	<li><a href="{{ route('clientes.create') }}">Incorporar Cliente</a></li>
+				            	@php } @endphp	
 				                <li><a href="{{ route('clientes.index') }}">Visualizar Clientes</a></li>
 			                </ul> 
 		                </li> 

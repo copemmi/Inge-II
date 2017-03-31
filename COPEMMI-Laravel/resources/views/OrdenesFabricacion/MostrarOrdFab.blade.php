@@ -225,13 +225,13 @@
 						<form action="" class="form-inline" >				
 							
 							<div class="col-md-0 col-md-offset-1">
-
+								@php if(Auth::user()->privilegio==1){ @endphp
 								<a href="{{ route('ordenesFabricacion.edit', $orden_fabricacion->COD_ORDEN_FABRICACION) }}" title="Modificar orden de fabricación" class="btn btn-warning">Modificar Orden de Fab.</a>
 
 								<a href="#" title="Eliminar orden de fabricación" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Orden de Fab.</a>
 								
 								<a href="{{ route('ordenesFabricacion.create') }}" title="Incorporar orden de fabricación" class="btn btn-success"> Incorporar Orden de Fab. </a>
-
+								@php} @endphp
 								<a href="{{ route('ordenesFabricacion.index') }}" title="Lista de ordenes de fabricación" class="btn btn-info">Lista de Ordenes de Fab.</a>
 
 							</div>		

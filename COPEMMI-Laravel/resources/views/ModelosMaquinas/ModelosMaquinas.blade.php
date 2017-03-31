@@ -51,7 +51,9 @@
                 			<br>
 
                 		<div class="col-sm-10 col-sm-offset-0">
+                				@php if(Auth::user()->privilegio==1){ @endphp
         						<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo </a>
+        						@php} @endphp
         					</div>
         			</div>
 				</div>

@@ -51,7 +51,9 @@
 
 
                 		<div class="col-sm-10 col-sm-offset-0">
+                				@php if(Auth::user()->privilegio==1){ @endphp
         						<a href="{{ route('ordenesFabricacion.create') }}" class="btn btn-success"> Incorporar Órden de Fabricación </a>
+        						@php} @endphp
         					</div>
         			</div>
 
@@ -85,7 +87,9 @@
 								<th>Nombre de la empresa</th>
 								<th>Cédula juridica</th>
 								<th>Precio de la máquina</th>
+								@php if(Auth::user()->privilegio==1){ @endphp
 								<th>Operación</th>
+								@php} @endphp
 							</tr>
 						 </thead>
 
@@ -144,10 +148,18 @@
 								@endforeach
 								
 								<td>
-        						<a href="{{ route('ordenesFabricacion.cambiar_estados',$ord->COD_ORDEN_FABRICACION) }}" class="btn btn-danger"> Terminar </a>
+								@php if(Auth::user()->privilegio==1){ @endphp
+        						<a href="{{ route('ordenesFabricacion.cambiar_estados',$ord->COD_ORDEN_FABRICACION) }}" class="btn btn-primary"> Terminar </a>
+        						@php} @endphp
         						</td>			
 							</tr>
+
+
 						@endforeach
+{!! Form::open(['route'=> ['det_modelo_maquina.destroy',':ID_USER'],'method'=>'DELETE','id'=>'form-delete'])
+!!}
+
+{!!Form::close()!!}
 					</table>
 
 					<div class="text-center">
@@ -159,3 +171,5 @@
 		</div>
 
 @stop
+
+

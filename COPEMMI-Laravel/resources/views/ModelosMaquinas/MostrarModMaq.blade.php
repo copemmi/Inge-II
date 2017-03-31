@@ -151,7 +151,9 @@ $i=0
 								<th>Código Modelo</th>
 								<TH>Código Material</TH>
 								<th>Cantidad</th>
+								@php if(Auth::user()->privilegio==1){ @endphp
 								<th>Operaciones</th>
+								@php} @endphp
 											</thead>
 			@endif								
 
@@ -163,10 +165,10 @@ $i=0
 								<td>{{ $mat->COD_MODELO}} </td>
 								<td>{{ $mat->COD_MATERIAL}}</td>
 								<td>{{ $mat->CANTIDAD}} </td>
+								@php if(Auth::user()->privilegio==1){ @endphp
 								<td><a class="btn btn-danger" id="Cancelar"><img src="{{asset('imagenes/delete2.png')}}" width=15;/></a>
-<!--<a href="#" class="btn btn-warning" id="editar"><img src="{{asset('imagenes/edit.png')}}" width=15;/></a>-->
 								</td>
-															
+								@php} @endphp															
 							</tr>
 
 
@@ -209,13 +211,13 @@ $i=0
 						<form action="" class="form-inline" >				
 							
 							<div class="col-md-0 col-md-offset-1">
-
+								@php if(Auth::user()->privilegio==1){ @endphp
 								<a href="{{ route('modelosMaquinas.edit', $modelos->COD_MODELO) }}" title="Modificar modelo" class="btn btn-warning">Modificar Modelo de Máquina</a>
 
 								<a href="#" title="Eliminar modelo de maquina" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Modelo de Máquina</a>
 								
 								<a href="{{ route('modelosMaquinas.create') }}" class="btn btn-success"> Incorporar Modelo de Máquina </a>
-
+								@php} @endphp
 								<a href="{{route('modelosMaquinas.index')}}" class="btn btn-info">Lista de Modelos de Máquinas</a>
 								
 

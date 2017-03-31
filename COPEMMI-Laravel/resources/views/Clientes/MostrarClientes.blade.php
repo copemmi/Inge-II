@@ -169,13 +169,13 @@
 						<form action="" class="form-inline" >				
 							
 							<div class="col-md-0 col-md-offset-1">
-
+								 @php if(Auth::user()->privilegio==1){ @endphp
 								<a href="{{ route('clientes.edit', $cliente->ID) }}" title="Modificar Cliente" class="btn btn-warning">Modificar Cliente</a>
 
 								<a href="#" title="Eliminar cliente" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Cliente</a>
 								
 								<a href="{{ route('clientes.create') }}" class="btn btn-success"> Incorporar Cliente </a>
-
+								@php } @endphp
 								<a href="{{ route('clientes.index') }}" class="btn btn-info">Lista de Clientes</a>
 
 							</div>		

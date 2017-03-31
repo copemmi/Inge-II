@@ -85,12 +85,13 @@
 					<form action="" class="form-inline" >
 						
 						<div class="col-md-0 col-md-offset-0">
+							@php if(Auth::user()->privilegio==1){ @endphp
 							<a href="{{ route('tiposModelosMaquinas.edit', $tipoModelo->COD_TIPO_MODELO) }}" title="Modificar modelo de maquina" class="btn btn-warning">Modificar Tipo de Modelo de Máquina</a>
 
 							<a href="#" title="Eliminar modelo de maquina" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Tipo de Modelo de Máquina</a>
 								
 							<a href="{{ route('tiposModelosMaquinas.create') }}" class="btn btn-success"> Incorporar Tipo de Modelo de Máquina </a>
-
+							@php} @endphp
 							<a href="{{ route('tiposModelosMaquinas.index') }}" class="btn btn-info">Lista de Tipos de Modelos de Máquinas</a>
 						</div>
 

@@ -23,7 +23,9 @@
 
 						<div class="col-sm-2 col-sm-offset-4">
         					<!--<a href="{{ route('tiposModelosMaquinas.create') }}" class="btn btn-success"> Incorporar tipo de modelo de máquina </a>-->
+        					@php if(Auth::user()->privilegio==1){ @endphp
         					<a class="btn btn-success" input type="button" data-toggle="modal" data-target="#addData">Incorporar tipo de modelo de máquina</a>
+        					@php} @endphp
 						</div>
 
 					</div>	
@@ -56,8 +58,10 @@
  		
  						<!-- Título de la Ventana Modal -->		
  						<div class="modal-header">		
- 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>		
- 							<h4 class="modal-title" id="addLabel">Incorporar Tipo de Modelo de Máquina</h4>		
+ 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 							
+ 							<h4 class="modal-title" id="addLabel">Incorporar Tipo de Modelo de Máquina</h4>
+ 							
  						</div>		
  						
  		

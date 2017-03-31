@@ -54,7 +54,9 @@
 
                 		
         					<div  class="col-sm-10 col-sm-offset-0">
+        						@php if(Auth::user()->privilegio==1){ @endphp
                                <a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Material </a>
+                               @php} @endphp
         					</div>
         					<br> 
 

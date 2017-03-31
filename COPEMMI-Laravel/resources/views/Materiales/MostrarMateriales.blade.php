@@ -137,13 +137,13 @@
 						<form action="" class="form-inline" >				
 							
 							<div class="col-md-0 col-md-offset-1">
-
+								@php if(Auth::user()->privilegio==1){ @endphp
 								<a href="{{ route('materiales.edit', $material->COD_MATERIAL) }}" title="Modificar material" class="btn btn-warning">Modificar Material</a>
 
 								<a href="#" title="Eliminar material" data-toggle="modal" data-target="#ventana" class="btn btn-danger">Eliminar Material</a>
 								
 								<a href="{{ route('materiales.create') }}" class="btn btn-success"> Incorporar Material </a>
-
+								@php} @endphp
 								<a href="{{ route('materiales.index') }}" class="btn btn-info">Lista de Materiales</a>
 
 							</div>		

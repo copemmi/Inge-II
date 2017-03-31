@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Input;
 		]);
 
 
-//-------------------------------------------------------------------RUTAS MODELOS DE MÁQUINAS
+//-------------------------------------------------------------------RUTAS MODELOS DE MÃQUINAS
 	Route::resource('modelosMaquinas','ModelosMaquinasController');
 	
 	//recibe 3 parametros, el cod para eliminar el modelo, el cod para eliminar la imagen en la base y la URL para eliminar la imagen del sistema de archivos
@@ -52,7 +52,7 @@ use Illuminate\Support\Facades\Input;
 
 
 
-//--------------------------------------------------------------------RUTAS TIPOS DE MODELOS DE MÁQUINAS
+//--------------------------------------------------------------------RUTAS TIPOS DE MODELOS DE MÃQUINAS
 	Route::resource('tiposModelosMaquinas','TiposModMaqController');
 
 	Route::get('tiposModelosMaquinas/{id}/destroy',[
@@ -61,7 +61,7 @@ use Illuminate\Support\Facades\Input;
 		]);
 		
 
-//--------------------------------------------------------------------RUTAS DE ORDENES DE FABRICACIÓN
+//--------------------------------------------------------------------RUTAS DE ORDENES DE FABRICACIÃ“N
 
 	Route::resource('ordenesFabricacion','OrdenFabricacionController');
 
@@ -95,11 +95,11 @@ Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 		]);
 
 
-//-------------------------RUTAS PARA EL HISTORIAL DE ÓRDENES DE FABRICACIÓN TERMINADAS-------------------------
-	Route::resource('historialOrdenesFabricacion','HistorialOrdenFabricacionController'); //Se llama en el navegador como http://localhost:8000/historialOrdenesFabricacion, además se va a usar el controlador indicado
+//-------------------------RUTAS PARA EL HISTORIAL DE Ã“RDENES DE FABRICACIÃ“N TERMINADAS-------------------------
+	Route::resource('historialOrdenesFabricacion','HistorialOrdenFabricacionController'); //Se llama en el navegador como http://localhost:8000/historialOrdenesFabricacion, ademÃ¡s se va a usar el controlador indicado
 
 	Route::get('historialOrdenesFabricacion/{id}/destroy', [
-	'uses' => 'HistorialOrdenFabricacionController@destroy', //La ruta va a usar el controlador indicado, lo que está luego del @ es el método que se va a usar de dicho controlador.
+	'uses' => 'HistorialOrdenFabricacionController@destroy', //La ruta va a usar el controlador indicado, lo que estÃ¡ luego del @ es el mÃ©todo que se va a usar de dicho controlador.
 	'as' => 'historialOrdenesFabricacion.destroy' //Este va a ser el nombre de la ruta aunque no es necesario
 	]);
 	
@@ -122,7 +122,8 @@ Route::get('ruta_tipoMod/{id}','ModelosMaquinasController@actualizaComboTipoModM
  	Route::get('guardarClientes/{id}/{nomb}/{ape1}/{ape2}/{dir}/{tel}/{email}/{nombEmp}/{cedJud}', 'ClientesController@guardarClientes');//Ruta para hacer el insert clientes con ajax
 
 
-
+//-----------RUTAS PARA CAMBIAR ESTADO CON AJAX-----------------------------//
+ Route::get('ruta_cambiarEstado/{id}','OrdenFabricacionController@cambiar_estados');	
 
 
 
