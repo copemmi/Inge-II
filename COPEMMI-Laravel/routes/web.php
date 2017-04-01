@@ -141,8 +141,11 @@ Route::get('traeDatosOrdenes','EstadisticasController@devuelveDatosOrdenes');
 //----RUTAS PARA EL LOGIN----
 	
 Route::get('/',function(){
-	return view('Auth/login');
+	return view('auth/login');
 });
+/*Route::get('/',function(){
+	return view('Auth/register');
+});*/
 
 Route::Auth();
 
