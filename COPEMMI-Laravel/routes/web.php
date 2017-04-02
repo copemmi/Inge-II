@@ -78,23 +78,17 @@ use Illuminate\Support\Facades\Input;
 	//--------------------------------------------------------------------RUTAS DE DET_MODELO_MAQUINA
 
 	
-Route::resource('det_modelo_maquina','det_modelo_maquinaController');
-
-	Route::get('det_modelo_maquina/{id}/destroy',[
-		'uses' => 'det_modelo_maquinaController@destroy',
-		'as' => 'det_modelo_maquina.destroy'
-		]);
-
-
+//Route::resource('det_modelo_maquina','det_modelo_maquinaController');
+	
+	Route::get('det_modelo_maquina/{id}','det_modelo_maquinaController@destroy');
 //---------------------------------------------------------------------RUTAS DE CLIENTES
+	
 	Route::resource('clientes','ClientesController');
 
 	Route::get('clientes/{id}/destroy',[
 		'uses' => 'ClientesController@destroy',
 		'as' => 'clientes.destroy'
 		]);
-
-
 //-------------------------RUTAS PARA EL HISTORIAL DE ÓRDENES DE FABRICACIÓN TERMINADAS-------------------------
 	Route::resource('historialOrdenesFabricacion','HistorialOrdenFabricacionController'); //Se llama en el navegador como http://localhost:8000/historialOrdenesFabricacion, además se va a usar el controlador indicado
 
@@ -123,8 +117,9 @@ Route::get('ruta_tipoMod/{id}','ModelosMaquinasController@actualizaComboTipoModM
 
 
 //-----------RUTAS PARA CAMBIAR ESTADO CON AJAX-----------------------------//
+ Route::group(['middleware'=>'administrador'],function(){
  Route::get('ruta_cambiarEstado/{id}','OrdenFabricacionController@cambiar_estados');	
-
+});
 
 
 
@@ -141,11 +136,8 @@ Route::get('traeDatosOrdenes','EstadisticasController@devuelveDatosOrdenes');
 //----RUTAS PARA EL LOGIN----
 	
 Route::get('/',function(){
-	return view('auth/login');
+	return view('Auth/login');
 });
-/*Route::get('/',function(){
-	return view('Auth/register');
-});*/
 
 Route::Auth();
 

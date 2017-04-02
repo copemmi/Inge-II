@@ -76,6 +76,8 @@ class OrdenFabricacionController extends Controller
      */
     public function create()
     {
+        $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $tipo_estado = estado_orden::where('COD_ESTADO','!=',"TER")->get();
         $tipo_modelo = modelo_maquina::all();
         $tipo_usuario = Usuario::all();
@@ -84,7 +86,9 @@ class OrdenFabricacionController extends Controller
 
         return View('OrdenesFabricacion/IncorporarOrdFab')->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('cliente',$id_cliente);
     }
-
+      Flash("No tiene permisos para crear órdenes de fabricación",'danger');  
+        return Redirect()->route('ordenesFabricacion.index');
+}
     /**
      * Store a newly created resource in storage.
      *
@@ -113,13 +117,8 @@ class OrdenFabricacionController extends Controller
        $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
        $material->update();
 
-     }
-        
-        
-        
-
+     }  
         Flash("¡Se ha insertado la orden de fabricación exitósamente!",'success');
-
         return Redirect()->route('ordenesFabricacion.index'); // Cambiar a orden de fabricacion index
     }
 
@@ -152,15 +151,19 @@ class OrdenFabricacionController extends Controller
      */
     public function edit($id)
     {
-       $orden_fabricacion= orden_fabricacion::find($id);
         
+        $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
+        $orden_fabricacion= orden_fabricacion::find($id);
         $tipo_estado = estado_orden::all();
         $tipo_modelo = modelo_maquina::all();
         $tipo_usuario = Usuario::all();
         $id_cliente = cliente::all();
-
         return View('OrdenesFabricacion/ModificarOrdFab')->with('OrdFab',$orden_fabricacion)->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('cliente',$id_cliente);
     }
+          Flash("No tiene permisos para modificar órdenes de fabricación",'danger');  
+        return Redirect()->route('ordenesFabricacion.index');
+}
 
     /**
      * Update the specified resource in storage.
@@ -170,7 +173,7 @@ class OrdenFabricacionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
         $orden_fabricacion= orden_fabricacion::find($id);
         $orden_fabricacion->cod_estado=$request->get('COD_ESTADO');
         $orden_fabricacion->cod_modelo=$request->get('COD_MODELO');
@@ -186,6 +189,8 @@ class OrdenFabricacionController extends Controller
     }
 
     public function cambiar_estados($id){
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $est="TER";
         $orden_fabricacion=orden_fabricacion::find($id);
         $orden_fabricacion->cod_estado=$est;
@@ -194,8 +199,11 @@ class OrdenFabricacionController extends Controller
         Flash('¡Se ha cambiado el estado de la orden de fabricación con el código: ('.$id.') exitósamente!');
 
         return Redirect()->route('ordenesFabricacion.index');
-       
-    }
+        }
+        Flash("No tiene permisos para crear órdenes de fabricación",'danger');  
+        return Redirect()->route('ordenesFabricacion.index');
+}
+
 
     /**
      * Remove the specified resource from storage.

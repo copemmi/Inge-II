@@ -64,9 +64,13 @@ class MaterialesController extends Controller
      */
     public function create()
     {
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $tipo_material = tipo_material::all();
-
         return View('Materiales/IngresarMateriales')->with('tipo_material',$tipo_material);
+    }
+        Flash("No tiene permisos para crear materiales",'danger');  
+        return Redirect()->route('materiales.index');
     }
 
     /**
@@ -116,11 +120,14 @@ class MaterialesController extends Controller
      */
     public function edit($id)
     {
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $material = material::find($id);
-        
         $tipo_material = tipo_material::all();
-
         return View('Materiales/ModificarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
+        }
+        Flash("No tiene permisos para modificar clientes",'danger');  
+        return Redirect()->route('materiales.index');
     }
 
     /**

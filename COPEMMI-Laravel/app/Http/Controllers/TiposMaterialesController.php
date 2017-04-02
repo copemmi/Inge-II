@@ -38,11 +38,14 @@ class TiposMaterialesController extends Controller
      */
     public function create()
     {
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $tipo_material = tipo_material::all();
-
         return View('TiposMateriales/IngresarTiposMat')->with('tipo_material',$tipo_material);
     }
-
+        Flash("No tiene permisos para crear tipo de material",'danger');
+        return Redirect()->route('tiposMateriales.index');
+}
     /**
      * Store a newly created resource in storage.
      *
@@ -84,13 +87,14 @@ class TiposMaterialesController extends Controller
      */
     public function edit($id)
     {
-       
+      $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){  
         $tipo = tipo_material::find($id);
-     
-
         return View('TiposMateriales/ModificarTiposMat')->with('tipoMaterial',$tipo);
     }
-
+        Flash("No tiene permisos para modficar tipo de material",'danger');
+        return Redirect()->route('tiposMateriales.index');
+     }   
     /**
      * Update the specified resource in storage.
      *

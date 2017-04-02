@@ -10,7 +10,8 @@ use App\cliente;
 use App\Http\Requests\clientesRequest;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Input;
-
+use App\Http\Controllers\Auth;
+use App\User;
 class ClientesController extends Controller
 {
 
@@ -58,14 +59,15 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        $cliente = cliente::all();
-    
-    return View('Clientes/IngresarClientes')->with('cliente',$cliente);
-    
-    }
-
-    /**
-     * Store a newly created resource in storage.
+        $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
+        $cliente=cliente::all(); 
+        return View('Clientes/IngresarClientes')->with('cliente',$cliente);
+        }
+        Flash("No tiene permisos para crear clientes",'danger');  
+        return Redirect()->route('clientes.index');
+     }   
+     /* Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -114,9 +116,13 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $cliente = cliente::find($id);
-        
         return View('Clientes/ModificarClientes')->with('cliente',$cliente);
+    }
+        Flash("No tiene permisos para modificar clientes",'danger');  
+        return Redirect()->route('clientes.index');
     }
 
     /**

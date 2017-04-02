@@ -37,10 +37,14 @@ class TiposModMaqController extends Controller
      */
     public function create()
     {
+          $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $tipo_modelo = tipo_modelo::all();
-
         return View('TiposModelosMaquinas/IngresarTiposModMaq')->with('tipo_modelo',$tipo_modelo);
     }
+     Flash("No tiene permisos para crear tipo de máquina",'danger');
+        return Redirect()->route('tiposMateriales.index');
+}
 
     /**
      * Store a newly created resource in storage.
@@ -83,13 +87,14 @@ class TiposModMaqController extends Controller
      */
     public function edit($id)
     {
-       
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $tipo = tipo_modelo::find($id);
-     
-
         return View('TiposModelosMaquinas/ModificarTiposModMaq')->with('tipoModelo',$tipo);
     }
-
+        Flash("No tiene permisos para modificar tipo de máquina",'danger');
+        return Redirect()->route('tiposMateriales.index');
+}
     /**
      * Update the specified resource in storage.
      *

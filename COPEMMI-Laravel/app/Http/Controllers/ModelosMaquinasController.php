@@ -75,10 +75,14 @@ class ModelosMaquinasController extends Controller
      */
     public function create()
     {
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $tipo_modelo = tipo_modelo::all();
         $material=material::all();
-
         return View('ModelosMaquinas/IngresarModMaq')->with('tipo_modelo',$tipo_modelo)->with('material', $material);
+      }
+      Flash("No tiene permisos para crear modelos",'danger');
+      return Redirect()->route('modelosMaquinas.index');
     }
 
     /**
@@ -176,16 +180,17 @@ class ModelosMaquinasController extends Controller
     /*Controlador para modificar los modelos de las máquinas*/ 
     public function edit($id)
     {
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         $modelos = modelo_maquina::find($id); //Tenemos los datos de los modelos que queremos editar. 
-
         $tipo_modelo = tipo_modelo::all(); 
-
         $imagenes = DB::table('imagenes_modelos')->where('COD_IMAGEN', $modelos->COD_IMAGEN)->first();
-
         $materialesDetalle=det_modelo_maquina::detalleMaterialModelo($modelos->COD_MODELO)->orderBy('COD_DETALLE_MODELO','DESC')->paginate(100);
-
         return view('ModelosMaquinas/ModificarModMaq')->with('modelos',$modelos)->with('tipo_modelo', $tipo_modelo)->with('ima',$imagenes)->with('materialesDetalle',$materialesDetalle);
-    }
+        }
+        Flash("No tiene permisos para modificar modelos",'danger');
+        return Redirect()->route('modelosMaquinas.index');
+       } 
 
     /**
      * Update the specified resource in storage.

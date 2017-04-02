@@ -156,10 +156,7 @@
 
 
 						@endforeach
-{!! Form::open(['route'=> ['det_modelo_maquina.destroy',':ID_USER'],'method'=>'DELETE','id'=>'form-delete'])
-!!}
 
-{!!Form::close()!!}
 					</table>
 
 					<div class="text-center">

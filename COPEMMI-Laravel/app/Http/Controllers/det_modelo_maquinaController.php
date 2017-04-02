@@ -24,8 +24,8 @@ class det_modelo_maquinaController extends Controller
      if($request->ajax()){
 
      	return response()->json([
-'id' => $id,
-'message'=>$message
+        'id' => $id,
+        'message'=>$message
 
      		]);
      }
