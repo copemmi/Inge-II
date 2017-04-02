@@ -188,11 +188,12 @@ $i=0
 
 							@endforeach
 
-
+@php if(Auth::user()->privilegio==1){ @endphp
 {!! Form::open(['route'=> ['det_modelo_maquina.destroy',':ID_USER'],'method'=>'DELETE','id'=>'form-delete'])
 !!}
 
 {!!Form::close()!!}
+@php} @endphp
 
 
 

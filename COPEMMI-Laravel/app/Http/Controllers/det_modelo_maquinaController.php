@@ -35,5 +35,7 @@ class det_modelo_maquinaController extends Controller
      return Redirect()->route('materiales.index');
 
 
- }
+    }
+
 }
+
