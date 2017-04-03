@@ -94,8 +94,6 @@
 								</select>
                              
 							</div>
-							<!-- Creación del Botón Modal que abre el formulario de los datos de los clientes-->		
- 							<a class="btn btn-success" input type="button" data-toggle="modal" data-target="#addData">Incorporar Cliente</a>
 						</div>
 
 						<!--Identificacion del Cliente-->
@@ -114,6 +112,8 @@
 								</select>
                              
 							</div>
+							<!-- Creación del Botón Modal que abre el formulario de los datos de los clientes-->		
+ 							<a class="btn btn-success" input type="button" data-toggle="modal" data-target="#addData">Incorporar Cliente</a>
 						</div>
 
 						<div class="form-group">
