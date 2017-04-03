@@ -78,9 +78,9 @@ use Illuminate\Support\Facades\Input;
 	//--------------------------------------------------------------------RUTAS DE DET_MODELO_MAQUINA
 
 	
-//Route::resource('det_modelo_maquina','det_modelo_maquinaController');
+	Route::resource('det_modelo_maquina','det_modelo_maquinaController');
 	
-	Route::get('det_modelo_maquina/{id}','det_modelo_maquinaController@destroy');
+	Route::get('det_modelo_maquina/{id}/destroy','det_modelo_maquinaController@destroy');
 //---------------------------------------------------------------------RUTAS DE CLIENTES
 	
 	Route::resource('clientes','ClientesController');

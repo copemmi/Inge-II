@@ -236,64 +236,26 @@ $i=0
 
 
 		</div>	
-		
-
 @stop
-
-
-
 
 @section('js')
 	
 <script>
-
 	$(document).ready(function(){
-		
-		
-
-$('.btn-danger').click(function (e){
-
-
-	
+	$('.btn-danger').click(function (e){
 	e.preventDefault();//esto es para que no recargue la página
-
-
-var row=$(this).parents('tr');
-var id=row.data('id');
-
-var form=$('#form-delete');
-var url=form.attr('action').replace(':ID_USER/destroy',id);
-
-var data=form.serialize();//transforma la información en datos binarios para que viajen por la red y llegue al backend
-
-
-
-/*var tam=document.getElementById("visualizarDetalle").rows.length;*/
-   
-
-
-$.post(url,data, function (result) {//método ajax para poder trabajar de forma asincrona
-row.fadeOut();//elimina la casilla de la tabla visualmente
-
-
-
-
-
-
-}).fail(function (){//si ocurre un error en la transacción entonces manda este error
+	var row=$(this).parents('tr');
+	var id=row.data('id');		
+	var form=$('#form-delete');
+	var url=form.attr('action').replace(':ID_USER/destroy',id);
+	var data=form.serialize();//transforma la información en datos binarios para que viajen por la red y llegue al backend
+	$.post(url,data, function (result) {//método ajax para poder trabajar de forma asincrona
+	row.fadeOut();//elimina la casilla de la tabla visualmente
+	}).fail(function (){//si ocurre un error en la transacción entonces manda este error
 	alert('error al eliminar material');
-
-});
-
-
-
-
-});
-
-	});
-
-
+			});
+		});
+	}
 </script>
-
 
 @stop
