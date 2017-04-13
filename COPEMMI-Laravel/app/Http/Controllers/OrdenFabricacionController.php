@@ -105,30 +105,29 @@ class OrdenFabricacionController extends Controller
         $orden_fabricacion->fecha_llegada=$request->get('FECHA_LLEGADA');
         $orden_fabricacion->fecha_entrega=$request->get('FECHA_ENTREGA');
         $orden_fabricacion->fecha_terminada=$request->get('FECHA_ENTREGA');
-
-        $orden_fabricacion->save();
-
-    /*Se restan los materiales cuándo una órden de fabricación se pone en producción*/  
+        
+        $orden_fabricacion->save(); 
+          
+    /*Se restan los materiales cuándo una órden de fabricación se pone en producción*/ 
 
         // $detalleMat contiene el código y la cantidad de los materiales de todos los módelos de máquinas. 
-        $detalleMat = DB::table('det_modelos_maquinas')->select('COD_MATERIAL','CANTIDAD')->where('COD_MODELO',$orden_fabricacion->cod_modelo)->get();
-         
-        // $tipoEstado contiene todos los estados que tienen código PROD de la tabla ordenes_fabricaciones. 
+        $detalleMat = DB::table('det_modelos_maquinas')->select('COD_MATERIAL','CANTIDAD')->where('COD_MODELO',$orden_fabricacion->cod_modelo)->get(); 
+        
+        // $tipoEstado contiene la fila que tiene el código PROD de la tabla ordenes_fabricaciones. 
         $tipo_estado = DB::table('estados_ordenes')->where('COD_ESTADO','PROD')->value('COD_ESTADO');
 
-        $tipoEstado = DB::table('ordenes_fabricaciones')->select('COD_ESTADO')->where('COD_ESTADO', $tipo_estado)->get();
-     
         foreach($detalleMat as $det)
         {
+            //Pregunta si el estado de la órden de fabricación está en producción.
             if($orden_fabricacion->cod_estado == $tipo_estado) {
-                $material = material::find($det->COD_MATERIAL);
-                $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
-                $material->update(); //Se actualiza la nueva cantidad del material.
-            }     
-        } 
+                
+                $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.
+                $material->cantidad=$material->CANTIDAD-$det->CANTIDAD; //Se resta la cantidad del material con la que hay en el detalle del modelo. 
+                $material->update(); //Se actualiza la nueva cantidad del material.  
+            }
+        }
 
-        Flash("¡Se ha insertado la orden de fabricación exitósamente!",'success');
-        return Redirect()->route('ordenesFabricacion.index'); // Cambiar a orden de fabricacion index
+        Flash("¡Se ha insertado la orden de fabricación exitósamente!",'success');return Redirect()->route('ordenesFabricacion.index'); // Cambiar a orden de fabricacion index      
     }
 
     /**
@@ -160,7 +159,6 @@ class OrdenFabricacionController extends Controller
      */
     public function edit($id)
     {
-        
         $usuario_actual=\Auth::user();
         if($usuario_actual->privilegio==1){
         $orden_fabricacion= orden_fabricacion::find($id);
@@ -189,8 +187,26 @@ class OrdenFabricacionController extends Controller
         $orden_fabricacion->cod_usuario=$request->get('COD_USUARIO');
         $orden_fabricacion->id=$request->get('ID');
         
-        
         $orden_fabricacion->update();
+
+        /*Se restan los materiales cuándo una órden de fabricación se pone en producción*/ 
+
+        // $detalleMat contiene el código y la cantidad de los materiales de todos los módelos de máquinas. 
+        $detalleMat = DB::table('det_modelos_maquinas')->select('COD_MATERIAL','CANTIDAD')->where('COD_MODELO',$orden_fabricacion->cod_modelo)->get(); 
+        
+        // $tipoEstado contiene la fila que tiene el código PROD de la tabla ordenes_fabricaciones. 
+        $tipo_estado = DB::table('estados_ordenes')->where('COD_ESTADO','PROD')->value('COD_ESTADO');
+
+        foreach($detalleMat as $det)
+        {
+            //Pregunta si el estado de la órden de fabricación está en producción. 
+            if($orden_fabricacion->cod_estado == $tipo_estado) {
+                
+                $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.
+                $material->cantidad=$material->CANTIDAD-$det->CANTIDAD; //Se resta la cantidad del material con la que hay en el detalle del modelo. 
+                $material->update(); //Se actualiza la nueva cantidad del material.  
+            }
+        }
 
         Flash("¡Se ha modificado la orden de fabricación exitósamente!",'info');
 
