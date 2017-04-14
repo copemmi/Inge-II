@@ -298,8 +298,6 @@
 	
 	
 @stop
-
-
 @section('js')
 	
 	{!! Html::script('js/cargarCliente.js') !!}

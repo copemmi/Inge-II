@@ -127,6 +127,11 @@ class OrdenFabricacionController extends Controller
                 //Pregunta si el estado de la órden de fabricación está en producción.
                 if($orden_fabricacion->cod_estado == $tipo_estado) {
 
+                    //Manda una notificación cuándo la cantidad actual de material alcanza a la mínima. 
+                    while($material->CANTIDAD <= $material->CANTIDADMINIMA) {
+                        Flash("¡Se ha alcanzado la cantidad mínima de material, ingrese de nuevo!",'danger');return Redirect()->route('materiales.create');
+                    }
+
                     $material->cantidad=$material->CANTIDAD-$det->CANTIDAD; //Se resta la cantidad del material actual con la que hay en el detalle del modelo. 
                     $material->update(); //Se actualiza la nueva cantidad del material.
                 }
@@ -229,7 +234,7 @@ class OrdenFabricacionController extends Controller
             }
             else { //Si la cantidad es igual a cero. 
                 if($material->CANTIDAD == 0) {
-                    Flash("¡Material insuficiente para crear una órden de fabricación, ingrese más material!",'danger');return Redirect()->route('ordenesFabricacion.index');
+                    Flash("¡Material insuficiente para pasar una órden de fabricación a producción, ingrese más material!",'danger');return Redirect()->route('ordenesFabricacion.index');
                 }
             }
         } 

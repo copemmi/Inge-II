@@ -178,45 +178,18 @@
 							
 								<!--<button class="btn btn-success" input type="submit">Guardar<img src="{{asset('imagenes/save.ico')}}" width=20; action="javascript:close_this_popup()" /></button>-->
 
-								<button class="btn btn-success" input type="submit" id="guardarCambiosModal" onclick="guardaCambiosModal();" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>
+								<button class="btn btn-success" input type="submit" id="guardarCambiosModal" onclick="guardaCambiosModal()" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>
+
+								<!--<button class="btn btn-success" input type="submit" id="guardarCambiosModal" onclick="window.close();" >Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>--> 
 							
 								<a href="{{ route('tiposMateriales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
 							</div>
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 				</div>
 			</div>
 @stop
 
 @section('js')
 	{!! Html::script('js/validacionMat.js') !!}
-		{!! Html::script('js/cargarTipo.js') !!}
-		{!! Html::script('js/validacionTipoMat.js') !!}
+	{!! Html::script('js/cargarTipo.js') !!}
+	{!! Html::script('js/validacionTipoMat.js') !!}
 @stop
