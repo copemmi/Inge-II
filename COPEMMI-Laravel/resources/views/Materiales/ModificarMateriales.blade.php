@@ -138,10 +138,13 @@
 								<a href="{{ route('materiales.create') }}" class="btn btn-success disabled"> Incorporar Material </a>
 
 								<a href="{{ route('materiales.index') }}" class="btn btn-info disabled">Lista de Materiales</a>
-
+								
 							</div>
-
+						<div class="col-md-8">
+                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
+                		</div>
 					{!! Form::close() !!}
+					
 				</div>
 			</div>
 

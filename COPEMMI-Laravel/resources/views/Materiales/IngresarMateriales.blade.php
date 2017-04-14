@@ -110,6 +110,7 @@
 							</div>
 						</div>
 
+					
 <!----------------------------------------------------------BOTONES PARA GUARDAR Y VOLVER------------------------------------------------------------>
 
 						<form action="" class="form-inline">
@@ -123,7 +124,9 @@
 							</div>
 
 						</form>
-
+							<div class="col-md-8">
+                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
+                </div>	
 					{!! Form::close() !!}
 
 
@@ -184,7 +187,9 @@
 							
 								<a href="{{ route('tiposMateriales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>
 							</div>
+							
 				</div>
+
 			</div>
 @stop
 

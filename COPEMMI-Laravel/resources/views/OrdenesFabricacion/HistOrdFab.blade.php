@@ -83,6 +83,9 @@
 			<div class="text-center">
 				{!!$historialOrdenesFabricacion->render()!!} <!--Método para hacer la paginación en caso de haber muchos elementos-->
 			</div>
+			<div class="col-md-8">
+                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
+                </div>
 		</div>
 	</div>
 </div>

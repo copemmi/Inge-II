@@ -194,7 +194,9 @@
 							</div>
 
 						</form>
- 
+ 						<div class="col-md-8">
+                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
+                </div>	
 					{!! Form::close() !!}
 
 <!-- Ventana Modal que abre el formulario de Incorporar Materiales --> 		
@@ -251,26 +253,10 @@
  		
  						</div>		
  					</div>		
- 				</div>		
+ 				</div>
+
  			</div>		
-  						  				
-  				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				
-			</div><!--cierre de content-->
+  		</div><!--cierre de content-->
 @stop
 
 

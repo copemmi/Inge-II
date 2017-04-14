@@ -58,10 +58,16 @@
                         <h4>Ingeniero en Sistemas<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-briefcase"></i></span></h4>
                     </div>
                 </div>
-
-                
+                     <div class="form-group">
+                    <div class="col-md-8">
+                     
+                     </div>
+                </div>
+                  <div class="col-md-8">
+                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-center"></i></span></h4>
+                </div>
+                </div>
+             
 			</div>
-		</div>
-
 
 @stop

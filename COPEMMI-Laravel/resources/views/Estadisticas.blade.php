@@ -66,10 +66,11 @@ ${demo.css}
       <div class="box-body" id="div_graficos">
       </div>
 </div>
-
+    <div class="col-md-12" align="center">
+                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-center"></i></span></h4>
+                </div>  
 </div>
-</div>
-
+  
 </body>
 
 

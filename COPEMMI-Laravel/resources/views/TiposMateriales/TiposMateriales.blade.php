@@ -54,6 +54,10 @@
 						@endforeach
 					</table>
 				</div>
+
+					<div class="col-md-8">
+                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
+                </div>
 			
 <!-- Ventana Modal que abre el formulario de Incorporar Materiales --> 		
  			<div class="modal fade" id="addData" tabindex="-1" role="dialog" aria-labelledby="addLabel">		
@@ -108,8 +112,8 @@
 							<a href="{{ route('tiposMateriales.index') }}" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>		
  		
  						</div>		
+ 					</div>
  					</div>		
- 				</div>		
  			</div>
 
 
@@ -121,6 +125,8 @@
 							<span class="opcion"><a href="{{ route('tiposMateriales.destroy', $tip->COD_TIPO_MATERIAL) }}" onclick="return confirm('¿Seguro que desea eliminar el material ?')" class="btn btn-danger"> Eliminar </a></span>
 						</div>
 				</form>-->
+				
+				</div>
 
 			</div>
 		</div>

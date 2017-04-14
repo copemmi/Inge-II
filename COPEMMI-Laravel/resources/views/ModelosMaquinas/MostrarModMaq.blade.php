@@ -188,12 +188,10 @@ $i=0
 
 							@endforeach
 
-@php if(Auth::user()->privilegio==1){ @endphp
+
 {!! Form::open(['route'=> ['det_modelo_maquina.destroy',':ID_USER'],'method'=>'DELETE','id'=>'form-delete'])
 !!}
-
 {!!Form::close()!!}
-@php} @endphp
 
 
 
@@ -228,6 +226,9 @@ $i=0
 
 						</form>
 					{!! Form::close() !!}
+						<div class="col-md-8">
+                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
+                </div>
 				</div>
 			</div>
 

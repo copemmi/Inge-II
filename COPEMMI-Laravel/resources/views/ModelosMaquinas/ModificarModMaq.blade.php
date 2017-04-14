@@ -190,7 +190,9 @@
 			{!! Form::close() !!}
 
 		</div>
-
+			<div class="col-md-8">
+                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
+                </div>
 	</div>
 </div>
 

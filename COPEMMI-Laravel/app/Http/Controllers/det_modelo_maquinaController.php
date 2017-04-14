@@ -30,7 +30,5 @@ class det_modelo_maquinaController extends Controller
      Session:flash('message',$message);
      return Redirect()->route('modelosMaquina.index');
         }
-        Flash("No tiene permisos para borrar",'danger');
-        return Redirect()->route('modelosMaquina.index');
-    }
+       }
 }

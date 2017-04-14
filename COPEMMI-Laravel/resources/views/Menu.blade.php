@@ -83,25 +83,25 @@
 		                </li> 
 
 		                  <li><a href="{{ route('estadisticas.index')}}"><img src="{{asset('imagenes/IconosMenu/estadisticas.png')}}"/> Estadísticas</a>
-
+		                  <li><a href="{{ route('equipoTrabajo.index') }}"><img src="{{asset('imagenes/IconosMenu/acercaDe.png')}}"/> Equipo de Trabajo</a>
 
 		                <li><a href="{{ route('equipoDesarrollo.index') }}"><img src="{{asset('imagenes/IconosMenu/acercaDe.png')}}"/> Equipo Desarrollador</a>
-
-    
-
-
 		                
 		            </ul>
                 </nav>
 			</div>
-        </div>
-
-        
-        	@yield('contenido')<!--aquí se cargaran las demás vistas-->
+				
+              @yield('contenido')<!--aquí se cargaran las demás vistas-->
+           </div>
 
 
 	</body>
+ 
+	
+  	
 
+	
+ 
 <!--------------------------JAVASCRIPTS-------------------------->
 
 	@yield('js') <!-- Seccion para incluir los js de las vistas -->
@@ -112,5 +112,6 @@
 	{{ Html::script('js/bootstrap-select.min.js') }}
 
 	
+
 
 </html>
