@@ -105,29 +105,42 @@ class OrdenFabricacionController extends Controller
         $orden_fabricacion->fecha_llegada=$request->get('FECHA_LLEGADA');
         $orden_fabricacion->fecha_entrega=$request->get('FECHA_ENTREGA');
         $orden_fabricacion->fecha_terminada=$request->get('FECHA_ENTREGA');
-        
-        $orden_fabricacion->save(); 
-          
-    /*Se restan los materiales cuándo una órden de fabricación se pone en producción*/ 
 
-        // $detalleMat contiene el código y la cantidad de los materiales de todos los módelos de máquinas. 
+        // $detalleMat contiene el código y la cantidad de los materiales de un modelo de máquina.  
         $detalleMat = DB::table('det_modelos_maquinas')->select('COD_MATERIAL','CANTIDAD')->where('COD_MODELO',$orden_fabricacion->cod_modelo)->get(); 
         
         // $tipoEstado contiene la fila que tiene el código PROD de la tabla ordenes_fabricaciones. 
         $tipo_estado = DB::table('estados_ordenes')->where('COD_ESTADO','PROD')->value('COD_ESTADO');
 
+        $materialCantMin = DB::table('materiales')->where('COD_MATERIAL','CANTIDADMINIMA')->get(); 
+
+        // Se realiza un ciclo que recorra todos los detalles de modelos.
         foreach($detalleMat as $det)
         {
-            //Pregunta si el estado de la órden de fabricación está en producción.
-            if($orden_fabricacion->cod_estado == $tipo_estado) {
-                
-                $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.
-                $material->cantidad=$material->CANTIDAD-$det->CANTIDAD; //Se resta la cantidad del material con la que hay en el detalle del modelo. 
-                $material->update(); //Se actualiza la nueva cantidad del material.  
-            }
-        }
+            
+            $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.\
 
-        Flash("¡Se ha insertado la orden de fabricación exitósamente!",'success');return Redirect()->route('ordenesFabricacion.index'); // Cambiar a orden de fabricacion index      
+            //Pregunta si la cantidad de material es mayor a la cantidad mínima. 
+            if($material->CANTIDAD > $material->CANTIDADMINIMA) {
+                
+                $orden_fabricacion->save(); //Guarda la orden de fabricación con los datos ingresados. 
+
+                /*Se restan los materiales cuándo una órden de fabricación se pone en producción*/ 
+
+                //Pregunta si el estado de la órden de fabricación está en producción.
+                if($orden_fabricacion->cod_estado == $tipo_estado) {
+
+                    $material->cantidad=$material->CANTIDAD-$det->CANTIDAD; //Se resta la cantidad del material con la que hay en el detalle del modelo. 
+                    $material->update(); //Se actualiza la nueva cantidad del material.
+                }
+                Flash("¡Se ha insertado la orden de fabricación exitósamente!",'success');return Redirect()->route('ordenesFabricacion.index');
+            }
+            else { //Si la cantidad de material actual es igual a la mínima manda un mensaje de error. 
+                if($material->CANTIDAD == $material->CANTIDADMINIMA) {
+                    Flash("¡Cantidad de material insuficiente para crear órden de fabricación!",'danger');return Redirect()->route('ordenesFabricacion.index');
+                }
+            }
+        } 
     }
 
     /**
