@@ -126,7 +126,7 @@ class MaterialesController extends Controller
         $tipo_material = tipo_material::all();
         return View('Materiales/ModificarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
         }
-        Flash("No tiene permisos para modificar clientes",'danger');  
+        Flash("No tiene permisos para modificar materiales",'danger');  
         return Redirect()->route('materiales.index');
     }
 
@@ -162,6 +162,8 @@ class MaterialesController extends Controller
      */
     public function destroy($id, materialesRequest $request)
     {
+          $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         try 
         {
             material::where('COD_MATERIAL',$id)->delete();
@@ -172,7 +174,10 @@ class MaterialesController extends Controller
         {
             Flash('¡No se puede eliminar el material con el código: ('.$id.') ya que está siendo usado por uno o varios modelos de máquinas!','danger');
             return Redirect()->route('materiales.index');
-        }   
+        }
+        }
+           Flash('No tiene permisos para eliminar el material','danger');
+           return Redirect()->route('materiales.index');
     }
 
 

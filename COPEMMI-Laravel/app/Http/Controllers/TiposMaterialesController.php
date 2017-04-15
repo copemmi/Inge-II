@@ -126,6 +126,8 @@ class TiposMaterialesController extends Controller
      */
     public function destroy($id)
     {
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         try 
         {
             tipo_material::where('COD_TIPO_MATERIAL',$id)->delete();
@@ -139,6 +141,9 @@ class TiposMaterialesController extends Controller
             Flash('¡No se puede eliminar el tipo de material con el código: ('.$id.') ya que está siendo usado por un material!','danger');
             return Redirect()->route('tiposMateriales.index');
         }   
+        }
+            Flash('No tiene permisos para eliminar el tipo de material','danger');
+            return Redirect()->route('tiposMateriales.index');
     }
 
 }

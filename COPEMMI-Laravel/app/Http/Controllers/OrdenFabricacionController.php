@@ -252,7 +252,7 @@ class OrdenFabricacionController extends Controller
 
         return Redirect()->route('ordenesFabricacion.index');
         }
-        Flash("No tiene permisos para crear órdenes de fabricación",'danger');  
+        Flash("No tiene permisos para eliminar órdenes de fabricación",'danger');  
         return Redirect()->route('ordenesFabricacion.index');
 }
 
@@ -265,10 +265,13 @@ class OrdenFabricacionController extends Controller
      */
     public function destroy($id)
     {
+           $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         orden_fabricacion::where('COD_ORDEN_FABRICACION',$id)->delete();
-       
         Flash('¡Se ha eliminado la orden de fabricación con el código: ('.$id.') exitósamente!','danger');
-
         return Redirect()->route('ordenesFabricacion.index');
-    }
+        }
+          Flash("No tiene permisos para crear órdenes de fabricación",'danger');  
+        return Redirect()->route('ordenesFabricacion.index');
+}
 }

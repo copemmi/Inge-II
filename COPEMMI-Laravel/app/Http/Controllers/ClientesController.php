@@ -116,7 +116,7 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-         $usuario_actual=\Auth::user();
+        $usuario_actual=\Auth::user();
         if($usuario_actual->privilegio==1){
         $cliente = cliente::find($id);
         return View('Clientes/ModificarClientes')->with('cliente',$cliente);
@@ -157,23 +157,23 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        try 
-        {
+        $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
+            try 
+            {
             cliente::where('ID',$id)->delete();
-       
-        Flash('¡Se ha eliminado el cliente con la identificación: ('.$id.') exitósamente!','danger');
-
-        return Redirect()->route('clientes.index');
-        }
-        catch (\Illuminate\Database\QueryException $e)
-        {
+            Flash('¡Se ha eliminado el cliente con la identificación: ('.$id.') exitósamente!','danger');
+            return Redirect()->route('clientes.index');
+            }
+            catch (\Illuminate\Database\QueryException $e)
+            {
             Flash('¡No se puede eliminar el cliente con la identificación: ('.$id.') ya que está siendo incluido en una o varias órdenes de fabricación!','danger');
             return Redirect()->route('clientes.index');
-        }   
-
-         
-        
-    }
+            }   
+          }
+        Flash("No tiene permisos para eliminar clientes",'danger');  
+        return Redirect()->route('clientes.index');
+     }
 
 //Inserta los tipos de materiales con ajax.         
      public function actualizaComboClientes($ids)      

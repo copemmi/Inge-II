@@ -117,11 +117,7 @@ Route::get('ruta_tipoMod/{id}','ModelosMaquinasController@actualizaComboTipoModM
 
 
 //-----------RUTAS PARA CAMBIAR ESTADO CON AJAX-----------------------------//
- Route::group(['middleware'=>'administrador'],function(){
- Route::get('ruta_cambiarEstado/{id}','OrdenFabricacionController@cambiar_estados');	
-});
-
-
+ Route::get('ruta_cambiarEstado/{id}','OrdenFabricacionController@cambiar_estados');	;
 
 //-------------------------RUTAS PARA LAS ESTADISTICAS-------------------------
 Route::resource('estadisticas','EstadisticasController'); 

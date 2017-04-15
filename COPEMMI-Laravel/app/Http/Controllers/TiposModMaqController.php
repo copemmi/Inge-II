@@ -126,6 +126,8 @@ class TiposModMaqController extends Controller
      */
     public function destroy($id)
     {
+         $usuario_actual=\Auth::user();
+        if($usuario_actual->privilegio==1){
         try 
         {
             tipo_modelo::where('COD_TIPO_MODELO',$id)->delete();
@@ -137,7 +139,10 @@ class TiposModMaqController extends Controller
             Flash('¡No se puede eliminar el tipo de modelo de máquina con el código: ('.$id.') ya que está siendo usado por uno o varios modelos de máquinas!','danger');
             return Redirect()->route('tiposModelosMaquinas.index');
         }   
-        
+        }
+        Flash("No tiene permisos para eliminar tipo de máquina",'danger');
+        return Redirect()->route('tiposMateriales.index');
+       
     }
 
 }

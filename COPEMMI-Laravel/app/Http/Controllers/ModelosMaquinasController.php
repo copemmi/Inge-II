@@ -257,7 +257,7 @@ class ModelosMaquinasController extends Controller
      */
     public function destroy($id , $idImagen, $urlImagen)
     {
-        try 
+            try 
         {
             modelo_maquina::where('COD_MODELO',$id)->delete();
             imagen_modelo::where('COD_IMAGEN',$idImagen)->delete();//elimina la imagen en la BD
@@ -270,11 +270,8 @@ class ModelosMaquinasController extends Controller
             Flash('¡No se puede eliminar el modelo de máquina con el código: ('.$id.') ya que está incluido en una o varias órdenes de fabricación!','danger');
             return Redirect()->route('modelosMaquinas.index');
         }   
-
-
-        
-    }
-
+     }
+    
 //Inserta los tipos de materiales con ajax.     
      public function actualizaComboTipoModMaq($id)   
      {   

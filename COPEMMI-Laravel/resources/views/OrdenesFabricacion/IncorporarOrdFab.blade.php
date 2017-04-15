@@ -147,11 +147,10 @@
 							</div>
 
 						</form>
-
 						<div class="col-md-8">
-                        <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
-                </div>	
-			{!! Form::close() !!}
+                        	<h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
+                		</div>	
+					{!! Form::close() !!}
 
 			</div>
 		<div class="modal fade" id="addData" tabindex="-1" role="dialog" aria-labelledby="addLabel">		
