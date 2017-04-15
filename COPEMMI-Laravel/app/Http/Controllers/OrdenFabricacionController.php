@@ -271,7 +271,7 @@ class OrdenFabricacionController extends Controller
         Flash('¡Se ha eliminado la orden de fabricación con el código: ('.$id.') exitósamente!','danger');
         return Redirect()->route('ordenesFabricacion.index');
         }
-          Flash("No tiene permisos para crear órdenes de fabricación",'danger');  
+          Flash("No tiene permisos para eliminar órdenes de fabricación",'danger');  
         return Redirect()->route('ordenesFabricacion.index');
 }
 }

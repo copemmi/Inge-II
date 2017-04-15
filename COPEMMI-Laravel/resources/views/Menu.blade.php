@@ -92,16 +92,10 @@
 			</div>
 				
               @yield('contenido')<!--aquí se cargaran las demás vistas-->
-           </div>
-
+          </div>
 
 	</body>
- 
-	
-  	
-
-	
- 
+   	 
 <!--------------------------JAVASCRIPTS-------------------------->
 
 	@yield('js') <!-- Seccion para incluir los js de las vistas -->
