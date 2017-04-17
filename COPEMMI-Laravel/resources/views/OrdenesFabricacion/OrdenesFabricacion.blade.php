@@ -149,19 +149,16 @@
 								
 								<td>
 								@php if(Auth::user()->privilegio==1){ @endphp
-        						<a href="{{ route('ordenesFabricacion.cambiar_estados',$ord->COD_ORDEN_FABRICACION) }}" class="btn btn-primary"> Terminar </a>
+								<a class="btn btn-primary" id="Terminar" onclick="actualizarEstados()">Terminar</a>
+        						<!--<a href="{{ route('ordenesFabricacion.cambiar_estados',$ord->COD_ORDEN_FABRICACION) }}" class="btn btn-primary"> Terminar </a>-->
         						@php} @endphp
         						</td>			
 							</tr>
 
 
 						@endforeach
-
 					</table>
 
-					<div class="text-center">
-						
-					</div>
 					<div class="col-md-8">
                         <h4>@2017, COPEMMI TEKNOMAQUINAS<span class="col-md-1 col-md-offset-2 text-right"></i></span></h4>
                 </div>
@@ -172,4 +169,7 @@
 
 @stop
 
+@section('js')
 
+{{!! Html::script('js/validacionEstados.js') !!}}
+@stop 

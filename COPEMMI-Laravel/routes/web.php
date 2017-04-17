@@ -70,7 +70,7 @@ use Illuminate\Support\Facades\Input;
 		'as' => 'ordenesFabricacion.destroy'
 		]);
 
-	Route::match(['get','put'],'ordenesFabricacion/{id}/cambiar_estados',[
+	Route::get('ordenesFabricacion/{id}/cambiar_estados',[
 		'uses' => 'OrdenFabricacionController@cambiar_estados',
 		'as'=>'ordenesFabricacion.cambiar_estados'
 		]);
