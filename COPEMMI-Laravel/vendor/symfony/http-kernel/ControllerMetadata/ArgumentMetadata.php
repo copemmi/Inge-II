@@ -23,7 +23,6 @@ class ArgumentMetadata
     private $isVariadic;
     private $hasDefaultValue;
     private $defaultValue;
-    private $isNullable;
 
     /**
      * @param string $name
@@ -31,16 +30,14 @@ class ArgumentMetadata
      * @param bool   $isVariadic
      * @param bool   $hasDefaultValue
      * @param mixed  $defaultValue
-     * @param bool   $isNullable
      */
-    public function __construct($name, $type, $isVariadic, $hasDefaultValue, $defaultValue, $isNullable = false)
+    public function __construct($name, $type, $isVariadic, $hasDefaultValue, $defaultValue)
     {
         $this->name = $name;
         $this->type = $type;
         $this->isVariadic = $isVariadic;
         $this->hasDefaultValue = $hasDefaultValue;
         $this->defaultValue = $defaultValue;
-        $this->isNullable = (bool) $isNullable;
     }
 
     /**
@@ -85,16 +82,6 @@ class ArgumentMetadata
     public function hasDefaultValue()
     {
         return $this->hasDefaultValue;
-    }
-
-    /**
-     * Returns whether the argument is nullable in PHP 7.1 or higher.
-     *
-     * @return bool
-     */
-    public function isNullable()
-    {
-        return $this->isNullable;
     }
 
     /**

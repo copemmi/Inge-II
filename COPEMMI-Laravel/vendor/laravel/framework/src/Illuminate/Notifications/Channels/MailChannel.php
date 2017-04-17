@@ -70,10 +70,6 @@ class MailChannel
             foreach ($message->rawAttachments as $attachment) {
                 $m->attachData($attachment['data'], $attachment['name'], $attachment['options']);
             }
-
-            if (! is_null($message->priority)) {
-                $m->setPriority($message->priority);
-            }
         });
     }
 }

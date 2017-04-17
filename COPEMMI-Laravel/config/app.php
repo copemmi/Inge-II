@@ -170,6 +170,7 @@ return [
         //
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        //StreamLab\StreamLabProvider\StreamLabServiceProvider::class,
 
         /*
          * Application Service Providers...

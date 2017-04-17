@@ -195,7 +195,7 @@ class Route
      *
      * @return mixed
      */
-    public function getController()
+    protected function getController()
     {
         list($class) = explode('@', $this->action['uses']);
 

@@ -19,30 +19,6 @@ namespace Symfony\Component\HttpKernel\ControllerMetadata;
 final class ArgumentMetadataFactory implements ArgumentMetadataFactoryInterface
 {
     /**
-     * If the ...$arg functionality is available.
-     *
-     * Requires at least PHP 5.6.0 or HHVM 3.9.1
-     *
-     * @var bool
-     */
-    private $supportsVariadic;
-
-    /**
-     * If the reflection supports the getType() method to resolve types.
-     *
-     * Requires at least PHP 7.0.0 or HHVM 3.11.0
-     *
-     * @var bool
-     */
-    private $supportsParameterType;
-
-    public function __construct()
-    {
-        $this->supportsVariadic = method_exists('ReflectionParameter', 'isVariadic');
-        $this->supportsParameterType = method_exists('ReflectionParameter', 'getType');
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function createArgumentMetadata($controller)
@@ -58,7 +34,7 @@ final class ArgumentMetadataFactory implements ArgumentMetadataFactoryInterface
         }
 
         foreach ($reflection->getParameters() as $param) {
-            $arguments[] = new ArgumentMetadata($param->getName(), $this->getType($param), $this->isVariadic($param), $this->hasDefaultValue($param), $this->getDefaultValue($param), $this->isNullable($param));
+            $arguments[] = new ArgumentMetadata($param->getName(), $this->getType($param), $this->isVariadic($param), $this->hasDefaultValue($param), $this->getDefaultValue($param));
         }
 
         return $arguments;
@@ -73,7 +49,7 @@ final class ArgumentMetadataFactory implements ArgumentMetadataFactoryInterface
      */
     private function isVariadic(\ReflectionParameter $parameter)
     {
-        return $this->supportsVariadic && $parameter->isVariadic();
+        return PHP_VERSION_ID >= 50600 && $parameter->isVariadic();
     }
 
     /**
@@ -86,23 +62,6 @@ final class ArgumentMetadataFactory implements ArgumentMetadataFactoryInterface
     private function hasDefaultValue(\ReflectionParameter $parameter)
     {
         return $parameter->isDefaultValueAvailable();
-    }
-
-    /**
-     * Returns if the argument is allowed to be null but is still mandatory.
-     *
-     * @param \ReflectionParameter $parameter
-     *
-     * @return bool
-     */
-    private function isNullable(\ReflectionParameter $parameter)
-    {
-        if ($this->supportsParameterType) {
-            return null !== ($type = $parameter->getType()) && $type->allowsNull();
-        }
-
-        // fallback for supported php 5.x versions
-        return $this->hasDefaultValue($parameter) && null === $this->getDefaultValue($parameter);
     }
 
     /**
@@ -126,7 +85,7 @@ final class ArgumentMetadataFactory implements ArgumentMetadataFactoryInterface
      */
     private function getType(\ReflectionParameter $parameter)
     {
-        if ($this->supportsParameterType) {
+        if (PHP_VERSION_ID >= 70000) {
             return $parameter->hasType() ? (string) $parameter->getType() : null;
         }
 

@@ -15,14 +15,10 @@ use Fake\ImportedAndFake;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory;
 use Symfony\Component\HttpKernel\Tests\Fixtures\Controller\BasicTypesController;
-use Symfony\Component\HttpKernel\Tests\Fixtures\Controller\NullableController;
 use Symfony\Component\HttpKernel\Tests\Fixtures\Controller\VariadicController;
 
 class ArgumentMetadataFactoryTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @var ArgumentMetadataFactory
-     */
     private $factory;
 
     protected function setUp()
@@ -46,9 +42,9 @@ class ArgumentMetadataFactoryTest extends \PHPUnit_Framework_TestCase
         $arguments = $this->factory->createArgumentMetadata(array($this, 'signature2'));
 
         $this->assertEquals(array(
-            new ArgumentMetadata('foo', self::class, false, true, null, true),
-            new ArgumentMetadata('bar', __NAMESPACE__.'\FakeClassThatDoesNotExist', false, true, null, true),
-            new ArgumentMetadata('baz', 'Fake\ImportedAndFake', false, true, null, true),
+            new ArgumentMetadata('foo', self::class, false, true, null),
+            new ArgumentMetadata('bar', __NAMESPACE__.'\FakeClassThatDoesNotExist', false, true, null),
+            new ArgumentMetadata('baz', 'Fake\ImportedAndFake', false, true, null),
         ), $arguments);
     }
 
@@ -78,7 +74,7 @@ class ArgumentMetadataFactoryTest extends \PHPUnit_Framework_TestCase
         $arguments = $this->factory->createArgumentMetadata(array($this, 'signature5'));
 
         $this->assertEquals(array(
-            new ArgumentMetadata('foo', 'array', false, true, null, true),
+            new ArgumentMetadata('foo', 'array', false, true, null),
             new ArgumentMetadata('bar', null, false, false, null),
         ), $arguments);
     }
@@ -107,21 +103,6 @@ class ArgumentMetadataFactoryTest extends \PHPUnit_Framework_TestCase
             new ArgumentMetadata('foo', 'string', false, false, null),
             new ArgumentMetadata('bar', 'int', false, false, null),
             new ArgumentMetadata('baz', 'float', false, false, null),
-        ), $arguments);
-    }
-
-    /**
-     * @requires PHP 7.1
-     */
-    public function testNullableTypesSignature()
-    {
-        $arguments = $this->factory->createArgumentMetadata(array(new NullableController(), 'action'));
-
-        $this->assertEquals(array(
-            new ArgumentMetadata('foo', 'string', false, false, null, true),
-            new ArgumentMetadata('bar', \stdClass::class, false, false, null, true),
-            new ArgumentMetadata('baz', 'string', false, true, 'value', true),
-            new ArgumentMetadata('mandatory', null, false, false, null),
         ), $arguments);
     }
 

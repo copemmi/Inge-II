@@ -23,7 +23,6 @@ class Pluralizer
         'emoji',
         'equipment',
         'fish',
-        'furniture',
         'gold',
         'information',
         'knowledge',
@@ -42,7 +41,6 @@ class Pluralizer
         'species',
         'swine',
         'traffic',
-        'wheat',
     ];
 
     /**

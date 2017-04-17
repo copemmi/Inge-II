@@ -140,3 +140,9 @@ Route::Auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/logout', 'Auth\LoginController@logout');
+
+//-------------------------RUTAS PARA LAS NOTIFICACIONES-------------------------//
+
+//Recibe como parámetro el nombre de la ruta y el controlador donde se definen todas las rutas. 
+Route::resource('notificaciones','NotificacionesController'); //Toma los métodos del controlador y los define como un estilo de rutas. resource toma cada uno de los métodos y genera las rutas.
+Route::get('MarkAllSeen','NotificacionesController@AllSeen');

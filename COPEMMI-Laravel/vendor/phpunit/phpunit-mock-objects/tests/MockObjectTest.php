@@ -29,9 +29,6 @@ class Framework_MockObjectTest extends PHPUnit_Framework_TestCase
              ->with('someArg');
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testMockedMethodIsNotCalledWhenExpectsAnyWithParameter()
     {
         $mock = $this->getMockBuilder(SomeClass::class)
@@ -42,9 +39,6 @@ class Framework_MockObjectTest extends PHPUnit_Framework_TestCase
              ->with('someArg');
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testMockedMethodIsNotCalledWhenMethodSpecifiedDirectlyWithParameter()
     {
         $mock = $this->getMockBuilder(SomeClass::class)
@@ -169,9 +163,13 @@ class Framework_MockObjectTest extends PHPUnit_Framework_TestCase
              ->method('doSomething')
              ->will($this->throwException(new Exception));
 
-        $this->expectException(Exception::class);
+        try {
+            $mock->doSomething();
+        } catch (Exception $e) {
+            return;
+        }
 
-        $mock->doSomething();
+        $this->fail();
     }
 
     public function testStubbedWillThrowException()
@@ -183,9 +181,13 @@ class Framework_MockObjectTest extends PHPUnit_Framework_TestCase
              ->method('doSomething')
              ->willThrowException(new Exception);
 
-        $this->expectException(Exception::class);
+        try {
+            $mock->doSomething();
+        } catch (Exception $e) {
+            return;
+        }
 
-        $mock->doSomething();
+        $this->fail();
     }
 
     public function testStubbedReturnValue()
@@ -857,7 +859,7 @@ class Framework_MockObjectTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @see https://github.com/sebastianbergmann/phpunit-mock-objects/issues/116
+     * https://github.com/sebastianbergmann/phpunit-mock-objects/issues/116
      */
     public function testMockArgumentsPassedByReference3()
     {
@@ -875,11 +877,11 @@ class Framework_MockObjectTest extends PHPUnit_Framework_TestCase
             ->with($a, $b, $c)
             ->will($this->returnCallback([$foo, 'callback']));
 
-        $this->assertNull($foo->bar($a, $b, $c));
+        $foo->bar($a, $b, $c);
     }
 
     /**
-     * @see https://github.com/sebastianbergmann/phpunit/issues/796
+     * https://github.com/sebastianbergmann/phpunit/issues/796
      */
     public function testMockArgumentsPassedByReference4()
     {
@@ -897,7 +899,7 @@ class Framework_MockObjectTest extends PHPUnit_Framework_TestCase
             ->with($this->isInstanceOf(stdClass::class), $b, $c)
             ->will($this->returnCallback([$foo, 'callback']));
 
-        $this->assertNull($foo->bar($a, $b, $c));
+        $foo->bar($a, $b, $c);
     }
 
     /**
@@ -931,11 +933,8 @@ class Framework_MockObjectTest extends PHPUnit_Framework_TestCase
      */
     public function testCreateTwoMocksOfOneWsdlFile()
     {
-        $a = $this->getMockFromWsdl(__DIR__ . '/_fixture/GoogleSearch.wsdl');
-        $b = $this->getMockFromWsdl(__DIR__ . '/_fixture/GoogleSearch.wsdl');
-
-        $this->assertStringStartsWith('Mock_GoogleSearch_', get_class($a));
-        $this->assertEquals(get_class($a), get_class($b));
+        $mock = $this->getMockFromWsdl(__DIR__ . '/_fixture/GoogleSearch.wsdl');
+        $mock = $this->getMockFromWsdl(__DIR__ . '/_fixture/GoogleSearch.wsdl');
     }
 
     /**

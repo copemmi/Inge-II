@@ -856,8 +856,7 @@ class PHPUnit_Framework_TestResult implements Countable
         } elseif ($warning === true) {
             $this->addWarning($test, $e, $time);
         } elseif ($this->beStrictAboutTestsThatDoNotTestAnything &&
-                  !$test->doesNotPerformAssertions() &&
-                  $test->getNumAssertions() == 0) {
+                 $test->getNumAssertions() == 0) {
             $this->addFailure(
                 $test,
                 new PHPUnit_Framework_RiskyTestError(

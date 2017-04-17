@@ -22,6 +22,7 @@
 						<li> <a class="lb-COP"> Control de Pedidos de Materiales para Máquinas Industriales </a> </li>
 				  		<li> <a class="lb-US"> {{Auth::user()->name}} </a></li>
 				   		<li> <a><i class="icono derecha fa fa-user"></i></a></li>
+				   		<li ><a href="{{route('notificaciones.index')}}"><img src="{{asset('imagenes/IconosMenu/notificaciones.png')}}"/><span class="bagde badge-defaul"></span></a></li>
 				  		<li> <a href="{{url('/logout')}}" class="bt-cerrar"> Cerrar Sesión</a></li>
 					</ul>
 			</div>
@@ -67,9 +68,9 @@
 			                </ul> 
 		                </li> 
 
-						<li><a href="#"><img src="{{asset('imagenes/IconosMenu/ordenesPedidos.png')}}"/> Notificaciones<i class="icono derecha fa fa-chevron-down"></i></a>
+						<li><a href=""><img src="{{asset('imagenes/IconosMenu/notificaciones.png')}}"/> Notificaciones<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
-			                    <li><a href="#">Visualizar Órdenes de Pedidos</a></li>
+			                    <li><a href="{{route('notificaciones.index')}}">Visualizar Notificaciones</a></li>
 		                    </ul> 
 		                </li> 
 
@@ -92,10 +93,16 @@
 			</div>
 				
               @yield('contenido')<!--aquí se cargaran las demás vistas-->
-          </div>
+           </div>
+
 
 	</body>
-   	 
+ 
+	
+  	
+
+	
+ 
 <!--------------------------JAVASCRIPTS-------------------------->
 
 	@yield('js') <!-- Seccion para incluir los js de las vistas -->
@@ -105,7 +112,19 @@
 	{{ Html::script('js/main.js') }}
 	{{ Html::script('js/bootstrap-select.min.js') }}
 
-	
+<script>
+	$('.notification').on('click', function(){
+		setTimeout( function(){
+			count.html(0);
+			$('.unread').each( function(){
+				$(this).removeClass('unread');
+			});
+		}, 5000);
+		$.get('MarkAllSeen', function(){
+			
+		})
+	});
+</script>
 
 
 </html>

@@ -78,7 +78,7 @@ class Profiler
      *
      * @param Response $response A Response instance
      *
-     * @return Profile|false A Profile instance
+     * @return Profile A Profile instance
      */
     public function loadProfileFromResponse(Response $response)
     {
