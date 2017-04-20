@@ -122,7 +122,7 @@ class OrdenFabricacionController extends Controller
             {
                 if($material->CANTIDAD>=$det->CANTIDAD)
                 {
-            $orden_fabricacion->save(); //Guarda la orden de fabricación con los datos ingresados.   
+                $orden_fabricacion->save(); //Guarda la orden de fabricación con los datos ingresados.   
                     Flash("¡Se ha insertado la orden de fabricación exitósamente!",'success');return Redirect()->route('ordenesFabricacion.index');         
                
                     $material->cantidad=$material->CANTIDAD-$det->CANTIDAD; //Se resta la cantidad del material con la que hay en el detalle del modelo. 
