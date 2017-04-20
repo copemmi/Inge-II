@@ -27,7 +27,7 @@
         					<!--<a href="{{ route('tiposMateriales.create') }}" class="btn btn-success"> Incorporar tipo de material</a>-->
 <!-- Creación del Botón Modal que abre el formulario de los datos de tipos de materiales-->		
 							@php if(Auth::user()->privilegio==1){ @endphp
- -							<a class="btn btn-success" input type="button" data-toggle="modal" data-target="#addData">Incorporar tipo de material</a>
+ 							<a class="btn btn-success" input type="button" data-toggle="modal" data-target="#addData">Incorporar tipo de material</a>
  							@php} @endphp
         				</div>
 
@@ -43,11 +43,11 @@
 								<th>Nombre del Tipo de Material</th>
 							</tr>
 						 </thead>
-						@foreach($tipoMaterial as $tip)
+						@foreach($tipoMaterial as $tipom)
 							
 							<tr class="success" data-href="{{ route('tiposMateriales.show', $tip->COD_TIPO_MATERIAL) }}">
-								<td>{{ $tip->COD_TIPO_MATERIAL}} </td>
-								<td>{{ $tip->NOMBRE}} </td>
+								<td>{{ $tipom->COD_TIPO_MATERIAL}} </td>
+								<td>{{ $tipom->NOMBRE}} </td>
 							    <!--<td> <label><input type="checkbox" id="opcion" class="checkbox" name="opcion" value={{ $tip->COD_TIPO_MATERIAL}} /></label></td>-->
 							</tr>
 							
