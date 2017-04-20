@@ -135,7 +135,12 @@ class OrdenFabricacionController extends Controller
             else { //Si la cantidad de material actual es igual a 0.
                 if($material->CANTIDAD == 0) {
                     Flash("¡Cantidad de material insuficiente para crear órden de fabricación, inserte más material!",'danger');return Redirect()->route('ordenesFabricacion.index');
-                } 
+                }
+                else {
+                    if($material->CANTIDAD < $det->CANTIDAD) {
+                        Flash("¡Cantidad de material insuficiente para crear órden de fabricación, inserte más material!",'danger');return Redirect()->route('ordenesFabricacion.index');
+                    }
+                }
             }
         } 
     }
@@ -231,6 +236,11 @@ class OrdenFabricacionController extends Controller
             else { //Si la cantidad es igual a cero. 
                 if($material->CANTIDAD == 0) {
                     Flash("¡Material insuficiente para pasar una órden de fabricación a producción, ingrese más material!",'danger');return Redirect()->route('ordenesFabricacion.index');
+                }
+                else {
+                    if($material->CANTIDAD < $det->CANTIDAD) {
+                        Flash("¡Cantidad de material insuficiente para crear órden de fabricación, inserte más material!",'danger');return Redirect()->route('ordenesFabricacion.index');
+                    }
                 }
             }
         } 
