@@ -117,39 +117,20 @@ class OrdenFabricacionController extends Controller
         { 
             $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.\
                 
-                $orden_fabricacion->save(); //Guarda la orden de fabricación con los datos ingresados. 
+                if($orden_fabricacion->cod_estado==$tipo_estado)
+                {
+                    $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
+                    $material->update();
+                    $orden_fabricacion->save();
 
-                /*Se restan los materiales cuándo una órden de fabricación se pone en producción*/ 
+                    Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
 
-                //Pregunta si el estado de la órden de fabricación está en producción.
-                if($orden_fabricacion->cod_estado == $tipo_estado) {
-
-                    $material->cantidad=$material->CANTIDAD-$det->CANTIDAD; //Se resta la cantidad del material actual con la que hay en el detalle del modelo.
-
-                    //Si la cantidad del detalle es mayor a la cantidad actual de material. 
-                    if($det->CANTIDAD > $material->cantidad) {
-
-                        $material->cantidad=$material->CANTIDAD-$det->CANTIDAD; //Se resta la cantidad del material actual con la que hay en el detalle del modelo.
-
-                        //La cantidad de material faltante para realizar la órden de fabricación. 
-                        $faltanteMaterial = $det->CANTIDAD - $material->CANTIDAD;
-
-                        $material->cantidad = $material->cantidad - $faltanteMaterial; 
-
-                        if($material->cantidad == $material->cantidadminima) {
-                            $material->update(); //Se actualiza la nueva cantidad del material.
-                            Flash("¡Se ha alcanzado la cantidad mínima de material, ingrese más material!",'info');return Redirect()->route('materiales.index');
-                        }
-
-                        $material->update(); //Se actualiza la nueva cantidad del material.
-
-                        //Manda una notificación de material faltante. 
-                        Flash("¡Se ha insertado la orden de fabricación exitósamente, pero hay un faltante de (".$faltanteMaterial.") materiales!",'success');return Redirect()->route('ordenesFabricacion.index');
-                    }
-
-                    $material->update(); //Se actualiza la nueva cantidad del material.
                 }
-                Flash("¡Se ha insertado la orden de fabricación exitósamente!",'success');return Redirect()->route('ordenesFabricacion.index');
+                else
+                    $orden_fabricacion->save(); //Guarda la orden de fabricación con los datos ingresados. 
+                Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
+
+                
         } 
     }
 
@@ -224,27 +205,21 @@ class OrdenFabricacionController extends Controller
         foreach($detalleMat as $det)
         { 
             $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.\
-
-            //Pregunta si la cantidad de material es mayor a cero. 
-            if($material->CANTIDAD > 0) {
                 
-                $orden_fabricacion->update(); //Guarda la orden de fabricación con los datos ingresados. 
+                if($orden_fabricacion->cod_estado==$tipo_estado)
+                {
+                    $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
+                    $material->update();
+                    $orden_fabricacion->save();
 
-                /*Se restan los materiales cuándo una órden de fabricación se pone en producción*/ 
+                    Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
 
-                //Pregunta si el estado de la órden de fabricación está en producción.
-                if($orden_fabricacion->cod_estado == $tipo_estado) {
-
-                    $material->cantidad=$material->CANTIDAD-$det->CANTIDAD; //Se resta la cantidad del material actual con la que hay en el detalle del modelo. 
-                    $material->update(); //Se actualiza la nueva cantidad del material.
                 }
-                Flash("¡Se ha modificado la orden de fabricación exitósamente!",'info'); return Redirect()->route('ordenesFabricacion.show',$id);
-            }
-            else { //Si la cantidad es igual a cero. 
-                if($material->CANTIDAD == 0) {
-                    Flash("¡Material insuficiente para pasar una órden de fabricación a producción, ingrese más material!",'danger');return Redirect()->route('ordenesFabricacion.index');
-                }
-            }
+                else
+                    $orden_fabricacion->save(); //Guarda la orden de fabricación con los datos ingresados. 
+                Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
+
+                
         } 
     }
 
