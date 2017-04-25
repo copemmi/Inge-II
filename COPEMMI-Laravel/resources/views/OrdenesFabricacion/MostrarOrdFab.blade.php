@@ -101,11 +101,11 @@
 			<!--Nombre del cliente --> 
 					<div class="form-group">
 						{!! Form::label('option','Nombre del cliente:',array('class' => 'control-label col-md-2','readonly')) !!}
-						<div class="col-md-2">
+						<div class="col-md-3">
 							@foreach($cliente as $nombc)
 									
 								@php if(strcmp($orden_fabricacion->ID, $nombc->ID) == 0){ @endphp
-								{!! Form::text('ID', $nombc->NOMBRE,['class'=>'form-control', 'readonly'])!!}
+								{!! Form::text('ID', $nombc->NOMBRE." ".$nombc->PRIMER_APELLIDO." ".$nombc->SEGUNDO_APELLIDO,['class'=>'form-control', 'readonly'])!!}
 
 								@php } @endphp
 							@endforeach
