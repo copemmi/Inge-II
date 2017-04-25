@@ -164,16 +164,16 @@
  							<h4 class="modal-title" id="addLabel">Incorporar Cliente</h4>		
  						</div>		
  		
- 							<!-- Formulario donde solicita los datos del tipo de Material -->		
+ 							<!-- Formulario donde solicita los datos cliente -->		
  							<div class="modal-body">		
  		
  								<div class="form-group">		
  									<!--ID del Cliente-->		
- 									{!! Form::label('ID','Identificación del Cliente:',array('class' => 'control-label col-md-5')) !!}		
- 									<!--<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 11 de caracteres.Identificaciones de ejemplo: 2-0111-0222 o 1-1333-1444</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 									{!! Form::label('ID_CLIENTE','Identificación del Cliente:',array('class' => 'control-label col-md-5')) !!}		
+ 									<a class="boton" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 11 de caracteres.Identificaciones de ejemplo: 2-0111-0222 o 1-1333-1444</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->		
  									<div class="col-md-5">		
- 										<!--{!! Form::text('ID',null,['class' => 'form-control','placeholder' => 'Identificacion del Cliente', 'maxlength="11"']) !!}--> 		
-										<input id="ID_CLIENTE" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />		
+ 										{!! Form::text('ID_CLIENTE',null,['class' => 'form-control','placeholder' => 'Identificacion del Cliente', 'maxlength="11"']) !!}		
+										<!--<input id="ID_CLIENTE" class="input" name="ID_CLIENTE" type="text"  size="30" /><br />	-->	
  										<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->		
  									</div>		
  								</div>		
@@ -182,13 +182,11 @@
  								<!--Nombre del Cliente-->		
 								<div class="form-group">		
  	
- 									{!! Form::label('NOMBRE','Nombre del Cliente:',array('class' => 'control-label col-md-5')) !!}		
- 									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 									{!! Form::label('NOMB','Nombre del Cliente:',array('class' => 'control-label col-md-5')) !!}		
+ 									<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->		
  									<div class="col-md-5">		
- 										<!--{!! Form::text('NOMBRE',null,['class' => 'form-control','placeholder' => 'Nombre del Cliente', 'maxlength="50"']) !!}		
- 										<span class = "help-block"></span>-->		
- 										<input id="NOMB" class="input" name="NOMB" type="text"  size="30" /><br />		
- 										<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->		
+ 									{!! Form::text('NOMB',null,['class' => 'form-control','placeholder' => 'Nombre del Cliente', 'maxlength="50"']) !!}		
+ 									<span class = "help-block"></span>			
  									</div>		
  		
  								</div>		
@@ -196,11 +194,10 @@
  		
  								<!--Apellido1 del Cliente-->		
  								<div class="form-group">		
- 								{!! Form::label('PRIMER_APELLIDO','Primer Apellido:',array('class' => 'control-label col-md-5')) !!}		
- 									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 								{!! Form::label('PRIMER_APE','Primer Apellido:',array('class' => 'control-label col-md-5')) !!}		
+ 									<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->		
  									<div class="col-md-5">		
- 										<!--{!! Form::text('PRIMER_APELLIDO',null,['class' => 'form-control','placeholder' => 'Primer Apellido', 'maxlength="50"']) !!}-->		
- 										<input id="PRIMER_APE" class="input" name="PRIMER_APE" type="text"  size="30" /><br />		
+ 										{!! Form::text('PRIMER_APE',null,['class' => 'form-control','placeholder' => 'Primer Apellido', 'maxlength="50"']) !!}	
  										<span class = "help-block"></span>		
  									</div>		
  								</div>		
@@ -208,11 +205,10 @@
  		
 								<!--Apellido2 del Cliente-->		
  								<div class="form-group">		
- 									{!! Form::label('SEGUNDO_APELLIDO','Segundo Apellido:',array('class' => 'control-label col-md-5')) !!}		
- 									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 									{!! Form::label('SEGUNDO_APE','Segundo Apellido:',array('class' => 'control-label col-md-5')) !!}		
+ 									<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->		
  									<div class="col-md-5">		
- 										<!--{!!Form::text('SEGUNDO_APELLIDO',null,['class' => 'form-control','placeholder' => 'Segundo Apellido', 'maxlength="50"']) !!}-->		
- 										<input id="SEGUNDO_APE" class="input" name="SEGUNDO_APE" type="text"  size="30" /><br />		
+ 										{!!Form::text('SEGUNDO_APE',null,['class' => 'form-control','placeholder' => 'Segundo Apellido', 'maxlength="50"']) !!}	
  										<span class = "help-block"></span>		
  									</div>		
  								</div>		
@@ -220,11 +216,10 @@
  		
  								<!--Direccion del Cliente-->		
  								<div class="form-group">		
- 									{!! Form::label('DIRECCION','Dirección del Cliente:',array('class' => 'control-label col-md-5')) !!}		
- 									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 100 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 									{!! Form::label('DIRE','Dirección del Cliente:',array('class' => 'control-label col-md-5')) !!}		
+ 									<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 100 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->		
  									<div class="col-md-5">		
- 										<!--{!! Form::text('DIRECCION',null,['class' => 'form-control','placeholder' => 'Dirección', 'maxlength="100"']) !!}-->		
- 								<input id="DIRE" class="input" name="DIRE" type="text"  size="30" /><br />		
+ 										{!! Form::text('DIRE',null,['class' => 'form-control','placeholder' => 'Dirección', 'maxlength="100"']) !!}		
  										<span class = "help-block"></span>		
  									</div>		
  								</div>		
@@ -232,11 +227,10 @@
  		
  								<!--Telefono del Cliente-->		
  								<div class="form-group">		
- 									{!! Form::label('TELEFONO','Teléfono del Cliente:',array('class' => 'control-label col-md-5')) !!}		
- 									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 10 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 									{!! Form::label('TELE','Teléfono del Cliente:',array('class' => 'control-label col-md-5')) !!}		
+ 									<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 10 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->		
  								<div class="col-md-5">		
- 										<!--{!! Form::text('TELEFONO',null,['class' => 'form-control','placeholder' => 'Teléfono del Cliente', 'maxlength="10"']) !!}-->		
- 										<input id="TELE" class="input" name="TELE" type="text"  size="30" /><br />		
+ 										{!! Form::text('TELE',null,['class' => 'form-control','placeholder' => 'Teléfono del Cliente', 'maxlength="10"']) !!}		
  										<span class = "help-block"></span>		
  									</div>		
  								</div>		
@@ -244,11 +238,10 @@
  		
  								<!--Correo del Cliente-->		
  								<div class="form-group">		
- 									{!! Form::label('CORREO','Correo del Cliente:',array('class' => 'control-label col-md-5')) !!}		
- 									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 									{!! Form::label('COR','Correo del Cliente:',array('class' => 'control-label col-md-5')) !!}		
+ 									<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->		
  									<div class="col-md-5">		
- 										<!--{!! Form::text('CORREO',null,['class' => 'form-control','placeholder' => 'Correo del Cliente', 'maxlength="50"']) !!}-->		
- 										<input id="COR" class="input" name="COR" type="text"  size="30" /><br />		
+ 										{!! Form::text('COR',null,['class' => 'form-control','placeholder' => 'Correo del Cliente', 'maxlength="50"']) !!}		
  										<span class = "help-block"></span>		
  									</div>		
  								</div>		
@@ -256,11 +249,10 @@
  		
 								<!--Nombre Empresa-->		
  								<div class="form-group">		
- 									{!! Form::label('NOMBRE_EMPRESA','Nombre de la Empresa:',array('class' => 'control-label col-md-5')) !!}		
- 									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 									{!! Form::label('NOM_EM','Nombre de la Empresa:',array('class' => 'control-label col-md-5')) !!}		
+ 									<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->		
  									<div class="col-md-5">		
- 										<!--{!! Form::text('NOMBRE_EMPRESA',null,['class' => 'form-control','placeholder' => 'Nombre de la Empresa', 'maxlength="50"']) !!}-->		
- 										<input id="NOM_EM" class="input" name="NOM_EM" type="text"  size="30" /><br />		
+ 										{!! Form::text('NOM_EM',null,['class' => 'form-control','placeholder' => 'Nombre de la Empresa', 'maxlength="50"']) !!}
  										<span class = "help-block"></span>		
  									</div>		
  								</div>		
@@ -268,17 +260,16 @@
  		
  								<!--Cedula Juridica-->		
  								<div class="form-group">		
- 									{!! Form::label('CEDULA_JURIDICA','Cédula Jurídica de la Empresa:',array('class' => 'control-label col-md-5')) !!}		
- 									<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 13 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
+ 									{!! Form::label('CED_JURI','Cédula Jurídica de la Empresa:',array('class' => 'control-label col-md-5')) !!}		
+ 									<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 13 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->		
  									<div class="col-md-5">		
- 										<!--{!! Form::text('CEDULA_JURIDICA',null,['class' => 'form-control','placeholder' => 'Cédula Jurídica de la Empresa', 'maxlength="13"']) !!}-->		
- 									<input id="CED_JURI" class="input" name="CED_JURI" type="text"  size="30" /><br />		
+ 										{!! Form::text('CED_JURI',null,['class' => 'form-control','placeholder' => 'Cédula Jurídica de la Empresa', 'maxlength="13"']) !!}	
  										<span class = "help-block"></span>		
  									</div>		
  								</div>		
  								<br><br>		
 		
- 							</div>		
+ 							</div>				
  		
  							<!-- Footer o parte donde vienen los botones -->		
  							<div class="modal-footer">		
