@@ -217,13 +217,12 @@
  						<div class="form-group">
 							{!! Form::label('COD_TIPO','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
 							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información --> 
-							<div class="col-md-3">
+							<div class="col-md-5">
 							{!! Form::text('COD_TIPO',null,['class' => 'form-control','placeholder' => 'Código del tipo', 'maxlength="10"']) !!}
 							<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
 							</div>
 						</div>
 
-						<br>
 						<br>
 						<br>
 

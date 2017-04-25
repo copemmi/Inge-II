@@ -84,6 +84,8 @@
 								</div>	
 
 								<br>
+								<br>
+
 								<div class="form-group">
 									{!! Form::label('NOMB_TIPO','Nombre del tipo:',array('class' => 'control-label col-md-2')) !!}
 									<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
