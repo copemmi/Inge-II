@@ -84,7 +84,7 @@
 		                </li> 
 
 		                  <li><a href="{{ route('estadisticas.index')}}"><img src="{{asset('imagenes/IconosMenu/estadisticas.png')}}"/> Estadísticas</a>
-		                  <li><a href="{{ route('equipoTrabajo.index') }}"><img src="{{asset('imagenes/IconosMenu/acercaDe.png')}}"/> Equipo de Trabajo</a>
+		                  
 
 		                <li><a href="{{ route('equipoDesarrollo.index') }}"><img src="{{asset('imagenes/IconosMenu/acercaDe.png')}}"/> Equipo Desarrollador</a>
 		                
