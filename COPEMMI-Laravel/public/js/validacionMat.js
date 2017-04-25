@@ -2,13 +2,13 @@ $(document).on("ready",inicio);
 
 function inicio(){
 $("span.help-block").hide();
-$("#COD_MATERIAL").keyup(validarCodigo);
+$("#COD_MATERIAL").keyup(validarCodigoMat);
 $("#CANTIDAD").keyup(validarCantidad);
 $("#NOMBRE").keyup(validarNombre);
 $("#CARACTERISTICAS").keyup(validarDescripcion);
 }
 
-function validarCodigo(){
+function validarCodigoMat(){
 	var valor = document.getElementById("COD_MATERIAL").value;
 	if(valor == null || valor.length == 0 || /^\s+$/.test(valor)){
 

@@ -3,7 +3,7 @@ $(document).on("ready",inicio);
 function inicio(){
 $("span.help-block").hide();
 $("span.msj-error").hide();
-$("#COD_MODELO").keyup(validarCodigo);
+$("#COD_MODELO").keyup(validarCodigoMod);
 $("#COD_IMAGEN").keyup(validarCodigoImagen);
 $("#PRECIO").keyup(validarPrecio);
 $("#NOMBRE").keyup(validarNombre);
@@ -11,7 +11,7 @@ $("#CARACTERISTICAS").keyup(validarCaracteristicas);
 }
 
 //Método validar código
-function validarCodigo(){
+function validarCodigoMod(){
 	var valor = document.getElementById("COD_MODELO").value;
 	if(valor == null || valor.length == 0 || /^\s+$/.test(valor)){
 
