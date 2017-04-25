@@ -188,19 +188,20 @@ class ClientesController extends Controller
              {     
                  $id=$cl->ID;      
                  $nomb=$cl->NOMBRE;        
-                  
+                 $ape1=$cl->PRIMER_APELLIDO;
+                 $ape2=$cl->SEGUNDO_APELLIDO;
              }     
          }     
        
          //Se pone el item que se seleccionó y se enlaza con una estructura html.      
-        $combo = '<option value="'.$id.'">'.$nomb.'</option>';        
+        $combo = '<option value="'.$id.'">'.$nomb." ".$ape1." ".$ape2.'</option>';        
       
          foreach($cliente as $tipoCl)      
          {     
              //Se valida que el item que seleccionó arriba no aparezca repetido abajo una vez que se abre el combo.        
              if($tipoCl->NOMBRE!=$nomb)      
             {     
-                 $combo=$combo."<option value='".$tipoCl->ID."'>". $tipoCl->ID."</option>"; //se van creando cada uno de los valores dentro de el código html      
+                 $combo=$combo."<option value='".$tipoCl->ID."'>". $tipoCl->NOMBRE." ".$tipoCl->PRIMER_APELLIDO." ".$tipoCl->SEGUNDO_APELLIDO."</option>"; //se van creando cada uno de los valores dentro de el código html      
             }     
             
          }     
