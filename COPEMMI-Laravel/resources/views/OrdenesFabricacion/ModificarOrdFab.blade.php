@@ -97,15 +97,15 @@
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('option','Identificacion del Cliente:',array('class' => 'control-label col-md-2')) !!}
-							<div class="col-md-2">
+							{!! Form::label('option','INombre del Cliente:',array('class' => 'control-label col-md-2')) !!}
+							<div class="col-md-3">
   								<select class="form-control" name="ID" id="option"> 
 									@foreach($cliente as $te)
 									
 									<?php if(strcmp($OrdFab->ID, $te->ID) == 0){ ?>
-												<option selected="selected" value={{$te->ID}}>{{$te->ID}}</option>
+												<option selected="selected" value={{$te->ID}}>{{$te->NOMBRE." ".$te->PRIMER_APELLIDO." ".$te->SEGUNDO_APELLIDO}}</option>
 									<?php }else{ ?>
-											<option value={{$te->ID}}>{{$te->ID}}</option>
+											<option value={{$te->ID}}>{{$te->NOMBRE." ".$te->PRIMER_APELLIDO." ".$te->SEGUNDO_APELLIDO}}</option>
 										<?php } ?>
 									@endforeach
 								</select>
