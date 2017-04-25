@@ -211,36 +211,31 @@
  						</div>		
  						
  		
-						<!-- Formulario donde solicita los datos del tipo de Material -->		
- 						<div class="modal-body">		
+					<!-- Formulario donde solicita los datos del tipo de Material -->		
+ 					<div class="modal-body">		
  									
- 							<div class="form-group">		
+ 						<div class="form-group">
+							{!! Form::label('COD_TIPO','Código del tipo:',array('class' => 'control-label col-md-2')) !!}
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información --> 
+							<div class="col-md-3">
+							{!! Form::text('COD_TIPO',null,['class' => 'form-control','placeholder' => 'Código del tipo', 'maxlength="10"']) !!}
+							<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->
+							</div>
+						</div>
+
+						<br>
+						<br>
+
+						<div class="form-group">
+							{!! Form::label('NOMB_TIPO','Nombre del tipo:',array('class' => 'control-label col-md-2')) !!}
+							<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
+							<div class="col-md-5">
+								{!! Form::text('NOMB_TIPO',null,['class' => 'form-control','placeholder' => 'Nombre del tipo', 'maxlength="50"']) !!}
+								<span class = "help-block"></span>
+							</div>
+						</div>
  		
- 								{!! Form::label('COD_TIPO_MODELO','Código del tipo:',array('class' => 'control-label col-md-4')) !!}		
- 								<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo 10 de caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información --> 		
- 		
- 								<div class="col-md-4">		
- 									<input id="COD_TIPO" class="input" name="COD_TIPO" type="text"  size="30" /><br />		
- 									<span class = "help-block"></span>  <!-- Mensaje que sale en caso de datos incorrectos-->		
- 								</div>		
- 	
-							</div>		
- 		
- 								<br>		
- 		
- 							<div class="form-group"  id="cod_tipo">		
- 		
- 								{!! Form::label('NOMBRE','Nombre del tipo:',array('class' => 'control-label col-md-4')) !!}		
-								<!--<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a>--><!-- Aquí sale el mensaje de ayuda e información -->		
- 										
- 								<div class="col-md-4">		
- 									<input id="NOMB_TIPO" class="input" name="COD_TIPO" type="text"  size="30" /><br />		
- 									<span class = "help-block"></span>		
- 								</div>		
- 		
- 							</div>		
- 		
- 						</div>		
+ 					</div>		
  		
  						<!-- Footer o parte donde vienen los botones -->		
  						<div class="modal-footer">		
@@ -262,6 +257,7 @@
 
 @section('js')
 	{!! Html::script('js/validacionMod.js') !!}
+	{!! Html::script('js/validacionTipoModMaq.js') !!}
 	{!! Html::script('js/validacionDetalleMod.js') !!}
 	{!! Html::script('js/cargarTipoMod.js') !!}
 @stop
