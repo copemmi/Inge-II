@@ -225,6 +225,7 @@
 
 						<br>
 						<br>
+						<br>
 
 						<div class="form-group">
 							{!! Form::label('NOMB_TIPO','Nombre del tipo:',array('class' => 'control-label col-md-2')) !!}
