@@ -99,14 +99,14 @@
 						<!--Identificacion del Cliente-->
 
 						<div class="form-group">
-							{!! Form::label('option','Identificación del Cliente:',array('class' => 'control-label col-md-2')) !!}
+							{!! Form::label('option','Nombre del Cliente:',array('class' => 'control-label col-md-2')) !!}
 
 							<div class="col-md-3">
 
 								<select class="form-control" name="ID" id="ID">
 									
 									@foreach($cliente as $tm)
-									<option value={{$tm->ID}}>{{$tm->ID}}</option>
+									<option value={{$tm->ID}}>{{$tm->NOMBRE." ".$tm->PRIMER_APELLIDO." ".$tm->SEGUNDO_APELLIDO}}</option>
 									@endforeach	
 								
 								</select>
