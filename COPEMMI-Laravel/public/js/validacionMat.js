@@ -2,13 +2,14 @@ $(document).on("ready",inicio);
 
 function inicio(){
 $("span.help-block").hide();
-$("#COD_MATERIAL").keyup(validarCodigoMat);
+$("#COD_MATERIAL").keyup(validarCodigo);
 $("#CANTIDAD").keyup(validarCantidad);
+$("#CANTIDADMINIMA").keyup(validarCantidadMinima);
 $("#NOMBRE").keyup(validarNombre);
 $("#CARACTERISTICAS").keyup(validarDescripcion);
 }
 
-function validarCodigoMat(){
+function validarCodigo(){
 	var valor = document.getElementById("COD_MATERIAL").value;
 	if(valor == null || valor.length == 0 || /^\s+$/.test(valor)){
 
@@ -72,6 +73,48 @@ function validarCodigoMat(){
 		$("#CANTIDAD").parent().parent().attr("class","form-group has-success has-feedback")
 	    $("#CANTIDAD").parent().children("span").text("").hide();
 	    $("#CANTIDAD").parent().append("<span id='iconocant' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+	    return true;
+	}
+
+	}
+
+	function validarCantidadMinima(){
+	var cant = document.getElementById("CANTIDADMINIMA").value;
+
+	if(cant == null || cant.length == 0 || /^\s+$/.test(cant)){
+
+		$("#iconocant").remove();
+		$("#CANTIDADMINIMA").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CANTIDADMINIMA").parent().children("span").text("Debe ingresar algún caracter").show();
+		$("#CANTIDADMINIMA").parent().append("<span id='iconocant' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return false;
+	}
+	else if(isNaN(cant)){
+		$("#iconocant").remove();
+		$("#CANTIDADMINIMA").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CANTIDADMINIMA").parent().children("span").text("Debe ingresar algún número").show();
+		$("#CANTIDADMINIMA").parent().append("<span id=iconocant class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return false;
+	}
+	else if(cant.length>6){
+		$("#iconocant").remove();
+		$("#CANTIDADMINIMA").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CANTIDADMINIMA").parent().children("span").text("Solo se permite un máximo de 6 números").show();
+		$("#CANTIDADMINIMA").parent().append("<span id=iconocant class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return false;
+	}
+	else if(cant % 1 != 0){  //Validación que solo permita números enteros. 
+		$("#iconocant").remove();
+		$("#CANTIDADMINIMA").parent().parent().attr("class","form-group has-error has-feedback")
+		$("#CANTIDADMINIMA").parent().children("span").text("Sólo se debe ingresar números enteros.").show();
+		$("#CANTIDADMINIMA").parent().append("<span id=iconocant class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		return true;
+	}
+	else{
+		$("#iconocant").remove();
+		$("#CANTIDADMINIMA").parent().parent().attr("class","form-group has-success has-feedback")
+	    $("#CANTIDADMINIMA").parent().children("span").text("").hide();
+	    $("#CANTIDADMINIMA").parent().append("<span id='iconocant' class='glyphicon glyphicon-ok form-control-feedback'></span>");
 	    return true;
 	}
 
