@@ -293,5 +293,6 @@
 @section('js')
 	
 	{!! Html::script('js/cargarCliente.js') !!}
+	{!! Html::script('js/validacionCliente.js') !!}
 	{!! Html::script('js/validarOrdFab.js') !!}
 @stop
