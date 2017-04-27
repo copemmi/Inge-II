@@ -95,7 +95,7 @@ class OrdenFabricacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-     public function store(ordenesFabricacionRequest $request)
+    public function store(ordenesFabricacionRequest $request)
     {
         $orden_fabricacion=new orden_fabricacion;
         $orden_fabricacion->cod_estado=$request->get('COD_ESTADO');
@@ -106,6 +106,10 @@ class OrdenFabricacionController extends Controller
         $orden_fabricacion->fecha_entrega=$request->get('FECHA_ENTREGA');
         $orden_fabricacion->fecha_terminada=$request->get('FECHA_ENTREGA');
 
+        $orden_fabricacion->save();
+
+        //$orden_fabricacion->save(); 
+
         // $detalleMat contiene el código y la cantidad de los materiales de un modelo de máquina.  
         $detalleMat = DB::table('det_modelos_maquinas')->select('COD_MATERIAL','CANTIDAD')->where('COD_MODELO',$orden_fabricacion->cod_modelo)->get(); 
         
@@ -114,26 +118,16 @@ class OrdenFabricacionController extends Controller
 
         // Se realiza un ciclo que recorra todos los detalles de modelos.
         foreach($detalleMat as $det)
-        { 
-            $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.\
-                
-                if($orden_fabricacion->cod_estado==$tipo_estado)
-                {
-                    $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
-                    $material->update();
-                    $orden_fabricacion->save();
-
-                    Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
-
-                }
-                else
-                    $orden_fabricacion->save(); //Guarda la orden de fabricación con los datos ingresados. 
-                Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
-
-                
+        {   
+            if($orden_fabricacion->cod_estado==$tipo_estado)
+            {
+                $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.
+                $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
+                $material->update();
+            }  
         } 
+         Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
     }
-
     /**
      * Display the specified resource.
      *
@@ -191,7 +185,7 @@ class OrdenFabricacionController extends Controller
         $orden_fabricacion->cod_usuario=$request->get('COD_USUARIO');
         $orden_fabricacion->id=$request->get('ID');
         
-        //$orden_fabricacion->update();
+        $orden_fabricacion->update();
 
         /*Se restan los materiales cuándo una órden de fabricación se pone en producción*/ 
 
@@ -203,24 +197,16 @@ class OrdenFabricacionController extends Controller
 
          // Se realiza un ciclo que recorra todos los detalles de modelos.
         foreach($detalleMat as $det)
-        { 
-            $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.\
-                
-                if($orden_fabricacion->cod_estado==$tipo_estado)
-                {
-                    $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
-                    $material->update();
-                    $orden_fabricacion->save();
-
-                    Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
-
-                }
-                else
-                    $orden_fabricacion->save(); //Guarda la orden de fabricación con los datos ingresados. 
-                Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
-
-                
+        {  
+            if($orden_fabricacion->cod_estado==$tipo_estado)
+            {
+                $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.\
+                $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
+                $material->update();
+            }
         } 
+        Flash("¡Se ha modificado la órden de fabricación exitósamente!",'info');
+        return Redirect()->route('ordenesFabricacion.index');
     }
 
     public function cambiar_estados($id){
