@@ -86,10 +86,10 @@
 			<!-- Nombre del Modelo --> 
 
 			<div class="form-group">
-				{!! Form::label('NOMBRE','Nombre del modelo de la máquina:',array('class' => 'control-label col-md-2')) !!}
+				{!! Form::label('NOMBRE','Nombre del modelo de máquina:',array('class' => 'control-label col-md-2')) !!}
 				<a href="#" rel="popover" data-container="body" data-toggle="popover" data-placement="right" title="Información" data-content="<ul><li>Sólo se permite un máximo de 50 caracteres.</li></ul> "><img src="{{asset('imagenes/Img_Info.png')}}" width=25; /></a><!-- Aquí sale el mensaje de ayuda e información -->
 				<div class="col-md-5">
-				{!! Form::text('NOMBRE',$modelos->NOMBRE,['class' => 'form-control','placeholder' => 'Nombre del modelo de la máquina', 'maxlength="50"']) !!}
+				{!! Form::text('NOMBRE',$modelos->NOMBRE,['class' => 'form-control','placeholder' => 'Nombre del modelo de máquina', 'maxlength="50"']) !!}
 					<span class = "help-block"></span>
 				</div>
 			</div>
