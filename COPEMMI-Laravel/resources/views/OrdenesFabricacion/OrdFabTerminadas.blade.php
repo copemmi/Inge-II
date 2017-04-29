@@ -194,7 +194,7 @@
 
 function MostrarDatos(id){
 
-	var url="http://localhost:8000/traerDatos/"+id; //ruta del método en el backend y sus parámetros
+	var url="/traerDatos/"+id; //ruta del método en el backend y sus parámetros
 
 	$.get(url, function(res){
 		$("#CodOrd").val(res.codigo);

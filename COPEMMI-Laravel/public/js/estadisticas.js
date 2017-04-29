@@ -95,7 +95,7 @@ var grafico=
 
 }
 
-var url="http://localhost:8000/traeDatosOrdenes";
+var url="/traeDatosOrdenes";
 var arrayPrincipal=new Array();
 
 $.get(url,function(resul)
@@ -211,7 +211,7 @@ var grafico={
 }
 
 
-var url="http://localhost:8000/traeDatos";
+var url="/traeDatos";
 var cuenta;
 var datas=new Array();
 
@@ -279,7 +279,7 @@ var grafico={
 }
 
 
-var url="http://localhost:8000/traeDatos";
+var url="/traeDatos";
 var cuenta;
 var datas=new Array();
 

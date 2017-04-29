@@ -138,7 +138,7 @@ Route::get('/',function(){
 
 Route::Auth();
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
