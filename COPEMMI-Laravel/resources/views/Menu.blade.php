@@ -9,6 +9,9 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	    <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+	    @include('flashy::message')
+
 		{!! Html::style('css/bootstrap-select.min.css') !!}
 		{!! Html::style('css/bootstrap.min.css') !!}
 		
@@ -22,7 +25,7 @@
 						<li> <a class="lb-COP"> Control de Pedidos de Materiales para Máquinas Industriales </a> </li>
 				  		<li> <a class="lb-US"> {{Auth::user()->name}} </a></li>
 				   		<li> <a><i class="icono derecha fa fa-user"></i></a></li>
-				   		<li ><a href="{{route('notificaciones.index')}}"><img src="{{asset('imagenes/IconosMenu/notificaciones.png')}}"/><span class="bagde badge-defaul"></span></a></li>
+				   		<li><a href="{{route('notificaciones.index')}}"><img src="{{asset('imagenes/IconosMenu/notificaciones.png')}}"/><span class="badge">0</span></a></li>
 				  		<li> <a href="{{url('/logout')}}" class="bt-cerrar"> Cerrar Sesión</a></li>
 					</ul>
 			</div>
@@ -34,8 +37,6 @@
 		<div id="leftMenu">
             <div class="sidebar"> 
                <nav>
-
-
 	             	<ul class="menu">			
 				        <li><a href="#"><img src="{{asset('imagenes/IconosMenu/materiales.png')}}"/> Materiales<i class="icono derecha fa fa-chevron-down"></i></a>
 		                    <ul>
@@ -94,14 +95,7 @@
 				
               @yield('contenido')<!--aquí se cargaran las demás vistas-->
            </div>
-
-
 	</body>
- 
-	
-  	
-
-	
  
 <!--------------------------JAVASCRIPTS-------------------------->
 
@@ -111,20 +105,5 @@
 	{{ Html::script('js/bootstrap.min.js') }}
 	{{ Html::script('js/main.js') }}
 	{{ Html::script('js/bootstrap-select.min.js') }}
-
-<script>
-	$('.notification').on('click', function(){
-		setTimeout( function(){
-			count.html(0);
-			$('.unread').each( function(){
-				$(this).removeClass('unread');
-			});
-		}, 5000);
-		$.get('MarkAllSeen', function(){
-			
-		})
-	});
-</script>
-
 
 </html>

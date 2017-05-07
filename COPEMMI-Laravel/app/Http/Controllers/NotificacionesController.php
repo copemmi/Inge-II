@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\material;
+use App\orden_fabricacion;
 use App\Notificaciones;
 
 class NotificacionesController extends Controller
@@ -45,17 +47,7 @@ class NotificacionesController extends Controller
      */
     public function store(Request $request, Notificaciones $notificacion)
     { 
-        $notificacion = new Notificaciones(); 
-        $notificacion->titulo = $request->titulo;
-        $notificacion->mensaje = $request->mensaje;
-        $notificacion->vista = 0; 
-
-        if($notificacion->save()) {
-            $user = User::all(); 
-            Notification::send($user, new AddPost($notificacion));
-        }
-
-        return Redirect()->route('notificaciones.index');
+        
     } 
 
     /**
@@ -102,11 +94,5 @@ class NotificacionesController extends Controller
     {
 
     }
-
-    /*public function AllSeen() {
-        foreach(auth()->user()->unreadNotifications as $note{
-            $note->markAsRead(); 
-        }
-    }*/
 }
 

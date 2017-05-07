@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use App\material;
 use App\tipo_material;
+use App\Notificaciones;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\materialesRequest;
 use Illuminate\Support\Facades\Input;
@@ -91,6 +92,13 @@ class MaterialesController extends Controller
         $material->fecha_ingreso=$request->get('FECHA_INGRESO');
 
         $material->save();
+
+        //Notificaciones. 
+        $notificaciones = new Notificaciones(); 
+        $notificaciones->tipo = 'Material'; 
+        $notificaciones->mensaje='¡Se ha insertado un material'; 
+
+        $notificaciones->save(); 
 
         Flash("¡Se ha insertado el material: (".$material->nombre."), con el código: (".$material->cod_material.") exitósamente!",'success');
 

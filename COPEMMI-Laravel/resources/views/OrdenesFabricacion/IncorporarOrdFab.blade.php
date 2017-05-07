@@ -276,7 +276,7 @@
  									
 								<!--<button class="btn btn-success" input type="submit">Guardar<img src="{{asset('imagenes/save.ico')}}" width=20; action="javascript:close_this_popup()" /></button>-->		
  		
- 								<button class="btn btn-success" input type="submit" id="guardarCambiosModal" onclick="guardaCambiosModal();" data-dismiss="modal">Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>		
+ 								<button class="btn btn-success" input type="submit" name="submit" onclick="guardaCambiosModal();" data-dismiss="modal">Guardar<img src="{{asset('imagenes/save.ico')}}" width=20;/></button>		
  									
  								<a href="#" data-dismiss="modal" class="btn btn-danger"> Cancelar <img src="{{asset('imagenes/delete.ico')}}" width=20;/></a>		
  							</div>		

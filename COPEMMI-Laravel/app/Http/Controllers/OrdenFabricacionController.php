@@ -13,6 +13,7 @@ use App\modelo_maquina;
 use App\cliente;
 use App\imagen_modelo;
 use App\material;
+use App\Notificaciones;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\ordenesFabricacionRequest;
@@ -87,7 +88,7 @@ class OrdenFabricacionController extends Controller
         return View('OrdenesFabricacion/IncorporarOrdFab')->with('tipo_estado',$tipo_estado)->with('modelo',$tipo_modelo)->with('tipo_usuario',$tipo_usuario)->with('cliente',$id_cliente);
     }
       Flash("No tiene permisos para crear órdenes de fabricación",'danger');  
-        return Redirect()->route('ordenesFabricacion.index');
+        return Redirect()->route('notificaciones.index');
 }
     /**
      * Store a newly created resource in storage.
@@ -108,8 +109,6 @@ class OrdenFabricacionController extends Controller
 
         $orden_fabricacion->save();
 
-        //$orden_fabricacion->save(); 
-
         // $detalleMat contiene el código y la cantidad de los materiales de un modelo de máquina.  
         $detalleMat = DB::table('det_modelos_maquinas')->select('COD_MATERIAL','CANTIDAD')->where('COD_MODELO',$orden_fabricacion->cod_modelo)->get(); 
         
@@ -124,9 +123,26 @@ class OrdenFabricacionController extends Controller
                 $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.
                 $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
                 $material->update();
-            }  
+            } 
         } 
-         Flash("¡Se ha insertado la orden de fabricación exitósamente",'success');return Redirect()->route('ordenesFabricacion.index');
+
+        //Notificaciones. 
+        $notificaciones = new Notificaciones(); 
+        if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
+            $notificaciones->tipo = 'Material';
+       }else {
+           $notificaciones->tipo = 'Orden de Fabricación';  
+       }
+        
+        if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
+            $notificaciones->mensaje='¡Se ha acabado la cantidad de material!';
+       }else {
+           $notificaciones->mensaje='¡Se ha insertado una orden de fabricación exitósamente!';  
+       }
+
+        $notificaciones->save(); 
+
+        Flash("¡Se ha insertado una orden de fabricación exitósamente!",'success');return Redirect()->route('ordenesFabricacion.index');
     }
     /**
      * Display the specified resource.

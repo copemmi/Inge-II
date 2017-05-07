@@ -22,28 +22,79 @@
 	  		<h1 class="text-center">Notificaciones</h1>
 		</div>
 
-		<div class="container">
+		<!-- MENSAJE DE ERROR, SI UN DATO ES ERRONEO -->
+				@if (count($errors) > 0)
+    				<div class="alert alert-danger">
+	       				 <ul>
+				            @foreach ($errors->all() as $error)
+				                <li>{{ $error }}</li>
+				            @endforeach
+	        			</ul>
+    				</div>
+				@endif
+			<!-- FIN DE MSJ DE ERROR -->
 
-			<!--<a href="{{route('notificaciones.create')}}" class="btn btn-danger">Add Post</a>-->
+		@php
+		$i=0
+		@endphp
 
-			<!-- Tabla donde se muestran las Notificaciones de Materiales y órdenes de Fabricación -->
-			<table class="table table-bordered">
+		@foreach($notificaciones as $note)
+		@php 
+			$i++
+			
+		@endphp
+		@endforeach
 
-				<tr>
-					<th>Tipo</th>
-					<th>Fecha de Creación</th>
-				</tr>
+		@if($i<1)
 
-				@foreach($notificaciones as $note)
+		<div class="tabla-historial">
+			<table class="table width=30 table-bordered table-hover table-condensed" >
+				<thead class="bg-primary">
 					<tr>
-						<td>{{ $note->titulo }}</td>
-						<td>{{ $note->created_at }}</td>
+						<th>Tipo</th>
+						<th>Mensaje</th>
+						<th>Fecha de Creación</th>	
 					</tr>
-				@endforeach
+	     		</thead>
 
+	     		<tbody>
+					<tr class="success">
+						<td>Vacío</td>
+						<td>Vacío</td>	
+						<td>Vacío</td>					
+					</tr>
+				</tbody>
+	     	</table>
+
+		@else
+
+		<div class="tabla-historial">
+			<table class="table width=30 table-bordered table-hover table-condensed" >
+				<thead class="bg-primary">
+					<tr>
+						<th>Tipo</th>
+						<th>Mensaje</th>
+						<th>Fecha y Hora de Creación</th>
+					</tr>
+	     		</thead>
+
+				<!-- Tabla donde se muestran las Notificaciones de Materiales y órdenes de Fabricación -->
+
+	     		<tbody>
+		     		@foreach($notificaciones as $note)	
+		     			
+						<tr class="success">
+							<td>{{$note->tipo}}</td>
+							<td>{{$note->mensaje}}</td>
+							<td>{{$note->created_at}}</td>						
+						</tr>
+
+					@endforeach
+					@endif
+				</tbody>
 			</table>
 
-		</div>
+		</div><!-- Cierre de div de Tabla -->
 
 		<br>
 		<div class"col-md-0 col-md-offset-0">
@@ -56,18 +107,12 @@
         </div>	
 		
 	</div>	
+	<script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+	@include('flashy::message')
 </div>
+
 @stop
 
 @section('js')
-	
-<script>
-	window.Laravel = {!! json_encode([
-			'csrfToken' => csrf_token(),
-
-		]) 
-	!!};
-</script>
-
-
+	{!! Html::script('js/notificaciones.js') !!}
 @stop
