@@ -107,8 +107,6 @@
         </div>	
 		
 	</div>	
-	<script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
-	@include('flashy::message')
 </div>
 
 @stop

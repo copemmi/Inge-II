@@ -221,6 +221,23 @@ class OrdenFabricacionController extends Controller
                 $material->update();
             }
         } 
+
+        //Notificaciones. 
+        $notificaciones = new Notificaciones(); 
+        if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
+            $notificaciones->tipo = 'Material';
+       }else {
+           $notificaciones->tipo = 'Orden de Fabricación';  
+       }
+        
+        if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
+            $notificaciones->mensaje='¡Se ha acabado la cantidad de material!';
+       }else {
+           $notificaciones->mensaje='¡Se ha insertado una orden de fabricación exitósamente!';  
+       }
+
+        $notificaciones->save(); 
+        
         Flash("¡Se ha modificado la órden de fabricación exitósamente!",'info');
         return Redirect()->route('ordenesFabricacion.index');
     }

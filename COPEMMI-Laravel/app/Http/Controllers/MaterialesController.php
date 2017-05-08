@@ -134,6 +134,14 @@ class MaterialesController extends Controller
         $tipo_material = tipo_material::all();
         return View('Materiales/ModificarMateriales')->with('material',$material)->with('tipo_material',$tipo_material);
         }
+
+        //Notificaciones. 
+        $notificaciones = new Notificaciones(); 
+        $notificaciones->tipo = 'Material'; 
+        $notificaciones->mensaje='¡Se ha insertado un material'; 
+
+        $notificaciones->save(); 
+        
         Flash("No tiene permisos para modificar materiales",'danger');  
         return Redirect()->route('materiales.index');
     }
