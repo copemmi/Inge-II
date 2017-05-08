@@ -110,7 +110,3 @@
 </div>
 
 @stop
-
-@section('js')
-	{!! Html::script('js/notificaciones.js') !!}
-@stop

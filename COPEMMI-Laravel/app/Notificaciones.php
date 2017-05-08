@@ -10,5 +10,5 @@ class Notificaciones extends Model
 
     protected $primaryKey= 'id';
 
-    protected $fillable = ['tipo', 'mensaje'];
+     protected $fillable = ['tipo', 'mensaje'];
 }

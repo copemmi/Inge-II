@@ -92,7 +92,7 @@ class NotificacionesController extends Controller
      */
     public function destroy($id)
     {
-
+        
     }
 }
 

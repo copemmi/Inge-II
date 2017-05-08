@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-05-2017 a las 00:00:16
+-- Tiempo de generación: 08-05-2017 a las 00:29:49
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -243,24 +243,6 @@ CREATE TABLE `notificaciones` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `notificaciones`
---
-
-INSERT INTO `notificaciones` (`id`, `tipo`, `mensaje`, `created_at`, `updated_at`) VALUES
-(18, 'Orden de Fabricación', '¡Se ha insertado una orden de fabricación exitósamente!', '2017-05-07 16:41:40', '2017-05-07 16:41:40'),
-(19, 'Material', '¡Se ha insertado el material: (".$material->nombre."), con el código: (".$material->cod_material.', '2017-05-07 16:43:22', '2017-05-07 16:43:22'),
-(20, 'Orden de Fabricación', '¡Se ha insertado una orden de fabricación exitósamente!', '2017-05-07 17:28:00', '2017-05-07 17:28:00'),
-(21, 'Orden de Fabricación', '¡Se ha insertado una orden de fabricación exitósamente!', '2017-05-07 17:33:48', '2017-05-07 17:33:48'),
-(22, 'Material', '¡Se ha insertado un material', '2017-05-07 17:39:02', '2017-05-07 17:39:02'),
-(23, 'Orden de Fabricación', '¡Se ha insertado una orden de fabricación exitósamente!', '2017-05-07 17:43:15', '2017-05-07 17:43:15'),
-(24, 'Orden de Fabricación', '¡Se ha insertado una orden de fabricación exitósamente!', '2017-05-07 17:43:29', '2017-05-07 17:43:29'),
-(25, 'Orden de Fabricación', '¡Se ha insertado una orden de fabricación exitósamente!', '2017-05-07 17:44:09', '2017-05-07 17:44:09'),
-(26, 'Orden de Fabricación', '¡Se ha insertado una orden de fabricación exitósamente!', '2017-05-07 17:45:21', '2017-05-07 17:45:21'),
-(27, 'Orden de Fabricación', '¡Se ha acabado a cantidad de material!', '2017-05-07 17:46:06', '2017-05-07 17:46:06'),
-(28, 'Orden de Fabricación', '¡Se ha acabado la cantidad de material!', '2017-05-07 17:47:23', '2017-05-07 17:47:23'),
-(29, 'Material', '¡Se ha acabado la cantidad de material!', '2017-05-07 17:49:04', '2017-05-07 17:49:04');
 
 -- --------------------------------------------------------
 

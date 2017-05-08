@@ -237,7 +237,7 @@ class OrdenFabricacionController extends Controller
        }
 
         $notificaciones->save(); 
-        
+
         Flash("¡Se ha modificado la órden de fabricación exitósamente!",'info');
         return Redirect()->route('ordenesFabricacion.index');
     }
