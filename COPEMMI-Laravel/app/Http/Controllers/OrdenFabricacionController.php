@@ -123,24 +123,25 @@ class OrdenFabricacionController extends Controller
                 $material = material::find($det->COD_MATERIAL); //$material guarda el código del material.
                 $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
                 $material->update();
-            } 
-        } 
 
-        //Notificaciones. 
-        $notificaciones = new Notificaciones(); 
-        if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
-            $notificaciones->tipo = 'Material';
-       }else {
-           $notificaciones->tipo = 'Orden de Fabricación';  
-       }
+
+                //Notificaciones. 
+                $notificaciones = new Notificaciones(); 
+                if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
+                    $notificaciones->tipo = 'Material';
+                }else {
+                    $notificaciones->tipo = 'Orden de Fabricación';  
+                }
         
-        if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
-            $notificaciones->mensaje='¡Se ha acabado la cantidad de material!';
-       }else {
-           $notificaciones->mensaje='¡Se ha insertado una orden de fabricación exitósamente!';  
-       }
+                if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
+                        $notificaciones->mensaje='¡Se ha acabado la cantidad de material!';
+                }else {
+                    $notificaciones->mensaje='¡Se ha insertado una orden de fabricación exitósamente!';  
+                }
 
-        $notificaciones->save(); 
+                $notificaciones->save();
+            } 
+        }  
 
         Flash("¡Se ha insertado una orden de fabricación exitósamente!",'success');return Redirect()->route('ordenesFabricacion.index');
     }
