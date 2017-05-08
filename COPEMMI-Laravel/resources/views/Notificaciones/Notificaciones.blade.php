@@ -81,14 +81,12 @@
 				<!-- Tabla donde se muestran las Notificaciones de Materiales y órdenes de Fabricación -->
 
 	     		<tbody>
-		     		@foreach($notificaciones as $note)	
-		     			
+		     		@foreach($notificaciones as $note)		
 						<tr class="success">
 							<td>{{$note->tipo}}</td>
 							<td>{{$note->mensaje}}</td>
 							<td>{{$note->created_at}}</td>						
 						</tr>
-
 					@endforeach
 					@endif
 				</tbody>

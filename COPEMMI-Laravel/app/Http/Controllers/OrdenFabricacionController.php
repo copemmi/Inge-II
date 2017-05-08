@@ -233,7 +233,7 @@ class OrdenFabricacionController extends Controller
         if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
             $notificaciones->mensaje='¡Se ha acabado la cantidad de material!';
        }else {
-           $notificaciones->mensaje='¡Se ha insertado una orden de fabricación exitósamente!';  
+           $notificaciones->mensaje='¡Se ha modificado una orden de fabricación exitósamente!';  
        }
 
         $notificaciones->save(); 

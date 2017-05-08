@@ -157,6 +157,13 @@ class MaterialesController extends Controller
 
         $material->update();
 
+        //Notificaciones. 
+        $notificaciones = new Notificaciones(); 
+        $notificaciones->tipo = 'Material'; 
+        $notificaciones->mensaje='¡Se ha guardado un material'; 
+
+        $notificaciones->save();
+
         Flash("¡Se ha modificado el material exitósamente!",'info');
 
         return Redirect()->route('materiales.show',$id);
