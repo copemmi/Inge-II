@@ -2,7 +2,7 @@
  function actualizaCombo()		
  {		
    var id =  $("#ID").val();//se captura el item que seleccione en el combobox		
-   var url="http://localhost:8000/ruta_tipoClientes/"+id;//ruta del método en el backend y sus parámetros		
+   var url="/ruta_tipoClientes/"+id;//ruta del método en el backend y sus parámetros		
    $.get(url,function(resul) //método ajax para traer cosas desde el backend al frontend		
    {		
 
@@ -24,7 +24,7 @@ function guardaCambiosModal()
    var corr =  $("#COR").val();  //Capturar valores de los input		
    var nombreEm =  $("#NOM_EM").val();		
    var cedulaJu =  $("#CED_JURI").val();		
-   var url="http://localhost:8000/guardarClientes/"+id+"/"+nomb+"/"+pri_ape+"/"+segund_ape+"/"+direc+"/"+telef+"/"+corr+"/"+nombreEm+"/"+cedulaJu; //ruta del método en el backend y sus parámetros		
+   var url="/guardarClientes/"+id+"/"+nomb+"/"+pri_ape+"/"+segund_ape+"/"+direc+"/"+telef+"/"+corr+"/"+nombreEm+"/"+cedulaJu; //ruta del método en el backend y sus parámetros		
  		
    $.get(url,function(resul)//método ajax para traer cosas desde el backend al frontend		
    {		
