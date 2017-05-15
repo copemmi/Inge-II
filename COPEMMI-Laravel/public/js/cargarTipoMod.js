@@ -2,7 +2,7 @@ function actualizaCombo()
  {		
    var cod_tipo_modelo =  $("#COD_TIPO_MODELO").val();//se captura el item que seleccione en el combobox		
  
-   var url="/ruta_tipoMod/"+cod_tipo_modelo;//ruta del método en el backend y sus parámetros		
+   var url="http://localhost:8000/ruta_tipoMod/"+cod_tipo_modelo;//ruta del método en el backend y sus parámetros		
   $.get(url,function(resul) //método ajax para traer cosas desde el backend al frontend		
    {		
 
@@ -17,7 +17,7 @@ function actualizaCombo()
  {		
   var cod =  $("#COD_TIPO").val();  //Capturar valores de los input		
   var nomb =  $("#NOMB_TIPO").val();		
-  var url="/guardarTipoModMaq/"+cod+"/"+nomb; //ruta del método en el backend y sus parámetros		
+  var url="http://localhost:8000/guardarTipoModMaq/"+cod+"/"+nomb; //ruta del método en el backend y sus parámetros		
  	
   $.get(url,function(resul)//método ajax para traer cosas desde el backend al frontend		
   {		
