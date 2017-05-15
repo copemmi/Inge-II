@@ -149,8 +149,8 @@
 								
 								<td>
 								@php if(Auth::user()->privilegio==1){ @endphp
-								<!--<a class="btn btn-primary" id="Terminar" onclick="actualizarEstados()">Terminar</a>-->
-        						<a href="{{ route('ordenesFabricacion.cambiar_estados',$ord->COD_ORDEN_FABRICACION) }}" class="btn btn-primary"> Terminar </a>
+								<a class="btn btn-primary" id="Terminar" onclick="actualizarEstados()">Terminar</a>
+        						<!--<a href="{{ route('ordenesFabricacion.cambiar_estados',$ord->COD_ORDEN_FABRICACION) }}" class="btn btn-primary"> Terminar </a>-->
         						@php} @endphp
         						</td>			
 							</tr>
