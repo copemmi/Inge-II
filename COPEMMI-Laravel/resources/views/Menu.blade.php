@@ -10,7 +10,6 @@
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 	    <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
-	    @include('flashy::message')
 
 		{!! Html::style('css/bootstrap-select.min.css') !!}
 		{!! Html::style('css/bootstrap.min.css') !!}

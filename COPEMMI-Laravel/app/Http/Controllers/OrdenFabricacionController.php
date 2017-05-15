@@ -247,13 +247,16 @@ class OrdenFabricacionController extends Controller
          $usuario_actual=\Auth::user();
         if($usuario_actual->privilegio==1){
         
-        /*$orden_fabricacion=orden_fabricacion::find($id);
         $est="TER";
+        $orden_fabricacion=orden_fabricacion::find($id);
         $orden_fabricacion->cod_estado=$est;
-        $orden_fabricacion->store();
-        return ("Se ha actualizado el estado de la órden de fabricación");*/
-        return("Si sirve");
-           }
+        $orden_fabricacion->update();
+
+        Flash('¡Se ha cambiado el estado de la orden de fabricación con el código: ('.$id.') exitósamente!');
+
+        return Redirect()->route('ordenesFabricacion.index');
+      
+        }
                
         Flash("No tiene permisos para eliminar órdenes de fabricación",'danger');  
         return Redirect()->route('ordenesFabricacion.index');
