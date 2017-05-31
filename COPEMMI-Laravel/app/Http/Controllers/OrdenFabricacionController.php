@@ -124,19 +124,30 @@ class OrdenFabricacionController extends Controller
                 $material->cantidad=$material->CANTIDAD-$det->CANTIDAD;
                 $material->update();
 
-
                 //Notificaciones. 
                 $notificaciones = new Notificaciones(); 
-                if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
+                if($material->CANTIDAD <= 0) {
                     $notificaciones->tipo = 'Material';
-                }else {
-                    $notificaciones->tipo = 'Orden de Fabricación';  
+                    $notificaciones->mensaje='Se ha acabado la cantidad de:' .$material->nombre;
+                }  
+                else {
+                    $notificaciones->tipo = 'Orden de Fabricación'; 
+                    $notificaciones->mensaje='Se ha insertado la orden de fabricación con el código: '.$orden_fabricacion->COD_ORDEN_FABRICACION;  
                 }
+
         
-                if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
+                /*if($material->CANTIDAD <= 0) {
                         $notificaciones->mensaje='¡Se ha acabado la cantidad de material!';
                 }else {
                     $notificaciones->mensaje='¡Se ha insertado una orden de fabricación exitósamente!';  
+                }*/
+
+                if($material->CANTIDAD <= $material->CANTIDADMINIMA) {
+                    $notificaciones->tipo = 'Material';
+                    $notificaciones->mensaje='Ha alcanzado la cantidad mínima el material: '.$material->nombre;
+                }else {
+                    $notificaciones->tipo = 'Orden de Fabricación'; 
+                    $notificaciones->mensaje='Se ha insertado la orden de fabricación con el código: '.$orden_fabricacion->COD_ORDEN_FABRICACION;   
                 }
 
                 $notificaciones->save();
@@ -224,20 +235,32 @@ class OrdenFabricacionController extends Controller
         } 
 
         //Notificaciones. 
-        $notificaciones = new Notificaciones(); 
-        if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
-            $notificaciones->tipo = 'Material';
-       }else {
-           $notificaciones->tipo = 'Orden de Fabricación';  
-       }
-        
-        if($material->CANTIDAD <= 0 || $material->CANTIDAD <= $material->CANTIDADMINIMA) {
-            $notificaciones->mensaje='¡Se ha acabado la cantidad de material!';
-       }else {
-           $notificaciones->mensaje='¡Se ha modificado una orden de fabricación exitósamente!';  
-       }
+                $notificaciones = new Notificaciones(); 
+                if($material->CANTIDAD <= 0) {
+                    $notificaciones->tipo = 'Material';
+                    $notificaciones->mensaje='Se ha acabado la cantidad de material de:' .$material->nombre;
+                }  
+                else {
+                    $notificaciones->tipo = 'Orden de Fabricación'; 
+                    $notificaciones->mensaje='Se ha modificado la orden de fabricación con el código: '.$orden_fabricacion->COD_ORDEN_FABRICACION;  
+                }
 
-        $notificaciones->save(); 
+        
+                /*if($material->CANTIDAD <= 0) {
+                        $notificaciones->mensaje='¡Se ha acabado la cantidad de material!';
+                }else {
+                    $notificaciones->mensaje='¡Se ha insertado una orden de fabricación exitósamente!';  
+                }*/
+
+                if($material->CANTIDAD <= $material->CANTIDADMINIMA) {
+                    $notificaciones->tipo = 'Material';
+                    $notificaciones->mensaje='Ha alcanzado la cantidad mínima el material: '.$material->nombre;
+                }else {
+                    $notificaciones->tipo = 'Orden de Fabricación'; 
+                    $notificaciones->mensaje='Se ha modificado la orden de fabricación con el código: '.$orden_fabricacion->COD_ORDEN_FABRICACION;   
+                }
+
+                $notificaciones->save(); 
 
         Flash("¡Se ha modificado la órden de fabricación exitósamente!",'info');
         return Redirect()->route('ordenesFabricacion.index');
@@ -247,16 +270,14 @@ class OrdenFabricacionController extends Controller
          $usuario_actual=\Auth::user();
         if($usuario_actual->privilegio==1){
         
-        $est="TER";
-        $orden_fabricacion=orden_fabricacion::find($id);
-        $orden_fabricacion->cod_estado=$est;
-        $orden_fabricacion->update();
-
-        Flash('¡Se ha cambiado el estado de la orden de fabricación con el código: ('.$id.') exitósamente!');
-
-        return Redirect()->route('ordenesFabricacion.index');
-      
-        }
+            $est="TER";
+            $orden_fabricacion=orden_fabricacion::find($id);
+            $orden_fabricacion->cod_estado=$est;
+            $orden_fabricacion->update();
+            
+            Flash('¡Se ha cambiado el estado de la orden de fabricación con el código: ('.$id.') exitósamente!');
+            return Redirect()->route('ordenesFabricacion.index');
+           }
                
         Flash("No tiene permisos para eliminar órdenes de fabricación",'danger');  
         return Redirect()->route('ordenesFabricacion.index');
